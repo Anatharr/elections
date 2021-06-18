@@ -32,18 +32,21 @@
 
 
         <div class = "images_map" style="text-align: center;">
-            <img class = "dep" src="images/dep_nb.png" onmouseover="this.src='images/dep_couleur.png'" onmouseout="this.src='images/dep_nb.png'" alt="Images département" height="300" width="300">
-            <img class = "reg" src="images/reg_nb.png" onmouseover="this.src='images/reg_couleur.png'" onmouseout="this.src='images/reg_nb.png'" alt="Images région" height="300" width="300">
-            <img class = "fr" src="images/fr_nb.png" onmouseover="this.src='images/fr_couleur.png'" onmouseout="this.src='images/fr_nb.png'" alt="Images france" height="300" width="300">
+            <img class = "dep" src="images/dep_nb.png" onmouseover="this.src='images/dep_couleur.png'" onmouseout="this.src='images/dep_nb.png'" alt="Images département">
+            <img class = "reg" src="images/reg_nb.png" onmouseover="this.src='images/reg_couleur.png'" onmouseout="this.src='images/reg_nb.png'" alt="Images région">
+            <img class = "fr" src="images/fr_nb.png" onmouseover="this.src='images/fr_couleur.png'" onmouseout="this.src='images/fr_nb.png'" alt="Images france">
         </div>    
 
-        
-        <div class = "label_deroulants">
-            <label for="dep_choice"> Sélectionner un département :</label>
-            <label for="reg_choice"> Sélectionner une région :</label>            
+        <div class = "label_deroulant_dep">
+            <label for="dep_choice"> Sélectionner un département :</label>          
         </div>
+
+        <div class = "label_deroulant_reg">
+            <label for="reg_choice"> Sélectionner une région :</label>  
+        </div>
+
         
-        <div class = "deroulants_map">
+        <div class = "deroulant_dep">
             <select name="dep" id="dep_choice">
             <option value="Default"> --- Département --- </option>
             <option value="1">1 - Ain</option> 
@@ -148,7 +151,9 @@
             <option value="974">974 - La Réunion</option> 
             <option value="976">976 - Mayotte</option> 
             </select>
-
+        </div>
+        
+        <div class = "deroulant_reg">
             <select name="reg" id="reg_choice">
             <option value="Default"> --- Région --- </option>
             <option value="1">Auvergne-Rhône-Alpes</option>

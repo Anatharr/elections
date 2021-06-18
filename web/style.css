@@ -48,5 +48,33 @@ header{
 }
 
 .images_map img {
-    margin : 60px;
+    margin: 70px;
+    height: 280px;
+    width: 280px;
+}
+
+/*** MENU DEROULANTS ****/
+
+/*Label*/
+
+.label_deroulant_dep label {
+    position: absolute;
+    top: 650px; left: 250px;
+}
+
+.label_deroulant_reg label {
+    position: absolute;
+    top: 650px; left: 680px;
+}
+
+/*Deroulants*/
+
+.deroulant_dep select {
+    position: absolute;
+    top: 680px; left: 270px;
+}
+
+.deroulant_reg select {
+    position: absolute;
+    top: 680px; left: 700px;
 }
