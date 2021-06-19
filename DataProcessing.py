@@ -40,5 +40,5 @@ if __name__ == '__main__':
 	dataCher = dataFR[dataFR["Libellé du département"]=='CHER']
 	# print(dataFR.head(0).columns)
 
-	print(getAllNuances(dataCher, n))
+	# print(getAllNuances(dataCher, n))
 	explodeLines(dataCher, n).sort_values('Code du canton').to_excel('dataset/datasheetT2.xlsx')
