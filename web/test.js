@@ -4,42 +4,38 @@ let deroulant_dep = document.getElementById("deroulant_dep")
 let label_deroulant_dep = document.getElementById("label_deroulant_dep")
 let deroulant_reg = document.getElementById("deroulant_reg")
 let label_deroulant_reg = document.getElementById("label_deroulant_reg")
-deroulant_dep.style.display = "none"
-label_deroulant_dep.style.display = "none"
-deroulant_reg.style.display = "none"
-label_deroulant_reg.style.display = "none"
+
+let section_departement = document.getElementById("section_departement")
+let section_region = document.getElementById("section_region")
+let section_france = document.getElementById("section_france")
+
+
+section_departement.style.display = "none"
+section_region.style.display = "none"
+
 
 
 function afficherDeroulantDep () {
-    if(getComputedStyle(deroulant_dep).display != "none"){
-        deroulant_dep.style.display = "none"
-        label_deroulant_dep.style.display = "none"
+    if(getComputedStyle(section_departement).display != "none"){
+        section_departement.style.display = "none"
     } 
     else {
-        deroulant_dep.style.display = "block"
-        label_deroulant_dep.style.display = "block"
-        deroulant_reg.style.display = "none"
-        label_deroulant_reg.style.display = "none"
+        section_departement.style.display = "block"
+        section_region.style.display = "none"
     }
 }
 
 function afficherDeroulantReg () {
-    if(getComputedStyle(deroulant_reg).display != "none"){
-        deroulant_reg.style.display = "none"
-        label_deroulant_reg.style.display = "none"
+    if(getComputedStyle(section_region).display != "none"){
+        section_region.style.display = "none"
     } 
     else {
-        deroulant_reg.style.display = "block"
-        label_deroulant_reg.style.display = "block"
-        deroulant_dep.style.display = "none"
-        label_deroulant_dep.style.display = "none"
+        section_region.style.display = "block"
+        section_departement.style.display = "none"
     }
 }
 
 function afficherDeroulantFr () {
-    deroulant_dep.style.display = "none"
-    label_deroulant_dep.style.display = "none"
-
-    deroulant_reg.style.display = "none"
-    label_deroulant_reg.style.display = "none"
+    section_departement.style.display = "none"
+    section_region.style.display = "none"
 }
