@@ -1,4 +1,5 @@
 let img_dep = document.getElementById("img_dep")
+
 let img_reg = document.getElementById("img_reg")
 let deroulant_dep = document.getElementById("deroulant_dep")
 let label_deroulant_dep = document.getElementById("label_deroulant_dep")
