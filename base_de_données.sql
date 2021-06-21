@@ -464,3 +464,50 @@ CREATE TABLE t1_2011_communes
 COPY public.t1_2011_communes
 FROM '/home/pi/Documents/elections/dataset/Departementales_communes_2011_tour_1.csv'
 WITH (FORMAT CSV, HEADER, DELIMITER ';');
+
+CREATE TABLE t2_2011_communes
+(
+    num_departement varchar(3),
+    nom_departement varchar(35),
+    code_canton int,
+    nom_canton varchar(50),
+    code_commune int,
+    nom_commune varchar(50),
+    nb_inscrits int,
+    nb_abstentions int,
+    abs_pourcent_ins numeric(10,3),
+    nb_votants int,
+    vot_pourcent_ins numeric(10,3),
+    nb_blancs_nuls int,
+    blancs_nuls_pourcent_ins numeric(10,3),
+    blancs_nuls_pourcent_vot numeric(10,3),
+    nb_exprimés int,
+    exp_pourcent_ins numeric(10,3),
+    exp_pourcent_vot numeric(10,3),
+    sexe_liste_1 varchar(5),
+    nom_liste_1 varchar(30),
+    prenom_liste_1 varchar(30),
+    nuance_liste_1 varchar(10),
+    nb_voix_liste_1 int,
+    voix_pourcent_ins_liste_1 numeric(10,3),
+    voix_pourcent_exp_liste_1 numeric(10,3),
+    sexe_liste_2 varchar(5),
+    nom_liste_2 varchar(30),
+    prenom_liste_2 varchar(30),
+    nuance_liste_2 varchar(10),
+    nb_voix_liste_2 int,
+    voix_pourcent_ins_liste_2 numeric(10,3),
+    voix_pourcent_exp_liste_2 numeric(10,3),
+    sexe_liste_3 varchar(5),
+    nom_liste_3 varchar(30),
+    prenom_liste_3 varchar(30),
+    nuance_liste_3 varchar(10),
+    nb_voix_liste_3 int,
+    voix_pourcent_ins_liste_3 numeric(10,3),
+    voix_pourcent_exp_liste_3 numeric(10,3),
+    PRIMARY KEY (num_departement, code_canton, code_commune)
+);
+
+COPY public.t2_2011_communes
+FROM '/home/pi/Documents/elections/dataset/Departementales_communes_2011_tour_2.csv'
+WITH (FORMAT CSV, HEADER, DELIMITER ';');
