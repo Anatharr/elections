@@ -1,4 +1,9 @@
-
+body{
+    
+    background-image: url(images/background_image.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
 .header{ 
     background-color: darkslateblue; 
@@ -23,7 +28,6 @@
 }
 
 .navigation{
-
     text-align: left;
     list-style: none;
     margin-bottom: 5;
@@ -51,6 +55,7 @@ a:visited{
     color: white;
 }
 #p1{
+    font-size: larger;
     text-align: center;
 }
 
