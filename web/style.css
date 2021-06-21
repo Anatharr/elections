@@ -64,6 +64,7 @@ h1
 h2{
     font-size: 25px;
     font-family: 'Trebuchet MS',sans-serif;
+    text-align: center;
 }
 
 /*.gradient{
@@ -85,20 +86,20 @@ h2{
 /* GESTION DES IMAGES */
 
 #img_dep{
-    height: 280px;
-    width: 280px;
+    max-width: 20%;
+    height: auto;
 }
 
 #img_reg{
     margin-left: 10%;
-    height: 280px;
-    width: 280px;
+    max-width: 20%;
+    height: auto;
 }
 
 #img_fr{
     margin-left: 10%;
-    height: 280px;
-    width: 280px;
+    max-width: 20%;
+    height: auto;   
 }
 
 
@@ -106,31 +107,68 @@ h2{
 
 /*Label*/
 
+.label_deroulant_dep_annee label {
+    position: absolute;
+    margin-top: 2%;
+    top: 75%;
+    left: 15%;
+}
+
+.label_deroulant_reg_annee label {
+    position: absolute;
+    margin-top: 2%;
+    top: 75%;
+    left: 45%;
+}
 .label_deroulant_dep label {
     position: absolute;
-    top: 75%;
+    margin-top: 2%;
+    top: 85%;
     left: 15%;
 }
 
 .label_deroulant_reg label {
     position: absolute;
-    top: 75%;
+    margin-top: 2%;
+    top: 85%;
     left: 45%;
 }
 
+
 /*Deroulants*/
+
+.deroulant_dep_annee select {
+    position: absolute;
+    margin-top: 1%;
+    top: 80%;
+    left: 16%;
+    box-shadow: 2px 2px 2px #CCC;
+}
+
+.deroulant_reg_annee select {
+    position: absolute;
+    margin-top: 1%;
+    top: 80%;
+    left: 46%;
+    box-shadow: 2px 2px 2px #CCC;
+}
+
 
 .deroulant_dep select {
     position: absolute;
-    top: 80%;
+    margin-top: 1%;
+    top: 90%;
     left: 16%;
     box-shadow: 2px 2px 2px #CCC;
 }
 
 .deroulant_reg select {
     position: absolute;
-    top: 80%;
+    margin-top: 1%;
+    top: 90%;
     left: 46%;
     box-shadow: 2px 2px 2px #CCC;
 }
+
+
 

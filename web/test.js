@@ -30,7 +30,8 @@ function afficherDeroulantDep () {
         section_region.style.display = "none"
         section_france.style.display = "none"
         document.getElementById("graph_dep").textContent = "Graph élections départementales"
-        document.getElementById("dep_choice").value = "Default"
+        document.getElementById("dep_choix").value = "Default"
+        document.getElementById("dep_annee_choix").value = "Default"
 
     }
 }
@@ -44,7 +45,8 @@ function afficherDeroulantReg () {
         section_departement.style.display = "none"
         section_france.style.display = "none"
         document.getElementById("graph_reg").textContent = "Graph élections régionales"
-        document.getElementById("reg_choice").value = "Default"
+        document.getElementById("reg_choix").value = "Default"
+        document.getElementById("reg_annee_choix").value = "Default"
     }
 }
 
@@ -57,18 +59,28 @@ function afficherDeroulantFr () {
 
 /* RECUPERATION DE LA VALEUR CHOISIE DANS LES MENUS DEROULANTS */
 
+function recuperer_departement_annee () {
+    deroulant_dep_annee = document.getElementById("dep_annee_choix")
+    annee_dep = deroulant_dep_annee.options[deroulant_dep_annee.selectedIndex].text
+}
+
+function recuperer_region_annee () {
+    deroulant_reg_annee = document.getElementById("reg_annee_choix")
+    annee_reg = deroulant_reg_annee.options[deroulant_reg_annee.selectedIndex].text
+}
+
 function recuperer_departement () {
     document.getElementById("graph_dep").textContent = "Graph élections départementales pour : "
-    deroulant = document.getElementById("dep_choice");
-    texte = deroulant.options[deroulant.selectedIndex].text;
-    document.getElementById("graph_dep").textContent += texte    
+    deroulant_dep = document.getElementById("dep_choix");
+    texte = deroulant_dep.options[deroulant_dep.selectedIndex].text;
+    document.getElementById("graph_dep").textContent = document.getElementById("graph_dep").textContent + texte + " en " + annee_dep
 }
 
 function recuperer_region () {
     document.getElementById("graph_reg").textContent = "Graph élections régionales pour : "
-    deroulant = document.getElementById("reg_choice");
-    texte = deroulant.options[deroulant.selectedIndex].text;
-    document.getElementById("graph_reg").textContent += texte    
+    deroulant_reg = document.getElementById("reg_choix");
+    texte = deroulant_reg.options[deroulant_reg.selectedIndex].text;
+    document.getElementById("graph_reg").textContent = document.getElementById("graph_reg").textContent + texte + " en " + annee_reg
 }
 
 
