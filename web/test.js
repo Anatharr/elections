@@ -29,6 +29,9 @@ function afficherDeroulantDep () {
         section_departement.style.display = "block"
         section_region.style.display = "none"
         section_france.style.display = "none"
+        document.getElementById("graph_dep").textContent = "Graph élections départementales"
+        document.getElementById("dep_choice").value = "Default"
+
     }
 }
 
@@ -40,6 +43,8 @@ function afficherDeroulantReg () {
         section_region.style.display = "block"
         section_departement.style.display = "none"
         section_france.style.display = "none"
+        document.getElementById("graph_reg").textContent = "Graph élections régionales"
+        document.getElementById("reg_choice").value = "Default"
     }
 }
 
@@ -53,14 +58,14 @@ function afficherDeroulantFr () {
 /* RECUPERATION DE LA VALEUR CHOISIE DANS LES MENUS DEROULANTS */
 
 function recuperer_departement () {
-    document.getElementById("graph_dep").textContent = "Graph élections départementales pour :"
+    document.getElementById("graph_dep").textContent = "Graph élections départementales pour : "
     deroulant = document.getElementById("dep_choice");
     texte = deroulant.options[deroulant.selectedIndex].text;
     document.getElementById("graph_dep").textContent += texte    
 }
 
 function recuperer_region () {
-    document.getElementById("graph_reg").textContent = "Graph élections régionales pour :"
+    document.getElementById("graph_reg").textContent = "Graph élections régionales pour : "
     deroulant = document.getElementById("reg_choice");
     texte = deroulant.options[deroulant.selectedIndex].text;
     document.getElementById("graph_reg").textContent += texte    
