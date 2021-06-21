@@ -16,7 +16,7 @@
     font-family: 'Exo', sans-serif;
     text-align: center;
     font-size: 250%;
-    letter-spacing: 15px;
+    letter-spacing: 12px;
 }
 
 .button{
@@ -129,12 +129,12 @@
     }
 }
 
-#background img{
-    /* Fixe l'image en haut à gauche de la page */
-    position: absolute; 
-    /* Préserve le ratio de l'image */
-    min-width: 100%;
-    min-height: 100%;
+.accueil { 
+    background: url(images/background.png) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 .hamburger {
@@ -281,3 +281,188 @@
     bottom: 0;
     font-size: 80%;
  }
+.custom-btn {
+    
+    width: 130px;
+    height: 40px;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+     box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+     7px 7px 20px 0px rgba(0,0,0,.1),
+     4px 4px 5px 0px rgba(0,0,0,.1);
+    outline: none;
+    margin-top: 1.75%;
+    margin-left: 90%;
+}
+  
+.btn-git {
+    background-color: #f0ecfc;
+    background-image: linear-gradient(315deg, #ff0000a9 10%, #00327c8f 90%);
+    line-height: 42px;
+    padding: 0;
+    border: none;
+  }
+  .btn-git span {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  .btn-git:before,
+  .btn-git:after {
+    position: absolute;
+    content: "";
+    right: 0;
+    bottom: 0;
+    background: #ff0000;
+    /*box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
+                -4px -4px 6px 0 rgba(116, 125, 136, .2), 
+      inset -4px -4px 6px 0 rgba(255,255,255,.5),
+      inset 4px 4px 6px 0 rgba(116, 125, 136, .3);*/
+    transition: all 0.3s ease;
+  }
+  .btn-git:before{
+     height: 0%;
+     width: 2px;
+  }
+  .btn-git:after {
+    width: 0%;
+    height: 2px;
+  }
+  .btn-git:hover:before {
+    height: 100%;
+  }
+  .btn-git:hover:after {
+    width: 100%;
+  }
+  .btn-git:hover{
+    background: transparent;
+  }
+  .btn-git span:hover{
+    color: #00327c;
+  }
+  .btn-git span:before,
+  .btn-git span:after {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    background: #00327c;
+    /*box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
+                -4px -4px 6px 0 rgba(116, 125, 136, .2), 
+      inset -4px -4px 6px 0 rgba(255,255,255,.5),
+      inset 4px 4px 6px 0 rgba(116, 125, 136, .3);*/
+    transition: all 0.3s ease;
+  }
+  .btn-git span:before {
+    width: 2px;
+    height: 0%;
+  }
+  .btn-git span:after {
+    height: 2px;
+    width: 0%;
+  }
+  .btn-git span:hover:before {
+    height: 100%;
+  }
+  .btn-git span:hover:after {
+    width: 100%;
+  }
+    
+
+
+/* GESTION DES IMAGES */
+
+#img_dep{
+    max-width: 20%;
+    height: auto;
+}
+
+#img_reg{
+    margin-left: 10%;
+    max-width: 20%;
+    height: auto;
+}
+
+#img_fr{
+    margin-left: 10%;
+    max-width: 20%;
+    height: auto;   
+}
+
+
+/*** MENU DEROULANTS ****/
+
+/*Label*/
+
+.label_deroulant_dep_annee label {
+    position: absolute;
+    margin-top: 2%;
+    top: 75%;
+    left: 15%;
+}
+
+.label_deroulant_reg_annee label {
+    position: absolute;
+    margin-top: 2%;
+    top: 75%;
+    left: 45%;
+}
+.label_deroulant_dep label {
+    position: absolute;
+    margin-top: 2%;
+    top: 85%;
+    left: 15%;
+}
+
+.label_deroulant_reg label {
+    position: absolute;
+    margin-top: 2%;
+    top: 85%;
+    left: 45%;
+}
+
+
+/*Deroulants*/
+
+.deroulant_dep_annee select {
+    position: absolute;
+    margin-top: 1%;
+    top: 80%;
+    left: 16%;
+    box-shadow: 2px 2px 2px #CCC;
+}
+
+.deroulant_reg_annee select {
+    position: absolute;
+    margin-top: 1%;
+    top: 80%;
+    left: 46%;
+    box-shadow: 2px 2px 2px #CCC;
+}
+
+
+.deroulant_dep select {
+    position: absolute;
+    margin-top: 1%;
+    top: 90%;
+    left: 16%;
+    box-shadow: 2px 2px 2px #CCC;
+}
+
+.deroulant_reg select {
+    position: absolute;
+    margin-top: 1%;
+    top: 90%;
+    left: 46%;
+    box-shadow: 2px 2px 2px #CCC;
+}
+
