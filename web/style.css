@@ -12,6 +12,7 @@
     width: 200px;
     height: auto;
 }
+
 a[href^="test"]{
     font-size: 150%;
     font-weight: bold;
@@ -32,7 +33,7 @@ a[href^="test"]{
 
 #navigation li {
     display: inline ;
-    margin-right: 50px ;
+    margin-right: 10% ;
   }
 
 a{
@@ -71,7 +72,7 @@ h2{
 
 
 .images_map img {
-    margin: 70px;
+    margin-right: 7%;
     height: 280px;
     width: 280px;
 }
@@ -83,22 +84,29 @@ h2{
 
 .label_deroulant_dep label {
     position: absolute;
-    top: 650px; left: 250px;
+    top: 500px;
+    left: 15%;
 }
 
 .label_deroulant_reg label {
     position: absolute;
-    top: 650px; left: 680px;
+    top: 500px;
+    left: 42%;
 }
 
 /*Deroulants*/
 
 .deroulant_dep select {
     position: absolute;
-    top: 680px; left: 270px;
+    top: 530px;
+    left: 16%;
+    box-shadow: 2px 2px 2px #CCC;
 }
 
 .deroulant_reg select {
     position: absolute;
-    top: 680px; left: 700px;
+    top: 530px;
+    left: 43%;
+    box-shadow: 2px 2px 2px #CCC;
 }
+
