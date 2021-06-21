@@ -1,7 +1,204 @@
+#menuToggle
+{
+    display: block;
+    position: absolute;
+    top: 5%;
+    left: 2%;
+    
+    
+    z-index: 1;
+    
+    -webkit-user-select: none;
+    user-select: none;
+}
 
+#menuToggle a
+{
+    font-family: 'Exo', sans-serif;
+    text-align: center;
+    text-decoration: none;
+    color: rgb(60, 60, 60);
+    margin: 100%;
+    
+    transition: color 0.3s ease;
+}
 
+#menu li:hover
+{
+    text-align: center;
+    color: rgb(250, 250, 250);
+    background: #00327c70;
+    border-radius: 15px;
+} 
+ 
+ 
+#menuToggle input
+{
+   display: block;
+   
+   width: 35px;
+   height: 32px;
+   position: absolute;
+   top: -7px;
+   left: -5px;
+   
+   cursor: pointer;
+   
+   opacity: 0;
+   z-index: 2;
+   
+   -webkit-touch-callout: none;
+}
 
+#menuToggle span
+ {
+   display: block;
+   width: 33px;
+   height: 4px;
+   margin-bottom: 5px;
+   position: relative;
+   
+   
+   background: rgb(250, 250, 250);
+   border-radius: 3px;
+   
+   z-index: 1;
+   
+   transform-origin: 4px 0px;
+   
+   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+               background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+               opacity 0.55s ease;
+ }
 
+ #menu
+ {
+   position: absolute;
+   width: 630%;
+   height: 3030%;
+   margin: -100px 0 0 -50px;
+   padding: 50px;
+   padding-top: 125px;
+   
+   background: rgb(250, 250, 250);
+   list-style-type: none;
+   -webkit-font-smoothing: antialiased;
+
+ }
+
+ #menu li
+ {
+   padding: 10px 0;
+   font-size: 22px;
+ }
+
+ #menuToggle input:checked ~ ul
+ {
+   transform: none;
+ }
+
+ #copyright{
+    color : rgb(60, 60, 60);
+    position: absolute;
+    bottom: 0;
+    font-size: 80%;
+ }
+.custom-btn {
+    
+    width: 130px;
+    height: 40px;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+     box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+     7px 7px 20px 0px rgba(0,0,0,.1),
+     4px 4px 5px 0px rgba(0,0,0,.1);
+    outline: none;
+    margin-top: 1.75%;
+    margin-left: 90%;
+}
+  
+.btn-git {
+    background-color: #f0ecfc;
+    background-image: linear-gradient(315deg, #ff0000a9 10%, #00327c8f 90%);
+    line-height: 42px;
+    padding: 0;
+    border: none;
+  }
+  .btn-git span {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  .btn-git:before,
+  .btn-git:after {
+    position: absolute;
+    content: "";
+    right: 0;
+    bottom: 0;
+    background: #ff0000;
+    /*box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
+                -4px -4px 6px 0 rgba(116, 125, 136, .2), 
+      inset -4px -4px 6px 0 rgba(255,255,255,.5),
+      inset 4px 4px 6px 0 rgba(116, 125, 136, .3);*/
+    transition: all 0.3s ease;
+  }
+  .btn-git:before{
+     height: 0%;
+     width: 2px;
+  }
+  .btn-git:after {
+    width: 0%;
+    height: 2px;
+  }
+  .btn-git:hover:before {
+    height: 100%;
+  }
+  .btn-git:hover:after {
+    width: 100%;
+  }
+  .btn-git:hover{
+    background: transparent;
+  }
+  .btn-git span:hover{
+    color: #00327c;
+  }
+  .btn-git span:before,
+  .btn-git span:after {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    background: #00327c;
+    /*box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
+                -4px -4px 6px 0 rgba(116, 125, 136, .2), 
+      inset -4px -4px 6px 0 rgba(255,255,255,.5),
+      inset 4px 4px 6px 0 rgba(116, 125, 136, .3);*/
+    transition: all 0.3s ease;
+  }
+  .btn-git span:before {
+    width: 2px;
+    height: 0%;
+  }
+  .btn-git span:after {
+    height: 2px;
+    width: 0%;
+  }
+  .btn-git span:hover:before {
+    height: 100%;
+  }
+  .btn-git span:hover:after {
+    width: 100%;
+  }
+ 
 
 
 
