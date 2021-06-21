@@ -1,5 +1,7 @@
 let img_dep = document.getElementById("img_dep")
 
+
+
 let img_reg = document.getElementById("img_reg")
 let deroulant_dep = document.getElementById("deroulant_dep")
 let label_deroulant_dep = document.getElementById("label_deroulant_dep")
@@ -13,8 +15,21 @@ let section_france = document.getElementById("section_france")
 
 section_departement.style.display = "none"
 section_region.style.display = "none"
+section_france.style.display = "none"
 
 
+img_dep.onclick = afficherDep
+
+
+function afficherDep (img_id) {
+    afficherDeroulantDep()
+
+    //var img = document.getElementById(img_id)
+
+    //img.src = '/images/dep_couleur.png'
+
+    //onmouseover
+}
 
 function afficherDeroulantDep () {
     if(getComputedStyle(section_departement).display != "none"){
@@ -23,6 +38,7 @@ function afficherDeroulantDep () {
     else {
         section_departement.style.display = "block"
         section_region.style.display = "none"
+        section_france.style.display = "none"
     }
 }
 
@@ -33,10 +49,12 @@ function afficherDeroulantReg () {
     else {
         section_region.style.display = "block"
         section_departement.style.display = "none"
+        section_france.style.display = "none"
     }
 }
 
 function afficherDeroulantFr () {
     section_departement.style.display = "none"
     section_region.style.display = "none"
+    section_france.style.display = "block"
 }

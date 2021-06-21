@@ -35,7 +35,7 @@
 
 
     <div class="images_map" style="text-align: center;">
-        <img class="dep" src="images/dep_nb.png" onmouseover="this.src='images/dep_couleur.png'" onmouseout="this.src='images/dep_nb.png'" onclick = "afficherDeroulantDep()" alt="Images département">
+        <img class="dep" id="img_dep" src="images/dep_nb.png" onmouseover="this.src='images/dep_couleur.png'" onmouseout="this.src='images/dep_nb.png'" onclick = "afficherDeroulantDep('img_dep')" alt="Images département">
         <img class="reg" src="images/reg_nb.png" onmouseover="this.src='images/reg_couleur.png'" onmouseout="this.src='images/reg_nb.png'" onclick = "afficherDeroulantReg()" alt="Images région">
         <img class="fr" src="images/fr_nb.png" onmouseover="this.src='images/fr_couleur.png'" onmouseout="this.src='images/fr_nb.png'" onclick = "afficherDeroulantFr()" alt="Images france">
     </div>
@@ -45,6 +45,8 @@
         <div class="label_deroulant_dep">
             <label for="dep_choice"> Sélectionner un département :</label>
         </div>
+
+        <div id="test"></div>
 
         <div class="deroulant_dep">
             <select name="dep" id="dep_choice">
@@ -153,6 +155,11 @@
             </select>
         </div>
 
+        <div>
+            <br><br><br><br><br><br><br><br><br><br>
+            <h1 id = "graph_dep"> Graph élections départementales</h1>
+        </div>
+
     </div>
 
     <div class = "section_region" id = "section_region">
@@ -179,10 +186,20 @@
                 <option value="13">Provences-Alpes-Côte d'Azur</option>
             </select>
         </div>
+
+        <div>
+            <br><br><br><br><br><br><br><br><br><br>
+            <h1 id = "graph_reg"> Graph élections régionales</h1>
+        </div>
     
     </div>
 
-        <div class = "section_france" id = "section_france">
+    <div class = "section_france" id = "section_france">
+        <div>
+            <br><br><br><br><br><br><br><br><br><br>
+            <h1 id = "graph_fr"> Graph élections France</h1>
+        </div>
+        
 
     </div>
 
