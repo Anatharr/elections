@@ -16,6 +16,18 @@
     letter-spacing: 15px;
 }
 
-button{
-    
+body { 
+    background: url(images/background.png) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.hamburger {
+    top: 4%;
+    left: 2%;
+    position: absolute;
+    height: 4%;
+    width: auto;
 }
