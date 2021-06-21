@@ -136,13 +136,6 @@
     background-size: cover;
 }
 
-.hamburger {
-    top: 4%;
-    left: 2%;
-    position: absolute;
-    height: 4%;
-    width: auto;
-}
 
 /* MENU DEROULANT */
 
@@ -153,6 +146,7 @@
    position: absolute;
    top: 5%;
    left: 2%;
+   
    
    z-index: 1;
    
@@ -171,17 +165,18 @@
     transition: color 0.3s ease;
  }
  
- #menuToggle li:hover
+ #menu li:hover
  {
     text-align: center;
     color: rgb(250, 250, 250);
-    background: rgb(60, 60, 60, 0.2);
+    background: #00327c70;
+    border-radius: 15px;
  }
- 
  
  #menuToggle input
  {
    display: block;
+   
    width: 35px;
    height: 32px;
    position: absolute;
