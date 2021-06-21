@@ -15,8 +15,6 @@
  #titre{
      text-align: center;
      font-size: 220%;
-    
-
 }
 
 #en-tete img{
@@ -84,8 +82,21 @@ h2{
 }*/
 
 
-.images_map img {
-    margin-right: 7%;
+/* GESTION DES IMAGES */
+
+#img_dep{
+    height: 280px;
+    width: 280px;
+}
+
+#img_reg{
+    margin-left: 10%;
+    height: 280px;
+    width: 280px;
+}
+
+#img_fr{
+    margin-left: 10%;
     height: 280px;
     width: 280px;
 }
@@ -97,29 +108,29 @@ h2{
 
 .label_deroulant_dep label {
     position: absolute;
-    top: 500px;
+    top: 75%;
     left: 15%;
 }
 
 .label_deroulant_reg label {
     position: absolute;
-    top: 500px;
-    left: 42%;
+    top: 75%;
+    left: 45%;
 }
 
 /*Deroulants*/
 
 .deroulant_dep select {
     position: absolute;
-    top: 530px;
+    top: 80%;
     left: 16%;
     box-shadow: 2px 2px 2px #CCC;
 }
 
 .deroulant_reg select {
     position: absolute;
-    top: 530px;
-    left: 43%;
+    top: 80%;
+    left: 46%;
     box-shadow: 2px 2px 2px #CCC;
 }
 
