@@ -46,10 +46,8 @@
             <label for="dep_choice"> Sélectionner un département :</label>
         </div>
 
-        <div id="test"></div>
-
         <div class="deroulant_dep">
-            <select name="dep" id="dep_choice" onclick="this.options[this.selectedIndex].text;">
+            <select name="dep" id="dep_choice" onchange="recuperer_departement()">
                 <option value="Default"> --- Département --- </option>
                 <option value="1">1 - Ain</option>
                 <option value="2">2 - Aisne</option>
@@ -169,7 +167,7 @@
         </div>
     
         <div class="deroulant_reg">
-            <select name="reg" id="reg_choice">
+            <select name="reg" id="reg_choice" onchange="recuperer_region()">
                 <option value="Default"> --- Région --- </option>
                 <option value="1">Auvergne-Rhône-Alpes</option>
                 <option value="2">Bourgogne-Franche-Comté</option>
