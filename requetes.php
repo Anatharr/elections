@@ -4,7 +4,7 @@ $dbconn = pg_connect("host=localhost dbname=electionsdb user=pi password=estilec
     or die('Connexion impossible : ' . pg_last_error());
 
 // Exécution de la requête SQL
-$query = 'SELECT * FROM t1_2015_cantons WHERE (num_departement="1" and code_canton=1)';
+$query = "SELECT * FROM t1_2015_cantons;";
 $result = pg_query($query) or die('Échec de la requête : ' . pg_last_error());
 
 // Affichage des résultats en HTML
