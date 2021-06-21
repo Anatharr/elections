@@ -129,12 +129,12 @@
     }
 }
 
-body { 
-    background: url(images/background.png) no-repeat center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+#background img{
+    /* Fixe l'image en haut à gauche de la page */
+    position: absolute; 
+    /* Préserve le ratio de l'image */
+    min-width: 100%;
+    min-height: 100%;
 }
 
 .hamburger {
