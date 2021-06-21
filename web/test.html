@@ -2,6 +2,7 @@
 
 <html>
 
+<<<<<<< HEAD
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="style.css" />
@@ -24,6 +25,59 @@
                     <li><a href="Equipe.html" title="Notre équipe">L'équipe</a></li>
                 </ul>
             </nav>
+=======
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css" />
+    <title>EstiLection</title>
+</head>
+
+
+<body>
+
+    <div class="header">
+        <nav>
+            <ul class="navigation">
+                <li>
+                    <div id="titre">
+                        <a href="test.html" title="Accueil">EstiLection</a>
+                    </div>
+                </li>
+                <li><a href="#" title="Election Cher 2021">Election Cher 2021</a></li>
+                <li><a href="#" title="Notre Projet">Notre Projet</a></li>
+                <li><a href="Equipe.html" title="Notre équipe">L'équipe</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <br><br><br><br><br>
+
+
+    <p id="p1"><i>Choisissez l'échelle qui vous intéresse</i></p>
+
+    <br>
+    <br>
+
+
+    <div class="images_map" style="text-align: center;">
+     
+        <img class="dep" id="img_dep" src="images/dep_nb.png" onmouseover="this.src='images/dep_couleur.png'" onmouseout="this.src='images/dep_nb.png'" onclick = "afficherDeroulantDep()" alt="Images département">
+        <img class="reg" id="img_reg" src="images/reg_nb.png" onmouseover="this.src='images/reg_couleur.png'" onmouseout="this.src='images/reg_nb.png'" onclick = "afficherDeroulantReg()" alt="Images région">
+        <img class="fr" id="img_fr" src="images/fr_nb.png" onmouseover="this.src='images/fr_couleur.png'" onmouseout="this.src='images/fr_nb.png'" onclick = "afficherDeroulantFr()" alt="Images france">
+    </div>
+
+    <div class = "section_departement" id = "section_departement">
+
+        <div class="label_deroulant_dep_annee">
+            <label for="dep_annee_choix"> Sélectionner une année :</label>
+        </div>
+
+        <div class="deroulant_dep_annee">
+            <select name="dep_annee" id="dep_annee_choix" onchange="recuperer_departement_annee()">
+                <option value="Default"> --- Année --- </option>
+                <option value="2015">2015</option>
+            </select>
+>>>>>>> 0f86393e83721d2bf64f6371f3c9db7abf3abbf5
         </div>
 
         <div class="content">
