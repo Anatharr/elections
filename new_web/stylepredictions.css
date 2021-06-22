@@ -120,8 +120,8 @@ body{
 
  #copyright{
     color : rgb(60, 60, 60);
-    position: absolute;
-    bottom: 11%;
+    position: relative;
+    top:15%;
     font-size: 80%;
  }
 
@@ -191,31 +191,107 @@ h2{
 
 
 /*Deroulants*/
-
-.deroulant_dep_annee select {
-  margin-left: 22%;
-  
-  box-shadow: 2px 2px 2px #CCC;
-}
-
-.deroulant_reg_annee select {
-  margin-left: 50%;
-  
-  box-shadow: 2px 2px 2px #CCC;
+.deroulant_dep {
+  position: absolute;
+  top: 100%;
+  left: 20%;
+  transform: translate(-20%, -20%);
+  border-radius: 2%;
 }
 
 
 .deroulant_dep select {
-  margin-left: 22%;
- 
-  box-shadow: 2px 2px 2px #CCC;
+  background-color: rgb(60, 60, 60, 0.4);
+  color: rgb(250, 250, 250);
+  padding: 15px;
+  width: 180px;
+  border: none;
+  font-size: 15px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);
+  -webkit-appearance: button;
+  appearance: button;
+  outline: none;
+  border-radius: 50px;
+}
+.deroulant_dep_annee {
+    position: absolute;
+    top: 80%;
+    left: 20%;
+    transform: translate(-20%, -20%);
+    border-radius: 2%;
 }
 
-.deroulant_reg select {
-  margin-left: 50%;
-  
-  box-shadow: 2px 2px 2px #CCC;
+
+.deroulant_dep_annee select {
+    background-color: rgb(60, 60, 60, 0.4);
+    color: rgb(250, 250, 250);
+    padding: 15px;
+    width: 180px;
+    border: none;
+    font-size: 15px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);
+    -webkit-appearance: button;
+    appearance: button;
+    outline: none;
+    border-radius: 50px;
 }
+
+
+
+.deroulant_dep select option {
+  padding: 30px;
+}
+
+
+
+.deroulant_reg {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-20%, -20%);
+  border-radius: 2%;
+}
+
+
+.deroulant_reg select {
+  background-color: rgb(60, 60, 60);
+  color: rgb(250, 250, 250);
+  padding: 12px;
+  width: 180px;
+  border: none;
+  font-size: 15px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  -webkit-appearance: button;
+  appearance: button;
+  outline: none;
+}
+
+
+
+.deroulant_reg_annee {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-20%, -20%);
+  border-radius: 2%;
+}
+
+
+.deroulant_reg_annee select {
+  background-color: rgb(60, 60, 60);
+  color: rgb(250, 250, 250);
+  padding: 12px;
+  width: 180px;
+  border: none;
+  font-size: 15px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  -webkit-appearance: button;
+  appearance: button;
+  outline: none;
+}
+
+
+/*** WRAPPER ***/
 
 .wrapper{
   display: grid;
@@ -242,40 +318,11 @@ h2{
   grid-row: 2;
 }
 
-#p1{
+#p1 {
   font-family: 'Exo', sans-serif;
-    text-align: center;
-    font-size: 150%;
-    margin-bottom: 5%;
-    margin-left: 10%;
-    
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* TEST */
-
-#img_ia_vote {
- 
-  top : 1000%;
-  
-
-    
+  font-size: 200%;
+  font-style: italic;
+  margin-left: 1%;
+  letter-spacing: 6px;
+  color: rgb(60, 60, 60);
 }
