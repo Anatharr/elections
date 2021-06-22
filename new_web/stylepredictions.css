@@ -170,17 +170,22 @@ h2{
 /*Label*/
 
 .label_deroulant_dep_annee label {
- 
+  margin-left: 22%;
+  
 }
 
 .label_deroulant_reg_annee label {
+  margin-left: 50%;
   
 }
 .label_deroulant_dep label {
-
+  margin-left: 22%;
+  
 }
 
 .label_deroulant_reg label {
+  
+  margin-left: 50%;
   
 }
 
@@ -188,23 +193,26 @@ h2{
 /*Deroulants*/
 
 .deroulant_dep_annee select {
-
+  margin-left: 22%;
+  
   box-shadow: 2px 2px 2px #CCC;
 }
 
 .deroulant_reg_annee select {
-
+  margin-left: 50%;
+  
   box-shadow: 2px 2px 2px #CCC;
 }
 
 
 .deroulant_dep select {
+  margin-left: 22%;
  
   box-shadow: 2px 2px 2px #CCC;
 }
 
 .deroulant_reg select {
-  
+  margin-left: 50%;
   
   box-shadow: 2px 2px 2px #CCC;
 }
@@ -232,11 +240,6 @@ h2{
 .wrapper_map{
   grid-column: 2/ 6;
   grid-row: 2;
-}
-.wrapper_form{
-  
-  grid-column: 2/ 6 ;
-  grid-row: 3;
 }
 
 #p1{
