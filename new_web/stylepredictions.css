@@ -1,20 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Exo:wght@500&display=swap');
 
-/* DECALAGE DE TOUTE LA PAGE */
-
-#content {
-    position: absolute;
-    margin-left: 17%;
-}
 
 /* MENU FIXE */
+body{
+  overflow-x: hidden;
+}
 
 #title_Estilection{
   font-family: 'Exo', sans-serif;
   position: fixed;
   font-size: 200%;
   margin-top: 2%;
-  margin-left: 1%;
+  margin-left: 2%;
   letter-spacing: 6px;
   color: rgb(60, 60, 60);
 
@@ -26,7 +23,7 @@
 {
     display: block;
     position: fixed;
-    top: %;
+    top: 4%;
     left: 2%;
     
     
@@ -101,7 +98,7 @@
    width: 630%;
    height: 3030%;
    margin: -115px 0 0 -50px;
-   padding: 50px;
+   padding: 192%;
    padding-top: 300px;
    
    background: rgb(250, 250, 250);
@@ -123,106 +120,10 @@
 
  #copyright{
     color : rgb(60, 60, 60);
-    position: absolute;
-    bottom: 11%;
+    position: relative;
+    top:15%;
     font-size: 80%;
  }
-.custom-btn {
-    
-    width: 130px;
-    height: 40px;
-    color: #fff;
-    border-radius: 5px;
-    padding: 10px 25px;
-    font-family: 'Lato', sans-serif;
-    font-weight: 500;
-    background: transparent;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    display: inline-block;
-     box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
-     7px 7px 20px 0px rgba(0,0,0,.1),
-     4px 4px 5px 0px rgba(0,0,0,.1);
-    outline: none;
-    margin-top: 1.75%;
-    margin-left: 90%;
-}
-  
-.btn-git {
-    background-color: #f0ecfc;
-    background-image: linear-gradient(315deg, #ff0000a9 10%, #00327c8f 90%);
-    line-height: 42px;
-    padding: 0;
-    border: none;
-  }
-  .btn-git span {
-    position: relative;
-    display: block;
-    width: 100%;
-    height: 100%;
-  }
-  .btn-git:before,
-  .btn-git:after {
-    position: absolute;
-    content: "";
-    right: 0;
-    bottom: 0;
-    background: #ff0000;
-    /*box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
-                -4px -4px 6px 0 rgba(116, 125, 136, .2), 
-      inset -4px -4px 6px 0 rgba(255,255,255,.5),
-      inset 4px 4px 6px 0 rgba(116, 125, 136, .3);*/
-    transition: all 0.3s ease;
-  }
-  .btn-git:before{
-     height: 0%;
-     width: 2px;
-  }
-  .btn-git:after {
-    width: 0%;
-    height: 2px;
-  }
-  .btn-git:hover:before {
-    height: 100%;
-  }
-  .btn-git:hover:after {
-    width: 100%;
-  }
-  .btn-git:hover{
-    background: transparent;
-  }
-  .btn-git span:hover{
-    color: #00327c;
-  }
-  .btn-git span:before,
-  .btn-git span:after {
-    position: absolute;
-    content: "";
-    left: 0;
-    top: 0;
-    background: #00327c;
-    /*box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
-                -4px -4px 6px 0 rgba(116, 125, 136, .2), 
-      inset -4px -4px 6px 0 rgba(255,255,255,.5),
-      inset 4px 4px 6px 0 rgba(116, 125, 136, .3);*/
-    transition: all 0.3s ease;
-  }
-  .btn-git span:before {
-    width: 2px;
-    height: 0%;
-  }
-  .btn-git span:after {
-    height: 2px;
-    width: 0%;
-  }
-  .btn-git span:hover:before {
-    height: 100%;
-  }
-  .btn-git span:hover:after {
-    width: 100%;
-  }
- 
 
 
 /* DEUXIEME PAGE */
@@ -246,19 +147,20 @@ h2{
 /* GESTION DES IMAGES */
 
 #img_dep{
-  max-width: 15%;
+  margin-left: 15%;
+  max-width: 20%;
   height: auto;
 }
 
 #img_reg{
   margin-left: 10%;
-  max-width: 15%;
+  max-width: 20%;
   height: auto;
 }
 
 #img_fr{
   margin-left: 10%;
-  max-width: 15%;
+  max-width: 20%;
   height: auto;   
 }
 
@@ -268,103 +170,159 @@ h2{
 /*Label*/
 
 .label_deroulant_dep_annee label {
-  position: absolute;
-  margin-top: 2%;
-  top: 68%;
-  left: 15%;
+  margin-left: 22%;
+  
 }
 
 .label_deroulant_reg_annee label {
-  position: absolute;
-  margin-top: 2%;
-  top: 68%;
-  left: 45%;
+  margin-left: 50%;
+  
 }
 .label_deroulant_dep label {
-  position: absolute;
-  margin-top: 2%;
-  top: 75%;
-  left: 15%;
+  margin-left: 22%;
+  
 }
 
 .label_deroulant_reg label {
-  position: absolute;
-  margin-top: 2%;
-  top: 75%;
-  left: 45%;
+  
+  margin-left: 50%;
+  
 }
 
 
 /*Deroulants*/
-
-.deroulant_dep_annee select {
+.deroulant_dep {
   position: absolute;
-  margin-top: 1%;
-  top: 73%;
-  left: 16%;
-  box-shadow: 2px 2px 2px #CCC;
-}
-
-.deroulant_reg_annee select {
-  position: absolute;
-  margin-top: 1%;
-  top: 73%;
-  left: 46%;
-  box-shadow: 2px 2px 2px #CCC;
+  top: 100%;
+  left: 20%;
+  transform: translate(-20%, -20%);
+  border-radius: 2%;
 }
 
 
 .deroulant_dep select {
-  position: absolute;
-  margin-top: 1%;
-  top: 80%;
-  left: 16%;
-  box-shadow: 2px 2px 2px #CCC;
+  background-color: rgb(60, 60, 60, 0.4);
+  color: rgb(250, 250, 250);
+  padding: 15px;
+  width: 180px;
+  border: none;
+  font-size: 15px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);
+  -webkit-appearance: button;
+  appearance: button;
+  outline: none;
+  border-radius: 50px;
 }
+.deroulant_dep_annee {
+    position: absolute;
+    top: 80%;
+    left: 20%;
+    transform: translate(-20%, -20%);
+    border-radius: 2%;
+}
+
+
+.deroulant_dep_annee select {
+    background-color: rgb(60, 60, 60, 0.4);
+    color: rgb(250, 250, 250);
+    padding: 15px;
+    width: 180px;
+    border: none;
+    font-size: 15px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);
+    -webkit-appearance: button;
+    appearance: button;
+    outline: none;
+    border-radius: 50px;
+}
+
+
+
+.deroulant_dep select option {
+  padding: 30px;
+}
+
+
+
+.deroulant_reg {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-20%, -20%);
+  border-radius: 2%;
+}
+
 
 .deroulant_reg select {
-  position: absolute;
-  margin-top: 1%;
-  top: 80%;
-  left: 46%;
-  box-shadow: 2px 2px 2px #CCC;
+  background-color: rgb(60, 60, 60);
+  color: rgb(250, 250, 250);
+  padding: 12px;
+  width: 180px;
+  border: none;
+  font-size: 15px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  -webkit-appearance: button;
+  appearance: button;
+  outline: none;
 }
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* TEST */
-
-#img_ia_vote {
+.deroulant_reg_annee {
   position: absolute;
-  top: -1%;
-    height: auto;
+  top: 80%;
+  left: 50%;
+  transform: translate(-20%, -20%);
+  border-radius: 2%;
+}
 
-    
+
+.deroulant_reg_annee select {
+  background-color: rgb(60, 60, 60);
+  color: rgb(250, 250, 250);
+  padding: 12px;
+  width: 180px;
+  border: none;
+  font-size: 15px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  -webkit-appearance: button;
+  appearance: button;
+  outline: none;
+}
+
+
+/*** WRAPPER ***/
+
+.wrapper{
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+ 
+  grid-auto-rows: minmax(100px, auto);
+  
+}
+.wrapper_menu{
+  grid-column: 1;
+  position: fixed;
+}
+.wrapper_body{
+ grid-column: 2 / 6;
+}
+.wrapper_image{
+  grid-column: 2 / 6;
+  grid-row: 1;
+  margin-top: -1%;
+ 
+}
+.wrapper_map{
+  grid-column: 2/ 6;
+  grid-row: 2;
+}
+
+#p1 {
+  font-family: 'Exo', sans-serif;
+  font-size: 200%;
+  font-style: italic;
+  margin-left: 1%;
+  letter-spacing: 6px;
+  color: rgb(60, 60, 60);
 }
