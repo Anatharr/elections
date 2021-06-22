@@ -147,21 +147,20 @@ h2{
 /* GESTION DES IMAGES */
 
 #img_dep{
-  
-  max-width: 20%;
-  height: auto;
+    max-width: 20%;
+    height: auto;
 }
 
 #img_reg{
-  margin-left: 10%;
-  max-width: 20%;
-  height: auto;
+    margin-left: 10%;
+    max-width: 20%;
+    height: auto;
 }
 
 #img_fr{
-  margin-left: 10%;
-  max-width: 20%;
-  height: auto;   
+    margin-left: 10%;
+    max-width: 20%;
+    height: auto;   
 }
 
 
@@ -345,3 +344,19 @@ h2{
 
 
 
+
+
+
+
+
+
+
+
+
+/* A REVOIR - IMAGES TEAM */
+
+#images_team img{
+  
+  max-width: 15%;
+  height: auto;
+}
