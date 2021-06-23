@@ -108,7 +108,7 @@ def prepareInputDataBvot(data):
     tmp = pd.concat([stats, voix], axis=1).divide(inscrits, axis=0)
     X = pd.concat([inscrits, tmp], axis=1)
     X.index = pd.MultiIndex.from_frame(ids)
-    return X
+    return X.rename(columns={'NBRVOT': '%VOTANTS', 'NBREXP': '%EXPRIMES', 'NBRABS': '%ABSTENTIONS', 'NBRNULBLANC': '%NULBLANCS'})
     
     
 
