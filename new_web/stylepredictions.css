@@ -6,6 +6,28 @@ body {
   margin: 0;
 }
 
+#retour_haut_page {
+    position: fixed;
+    top: 92%;
+    left: 96%;
+}
+
+#retour_haut_page img {
+    filter: invert(1);
+    width: 50px;
+    height: 50px;
+    opacity: 0.5;
+}
+
+#retour_haut_page img:hover {
+    opacity: 1;
+}
+
+#retour_haut_page img:hover {
+    filter: invert(0);
+    transition: 0.5s;
+}
+
 #title_Estilection {
   font-family: 'Exo', sans-serif;
   position: fixed;
@@ -329,56 +351,6 @@ h2 {
     outline: none;
 }
 
-/*** WRAPPER ***/
-
-/*
-.wrapper{
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
- 
-  grid-auto-rows: minmax(200px, auto);
-  
-}
-.wrapper_menu {
-    grid-column: 1;
-    position: fixed;
-}
-.wrapper_body {
-    grid-column: 2 / 7;
-}
-.wrapper_image {
-    grid-column: 2 / 7;
-    grid-row: 1;
-    margin-top: -1%;
-}
-.wrapper_map {
-    grid-column: 2/ 7;
-    grid-row: 2;
-}
-#p1 {
-    font-family: 'Exo', sans-serif;
-    font-size: 200%;
-    font-style: italic;
-    margin-left: 5%;
-    letter-spacing: 6px;
-    color: rgb(60, 60, 60);
-}
-.wrapper_projet_titre {
-    grid-column: 2/7;
-    margin-top: 5%;
-    font-family: 'Exo', sans-serif;
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 5rem;
-    color: rgb(60, 60, 60);
-}
-.wrapper_projet_corps {
-    grid-column: 3/6;
-    grid-row: 3;
-    font-family: 'Exo', sans-serif;
-    text-align: justify;
-}
-*/
 
 .img_ia_vote {
   position: relative;
@@ -426,6 +398,7 @@ h2 {
 }
 
 /**********************************************/
+
 
 /* NATHAN - A CONTINUER */
 
@@ -545,31 +518,38 @@ h2 {
     text-transform: uppercase;
     font-size: 6em;
 }
+
 #actualite_corps {
-    margin-top: 7%;
+    margin-bottom: 3%;
 }
+
 .cadre_diapo img {
     max-width: 100%;
     height: auto;
     border-radius: 20px;
 }
+
 .target {
     display: none
 }
+
 .cadre_diapo {
-    max-width: 600px;
+    max-width: 900px;
     margin: 2rem auto;
     overflow: hidden;
     align-content: center;
 }
+
 .interieur_diapo {
     display: flex;
     width: 400%;
     transition: transform .6s ease-in-out
 }
+
 .description {
     position: relative;
 }
+
 .description span {
     position: absolute;
     left: 0;
@@ -585,55 +565,72 @@ h2 {
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
 }
+
 .interieur_diapo:hover .description span {
     background: hsla(0, 0%, 0%, 1);
 }
+
 #votre_id1:target~.cadre_diapo .interieur_diapo {
     transform: translatex(0)
 }
 
+
 /*image 1*/
+
 #votre_id2:target~.cadre_diapo .interieur_diapo {
     transform: translatex(-25%)
 }
 
+
 /*image 2*/
+
 #votre_id3:target~.cadre_diapo .interieur_diapo {
     transform: translatex(-50%)
 }
 
+
 /*image 3*/
+
 #votre_id4:target~.cadre_diapo .interieur_diapo {
     transform: translatex(-75%)
 }
 
+
 /*image 4*/
 
+
 /*navigation avec images miniatures*/
+
 .navigation_diapo {
     display: flex;
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
+
 .navigation_diapo li {
     padding: .25rem;
 }
+
 .navigation_diapo img {
     border: 0px solid white;
     box-shadow: 0 0 5px hsla(0, 0%, 0%, .4);
 }
+
 @media (min-width:31.25rem) {
     .description span {
         font-size: initial
     }
 }
 
+
 /* A REVOIR - IMAGES TEAM */
+
 .images_team img {
     max-width: 15%;
     height: auto;
 }
+
 .images_team {
     display: inline;
 }
@@ -641,6 +638,11 @@ h2 {
 .active, .demo:hover {
   opacity: 1;
 }
+#images_team img {
+    max-width: 15%;
+    height: auto;
+}
+
 #img_steven img {
     position: absolute;
     margin-top: 20rem;
@@ -648,6 +650,7 @@ h2 {
     max-width: 15%;
     height: auto;
 }
+
 #img_cyprien img {
     position: absolute;
     margin-top: 13rem;
@@ -655,6 +658,7 @@ h2 {
     max-width: 15%;
     height: auto;
 }
+
 #img_nathan img {
     position: absolute;
     margin-top: 13rem;
@@ -662,12 +666,20 @@ h2 {
     max-width: 15%;
     height: auto;
 }
+
 #img_jeremie img {
     position: absolute;
     margin-top: 50rem;
     margin-left: 40%;
     max-width: 15%;
     height: auto;
+}
+#img_dorian img {
+  position: absolute;
+  margin-top: 50rem;
+  margin-left: 20%;
+  max-width: 15%;
+  height: auto;
 }
 
 /**** PAGE PROJET & CONTACT  *****/
