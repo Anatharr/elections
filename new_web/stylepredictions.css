@@ -343,6 +343,51 @@ h2 {
     height: auto;
 }
 
+#img_steven img{
+  position: absolute;
+  margin-top: 20rem;
+  margin-left: 32rem;
+  max-width: 15%;
+  height: auto;
+}
+
+#img_cyprien img{
+  position: absolute;
+  margin-top: 13rem;
+  margin-left: 59rem;
+  max-width: 15%;
+  height: auto;
+}
+
+#img_nathan img{
+  position: absolute;
+  margin-top: 13rem;
+  margin-left: 66.5rem;
+  max-width: 15%;
+  height: auto;
+}
+
+#img_jeremie img{
+  position: absolute;
+  margin-top: 50rem;
+  margin-left: 40%;
+  max-width: 15%;
+  height: auto;
+}
+
+#img_dorian img{
+  position: absolute;
+  margin-top: 50rem;
+  margin-left: 20%;
+  max-width: 15%;
+  height: auto;
+}
+
+#test p{
+  grid-row: 3;
+  grid-column: 3;
+}
+
 
 /* NATHAN - A CONTINUER */
 
