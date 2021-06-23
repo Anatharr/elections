@@ -23,7 +23,7 @@ section_france.style.display = "none"
 /* AFFICHAGE DES MENUS DEROULANTS */
 
 function afficherDeroulantDep () {
-    let scrollDiv = document.getElementById("p1").offsetTop;
+    let scrollDiv = document.getElementById("texte_choix_echelle").offsetTop;
     window.scrollTo({ top: scrollDiv, behavior: 'smooth'});
     if(getComputedStyle(section_departement).display != "none"){
         section_departement.style.display = "none"
@@ -40,7 +40,7 @@ function afficherDeroulantDep () {
 }
 
 function afficherDeroulantReg () {
-    let scrollDiv = document.getElementById("p1").offsetTop;
+    let scrollDiv = document.getElementById("texte_choix_echelle").offsetTop;
     window.scrollTo({ top: scrollDiv, behavior: 'smooth'});
     if(getComputedStyle(section_region).display != "none"){
         section_region.style.display = "none"
@@ -56,7 +56,7 @@ function afficherDeroulantReg () {
 }
 
 function afficherDeroulantFr () {
-    let scrollDiv = document.getElementById("p1").offsetTop;
+    let scrollDiv = document.getElementById("texte_choix_echelle").offsetTop;
     window.scrollTo({ top: scrollDiv, behavior: 'smooth'});
     section_departement.style.display = "none"
     section_region.style.display = "none"
@@ -102,3 +102,16 @@ menuButton.addEventListener('click',function(){
     menu.classList.toggle('show-menu')
     menuButton.classList.toggle('close')
 })
+
+
+/* RECHERCHE ET CONSTRUCTION GRAPH */
+
+function lancer_recherche_dep() {
+    let scrollDiv = document.getElementById("graph_dep").offsetTop;
+    window.scrollTo({ top: scrollDiv, behavior: 'smooth'});
+}
+
+function lancer_recherche_reg() {
+    let scrollDiv = document.getElementById("graph_reg").offsetTop;
+    window.scrollTo({ top: scrollDiv, behavior: 'smooth'});
+}
