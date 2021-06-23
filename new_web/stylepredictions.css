@@ -406,10 +406,6 @@ h2 {
 
 /* NATHAN - A CONTINUER */
 
-#body_actu {
-    overflow-y: hidden;
-}
-
 #actualite_titre {
     font-family: 'Exo', sans-serif;
     color: rgb(60, 60, 60);
