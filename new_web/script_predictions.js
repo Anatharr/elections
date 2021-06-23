@@ -89,3 +89,16 @@ function recuperer_region () {
     texte = deroulant_reg.options[deroulant_reg.selectedIndex].text;
     document.getElementById("graph_reg").textContent = document.getElementById("graph_reg").textContent + texte + " en " + annee_reg
 }
+
+/* DECLARATION VARIABLES */
+
+var menuButton = document.querySelector('#menu-button');
+var menu = document.querySelector('#menu');
+
+/* OUVERTURE ET FERMETURE DU MENU BURGER */
+
+menuButton.addEventListener('click',function(){
+    document.getElementById("body").style.background = "images/fr_nb.png"
+    menu.classList.toggle('show-menu')
+    menuButton.classList.toggle('close')
+})
