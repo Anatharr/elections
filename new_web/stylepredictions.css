@@ -6,24 +6,24 @@ body {
   margin: 0;
 }
 
-.retour_haut_page {
+#retour_haut_page {
     position: fixed;
     top: 92%;
     left: 96%;
 }
 
-.retour_haut_page img {
+#retour_haut_page img {
     filter: invert(1);
     width: 50px;
     height: 50px;
     opacity: 0.5;
 }
 
-.retour_haut_page img:hover {
+#retour_haut_page img:hover {
     opacity: 1;
 }
 
-.retour_haut_page img:hover {
+#retour_haut_page img:hover {
     filter: invert(0);
     transition: 0.5s;
 }
@@ -674,6 +674,7 @@ h2 {
     max-width: 15%;
     height: auto;
 }
+
 #img_dorian img {
   position: absolute;
   margin-top: 50rem;
@@ -681,7 +682,6 @@ h2 {
   max-width: 15%;
   height: auto;
 }
-
 /**** PAGE PROJET & CONTACT  *****/
 
 .projet_corps {
@@ -717,3 +717,4 @@ h2 {
 }
 
 /*************************/
+
