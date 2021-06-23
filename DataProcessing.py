@@ -9,14 +9,16 @@ def getAllNuances(data, colNuance='CODNUA', fmt='exploded'):
         raise ValueError("format parameter must be 'exploded' or 'line'")
     
     if fmt == 'exploded':
-        return data[colNuance].unique()
+        nuances = data[colNuance].unique()
     
     if fmt == 'line':
         nuances = np.array([])
         nuances_tmp = data[colNuance].fillna(0)
         for c in nuances_tmp:
             nuances = np.append(nuances, nuances_tmp[c])
-        return np.unique(nuances[nuances!=0])
+        nuances = np.unique(nuances[nuances!=0])
+    
+    return sorted(nuances)
 
 
 def explodeLines(data):
@@ -79,47 +81,89 @@ def prepareLabels(data, colVoix='NBRVOIX', colIns='NBRINS', colVot='NBRVOT', col
 
 
 
+def prepareInputDataBvot(data):
+    tmp = data[['NUMTOUR', 'CODDPT', 'CODSUBCOM', 'LIBSUBCOM', 'CODBURVOT', 'CODCAN',
+           'LIBCAN', 'NBRINS', 'NBRVOT', 'NBREXP']].copy()
 
+    # Compute missing data
+    tmp['NBRABS'] = tmp['NBRINS'] - tmp['NBRVOT']
+    tmp['NBRNULBLANC'] = tmp['NBRVOT'] - tmp['NBREXP']
 
-def prepareInputData(data):
-    # # Tout d'abord on encode les valeurs des départements en one hot encoding
-    # dpts = data["Code du département"].unique()
-    # oneHot = pd.DataFrame(0, index=pd.RangeIndex(len(data)), columns=dpts)
-    pass
-    
+    nuances = getAllNuances(data)
+    statsFeatures = ['NBRVOT', 'NBREXP', 'NBRNULBLANC', 'NBRABS']
+    idFeatures = ['CODDPT', 'CODSUBCOM', 'CODBURVOT']
+
+    inscrits = tmp[idFeatures + ['NBRINS']].drop_duplicates()['NBRINS']
+    stats = tmp[idFeatures + statsFeatures].drop_duplicates()[statsFeatures]
+
+    # Create [%Voix] and fill it
+    voix = pd.DataFrame(0, index=data.index, columns=nuances)
+    for parti in nuances:
+        voix[parti][data['CODNUA']==parti] = data[data['CODNUA']==parti]['NBRVOIX']
+    voix = pd.concat([tmp[idFeatures], voix], axis=1).groupby(idFeatures).sum()[nuances]
+    voix.index = stats.index
+
+    # Concat with computed stats and divide almost everything by Inscrits
+    tmp = pd.concat([stats, voix], axis=1).divide(inscrits, axis=0)
+    X = pd.concat([inscrits, tmp], axis=1)
+    return X
     
     
 
 
 if __name__ == '__main__':
 
-    print('Loading data... ', end='')
-    dataFR = pd.read_excel("dataset/DataCantonsT2.xlsx")
-    # data = pd.read_csv('dataset/DP15_Bvot_T1T2.txt', delimiter=';')
-    # dataT2 = data[data.NUMTOUR==2]
+    print('Loading Bvot data... ', end='')
+    dtypes = {
+        'NUMTOUR' :    'int64',
+        'CODDPT' :    'object',
+        'CODSUBCOM' :  'int64',
+        'LIBSUBCOM' : 'object',
+        'CODBURVOT' : 'object',
+        'CODCAN' :     'int64',
+        'LIBCAN' :    'object',
+        'NBRINS' :     'int64',
+        'NBRVOT' :     'int64',
+        'NBREXP' :     'int64',
+        'NUMDEPCAND' : 'int64',
+        'LIBLISEXT' : 'object',
+        'CODNUA' :    'object',
+        'NBRVOIX' :    'int64',
+    }
+    data = pd.read_csv('dataset/DP15_Bvot_T1T2.csv', delimiter=';', dtype=dtypes)
+    dataT1 = data[data.NUMTOUR==1]
     print('OK')
 
-    print('Preparing labels... ', end='')
+    # print('Loading Cantons data... ', end='')
+    # dataFR = pd.read_excel("dataset/DataCantonsT2.xlsx")
+    # print('OK')
+
+    print('Preparing input data... ', end='')
+    Xbase = prepareInputDataBvot(dataT1[dataT1['CODDPT']=='18'])
+    print('OK')
+
+    Xbase.to_csv("dataset/XbaseCher_Bvot.csv", sep=';')
+
+    print()
+    print(Xbase)
+
+
+    # print('Preparing labels... ', end='')
     # y = prepareLabels(dataT2)
     # y.to_csv('dataset/yDataFR_Bvot_DP.csv', sep=';')
 
-    y = prepareLabels(dataFR, colVoix=['Voix.'+str(i) if i!=0 else 'Voix' for i in range(getNbBinomes(dataFR))],
-                              colNuance=['Nuance.'+str(i) if i!=0 else 'Nuance' for i in range(getNbBinomes(dataFR))], 
-                              colIns='Inscrits',
-                              colVot='Votants',
-                              colExp='Exprimés',
-                              fmt='line')
-    y.to_csv('dataset/yDataFR_Canton_DP.csv', sep=';')
-    print('OK')
+    # y = prepareLabels(dataFR, colVoix=['Voix.'+str(i) if i!=0 else 'Voix' for i in range(getNbBinomes(dataFR))],
+    #                           colNuance=['Nuance.'+str(i) if i!=0 else 'Nuance' for i in range(getNbBinomes(dataFR))], 
+    #                           colIns='Inscrits',
+    #                           colVot='Votants',
+    #                           colExp='Exprimés',
+    #                           fmt='line')
+    # y.to_csv('dataset/yDataFR_Canton_DP.csv', sep=';')
+    # print('OK')
 
 
 
-    # explodeLines(dataCher).sort_values('Code du canton').to_excel('dataset/datasheetT2.xlsx')
-
-
-
-
-
+#model representation
 # input = tf.keras.Input(shape=(100,), dtype='int32', name='input')
 # x = tf.keras.layers.Embedding(
 #     output_dim=512, input_dim=10000, input_length=100)(input)
