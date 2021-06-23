@@ -1,13 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Exo:wght@500&display=swap');
-
-
 /* MENU FIXE */
-body{
+
+body {
   overflow-x: hidden;
   margin: 0;
 }
 
-#title_Estilection{
+#title_Estilection {
   font-family: 'Exo', sans-serif;
   position: fixed;
   font-size: 200%;
@@ -15,11 +14,10 @@ body{
   margin-left: 2%;
   letter-spacing: 6px;
   color: rgb(60, 60, 60);
-
   z-index: 3;
 }
 
-#title_Estilection_equipe{
+#title_Estilection_equipe {
   font-family: 'Exo', sans-serif;
   position: fixed;
   font-size: 200%;
@@ -27,11 +25,10 @@ body{
   margin-left: 4%;
   letter-spacing: 6px;
   color: rgb(60, 60, 60);
-
   z-index: 3;
 }
 
-#title_Estilection_projet{
+#title_Estilection_projet {
   font-family: 'Exo', sans-serif;
   position: fixed;
   font-size: 200%;
@@ -39,11 +36,10 @@ body{
   margin-left: 3.5%;
   letter-spacing: 6px;
   color: rgb(60, 60, 60);
-
   z-index: 3;
 }
 
-#title_Estilection_actu{
+#title_Estilection_actu {
   font-family: 'Exo', sans-serif;
   position: fixed;
   font-size: 200%;
@@ -51,169 +47,136 @@ body{
   margin-left: 3%;
   letter-spacing: 6px;
   color: rgb(60, 60, 60);
-
   z-index: 3;
 }
 
-
-#menuToggle
-{
+#menuToggle {
   display: block;
   position: absolute;
   top: 5%;
   left: 2%;
-  
-  
   z-index: 1;
-  
   -webkit-user-select: none;
   user-select: none;
 }
 
-#menuToggle a
-{
-   font-family: 'Exo', sans-serif;
-   text-align: center;
-   text-decoration: none;
-   color: rgb(60, 60, 60);
-   margin: 100%;
-   
-   transition: color 0.3s ease;
+#menuToggle a {
+  font-family: 'Exo', sans-serif;
+  text-align: center;
+  text-decoration: none;
+  color: rgb(60, 60, 60);
+  margin: 100%;
+  transition: color 0.3s ease;
 }
 
-#menu li:hover
-{
-   text-align: center;
-   color: rgb(250, 250, 250);
-   background: #00327c70;
-   border-radius: 15px;
+#menu li:hover {
+  text-align: center;
+  color: rgb(250, 250, 250);
+  background: #00327c70;
+  border-radius: 15px;
 }
 
-#menuToggle input
-{
+#menuToggle input {
   display: block;
- 
   width: 35px;
   height: 32px;
   position: absolute;
   top: -7px;
   left: -5px;
-  
   cursor: pointer;
-  
   opacity: 0;
   z-index: 2;
-  
   -webkit-touch-callout: none;
 }
 
-#menuToggle span
-{
+#menuToggle span {
   display: block;
   width: 33px;
   height: 4px;
   margin-bottom: 5px;
   position: relative;
-  
-  
   background: rgb(60, 60, 60);
   border-radius: 3px;
-  
   z-index: 1;
-  
   transform-origin: 4px 0px;
-  
-  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
-              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
-              opacity 0.55s ease;
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0), opacity 0.55s ease;
 }
 
-#menuToggle span:first-child
-{
+#menuToggle span:first-child {
   transform-origin: 0% 0%;
 }
 
-#menuToggle span:nth-last-child(2)
-{
+#menuToggle span:nth-last-child(2) {
   transform-origin: 0% 100%;
 }
 
-#menuToggle input:checked ~ span
-{
+#menuToggle input:checked~span {
   opacity: 1;
   transform: rotate(45deg) translate(-2px, -1px);
   background: rgb(60, 60, 60);
 }
 
-#menuToggle input:checked ~ span:nth-last-child(3)
-{
+#menuToggle input:checked~span:nth-last-child(3) {
   opacity: 0;
   transform: rotate(0deg) scale(0.2, 0.2);
 }
 
-#menuToggle input:checked ~ span:nth-last-child(2)
-{
+#menuToggle input:checked~span:nth-last-child(2) {
   transform: rotate(-45deg) translate(0, -1px);
 }
 
-#menu
-{
+#menu {
   position: absolute;
   width: 630%;
   height: 3030%;
   margin: -115px 0 0 -50px;
   padding: 192%;
   padding-top: 300px;
-  
   background: rgb(250, 250, 250);
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
-  
   transform-origin: 0% 0%;
   transform: translate(-100%, 0);
-  
-  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
 }
 
-#menu li
-{
+#menu li {
   padding: 10px 0;
   font-size: 22px;
 }
 
-#menuToggle input:checked ~ ul
-{
+#menuToggle input:checked~ul {
   transform: none;
 }
 
-#copyright{
-   color : rgb(60, 60, 60);
-   position: absolute;
-   bottom: 0;
-   font-size: 80%;
+#copyright {
+  color: rgb(60, 60, 60);
+  position: absolute;
+  bottom: 0;
+  font-size: 80%;
 }
 
-h1 
-{
+h1 {
   font-size: 40px;
   font-family: 'Trebuchet MS', sans-serif;
   text-align: center;
 }
 
-h2{
+h2 {
   font-size: 25px;
-  font-family: 'Trebuchet MS',sans-serif;
+  font-family: 'Trebuchet MS', sans-serif;
   text-align: center;
 }
 
-
 /**********************************************************************************/
+
 /******************************** PAGE PREDICTIONS ********************************/
+
 /**********************************************************************************/
 
 /* GESTION TEXTE */
 
-#texte_choix_echelle{
+#texte_choix_echelle {
   font-family: 'Exo', sans-serif;
   position: absolute;
   font-size: 200%;
@@ -230,27 +193,27 @@ h2{
   text-align: center;
   margin-top: -2%;
 }
-#img_dep{
+
+#img_dep {
   position: relative;
   width: 15%;
   height: auto;
   margin-right: 15%;
 }
 
-#img_reg{
+#img_reg {
   position: relative;
   width: 15%;
   top: 15%;
   height: auto;
 }
 
-#img_fr{
+#img_fr {
   position: relative;
   width: 15%;
   height: auto;
   margin-left: 15%;
 }
-
 
 /* MENU DEROULANTS */
 
@@ -258,26 +221,22 @@ h2{
 
 .label_deroulant_dep_annee label {
   margin-left: 18%;
-  
 }
 
 .label_deroulant_reg_annee label {
   margin-left: 50%;
-  
 }
+
 .label_deroulant_dep label {
   margin-left: 22%;
-  
 }
 
 .label_deroulant_reg label {
-  
   margin-left: 50%;
-  
 }
 
-
 /*Deroulants*/
+
 .deroulant_dep {
   position: absolute;
   top: 100%;
@@ -285,7 +244,6 @@ h2{
   transform: translate(-20%, -20%);
   border-radius: 2%;
 }
-
 
 .deroulant_dep select {
   background-color: rgb(60, 60, 60, 0.4);
@@ -300,35 +258,31 @@ h2{
   outline: none;
   border-radius: 50px;
 }
-.deroulant_dep_annee {
-    position: absolute;
-    left: 22%;
-    transform: translate(-20%, -20%);
-    border-radius: 2%;
-}
 
+.deroulant_dep_annee {
+  position: absolute;
+  left: 22%;
+  transform: translate(-20%, -20%);
+  border-radius: 2%;
+}
 
 .deroulant_dep_annee select {
-    background-color: rgb(60, 60, 60, 0.4);
-    color: rgb(250, 250, 250);
-    padding: 15px;
-    width: 180px;
-    border: none;
-    font-size: 15px;
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);
-    -webkit-appearance: button;
-    appearance: button;
-    outline: none;
-    border-radius: 50px;
+  background-color: rgb(60, 60, 60, 0.4);
+  color: rgb(250, 250, 250);
+  padding: 15px;
+  width: 180px;
+  border: none;
+  font-size: 15px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);
+  -webkit-appearance: button;
+  appearance: button;
+  outline: none;
+  border-radius: 50px;
 }
-
-
 
 .deroulant_dep select option {
   padding: 30px;
 }
-
-
 
 .deroulant_reg {
   position: absolute;
@@ -337,7 +291,6 @@ h2{
   transform: translate(-20%, -20%);
   border-radius: 2%;
 }
-
 
 .deroulant_reg select {
   background-color: rgb(60, 60, 60);
@@ -352,8 +305,6 @@ h2{
   outline: none;
 }
 
-
-
 .deroulant_reg_annee {
   position: absolute;
   top: 80%;
@@ -361,7 +312,6 @@ h2{
   transform: translate(-20%, -20%);
   border-radius: 2%;
 }
-
 
 .deroulant_reg_annee select {
   background-color: rgb(60, 60, 60);
@@ -376,9 +326,9 @@ h2{
   outline: none;
 }
 
-
 /*** WRAPPER ***/
 
+/*
 .wrapper{
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -428,80 +378,54 @@ h2{
     font-family: 'Exo', sans-serif;
     text-align: justify;
 }
+*/
 
-
-
-
-
-
-
-
-
-
-
-
-
-/* A REVOIR - IMAGES TEAM */
-.images_team img{
-  max-width: 15%;
+.img_ia_vote {
+  position: relative;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -1%;
+  max-width: 100%;
   height: auto;
 }
-.images_team{
+
+.img_texte {
+  position: absolute;
+  left: 0;
+}
+
+/********************* A REVOIR - IMAGES TEAM *******************/
+
+#img_team img{
   display: inline;
 }
-
-
-#images_team img{
-    max-width: 15%;
-    height: auto;
-}
-
-#img_steven img{
-  position: absolute;
-  margin-top: 20rem;
-  margin-left: 32rem;
+#img_steven img {
   max-width: 15%;
   height: auto;
 }
 
-#img_cyprien img{
-  position: absolute;
-  margin-top: 13rem;
-  margin-left: 59rem;
+#img_cyprien img {
   max-width: 15%;
   height: auto;
 }
 
-#img_nathan img{
-  position: absolute;
-  margin-top: 13rem;
-  margin-left: 66.5rem;
+#img_nathan img {
   max-width: 15%;
   height: auto;
 }
 
-#img_jeremie img{
-  position: absolute;
-  margin-top: 50rem;
-  margin-left: 40%;
+#img_jeremie img {
   max-width: 15%;
   height: auto;
 }
 
-#img_dorian img{
-  position: absolute;
-  margin-top: 50rem;
-  margin-left: 20%;
+#img_dorian img {
   max-width: 15%;
   height: auto;
 }
 
-
-
-
-
-
-
+/**********************************************/
 
 /* NATHAN - A CONTINUER */
 
@@ -509,7 +433,6 @@ h2{
   float: left;
   width: 25%;
 }
-
 
 /* The Modal (background) */
 
@@ -526,7 +449,6 @@ h2{
   background-color: black;
 }
 
-
 /* Modal Content */
 
 .modal-content {
@@ -537,7 +459,6 @@ h2{
   width: 90%;
   max-width: 1200px;
 }
-
 
 /* The Close Button */
 
@@ -550,13 +471,11 @@ h2{
   font-weight: bold;
 }
 
-.close:hover,
-.close:focus {
+.close:hover, .close:focus {
   color: #999;
   text-decoration: none;
   cursor: pointer;
 }
-
 
 /* Hide the slides by default */
 
@@ -564,11 +483,9 @@ h2{
   display: none;
 }
 
-
 /* Next & previous buttons */
 
-.prev,
-.next {
+.prev, .next {
   cursor: pointer;
   position: absolute;
   top: 50%;
@@ -584,7 +501,6 @@ h2{
   -webkit-user-select: none;
 }
 
-
 /* Position the "next button" to the right */
 
 .next {
@@ -592,14 +508,11 @@ h2{
   border-radius: 3px 0 0 3px;
 }
 
-
 /* On hover, add a black background color with a little bit see-through */
 
-.prev:hover,
-.next:hover {
+.prev:hover, .next:hover {
   background-color: rgba(0, 0, 0, 0.8);
 }
-
 
 /* Number text (1/3 etc) */
 
@@ -610,7 +523,6 @@ h2{
   position: absolute;
   top: 0;
 }
-
 
 /* Caption text */
 
@@ -625,8 +537,7 @@ img.demo {
   opacity: 0.6;
 }
 
-.active,
-.demo:hover {
+.active, .demo:hover {
   opacity: 1;
 }
 
@@ -653,3 +564,37 @@ img.hover-shadow {
 .column:hover .legende_actu {
   opacity: 1;
 }
+
+/**** PAGE PROJET & CONTACT  *****/
+
+.projet_corps {
+  font-family: 'Exo', sans-serif;
+  color: rgb(60, 60, 60);
+  text-align: center;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.projet_titre {
+  text-transform: uppercase;
+  font-size: 6em;
+}
+
+.projet_contenu {
+  margin-top: 10%;
+  font-size: 1.5em;
+  text-align: justify;
+}
+
+.contact_contenu {
+  margin-top: 10%;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.contact_contenu a {
+  text-decoration: none;
+  color: darkslateblue;
+}
+
+/*************************/
