@@ -41,43 +41,43 @@ def explodeLines(data):
     return df
 
 
-def prepareLabels(data, colVoix='NBRVOIX', colIns='NBRINS', colVot='NBRVOT', colExp='NBREXP', colNuance='CODNUA', colsSpec=['CODDPT', 'CODSUBCOM', 'CODBURVOT'],  fmt='exploded'):
-    if fmt not in ['exploded', 'line']:
-        raise ValueError("format parameter must be 'exploded' or 'line'")
+def prepareLabelsLine(data):
+    nuances = getAllNuances(data, colNuance=['Nuance.'+str(i) if i!=0 else 'Nuance' for i in range(getNbBinomes(dataT2Can ))], fmt='line')
+    y = pd.DataFrame(0, columns=nuances, index=data.index)
+    for n in nuances:
+        for i in range(getNbBinomes(data)):
+            y[n][data['Nuance.'+str(i) if i!=0 else 'Nuance']==n] += data['Voix.'+str(i) if i!=0 else 'Voix'][data['Nuance.'+str(i) if i!=0 else 'Nuance']==n]
 
+    y = y.divide(data['Inscrits'], axis=0)
+    dataAutres = pd.concat([(data['Inscrits']-data['Votants'])/data['Inscrits'], (data['Votants']-data['Exprimés'])/data['Inscrits']], axis=1).rename(columns={0: 'Abstentions', 1: 'BlancsNuls'})
+    y = pd.concat([y[nuances], dataAutres], axis=1)
+
+    y.index = pd.MultiIndex.from_frame(data[['Code du département', 'Code du canton']], names=['CODDPT', 'CODCAN'])
+    return y
+
+
+def prepareLabelsExploded(data):
+    ids = data[['CODDPT', 'CODSUBCOM', 'CODCAN', 'CODBURVOT']].drop_duplicates()
     dataNuances = pd.DataFrame()
     dataVoix = pd.DataFrame()
     dataAutres = pd.DataFrame(columns=['Abstentions', 'BlancsNuls'])
 
-    if fmt=='exploded':
-        ids = data[colsSpec].drop_duplicates()
+    for i, row in ids.iterrows():
+        query = data.query(' and '.join([col+'=='+(f'"{row[col]}"' if data.dtypes[col]=='object' else str(row[col])) for col in ['CODDPT', 'CODSUBCOM', 'CODBURVOT']]))
+        dataNuances = dataNuances.append(query['CODNUA'].reset_index(drop=True), ignore_index=True)
+        dataVoix = dataVoix.append((query['NBRVOIX']/query['NBRINS']).reset_index(drop=True), ignore_index=True)
+        dataAutres = dataAutres.append(pd.concat([(query['NBRINS']-query['NBRVOT'])/query['NBRINS'], (query['NBRVOT']-query['NBREXP'])/query['NBRINS']], axis=1).drop_duplicates().rename(columns={0: 'Abstentions', 1: 'BlancsNuls'}), ignore_index=True)
 
-        for i, row in ids.iterrows():
-            query = data.query(' and '.join([col+'=='+(f'"{row[col]}"' if data.dtypes[col]=='object' else str(row[col])) for col in colsSpec]))
-            dataNuances = dataNuances.append(query[colNuance].reset_index(drop=True), ignore_index=True)
-            dataVoix = dataVoix.append((query[colVoix]/query[colIns]).reset_index(drop=True), ignore_index=True)
-            dataAutres = dataAutres.append(pd.concat([(query[colIns]-query[colVot])/query[colIns], (query[colVot]-query[colExp])/query[colIns]], axis=1).drop_duplicates().rename(columns={0: 'Abstentions', 1: 'BlancsNuls'}), ignore_index=True)
+    nuances = getAllNuances(data, colNuance='CODNUA', fmt='exploded')
+    y = pd.DataFrame(0, columns=nuances, index=dataNuances.index)
+    tot = len(dataNuances)
+    for i in dataNuances.index:
+        print(i*100/tot,'%')
+        y.loc[i, dataNuances.loc[i]] = dataVoix.loc[i].values
+    y = pd.concat([y[nuances], dataAutres], axis=1)
 
-        nuances = getAllNuances(data, colNuance=colNuance, fmt=fmt)
-        y = pd.DataFrame(0, columns=nuances, index=dataNuances.index)
-        tot = len(dataNuances)
-        for i in dataNuances.index:
-            print(i*100/tot,'%')
-            y.loc[i, dataNuances.loc[i]] = dataVoix.loc[i].values
-        y = pd.concat([y[nuances], dataAutres], axis=1)
-        return y
-        
-    if fmt=='line':
-        nuances = getAllNuances(data, colNuance=colNuance, fmt=fmt)
-        y = pd.DataFrame(0, columns=nuances, index=data.index)
-        for n in nuances:
-            for i in range(getNbBinomes(data)):
-                y[n][data['Nuance.'+str(i) if i!=0 else 'Nuance']==n] += data['Voix.'+str(i) if i!=0 else 'Voix'][data['Nuance.'+str(i) if i!=0 else 'Nuance']==n]
+    return y
 
-        y = y.divide(data[colIns], axis=0)
-        dataAutres = pd.concat([(data[colIns]-data[colVot])/data[colIns], (data[colVot]-data[colExp])/data[colIns]], axis=1).rename(columns={0: 'Abstentions', 1: 'BlancsNuls'})
-        y = pd.concat([y[nuances], dataAutres], axis=1)
-        return y
 
 
 
@@ -91,10 +91,11 @@ def prepareInputDataBvot(data):
 
     nuances = getAllNuances(data)
     statsFeatures = ['NBRVOT', 'NBREXP', 'NBRNULBLANC', 'NBRABS']
-    idFeatures = ['CODDPT', 'CODSUBCOM', 'CODBURVOT']
+    idFeatures = ['CODDPT', 'CODCAN', 'CODSUBCOM', 'CODBURVOT']
 
     inscrits = tmp[idFeatures + ['NBRINS']].drop_duplicates()['NBRINS']
     stats = tmp[idFeatures + statsFeatures].drop_duplicates()[statsFeatures]
+    ids = tmp[idFeatures].drop_duplicates()
 
     # Create [%Voix] and fill it
     voix = pd.DataFrame(0, index=data.index, columns=nuances)
@@ -106,6 +107,7 @@ def prepareInputDataBvot(data):
     # Concat with computed stats and divide almost everything by Inscrits
     tmp = pd.concat([stats, voix], axis=1).divide(inscrits, axis=0)
     X = pd.concat([inscrits, tmp], axis=1)
+    X.index = pd.MultiIndex.from_frame(ids)
     return X
     
     
@@ -130,40 +132,31 @@ if __name__ == '__main__':
         'CODNUA' :    'object',
         'NBRVOIX' :    'int64',
     }
-    data = pd.read_csv('dataset/DP15_Bvot_T1T2.csv', delimiter=';', dtype=dtypes)
-    dataT1 = data[data.NUMTOUR==1]
+    dataBvot = pd.read_csv('dataset/DP15_Bvot_T1T2.csv', delimiter=';', dtype=dtypes)
+    dataT1Bvot = dataBvot[dataBvot.NUMTOUR==1]
     print('OK')
-
-    # print('Loading Cantons data... ', end='')
-    # dataFR = pd.read_excel("dataset/DataCantonsT2.xlsx")
-    # print('OK')
 
     print('Preparing input data... ', end='')
-    Xbase = prepareInputDataBvot(dataT1[dataT1['CODDPT']=='18'])
+    Xbase = prepareInputDataBvot(dataT1Bvot[dataT1Bvot['CODDPT']=='18'])
+    Xbase.to_csv("dataset/XbaseCher_Bvot.csv", sep=';')
     print('OK')
 
-    Xbase.to_csv("dataset/XbaseCher_Bvot.csv", sep=';')
-
-    print()
-    print(Xbase)
 
 
-    # print('Preparing labels... ', end='')
-    # y = prepareLabels(dataT2)
-    # y.to_csv('dataset/yDataFR_Bvot_DP.csv', sep=';')
+    print('Loading Cantons data... ', end='')
+    dataT2Can = pd.read_excel("dataset/Dep_15_Resultats_T2_complet.xlsx", sheet_name='Cantons')
+    print('OK')
 
-    # y = prepareLabels(dataFR, colVoix=['Voix.'+str(i) if i!=0 else 'Voix' for i in range(getNbBinomes(dataFR))],
-    #                           colNuance=['Nuance.'+str(i) if i!=0 else 'Nuance' for i in range(getNbBinomes(dataFR))], 
-    #                           colIns='Inscrits',
-    #                           colVot='Votants',
-    #                           colExp='Exprimés',
-    #                           fmt='line')
-    # y.to_csv('dataset/yDataFR_Canton_DP.csv', sep=';')
-    # print('OK')
+    print('Preparing labels... ', end='')
+    y = prepareLabelsLine(dataT2Can)
+    y = y[y.index.get_level_values('CODDPT')==18]
+    y.to_csv('dataset/labels/yDataCher_Canton_DP.csv', sep=';')
+    print('OK')
 
 
 
-#model representation
+
+#model representation with Embedding
 # input = tf.keras.Input(shape=(100,), dtype='int32', name='input')
 # x = tf.keras.layers.Embedding(
 #     output_dim=512, input_dim=10000, input_length=100)(input)
