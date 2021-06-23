@@ -4,6 +4,7 @@
 /* MENU FIXE */
 body{
   overflow-x: hidden;
+  margin: 0;
 }
 
 #title_Estilection{
@@ -192,10 +193,6 @@ body{
    font-size: 80%;
 }
 
-/* DEUXIEME PAGE */
-
-
-
 h1 
 {
   font-size: 40px;
@@ -210,28 +207,52 @@ h2{
 }
 
 
+/**********************************************************************************/
+/******************************** PAGE PREDICTIONS ********************************/
+/**********************************************************************************/
+
+/* GESTION TEXTE */
+
+#texte_choix_echelle{
+  font-family: 'Exo', sans-serif;
+  position: absolute;
+  font-size: 200%;
+  font-style: italic;
+  margin-top: -6%;
+  margin-left: 2%;
+  letter-spacing: 6px;
+  color: rgb(60, 60, 60);
+}
+
 /* GESTION DES IMAGES */
 
+.images_map {
+  text-align: center;
+  margin-top: -2%;
+}
 #img_dep{
-  
-  max-width: 15%;
+  position: relative;
+  width: 15%;
   height: auto;
+  margin-right: 15%;
 }
 
 #img_reg{
-  margin-left: 15%;
-  max-width: 15%;
+  position: relative;
+  width: 15%;
+  top: 15%;
   height: auto;
 }
 
 #img_fr{
+  position: relative;
+  width: 15%;
+  height: auto;
   margin-left: 15%;
-  max-width: 15%;
-  height: auto;   
 }
 
 
-/*** MENU DEROULANTS ****/
+/* MENU DEROULANTS */
 
 /*Label*/
 
@@ -417,19 +438,7 @@ h2{
 
 
 
-.img_ia_vote{ 
-  position: relative;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: -1%;
-  max-width: 100%;
-  height: auto;
-}
-.img_texte{
-  position: absolute;
-  bottom: 0;
-}
+
 
 
 /* A REVOIR - IMAGES TEAM */
@@ -485,11 +494,6 @@ h2{
   margin-left: 20%;
   max-width: 15%;
   height: auto;
-}
-
-#test p{
-  grid-row: 3;
-  grid-column: 3;
 }
 
 
