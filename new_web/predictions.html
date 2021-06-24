@@ -9,10 +9,9 @@
 </head>
 
 
-<body>
+<body class="predictions" id="body_id">
 
-    <div class="retour_haut_page">
-
+    <div id="retour_haut_page">
         <a href="#ancrehautpage"><img src="images/to_top.png" /></a>
 
     </div>
@@ -20,12 +19,11 @@
     <nav role="navigation">
         <div id="menuToggle">
 
-            <input type="checkbox" />
+            <input type="checkbox" id="checkbox_burger" onclick="test_fonction()"/>
 
             <span></span>
             <span></span>
             <span></span>
-
 
             <ul id="menu">
                 <a href="estilection.html">
@@ -55,7 +53,6 @@
 
 
     <div>
-        <img id="img_vote" src="images/vote.png" style="margin: 15;" alt="vote">
         <p id="texte_choix_echelle">Choisissez les éléctions qui vous intéressent :</p>
     </div>
 
@@ -190,8 +187,9 @@
             </select>
         </div>
 
+        <button class="button_dep" type="button" onclick="lancer_recherche_dep()">Lancez la recherche</button>
+
         <div>
-            <br><br><br>
             <h2 id="graph_dep"> Graph élections départementales</h1>
         </div>
 
@@ -237,8 +235,9 @@
             </select>
         </div>
 
+        <button class="button_reg" type="button" onclick="lancer_recherche_reg()">Lancez la recherche</button>
+
         <div>
-            <br><br><br><br><br><br><br><br><br><br>
             <h2 id="graph_reg"> Graph élections régionales</h1>
         </div>
 
@@ -247,7 +246,7 @@
     <div class="section_france" id="section_france">
         <div>
             <br><br><br><br><br><br><br><br><br><br>
-            <h2 id="graph_fr"> Graph élections France</h1>
+            <h2 id="graph_fr">en développement...</h1>
         </div>
     </div>
 
@@ -258,8 +257,7 @@
 
     <script src="script_predictions.js"></script>
     <script src="script_accueil.js"></script>
-    <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
-    <script src="boutonremonter.js"></script>
+
 
 </body>
 
