@@ -159,8 +159,8 @@ if __name__ == '__main__':
     print('OK')
 
     print('Preparing input data... ', end='')
-    X = prepareInputDataExploded(dataT1Bvot[dataT1Bvot['CODDPT']=='18'])
-    X.to_csv("dataset/inputs/XDataCher_Bvot.csv", sep=';')
+    X = prepareInputDataExploded(dataT1Bvot)
+    X.to_csv("dataset/inputs/XDataFR_Bvot.csv", sep=';')
     print('OK')
 
     print(X)
@@ -171,8 +171,8 @@ if __name__ == '__main__':
     # print('OK')
 
     print('Preparing labels... ', end='')
-    y = prepareLabelsExploded(dataT2Bvot[dataT2Bvot['CODDPT']=='18'])
-    y.to_csv('dataset/labels/yDataCher_Bvot.csv', sep=';')
+    y = prepareLabelsExploded(dataT2Bvot)
+    y.to_csv('dataset/labels/yDataFR_Bvot.csv', sep=';')
     print('OK')
 
     print(y)
