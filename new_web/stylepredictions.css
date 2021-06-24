@@ -40,6 +40,7 @@ body {
 .predictions {
     background: url("images/vote.png") no-repeat;
     background-size: contain;
+    overflow-x: auto;
 }
 
 
@@ -624,6 +625,16 @@ h2 {
     margin-left: 5%;
     letter-spacing: 6px;
     color: rgb(60, 60, 60);
+}
+
+/* TABLEAU TOUR 1 */
+
+#tour1_tab {
+    border-collapse: collapse;
+}
+
+.tour1_colonne {
+    border: 1px solid black;
 }
 
 
