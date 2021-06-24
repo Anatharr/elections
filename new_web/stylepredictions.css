@@ -647,61 +647,75 @@ h2{
 
 
 /* A REVOIR - IMAGES TEAM */
-.images_team img{
+/*.images_team img{
   max-width: 15%;
   height: auto;
+}*/
+.equipe_corps{
+  font-family: 'Exo', sans-serif;
+  color: rgb(60, 60, 60);
+
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 0%;
+  margin-top: auto;
 }
-.images_team{
+.equipe_corps img{
+  width: 15%;
+  height: auto;
+}
+.img_cyp_steven_nathan{
+ margin-top: 6%;
+text-align: center;
+}
+.img_jeremie_dorian{
+  margin-top: 8%;
+  text-align: center;
+  }
+#img_cyprien{
+margin-left: 15%;
+margin-right: 15%;
+}
+#img_jeremie{
+margin-right: 8%;
+}
+#img_dorian{
+  margin-left: 8%;
+  }
+.caption_cyp_steven_nathan span{
+position: absolute;
+
+}
+.caption_cyp_steven_nathan{
   display: inline;
 }
-
-
-#images_team img{
-    max-width: 15%;
-    height: auto;
+#caption_steven{
+  margin-left: 11%;
 }
-
-#img_steven img{
-  position: absolute;
-  margin-top: 20rem;
-  margin-left: 32rem;
-  max-width: 15%;
-  height: auto;
+#caption_cyprien{
+  margin-left: 36%;
 }
-
-#img_cyprien img{
-  position: absolute;
-  margin-top: 13rem;
-  margin-left: 59rem;
-  max-width: 15%;
-  height: auto;
+#caption_nathan{
+  margin-left: 60%;
 }
-
-#img_nathan img{
-  position: absolute;
-  margin-top: 13rem;
-  margin-left: 66.5rem;
-  max-width: 15%;
-  height: auto;
+#caption_nathan_bdd{
+  margin-left: 15%;
 }
-
-#img_jeremie img{
-  position: absolute;
-  margin-top: 50rem;
-  margin-left: 40%;
-  max-width: 15%;
-  height: auto;
+.caption_jeremie_dorian span {
+ position: absolute;
 }
-
-#img_dorian img{
-  position: absolute;
-  margin-top: 50rem;
-  margin-left: 20%;
-  max-width: 15%;
-  height: auto;
+#caption_jeremie{
+  margin-left: 23%;
 }
-
-
+#caption_jeremie_si{
+  margin-left: 22%;
+}
+#caption_dorian{
+  margin-left: 48%;
+}
+#caption_dorian_si{
+  margin-left: 25%;
+}
 
 
 
@@ -874,6 +888,7 @@ img.hover-shadow {
 .projet_titre {
   text-transform: uppercase;
   font-size: 6em;
+  text-align: center;
 }
 
 .projet_contenu {
