@@ -56,44 +56,68 @@ def prepareLabelsLine(data):
     return y
 
 
-def prepareLabelsExploded(data):
-    ids = data[['CODDPT', 'CODSUBCOM', 'CODCAN', 'CODBURVOT']].drop_duplicates()
-    dataNuances = pd.DataFrame()
-    dataVoix = pd.DataFrame()
-    dataAutres = pd.DataFrame(columns=['Abstentions', 'BlancsNuls'])
+# def prepareLabelsExploded(data):
+#     ids = data[['CODDPT', 'CODSUBCOM', 'CODCAN', 'CODBURVOT']].drop_duplicates()
+#     dataNuances = pd.DataFrame()
+#     dataVoix = pd.DataFrame()
+#     dataAutres = pd.DataFrame(columns=['Abstentions', 'BlancsNuls'])
 
-    for i, row in ids.iterrows():
-        query = data.query(' and '.join([col+'=='+(f'"{row[col]}"' if data.dtypes[col]=='object' else str(row[col])) for col in ['CODDPT', 'CODSUBCOM', 'CODBURVOT']]))
-        dataNuances = dataNuances.append(query['CODNUA'].reset_index(drop=True), ignore_index=True)
-        dataVoix = dataVoix.append((query['NBRVOIX']/query['NBRINS']).reset_index(drop=True), ignore_index=True)
-        dataAutres = dataAutres.append(pd.concat([(query['NBRINS']-query['NBRVOT'])/query['NBRINS'], (query['NBRVOT']-query['NBREXP'])/query['NBRINS']], axis=1).drop_duplicates().rename(columns={0: 'Abstentions', 1: 'BlancsNuls'}), ignore_index=True)
+#     for i, row in ids.iterrows():
+#         query = data.query(' and '.join([col+'=='+(f'"{row[col]}"' if data.dtypes[col]=='object' else str(row[col])) for col in ['CODDPT', 'CODSUBCOM', 'CODBURVOT']]))
+#         dataNuances = dataNuances.append(query['CODNUA'].reset_index(drop=True), ignore_index=True)
+#         dataVoix = dataVoix.append((query['NBRVOIX']/query['NBRINS']).reset_index(drop=True), ignore_index=True)
+#         dataAutres = dataAutres.append(pd.concat([(query['NBRINS']-query['NBRVOT'])/query['NBRINS'], (query['NBRVOT']-query['NBREXP'])/query['NBRINS']], axis=1).drop_duplicates().rename(columns={0: 'Abstentions', 1: 'BlancsNuls'}), ignore_index=True)
 
-    nuances = getAllNuances(data, colNuance='CODNUA', fmt='exploded')
-    y = pd.DataFrame(0, columns=nuances, index=dataNuances.index)
-    tot = len(dataNuances)
-    for i in dataNuances.index:
-        print(i*100/tot,'%')
-        y.loc[i, dataNuances.loc[i]] = dataVoix.loc[i].values
-    y = pd.concat([y[nuances], dataAutres], axis=1)
+#     nuances = getAllNuances(data, colNuance='CODNUA', fmt='exploded')
+#     y = pd.DataFrame(0, columns=nuances, index=dataNuances.index)
+#     tot = len(dataNuances)
+#     for i in dataNuances.index:
+#         print(i*100/tot,'%')
+#         y.loc[i, dataNuances.loc[i]] = dataVoix.loc[i].values
+#     y = pd.concat([y[nuances], dataAutres], axis=1)
 
+#     return y
+
+
+
+def prepareLabelsExploded(data, oneHotEncode=False):
+    nuances = getAllNuances(data)
+    idFeatures = ['CODDPT', 'CODCAN', 'CODSUBCOM', 'CODBURVOT']
+
+    exprimes = data[idFeatures + ['NBREXP']].drop_duplicates()['NBREXP']
+    ids = data[idFeatures].drop_duplicates()
+
+    # Create [%Voix] and fill it
+    voix = pd.DataFrame(0, index=data.index, columns=nuances)
+    for parti in nuances:
+        voix[parti][data['CODNUA']==parti] = data[data['CODNUA']==parti]['NBRVOIX']
+    voix = pd.concat([data[idFeatures], voix], axis=1).groupby(idFeatures).sum()[nuances]
+    voix.index = exprimes.index
+
+    # Concat with computed stats and divide almost everything by Inscrits
+    y = voix.divide(exprimes, axis=0)
+    y.index = pd.MultiIndex.from_frame(ids)
     return y
+    
+    
 
 
-
-
-def prepareInputDataBvot(data):
+def prepareInputDataExploded(data):
     tmp = data[['NUMTOUR', 'CODDPT', 'CODSUBCOM', 'LIBSUBCOM', 'CODBURVOT', 'CODCAN',
            'LIBCAN', 'NBRINS', 'NBRVOT', 'NBREXP']].copy()
 
     # Compute missing data
     tmp['NBRABS'] = tmp['NBRINS'] - tmp['NBRVOT']
-    tmp['NBRNULBLANC'] = tmp['NBRVOT'] - tmp['NBREXP']
+    tmp['NBRBLCNUL'] = tmp['NBRVOT'] - tmp['NBREXP']
+    tmp['%ABS/INS'] = tmp['NBRABS'] / tmp['NBRINS']
+    tmp['%BLCNUL/VOT'] = tmp['NBRBLCNUL'] / tmp['NBRVOT']
+    tmp['%EXP/VOT'] = tmp['NBREXP'] / tmp['NBRVOT']
 
     nuances = getAllNuances(data)
-    statsFeatures = ['NBRVOT', 'NBREXP', 'NBRNULBLANC', 'NBRABS']
+    statsFeatures = ['NBRINS', '%ABS/INS', '%BLCNUL/VOT', '%EXP/VOT']
     idFeatures = ['CODDPT', 'CODCAN', 'CODSUBCOM', 'CODBURVOT']
 
-    inscrits = tmp[idFeatures + ['NBRINS']].drop_duplicates()['NBRINS']
+    exprimes = tmp[idFeatures + ['NBREXP']].drop_duplicates()['NBREXP']
     stats = tmp[idFeatures + statsFeatures].drop_duplicates()[statsFeatures]
     ids = tmp[idFeatures].drop_duplicates()
 
@@ -102,13 +126,13 @@ def prepareInputDataBvot(data):
     for parti in nuances:
         voix[parti][data['CODNUA']==parti] = data[data['CODNUA']==parti]['NBRVOIX']
     voix = pd.concat([tmp[idFeatures], voix], axis=1).groupby(idFeatures).sum()[nuances]
-    voix.index = stats.index
+    voix.index = exprimes.index
 
     # Concat with computed stats and divide almost everything by Inscrits
-    tmp = pd.concat([stats, voix], axis=1).divide(inscrits, axis=0)
-    X = pd.concat([inscrits, tmp], axis=1)
+    voix = voix.divide(exprimes, axis=0)
+    X = pd.concat([stats, voix], axis=1)
     X.index = pd.MultiIndex.from_frame(ids)
-    return X.rename(columns={'NBRVOT': '%VOTANTS', 'NBREXP': '%EXPRIMES', 'NBRABS': '%ABSTENTIONS', 'NBRNULBLANC': '%NULBLANCS'})
+    return X
     
     
 
@@ -132,27 +156,29 @@ if __name__ == '__main__':
         'CODNUA' :    'object',
         'NBRVOIX' :    'int64',
     }
-    dataBvot = pd.read_csv('dataset/DP15_Bvot_T1T2.csv', delimiter=';', dtype=dtypes)
+    dataBvot = pd.read_csv('dataset/raw/DP15_Bvot_T1T2.csv', delimiter=';', dtype=dtypes)
     dataT1Bvot = dataBvot[dataBvot.NUMTOUR==1]
+    dataT2Bvot = dataBvot[dataBvot.NUMTOUR==2]
     print('OK')
 
     print('Preparing input data... ', end='')
-    Xbase = prepareInputDataBvot(dataT1Bvot[dataT1Bvot['CODDPT']=='18'])
-    Xbase.to_csv("dataset/XbaseCher_Bvot.csv", sep=';')
+    X = prepareInputDataExploded(dataT1Bvot[dataT1Bvot['CODDPT']=='18'])
+    X.to_csv("dataset/inputs/XDataCher_Bvot.csv", sep=';')
     print('OK')
 
+    print(X)
 
 
-    print('Loading Cantons data... ', end='')
-    dataT2Can = pd.read_excel("dataset/Dep_15_Resultats_T2_complet.xlsx", sheet_name='Cantons')
-    print('OK')
+    # print('Loading Cantons data... ', end='')
+    # dataT2Can = pd.read_excel("dataset/Dep_15_Resultats_T2_complet.xlsx", sheet_name='Cantons')
+    # print('OK')
 
     print('Preparing labels... ', end='')
-    y = prepareLabelsLine(dataT2Can)
-    y = y[y.index.get_level_values('CODDPT')==18]
-    y.to_csv('dataset/labels/yDataCher_Canton_DP.csv', sep=';')
+    y = prepareLabelsExploded(dataT2Bvot[dataT2Bvot['CODDPT']=='18'])
+    y.to_csv('dataset/labels/yDataCher_Bvot.csv', sep=';')
     print('OK')
 
+    print(y)
 
 
 
