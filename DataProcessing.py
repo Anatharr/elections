@@ -84,19 +84,16 @@ def prepareLabelsExploded(data, oneHotEncode=False):
     nuances = getAllNuances(data)
     idFeatures = ['CODDPT', 'CODCAN', 'CODSUBCOM', 'CODBURVOT']
 
-    exprimes = data[idFeatures + ['NBREXP']].drop_duplicates()['NBREXP']
-    ids = data[idFeatures].drop_duplicates()
+    exprimes = data[idFeatures+['NBREXP']].groupby(idFeatures).first()
 
     # Create [%Voix] and fill it
     voix = pd.DataFrame(0, index=data.index, columns=nuances)
     for parti in nuances:
         voix[parti][data['CODNUA']==parti] = data[data['CODNUA']==parti]['NBRVOIX']
-    voix = pd.concat([data[idFeatures], voix], axis=1).groupby(idFeatures).sum()[nuances]
-    voix.index = exprimes.index
+    voix = pd.concat([data[idFeatures], voix], axis=1).groupby(idFeatures).sum().sort_values(idFeatures)[nuances]
 
-    # Concat with computed stats and divide almost everything by Inscrits
-    y = voix.divide(exprimes, axis=0)
-    y.index = pd.MultiIndex.from_frame(ids)
+    # Concat with computed stats and divide voix by exprimes
+    y = voix.divide(exprimes['NBREXP'], axis=0)
     return y
     
     
@@ -104,7 +101,7 @@ def prepareLabelsExploded(data, oneHotEncode=False):
 
 def prepareInputDataExploded(data):
     tmp = data[['NUMTOUR', 'CODDPT', 'CODSUBCOM', 'LIBSUBCOM', 'CODBURVOT', 'CODCAN',
-           'LIBCAN', 'NBRINS', 'NBRVOT', 'NBREXP']].copy()
+            'LIBCAN', 'NBRINS', 'NBRVOT', 'NBREXP', 'CODNUA', 'NBRVOIX']].copy()
 
     # Compute missing data
     tmp['NBRABS'] = tmp['NBRINS'] - tmp['NBRVOT']
@@ -112,28 +109,28 @@ def prepareInputDataExploded(data):
     tmp['%ABS/INS'] = tmp['NBRABS'] / tmp['NBRINS']
     tmp['%BLCNUL/VOT'] = tmp['NBRBLCNUL'] / tmp['NBRVOT']
     tmp['%EXP/VOT'] = tmp['NBREXP'] / tmp['NBRVOT']
+    tmp['%VOIX/EXP'] = tmp['NBRVOIX'] / tmp['NBREXP']
 
     nuances = getAllNuances(data)
-    statsFeatures = ['NBRINS', '%ABS/INS', '%BLCNUL/VOT', '%EXP/VOT']
+    statsFeatures = ['NBRINS', 'NBREXP', '%ABS/INS', '%BLCNUL/VOT', '%EXP/VOT']
     idFeatures = ['CODDPT', 'CODCAN', 'CODSUBCOM', 'CODBURVOT']
 
-    exprimes = tmp[idFeatures + ['NBREXP']].drop_duplicates()['NBREXP']
+    exprimes = tmp[idFeatures + ['NBREXP']].drop_duplicates().sort_values(idFeatures)['NBREXP']
     stats = tmp[idFeatures + statsFeatures].drop_duplicates()[statsFeatures]
     ids = tmp[idFeatures].drop_duplicates()
 
     # Create [%Voix] and fill it
     voix = pd.DataFrame(0, index=data.index, columns=nuances)
     for parti in nuances:
-        voix[parti][data['CODNUA']==parti] = data[data['CODNUA']==parti]['NBRVOIX']
+        voix[parti][data['CODNUA']==parti] = tmp[tmp['CODNUA']==parti]['NBRVOIX']
     voix = pd.concat([tmp[idFeatures], voix], axis=1).groupby(idFeatures).sum()[nuances]
     voix.index = exprimes.index
 
-    # Concat with computed stats and divide almost everything by Inscrits
+    # Concat with computed stats and divide almost everything by Exprimés
     voix = voix.divide(exprimes, axis=0)
     X = pd.concat([stats, voix], axis=1)
     X.index = pd.MultiIndex.from_frame(ids)
-    return X
-    
+    return X.sort_values(['CODDPT', 'CODCAN', 'CODSUBCOM', 'CODBURVOT'])
     
 
 
