@@ -722,3 +722,45 @@ CREATE TABLE t1_t2_2015_bvotes
 COPY public.t1_t2_2015_bvotes
 FROM '/home/pi/Documents/elections/dataset/Departementales_bvote_2015_tour_1_2.csv'
 WITH (FORMAT CSV, HEADER, DELIMITER ';');
+
+-- Table des résultats aux élections départementales 2021 tour 1 par canton
+-- dans le département du cher
+
+CREATE TABLE t1_2021_canton_cher
+(
+    code_canton int PRIMARY KEY,
+    nom_canton varchar(50),
+    nb_inscrits int,
+    nb_votants int,
+    vot_pourcent_ins numeric(10,3),
+    nb_abstentions int,
+    abs_pourcent_ins numeric(10,3),
+    nb_blancs int,
+    blancs_pourcent_ins numeric(10,3),
+    nb_nuls int,
+    nuls_pourcents_ins numeric(10,3),
+    nuance_liste_1 varchar(10),
+    binome_liste_1 varchar(75),
+    nb_voix_liste_1 int,
+    voix_pourcent_exp_liste_1 numeric(10,3),
+    nuance_liste_2 varchar(10),
+    binome_liste_2 varchar(75),
+    nb_voix_liste_2 int,
+    voix_pourcent_exp_liste_2 numeric(10,3),
+    nuance_liste_3 varchar(10),
+    binome_liste_3 varchar(75),
+    nb_voix_liste_3 int,
+    voix_pourcent_exp_liste_3 numeric(10,3),
+    nuance_liste_4 varchar(10),
+    binome_liste_4 varchar(75),
+    nb_voix_liste_4 int,
+    voix_pourcent_exp_liste_4 numeric(10,3),
+    nuance_liste_5 varchar(10),
+    binome_liste_5 varchar(75),
+    nb_voix_liste_5 int,
+    voix_pourcent_exp_liste_5 numeric(10,3)
+);
+
+COPY t1_2021_canton_cher
+FROM '/home/pi/Documents/elections/dataset/Departementales_canton_cher_2021_tour_1.csv'
+WITH (FORMAT CSV, HEADER, DELIMITER ';');
