@@ -40,7 +40,7 @@ body{
 }
 
 
-/* MENU FIXE */
+/* MENU DEROULANT */
 
 #title_Estilection{
   font-family: 'Exo', sans-serif;
@@ -239,6 +239,26 @@ h2{
   font-size: 25px;
   font-family: 'Trebuchet MS',sans-serif;
   text-align: center;
+}
+
+/* SCROLLBAR */
+
+#body_projet {
+  overflow-y: hidden;
+  background: url("images/background_2.png") no-repeat;
+  background-size:cover;
+}
+
+#body_equipe {
+  overflow-y: hidden;
+  background: url("images/background_2.png") no-repeat;
+  background-size:cover;
+}
+
+#body_contact {
+  overflow-y: hidden;
+  background: url("images/background_2.png") no-repeat;
+  background-size:cover;
 }
 
 

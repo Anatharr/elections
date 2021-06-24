@@ -115,3 +115,14 @@ function lancer_recherche_reg() {
     let scrollDiv = document.getElementById("graph_reg").offsetTop;
     window.scrollTo({ top: scrollDiv, behavior: 'smooth'});
 }
+
+
+
+/* TEST FONCTION */
+
+function test_fonction() {
+    let checkbox = document.getElementById("checkbox_burger");
+    let body = document.getElementById("body_id");
+    if(checkbox.checked) body.style.overflowY="hidden";
+    else body.style.overflowY="visible";
+}
