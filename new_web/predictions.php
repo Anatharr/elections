@@ -25,7 +25,7 @@
             <span></span>
 
             <ul id="menu">
-                <a href="estilection.html">
+                <a href="index.html">
                     <li>Accueil</li>
                 </a><br>
                 <a href="predictions.html">
