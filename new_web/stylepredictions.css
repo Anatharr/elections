@@ -228,6 +228,12 @@ h2 {
     background-size: cover;
 }
 
+#body_actualites {
+  overflow-y: hidden;
+  background: url("images/background_2.png") no-repeat;
+  background-size: cover;
+}
+
 
 /*********************************************************************************************************************/
 
