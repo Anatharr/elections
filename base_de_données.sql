@@ -726,7 +726,7 @@ WITH (FORMAT CSV, HEADER, DELIMITER ';');
 -- Table des résultats aux élections départementales 2021 tour 1 par canton
 -- dans le département du cher
 
-CREATE TABLE t1_2021_canton_cher
+CREATE TABLE t1_2021_cantons_cher
 (
     code_canton int PRIMARY KEY,
     nom_canton varchar(50),
@@ -761,6 +761,6 @@ CREATE TABLE t1_2021_canton_cher
     voix_pourcent_exp_liste_5 numeric(10,3)
 );
 
-COPY t1_2021_canton_cher
+COPY public.t1_2021_canton_cher
 FROM '/home/pi/Documents/elections/dataset/Departementales_canton_cher_2021_tour_1.csv'
 WITH (FORMAT CSV, HEADER, DELIMITER ';');
