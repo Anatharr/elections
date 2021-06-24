@@ -761,6 +761,6 @@ CREATE TABLE t1_2021_cantons_cher
     voix_pourcent_exp_liste_5 numeric(10,3)
 );
 
-COPY public.t1_2021_canton_cher
+COPY public.t1_2021_cantons_cher
 FROM '/home/pi/Documents/elections/dataset/Departementales_canton_cher_2021_tour_1.csv'
 WITH (FORMAT CSV, HEADER, DELIMITER ';');
