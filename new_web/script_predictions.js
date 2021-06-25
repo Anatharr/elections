@@ -151,7 +151,7 @@ function lancer_recherche_dep() {
                 console.log(obj.error);
             }
             console.log("ici");
-            document.getElementById("tour_1").write(json.decode(resultat_php));
+            console.log(json.decode(resultat_php));
             console.log("là");
         },
 
