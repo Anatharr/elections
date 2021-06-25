@@ -103,7 +103,7 @@ function recuperer_departement() {
         type: "POST",
         url: 'traitement.php',
         dataType: 'json',
-        data: { functioname: 'affiche_tour_1_departement', arguments: [document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value, document.getElementById("dep_choix").options[deroulant_dep.selectedIndex].value] },
+        data: { functionname: 'affiche_tour_1_departement', arguments: [document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value, document.getElementById("dep_choix").options[deroulant_dep.selectedIndex].value] },
 
         success: function(obj, textstatus) {
             if (!('error' in obj)) {
