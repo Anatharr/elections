@@ -5,6 +5,7 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="stylepredictions.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>EstiLection</title>
 </head>
 
@@ -57,9 +58,12 @@
 
 
     <div class="images_map">
-        <img class="dep" id="img_dep" src="images/dep_nb.png" onmouseover="this.src='images/dep_couleur.png'" onmouseout="this.src='images/dep_nb.png'" onclick="afficherDeroulantDep()" alt="Images département">
-        <img class="reg" id="img_reg" src="images/reg_nb.png" onmouseover="this.src='images/reg_couleur.png'" onmouseout="this.src='images/reg_nb.png'" onclick="afficherDeroulantReg()" alt="Images région">
-        <img class="fr" id="img_fr" src="images/fr_nb.png" onmouseover="this.src='images/fr_couleur.png'" onmouseout="this.src='images/fr_nb.png'" onclick="afficherDeroulantFr()" alt="Images france">
+        <img class="dep" id="img_dep" src="images/dep_nb.png" onmouseover="this.src='images/dep_couleur.png'"
+            onmouseout="this.src='images/dep_nb.png'" onclick="afficherDeroulantDep()" alt="Images département">
+        <img class="reg" id="img_reg" src="images/reg_nb.png" onmouseover="this.src='images/reg_couleur.png'"
+            onmouseout="this.src='images/reg_nb.png'" onclick="afficherDeroulantReg()" alt="Images région">
+        <img class="fr" id="img_fr" src="images/fr_nb.png" onmouseover="this.src='images/fr_couleur.png'"
+            onmouseout="this.src='images/fr_nb.png'" onclick="afficherDeroulantFr()" alt="Images france">
     </div>
 
     <div class="section_departement" id="section_departement">
@@ -188,8 +192,13 @@
         <button class="button_dep" type="button" onclick="lancer_recherche_dep()">Lancez la recherche</button>
 
         <div>
-            <h2 id="graph_dep"> Graph élections départementales</h1>
+            <h1 id="graph_dep"> Graphe élections départementales</h1>
         </div>
+        
+        <div class="graphe">
+            <canvas id="myChart" width="1000" height="350"></canvas>
+        </div>
+    
 
     </div>
 
@@ -281,13 +290,147 @@
     <br><br><br> <br><br><br> <br><br><br> <br><br><br> <br><br><br> <br><br><br> <br><br><br> <br><br><br>
     <br><br><br> <br><br><br> <br><br><br> <br><br><br> <br><br><br> <br><br><br> <br><br><br> <br><br><br>
 
-
+    
     <script src="script_predictions.js"></script>
     <script src="script_accueil.js"></script>
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
     <script src="boutonremonter.js"></script>
-
+    
+    
 
 </body>
 
 </html>
+
+
+<script>
+    const DATA_COUNT = 7;
+    const NUMBER_CFG = { count: DATA_COUNT, max: 100 };
+
+    const labels = ['Canton 1', 'Canton 2', 'Canton 3', 'Canton 4', 'Canton 5', 'Canton 6', 'Canton 7','Canton 8', 'Canton 9', 'Canton 10', 'Canton 11', 'Canton 12', 'Canton 13', 'Canton 14','Canton 15', 'Canton 16', 'Canton 17', 'Canton 18', 'Canton 19', ];
+    const data = {
+        labels: labels,
+        datasets: [
+            {
+                label: 'BC-EXG',
+                data: [0, 10, 5, 2, 20, 30, 45],
+                backgroundColor: 'rgb(187, 0, 0)',
+            },
+            {
+                label: 'BC-FG',
+                data: [0, 10, 5, 2, 20, 30, 45],
+                backgroundColor: 'rgbrgb(221, 0, 0)',
+            },
+            {
+                label: 'BC-COM',
+                data: [0, 10, 5, 2, 20, 30, 45],
+                backgroundColor: 'rgb(221, 0, 0)',
+            },
+            {
+                label: 'BC-PG',
+                data: [0, 10, 5, 2, 20, 30, 45],
+                backgroundColor: 'rgb(245,142,187)',
+            },
+            {
+                label: 'BC-RDG',
+                data: [0, 10, 5, 2, 20, 30, 45],
+                backgroundColor: 'rgb(255, 209, 220)',
+            },
+            {
+                label: 'BC-UG',
+                data: [0, 10, 5, 2, 20, 30, 45],
+                backgroundColor: 'rgb(204, 102, 102)',
+            },
+            {
+                label: 'BC-VEC',
+                data: [0, 10, 5, 2, 20, 30, 45],
+                backgroundColor: 'rgb(0, 192, 0)',
+            },
+            {
+                label: 'BC-DVG',
+                data: [0, 10, 5, 2, 20, 30, 45],
+                backgroundColor: 'rgb(255, 192, 192)',
+            },
+            {
+                label: 'BC-SOC',
+                data: [0, 10, 5, 2, 20, 30, 45],
+                backgroundColor: 'rgb(255, 128, 128)',
+            },
+            {
+                label: 'BC-MDM',
+                data: [0, 10, 5, 2, 20, 30, 45],
+                backgroundColor: 'rgb(255, 153, 0)',
+            },
+            {
+                label: 'BC-UC',
+                data: [0, 10, 5, 2, 20, 30, 45],
+                backgroundColor: 'rgb(255, 235, 0)',
+            },
+            {
+                label: 'BC-DIV',
+                data: [0, 10, 5, 2, 20, 30, 45],
+                backgroundColor: 'rgb(238, 238, 238)',
+            },
+            {
+                label: 'BC-UD',
+                data: [0, 10, 5, 2, 20, 30, 45],
+                backgroundColor: 'rgb(135, 206, 250)',
+            },
+            {
+                label: 'BC-UDI',
+                data: [0, 10, 5, 2, 20, 30, 45],
+                backgroundColor: 'rgb(0, 255, 255)',
+            },
+            {
+                label: 'BC-DVD',
+                data: [0, 10, 5, 2, 20, 30, 45],
+                backgroundColor: 'rgb(173, 193, 253)',
+            },
+            {
+                label: 'BC-LR',
+                data: [0, 10, 5, 2, 20, 30, 45],
+                backgroundColor: 'rgb(0, 102, 204)',
+            },
+            {
+                label: 'BC-DLF',
+                data: [0, 10, 5, 2, 20, 30, 45],
+                backgroundColor: 'rgb(0, 130, 196)',
+            },
+            {
+                label: 'BC-RN',
+                data: [0, 10, 5, 2, 20, 30, 45],
+                backgroundColor: 'rgb(13, 55, 138)',
+            },
+            {
+                label: 'BC-EXD',
+                data: [0, 10, 5, 2, 20, 30, 45],
+                backgroundColor: 'rgb(64, 64, 64)',
+            },
+            
+        ]
+
+    };
+    const config = {
+        type: 'bar',
+        data: data,
+        options: {
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Chart.js Bar Chart - Stacked'
+                },
+            },
+            responsive: true,
+            scales: {
+                x: {
+                    stacked: true,
+                },
+                y: {
+                    stacked: true
+                }
+            }
+        }
+    };
+    var myChart = new Chart(document.getElementById('myChart'), config);
+
+</script>
