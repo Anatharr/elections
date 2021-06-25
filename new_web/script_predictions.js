@@ -154,7 +154,7 @@ function lancer_recherche_dep() {
             document.getElementById("tour_1").innerHTML = "<table>";
             for (i = 0; i < resultat_php.length; i++) {
                 document.getElementById("tour_1").innerHTML = "<tr>";
-                console.log(type(resultat_php[i]));
+                console.log(typeof(resultat_php[i]));
                 for (j = 0; j < resultat_php[i].length; j++) {
                     document.getElementById("tour_1").innerHTML = "<td>";
                     document.getElementById("tour_1").innerHTML = resultat_php[i][j];
