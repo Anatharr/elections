@@ -1,8 +1,5 @@
 <?php
 
-    error_reporting(E_ALL);
-    ini_set("display_errors", "On");
-
     function affiche_tour_1_departement($annee, $num_departement) {
 
         $result = array();
@@ -43,7 +40,7 @@
             default:
                 
                 //Si l'année n'est pas valide
-                $result['error'] = "Pas d'information pour l'année ".$annee.;
+                $result['error'] = "Pas d'information pour l'année ".$annee;
                 break;
             
         }
