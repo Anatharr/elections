@@ -151,7 +151,17 @@ function lancer_recherche_dep() {
                 console.log(obj.error);
             }
             console.log("ici");
-            document.getElementById("tour_1").innerHTML = resultat_php;
+            document.getElementById("tour_1").innerHTML = "<table>";
+            for (i = 0; i <= length(resultat_php[i][0]); i++) {
+                document.getElementById("tour_1").innerHTML = "<tr>";
+                for (j = 0; j <= length(resultat_php[0][j]); j++) {
+                    document.getElementById("tour_1").innerHTML = "<td>";
+                    document.getElementById("tour_1").innerHTML = resultat_php[i][j];
+                    document.getElementById("tour_1").innerHTML = "</td>";
+                }
+                document.getElementById("tour_1").innerHTML = "</tr>";
+            }
+            document.getElementById("tour_1").innerHTML = "</table>";
             console.log("là");
         },
 
