@@ -151,18 +151,18 @@ function lancer_recherche_dep() {
                 console.log(obj.error);
             }
             console.log("ici");
-            document.getElementById("tour_1").innerHTML = "<table>";
+            let chaine = "<table>";
             for (i = 0; i < resultat_php.length; i++) {
-                document.getElementById("tour_1").innerHTML = "<tr>";
-                console.log(typeof(resultat_php[i]));
+                chaine += "<tr>";
                 resultat_php[i].forEach(elem => {
-                    document.getElementById("tour_1").innerHTML = "<td>";
-                    document.getElementById("tour_1").innerHTML = elem;
-                    document.getElementById("tour_1").innerHTML = "</td>";
+                    chaine += "<td>";
+                    chaine += elem;
+                    chaine += "</td>";
                 })
-                document.getElementById("tour_1").innerHTML = "</tr>";
+                chaine += "</tr>";
             }
-            document.getElementById("tour_1").innerHTML = "</table>";
+            chaine += "</table>";
+            document.getElementById("tour_1").innerHTML = chaine;
             console.log("là");
         },
 
