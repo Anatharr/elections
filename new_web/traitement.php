@@ -45,9 +45,8 @@
         // Ferme la connexion
         pg_close($dbconn);
 
-        $result['result'] = array();
         while ($row = pg_fetch_row($res)) {
-            $result['result'][] = $row;
+            $result[] = $row;
         }
 
         //On retourne la requête
