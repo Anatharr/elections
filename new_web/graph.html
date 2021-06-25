@@ -23,20 +23,53 @@
 <script>
     const DATA_COUNT = 7;
     const NUMBER_CFG = { count: DATA_COUNT, max: 100 };
+    const labels = [];
 
-    const labels = ['Canton 1', 'Canton 2', 'Canton 3', 'Canton 4', 'Canton 5', 'Canton 6', 'Canton 7','Canton 8', 'Canton 9', 'Canton 10', 'Canton 11', 'Canton 12', 'Canton 13', 'Canton 14','Canton 15', 'Canton 16', 'Canton 17', 'Canton 18', 'Canton 19', ];
+    var couleur_parti_2015 = new Map();
+    couleur_parti_2015.set("BC-COM", "rgb(221, 0, 0)");
+    couleur_parti_2015.set("BC-EXG", "rgb(187, 0, 0)");
+    couleur_parti_2015.set("BC-FG", "rgb(221, 0, 0)");
+    couleur_parti_2015.set("BC-PG", "rgb(245,142,187)");
+    couleur_parti_2015.set("BC-RDG", "rgb(255, 209, 220)");
+    couleur_parti_2015.set("BC-UG", "rgb(204, 102, 102)");
+    couleur_parti_2015.set("BC-VEC", "rgb(0, 192, 0)");
+    couleur_parti_2015.set("BC-DVG", "rgb(255, 192, 192)");
+    couleur_parti_2015.set("BC-SOC", "rgb(255, 128, 128)");
+    couleur_parti_2015.set("BC-MDM", "rgb(255, 153, 0)");
+    couleur_parti_2015.set("BC-UC", "rgb(255, 235, 0)");
+    couleur_parti_2015.set("BC-DIV", "gb(238, 238, 238)");
+    couleur_parti_2015.set("BC-UD", "rgb(135, 206, 250)");
+    couleur_parti_2015.set("BC-UDI", "rgb(0, 255, 255)");
+    couleur_parti_2015.set("BC-DVD", "rgb(173, 193, 253)");
+    couleur_parti_2015.set("BC-LR", "rgb(0, 102, 204)");
+    couleur_parti_2015.set("BC-DLF", "rgb(0, 130, 196)");
+    couleur_parti_2015.set("BC-RN", "rgb(13, 55, 138)");
+    couleur_parti_2015.set("BC-EXD", "rgb(64, 64, 64)");
+
+
+
+
+    let parti_1; let_parti_2; let parti_3;
+
+    for(i=0; i< nbr_canton; i++)
+    let tab =  [0, 0, 0, 50, 20, 30, 45];
+
+    let nombre_canton =  10;
+
+    for (let i = 1; i < nombre_canton + 1; i++)
+        labels[i-1] = 'Canton ' + i;
     const data = {
         labels: labels,
         datasets: [
             {
-                label: 'BC-EXG',
-                data: [0, 10, 5, 2, 20, 30, 45],
-                backgroundColor: 'rgb(187, 0, 0)',
+                label: parti_1,
+                data:tab,
+                backgroundColor: couleur_parti_2015.get(parti_1),
             },
             {
                 label: 'BC-FG',
                 data: [0, 10, 5, 2, 20, 30, 45],
-                backgroundColor: 'rgbrgb(221, 0, 0)',
+                backgroundColor: 'rgb(221, 0, 0)',
             },
             {
                 label: 'BC-COM',

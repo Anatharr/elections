@@ -76,58 +76,43 @@ function afficherDeroulantFr () {
 /* RECUPERATION DE LA VALEUR CHOISIE DANS LES MENUS DEROULANTS */
 
 function recuperer_departement_annee () {
-    deroulant_dep_annee = document.getElementById("dep_annee_choix")
-    annee_dep = deroulant_dep_annee.options[deroulant_dep_annee.selectedIndex].text
+    deroulant_dep_annee = document.getElementById("dep_annee_choix");
+    annee_dep = deroulant_dep_annee.options[deroulant_dep_annee.selectedIndex].text;
+
+    /* ICI - VALUE ANNE DU DEPARTEMENT */
+    console.log(document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value);
 }
 
 function recuperer_region_annee () {
-    deroulant_reg_annee = document.getElementById("reg_annee_choix")
-    annee_reg = deroulant_reg_annee.options[deroulant_reg_annee.selectedIndex].text
+    deroulant_reg_annee = document.getElementById("reg_annee_choix");
+    annee_reg = deroulant_reg_annee.options[deroulant_reg_annee.selectedIndex].text;
+
+    /* ICI - VALUE ANNE DE LA REGION */
+    console.log(document.getElementById("reg_annee_choix").options[deroulant_reg_annee.selectedIndex].value);
 }
 
 function recuperer_departement () {
-    document.getElementById("graph_dep").textContent = "Graph élections départementales pour : "
+    document.getElementById("graph_dep").textContent = "Graph élections départementales pour : ";
     deroulant_dep = document.getElementById("dep_choix");
     texte = deroulant_dep.options[deroulant_dep.selectedIndex].text;
-    document.getElementById("graph_dep").textContent = document.getElementById("graph_dep").textContent + texte + " en " + annee_dep
+    document.getElementById("graph_dep").textContent = document.getElementById("graph_dep").textContent + texte + " en " + annee_dep;
+
+    /* ICI - VALUE DU DEPARTEMENT */
+    console.log(document.getElementById("dep_choix").options[deroulant_dep.selectedIndex].value);
 }
 
 function recuperer_region () {
-    document.getElementById("graph_reg").textContent = "Graph élections régionales pour : "
+    document.getElementById("graph_reg").textContent = "Graph élections régionales pour : ";
     deroulant_reg = document.getElementById("reg_choix");
     texte = deroulant_reg.options[deroulant_reg.selectedIndex].text;
-    document.getElementById("graph_reg").textContent = document.getElementById("graph_reg").textContent + texte + " en " + annee_reg
-}
+    document.getElementById("graph_reg").textContent = document.getElementById("graph_reg").textContent + texte + " en " + annee_reg;
 
-/* DECLARATION VARIABLES */
-
-var menuButton = document.querySelector('#menu-button');
-var menu = document.querySelector('#menu');
-
-/* OUVERTURE ET FERMETURE DU MENU BURGER */
-
-menuButton.addEventListener('click',function(){
-    document.getElementById("body").style.background = "images/fr_nb.png"
-    menu.classList.toggle('show-menu')
-    menuButton.classList.toggle('close')
-})
-
-
-/* RECHERCHE ET CONSTRUCTION GRAPH */
-
-function lancer_recherche_dep() {
-    let scrollDiv = document.getElementById("graph_dep").offsetTop;
-    window.scrollTo({ top: scrollDiv, behavior: 'smooth'});
-}
-
-function lancer_recherche_reg() {
-    let scrollDiv = document.getElementById("graph_reg").offsetTop;
-    window.scrollTo({ top: scrollDiv, behavior: 'smooth'});
+    /* ICI - VALUE DE LA REGION */
+    console.log(document.getElementById("reg_choix").options[deroulant_reg.selectedIndex].value);
 }
 
 
-
-/* TEST FONCTION */
+/* MENU DEROULANT BLOQUANT */
 
 function menu_deroulant_bloquant() {
     let checkbox = document.getElementById("checkbox_burger");
@@ -141,3 +126,28 @@ function menu_deroulant_bloquant() {
         bool_deroulant_bloquant = false;
     }
 }
+
+
+
+/* RECHERCHE ET CONSTRUCTION GRAPH */
+
+function lancer_recherche_dep() {
+    let scrollDiv = document.getElementById("graph_dep").offsetTop;
+    window.scrollTo({ top: scrollDiv, behavior: 'smooth'});
+    var requestURL = 'http://176.135.226.148:180/predictions.php';
+
+    var request = new XMLHttpRequest();
+    request.open('GET', requestURL);
+
+
+
+}
+
+
+
+function lancer_recherche_reg() {
+    let scrollDiv = document.getElementById("graph_reg").offsetTop;
+    window.scrollTo({ top: scrollDiv, behavior: 'smooth'});
+}
+
+
