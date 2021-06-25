@@ -152,9 +152,10 @@ function lancer_recherche_dep() {
             }
             console.log("ici");
             document.getElementById("tour_1").innerHTML = "<table>";
-            for (i = 0; i <= resultat_php.length; i++) {
+            for (i = 0; i < resultat_php.length; i++) {
                 document.getElementById("tour_1").innerHTML = "<tr>";
-                for (j = 0; j <= resultat_php[i].length; j++) {
+                console.log(type(resultat_php[i]));
+                for (j = 0; j < resultat_php[i].length; j++) {
                     document.getElementById("tour_1").innerHTML = "<td>";
                     document.getElementById("tour_1").innerHTML = resultat_php[i][j];
                     document.getElementById("tour_1").innerHTML = "</td>";
