@@ -96,9 +96,16 @@ function recuperer_departement () {
     deroulant_dep = document.getElementById("dep_choix");
     texte = deroulant_dep.options[deroulant_dep.selectedIndex].text;
     document.getElementById("graph_dep").textContent = document.getElementById("graph_dep").textContent + texte + " en " + annee_dep;
+<<<<<<< HEAD
 
     /* ICI - VALUE DU DEPARTEMENT */
     console.log(document.getElementById("dep_choix").options[deroulant_dep.selectedIndex].value);
+=======
+    jQuery.ajax({
+        type:"POST";
+
+    })
+>>>>>>> bde2e58ec639ba53b8c70d1671d08a43c214a2b0
 }
 
 function recuperer_region () {
