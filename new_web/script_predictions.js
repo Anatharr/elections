@@ -138,6 +138,9 @@ function lancer_recherche_dep() {
     var request = new XMLHttpRequest();
     request.open('GET', requestURL);
 
+    console.log(document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value);
+    console.log(document.getElementById("dep_choix").options[deroulant_dep.selectedIndex].value);
+
     jQuery.ajax({
         type: "POST",
         url: 'traitement.php',
