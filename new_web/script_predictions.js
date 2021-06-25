@@ -91,7 +91,10 @@ function recuperer_departement () {
     texte = deroulant_dep.options[deroulant_dep.selectedIndex].text;
     document.getElementById("graph_dep").textContent = document.getElementById("graph_dep").textContent + texte + " en " + annee_dep;
     jQuery.ajax({
-        type:"POST";
+        type:"POST",
+        url:'traitement.php',
+        dataType: 'json',
+        data: {functioname: 'affiche_tour_1', arguments: [document.]}
 
     })
 }
