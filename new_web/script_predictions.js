@@ -147,7 +147,7 @@ function lancer_recherche_dep() {
         success: function(obj, textstatus) {
             if (!('error' in obj)) {
                 resultat_php = obj.result;
-                console.log(resultat_php);
+                console.log(json.decode(resultat_php));
             } else {
                 console.log(obj.error);
             }
