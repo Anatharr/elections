@@ -7,7 +7,7 @@
         or die('Connexion impossible : ' . pg_last_error());
          
         // Exécution de la requête SQL
-        $query = pg_prepare($dbconn, "", "SELECT code_canton, nom_canton, nuance_liste_1, voix_pourcent_ins_liste_1, nuance_liste_2, voix_pourcent_ins_liste_2, nuance_liste_3, voix_pourcent_ins_liste_3, nuance_liste_4, voix_pourcent_ins_liste_4, nuance_liste_5, voix_pourcent_ins_liste_5, nuance_liste_6, voix_pourcent_ins_liste_6, nuance_liste_7, voix_pourcent_ins_liste_7, nuance_liste_8, voix_pourcent_ins_liste_8, nuance_liste_9, voix_pourcent_ins_liste_9, nuance_liste_10, voix_pourcent_ins_liste_10, nuance_liste_11, voix_pourcent_ins_liste_11, nuance_liste_12, voix_pourcent_ins_liste_12 FROM public.t1_$1_cantons WHERE num_departement='$2';");
+        $query = pg_prepare($dbconn, "", "SELECT code_canton, nom_canton, nuance_liste_1, voix_pourcent_ins_liste_1, nuance_liste_2, voix_pourcent_ins_liste_2, nuance_liste_3, voix_pourcent_ins_liste_3, nuance_liste_4, voix_pourcent_ins_liste_4, nuance_liste_5, voix_pourcent_ins_liste_5, nuance_liste_6, voix_pourcent_ins_liste_6, nuance_liste_7, voix_pourcent_ins_liste_7, nuance_liste_8, voix_pourcent_ins_liste_8, nuance_liste_9, voix_pourcent_ins_liste_9, nuance_liste_10, voix_pourcent_ins_liste_10, nuance_liste_11, voix_pourcent_ins_liste_11, nuance_liste_12, voix_pourcent_ins_liste_12 FROM public.t1_($1)_cantons WHERE num_departement='($2)';");
         $result = pg_query_params($query, [$annee, $num_departement]) or die('Échec de la requête : ' . pg_last_error());
 
         // Ferme la connexion
