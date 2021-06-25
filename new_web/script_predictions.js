@@ -147,11 +147,12 @@ function lancer_recherche_dep() {
         success: function(obj, textstatus) {
             if (!('error' in obj)) {
                 resultat_php = obj.result;
-                console.log(length(resultat_php));
             } else {
                 console.log(obj.error);
             }
+            console.log(length(resultat_php));
         }
+
 
     })
 
