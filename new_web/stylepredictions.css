@@ -627,6 +627,7 @@ h2 {
     color: rgb(60, 60, 60);
 }
 
+
 /* TABLEAU TOUR 1 */
 
 #container_php {
@@ -806,28 +807,28 @@ h2 {
     background: hsla(0, 0%, 0%, 1);
 }
 
-#votre_id1:target~.cadre_diapo .interieur_diapo {
+#img1:target~.cadre_diapo .interieur_diapo {
     transform: translatex(0)
 }
 
 
 /*image 1*/
 
-#votre_id2:target~.cadre_diapo .interieur_diapo {
+#img2:target~.cadre_diapo .interieur_diapo {
     transform: translatex(-25%)
 }
 
 
 /*image 2*/
 
-#votre_id3:target~.cadre_diapo .interieur_diapo {
+#img3:target~.cadre_diapo .interieur_diapo {
     transform: translatex(-50%)
 }
 
 
 /*image 3*/
 
-#votre_id4:target~.cadre_diapo .interieur_diapo {
+#img4:target~.cadre_diapo .interieur_diapo {
     transform: translatex(-75%)
 }
 
@@ -898,8 +899,9 @@ h2 {
 
 /*************************/
 
-.graphe{
+.graphe {
     position: relative
 }
+
 
 /*** TEST BOUTON ***/

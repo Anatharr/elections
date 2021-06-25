@@ -13,6 +13,8 @@ let section_france = document.getElementById("section_france");
 
 var bool_deroulant_bloquant;
 
+var resultat_php;
+
 
 
 /* RESET DES DIFFERENTS AFFICHAGES */
@@ -24,14 +26,13 @@ section_france.style.display = "none";
 
 /* AFFICHAGE DES MENUS DEROULANTS */
 
-function afficherDeroulantDep () {
-    if(!bool_deroulant_bloquant) {
+function afficherDeroulantDep() {
+    if (!bool_deroulant_bloquant) {
         let scrollDiv = document.getElementById("texte_choix_echelle").offsetTop;
-        window.scrollTo({ top: scrollDiv, behavior: 'smooth'});
-        if(getComputedStyle(section_departement).display != "none"){
+        window.scrollTo({ top: scrollDiv, behavior: 'smooth' });
+        if (getComputedStyle(section_departement).display != "none") {
             section_departement.style.display = "none"
-        } 
-        else {
+        } else {
             section_departement.style.display = "block"
             section_region.style.display = "none"
             section_france.style.display = "none"
@@ -40,18 +41,17 @@ function afficherDeroulantDep () {
             document.getElementById("dep_annee_choix").value = "Default"
 
         }
-    }        
-    
+    }
+
 }
 
-function afficherDeroulantReg () {
-    if(!bool_deroulant_bloquant) {
+function afficherDeroulantReg() {
+    if (!bool_deroulant_bloquant) {
         let scrollDiv = document.getElementById("texte_choix_echelle").offsetTop;
-        window.scrollTo({ top: scrollDiv, behavior: 'smooth'});
-        if(getComputedStyle(section_region).display != "none"){
+        window.scrollTo({ top: scrollDiv, behavior: 'smooth' });
+        if (getComputedStyle(section_region).display != "none") {
             section_region.style.display = "none"
-        } 
-        else {
+        } else {
             section_region.style.display = "block"
             section_departement.style.display = "none"
             section_france.style.display = "none"
@@ -62,10 +62,10 @@ function afficherDeroulantReg () {
     }
 }
 
-function afficherDeroulantFr () {
-    if(!bool_deroulant_bloquant) {
+function afficherDeroulantFr() {
+    if (!bool_deroulant_bloquant) {
         let scrollDiv = document.getElementById("texte_choix_echelle").offsetTop;
-        window.scrollTo({ top: scrollDiv, behavior: 'smooth'});
+        window.scrollTo({ top: scrollDiv, behavior: 'smooth' });
         section_departement.style.display = "none"
         section_region.style.display = "none"
         section_france.style.display = "block"
@@ -75,7 +75,7 @@ function afficherDeroulantFr () {
 
 /* RECUPERATION DE LA VALEUR CHOISIE DANS LES MENUS DEROULANTS */
 
-function recuperer_departement_annee () {
+function recuperer_departement_annee() {
     deroulant_dep_annee = document.getElementById("dep_annee_choix");
     annee_dep = deroulant_dep_annee.options[deroulant_dep_annee.selectedIndex].text;
 
@@ -83,7 +83,7 @@ function recuperer_departement_annee () {
     console.log(document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value);
 }
 
-function recuperer_region_annee () {
+function recuperer_region_annee() {
     deroulant_reg_annee = document.getElementById("reg_annee_choix");
     annee_reg = deroulant_reg_annee.options[deroulant_reg_annee.selectedIndex].text;
 
@@ -91,7 +91,7 @@ function recuperer_region_annee () {
     console.log(document.getElementById("reg_annee_choix").options[deroulant_reg_annee.selectedIndex].value);
 }
 
-function recuperer_departement () {
+function recuperer_departement() {
     document.getElementById("graph_dep").textContent = "Graph élections départementales pour : ";
     deroulant_dep = document.getElementById("dep_choix");
     texte = deroulant_dep.options[deroulant_dep.selectedIndex].text;
@@ -100,15 +100,23 @@ function recuperer_departement () {
     /* ICI - VALUE DU DEPARTEMENT */
     console.log(document.getElementById("dep_choix").options[deroulant_dep.selectedIndex].value);
     jQuery.ajax({
-        type:"POST",
-        url:'traitement.php',
+        type: "POST",
+        url: 'traitement.php',
         dataType: 'json',
-        data: {functioname: 'affiche_tour_1', arguments: [document.]}
+        data: { functioname: 'affiche_tour_1_departement', arguments: [document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value, document.getElementById("dep_choix").options[deroulant_dep.selectedIndex].value] },
+
+        success: function(obj, textstatus) {
+            if (!('error' in obj)) {
+                resultat_php = obj.result;
+            } else {
+                console.log(obj.error);
+            }
+        }
 
     })
 }
 
-function recuperer_region () {
+function recuperer_region() {
     document.getElementById("graph_reg").textContent = "Graph élections régionales pour : ";
     deroulant_reg = document.getElementById("reg_choix");
     texte = deroulant_reg.options[deroulant_reg.selectedIndex].text;
@@ -124,12 +132,11 @@ function recuperer_region () {
 function menu_deroulant_bloquant() {
     let checkbox = document.getElementById("checkbox_burger");
     let body = document.getElementById("body_id");
-    if(checkbox.checked) {
-        body.style.overflowY="hidden";
+    if (checkbox.checked) {
+        body.style.overflowY = "hidden";
         bool_deroulant_bloquant = true;
-    }
-    else {
-        body.style.overflowY="visible";
+    } else {
+        body.style.overflowY = "visible";
         bool_deroulant_bloquant = false;
     }
 }
@@ -140,7 +147,7 @@ function menu_deroulant_bloquant() {
 
 function lancer_recherche_dep() {
     let scrollDiv = document.getElementById("graph_dep").offsetTop;
-    window.scrollTo({ top: scrollDiv, behavior: 'smooth'});
+    window.scrollTo({ top: scrollDiv, behavior: 'smooth' });
     var requestURL = 'http://176.135.226.148:180/predictions.php';
 
     var request = new XMLHttpRequest();
@@ -154,7 +161,5 @@ function lancer_recherche_dep() {
 
 function lancer_recherche_reg() {
     let scrollDiv = document.getElementById("graph_reg").offsetTop;
-    window.scrollTo({ top: scrollDiv, behavior: 'smooth'});
+    window.scrollTo({ top: scrollDiv, behavior: 'smooth' });
 }
-
-
