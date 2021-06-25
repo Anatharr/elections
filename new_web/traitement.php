@@ -13,41 +13,42 @@
 
                 // Exécution de la requête SQL sécurisée
                 $query = "SELECT code_canton, nom_canton, nuance_liste_1, voix_pourcent_ins_liste_1, nuance_liste_2, voix_pourcent_ins_liste_2, nuance_liste_3, voix_pourcent_ins_liste_3, nuance_liste_4, voix_pourcent_ins_liste_4, nuance_liste_5, voix_pourcent_ins_liste_5, nuance_liste_6, voix_pourcent_ins_liste_6, nuance_liste_7, voix_pourcent_ins_liste_7, nuance_liste_8, voix_pourcent_ins_liste_8, nuance_liste_9, voix_pourcent_ins_liste_9, nuance_liste_10, voix_pourcent_ins_liste_10, nuance_liste_11, voix_pourcent_ins_liste_11, nuance_liste_12, voix_pourcent_ins_liste_12 FROM public.t1_2008_cantons WHERE num_departement=$1;";
-                $result['result'] = pg_query_params($dbconn, $query, array($num_departement)) or die('Échec de la requête : ' . pg_last_error());
                 break;
 
             case 2011:
 
                 // Exécution de la requête SQL sécurisée
                 $query = "SELECT code_canton, nom_canton, nuance_liste_1, voix_pourcent_ins_liste_1, nuance_liste_2, voix_pourcent_ins_liste_2, nuance_liste_3, voix_pourcent_ins_liste_3, nuance_liste_4, voix_pourcent_ins_liste_4, nuance_liste_5, voix_pourcent_ins_liste_5, nuance_liste_6, voix_pourcent_ins_liste_6, nuance_liste_7, voix_pourcent_ins_liste_7, nuance_liste_8, voix_pourcent_ins_liste_8, nuance_liste_9, voix_pourcent_ins_liste_9, nuance_liste_10, voix_pourcent_ins_liste_10, nuance_liste_11, voix_pourcent_ins_liste_11, nuance_liste_12, voix_pourcent_ins_liste_12 FROM public.t1_2011_cantons WHERE num_departement=$1;";
-                $result['result'] = pg_query_params($dbconn, $query, array($num_departement)) or die('Échec de la requête : ' . pg_last_error());
                 break;
 
             case 2015:
 
                 // Exécution de la requête SQL sécurisée
                 $query = "SELECT code_canton, nom_canton, nuance_liste_1, voix_pourcent_ins_liste_1, nuance_liste_2, voix_pourcent_ins_liste_2, nuance_liste_3, voix_pourcent_ins_liste_3, nuance_liste_4, voix_pourcent_ins_liste_4, nuance_liste_5, voix_pourcent_ins_liste_5, nuance_liste_6, voix_pourcent_ins_liste_6, nuance_liste_7, voix_pourcent_ins_liste_7, nuance_liste_8, voix_pourcent_ins_liste_8, nuance_liste_9, voix_pourcent_ins_liste_9, nuance_liste_10, voix_pourcent_ins_liste_10, nuance_liste_11, voix_pourcent_ins_liste_11, nuance_liste_12, voix_pourcent_ins_liste_12 FROM public.t1_2015_cantons WHERE num_departement=$1;";
-                $result['result'] = pg_query_params($dbconn, $query, array($num_departement)) or die('Échec de la requête : ' . pg_last_error());
                 break;
 
             case 2021:
 
                 // Exécution de la requête SQL sécurisée
                 $query = "SELECT code_canton, nom_canton, nuance_liste_1, voix_pourcent_ins_liste_1, nuance_liste_2, voix_pourcent_ins_liste_2, nuance_liste_3, voix_pourcent_ins_liste_3, nuance_liste_4, voix_pourcent_ins_liste_4, nuance_liste_5, voix_pourcent_ins_liste_5, nuance_liste_6, voix_pourcent_ins_liste_6, nuance_liste_7, voix_pourcent_ins_liste_7, nuance_liste_8, voix_pourcent_ins_liste_8, nuance_liste_9, voix_pourcent_ins_liste_9, nuance_liste_10, voix_pourcent_ins_liste_10, nuance_liste_11, voix_pourcent_ins_liste_11, nuance_liste_12, voix_pourcent_ins_liste_12 FROM public.t1_2021_cantons WHERE num_departement=$1;";
-                $result['result'] = pg_query_params($dbconn, $query, array($num_departement)) or die('Échec de la requête : ' . pg_last_error());
                 break;
 
             default:
                 
                 //Si l'année n'est pas valide
                 $result['error'] = "Pas d'information pour l'année ".$annee;
-                break;
+                return $result;
             
         }
-
+        $res = pg_query_params($dbconn, $query, array($num_departement)) or die('Échec de la requête : ' . pg_last_error());
 
         // Ferme la connexion
         pg_close($dbconn);
+
+        $result['result'] = array();
+        while ($row = pg_fetch_row($res)) {
+            $result['result'][] = $row;
+        }
 
         //On retourne la requête
         return $result;
