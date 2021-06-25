@@ -150,7 +150,9 @@ function lancer_recherche_dep() {
             } else {
                 console.log(obj.error);
             }
-            console.log(json.decode(resultat_php));
+            console.log("ici");
+            document.write(resultat_php);
+            console.log("là");
         },
 
         error: function(chr, ajaxOptions, thrownError) {
