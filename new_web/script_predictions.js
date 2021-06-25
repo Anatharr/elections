@@ -145,14 +145,16 @@ function lancer_recherche_dep() {
         data: { functionname: 'affiche_tour_1_departement', arguments: [document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value, document.getElementById("dep_choix").options[deroulant_dep.selectedIndex].value] },
 
         success: function(obj, textstatus) {
-            console.log(document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value);
-            console.log(document.getElementById("dep_choix").options[deroulant_dep.selectedIndex].value);
             if (!('error' in obj)) {
                 resultat_php = obj.result;
             } else {
                 console.log(obj.error);
             }
             console.log(length(resultat_php));
+        },
+
+        error: function(chr, ajaxOptions, thrownError) {
+            alert(chr.responseText); //Ce code affichera le message d'erreur, ici Message d'erreur.
         }
 
 
