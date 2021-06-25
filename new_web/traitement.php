@@ -13,6 +13,8 @@
         // Ferme la connexion
         pg_close($dbconn);
 
+        echo "Ca a marché zebi";
+
         //On retourne la requête
         return $result;
     }
