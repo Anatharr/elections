@@ -35,7 +35,6 @@
                     $resultat_requete['error'] = "Erreur d'argument !";
                 }
                 else {
-                    echo "ici";
                     $resultat_requete['result'] = affiche_tour_1_departement( intval($_POST['arguments'][0]), strval($_POST['arguments'][1]) );
                 }
                 break;

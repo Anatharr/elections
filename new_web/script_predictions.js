@@ -108,6 +108,7 @@ function recuperer_departement() {
         success: function(obj, textstatus) {
             if (!('error' in obj)) {
                 resultat_php = obj.result;
+                document.write(resultat_php);
             } else {
                 console.log(obj.error);
             }
