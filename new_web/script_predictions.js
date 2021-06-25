@@ -151,7 +151,7 @@ function lancer_recherche_dep() {
                 console.log(obj.error);
             }
             console.log("ici");
-            console.log(JSON.parse(resultat_php));
+            console.log(resultat_php);
             console.log("là");
         },
 
