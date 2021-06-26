@@ -182,7 +182,11 @@ function lancer_recherche_dep() {
             chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
             chaine += "<th class='tour1_colonne_dep'>% voix/inscrits</th>";
             chaine += "</tr>";
+            let j;
+            var resultat_php_tab = new Array(resultat_php.length);
             for (i = 0; i < resultat_php.length; i++) {
+                resultat_php_tab[i] = [];
+                j = 0;
                 chaine += "<tr>";
                 resultat_php[i].forEach(elem => {
                     chaine += "<td class='tour1_colonne_dep'>";
@@ -190,21 +194,13 @@ function lancer_recherche_dep() {
                         chaine += "";
                     } else { chaine += elem; }
                     chaine += "</td>";
+                    resultat_php_tab[i][j] = elem;
+                    j++;
                 })
                 chaine += "</tr>";
             }
             chaine += "</table>";
             document.getElementById("tour_1").innerHTML = chaine;
-            let j;
-            var resultat_php_tab = new Array(resultat_php.length)
-            for (i = 0; i < resultat_php.length; i++) {
-                resultat_php_tab[i] = [];
-                j = 0;
-                resultat_php[i].forEach(elem => {
-                    resultat_php_tab[i][j] = elem;
-                    j++;
-                })
-            }
             console.table(resultat_php_tab);
 
             /* Traitement des données du tableau, création d'un dictionnaire regroupant les cantons et les scores par partis */
