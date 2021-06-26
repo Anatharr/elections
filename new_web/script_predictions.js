@@ -361,10 +361,7 @@ function affichageGrapheDeptT1(resultat_php) {
                     }
                 }
             }
-            var tab = new Array(nombre_nuances);
-            for (var i = 0; i < nombre_nuances; i++) {
-                tab[i] = new Array(nombre_canton);
-            }
+         
             for (j = 0; j < nombre_nuances; j++) {
                 for (i = 0; i < nombre_canton; i++) {
                     tab[j][i] = obj_dept.cantons[i].parti[j].score;
@@ -451,7 +448,129 @@ function affichageGrapheDeptT1(resultat_php) {
 
         case "2011":
             nombre_nuances = 16;
+            for (k = 0; k < nombre_canton; k++) {
+
+
+                obj_dept.cantons[k] = { name: resultat_php[k][1], parti: new Array(nombre_nuances) };
+
+            }
+
+            for (i = 0; i < resultat_php.length; i++) {
+
+                obj_dept.cantons[i].parti[0] = { name: 'BC-EXG', score: 0 };
+                obj_dept.cantons[i].parti[1] = { name: 'BC-COM', score: 0 };
+                obj_dept.cantons[i].parti[2] = { name: 'BC-RDG', score: 0 };
+                obj_dept.cantons[i].parti[3] = { name: 'BC-VEC', score: 0 };
+                obj_dept.cantons[i].parti[4] = { name: 'BC-DVG', score: 0 };
+                obj_dept.cantons[i].parti[5] = { name: 'BC-ECO', score: 0 };
+                obj_dept.cantons[i].parti[6] = { name: 'BC-SOC', score: 0 };
+                obj_dept.cantons[i].parti[7] = { name: 'BC-MDM', score: 0 };
+                obj_dept.cantons[i].parti[10] = { name: 'BC-NC', score: 0 };
+                obj_dept.cantons[i].parti[8] = { name: 'BC-DIV', score: 0 };
+                obj_dept.cantons[i].parti[9] = { name: 'BC-DVD', score: 0 };
+                obj_dept.cantons[i].parti[11] = { name: 'BC-UMP', score: 0 };
+                obj_dept.cantons[i].parti[12] = { name: 'BC-FN', score: 0 };
+                obj_dept.cantons[i].parti[13] = { name: 'BC-EXD', score: 0 };
+                obj_dept.cantons[i].parti[14] = { name: 'BC-REG', score: 0 };
+
+
+
+                for (j = 3; j < resultat_php[i].length; j += 2) {
+                    if (resultat_php[i][j] != null) {
+                        for (k = 0; k < nombre_nuances; k++) {
+                            if (obj_dept.cantons[i].parti[k].name == resultat_php[i][j - 1]) {
+                                obj_dept.cantons[i].parti[k].score += resultat_php[i][j];
+                            }
+                        }
+
+                    }
+                }
+            }
+         
+            for (j = 0; j < nombre_nuances; j++) {
+                for (i = 0; i < nombre_canton; i++) {
+                    tab[j][i] = obj_dept.cantons[i].parti[j].score;
+                }
+            }
+            datasets_année = [{
+                label: 'BC-EXG',
+                data: tab[0],
+                backgroundColor: 'rgb(187, 0, 0)',
+            },
+            {
+                label: 'BC-COM',
+                data: tab[1],
+                backgroundColor: 'rgb(221, 0, 0)',
+            },
+            {
+                label: 'BC-RDG',
+                data: tab[2],
+                backgroundColor: 'rgb(255, 209, 220)',
+            },
+            {
+                label: 'BC-VEC',
+                data: tab[3],
+                backgroundColor: 'rgb(0, 192, 0)',
+            },
+            {
+                label: 'BC-DVG',
+                data: tab[4],
+                backgroundColor: 'rgb(255, 192, 192)',
+            },
+            {
+                label: 'BC-ECO',
+                data: tab[5],
+                backgroundColor: 'rgb(0, 192, 0)',
+            },
+            {
+                label: 'BC-SOC',
+                data: tab[6],
+                backgroundColor: 'rgb(255, 128, 128)',
+            },
+            {
+                label: 'BC-MDM',
+                data: tab[7],
+                backgroundColor: 'rgb(255, 153, 0)',
+            },
+            {
+                label: 'M-NC',
+                data: tab[8],
+                backgroundColor: 'rgb(255, 235, 0)',
+            },
+            {
+                label: 'BC-DIV',
+                data: tab[9],
+                backgroundColor: 'rgb(238, 238, 238)',
+            },
+
+            {
+                label: 'BC-DVD',
+                data: tab[10],
+                backgroundColor: 'rgb(173, 193, 253)',
+            },
+            {
+                label: 'BC-UMP',
+                data: tab[11],
+                backgroundColor: 'rgb(0, 102, 204)',
+            },
+            {
+                label: 'BC-FN',
+                data: tab[12],
+                backgroundColor: 'rgb(13, 55, 138)',
+            },
+            {
+                label: 'BC-EXD',
+                data: tab[13],
+                backgroundColor: 'rgb(64, 64, 64)',
+            },
+            {
+                label: 'BC-REG',
+                data: tab[14],
+                backgroundColor: 'rgb(64, 64, 64)',
+            },
+            ]
             break;
+            
 
         case "2015":
             nombre_nuances = 19;
