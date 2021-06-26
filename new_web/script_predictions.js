@@ -277,7 +277,7 @@ function lancer_recherche_dep() {
             }
 
             console.log(obj_dept);
-            
+
             /*** Création tab contenant les data de chaque partie par canton */
 
             var tab = new Array(nombre_nuances);
@@ -417,8 +417,8 @@ function lancer_recherche_dep() {
                 }
             };
 
-            var chainegraph = '<canvas id="myChart" width="1000" height="350"></canvas>';
-            document.getElementById("graphe").innerHTML = chainegraph;
+            
+            document.getElementById("graphe").innerHTML = "<canvas id=\"myChart\" width=\"1000\" height=\"350\"></canvas>";
             var myChart = new Chart(document.getElementById('myChart'), config);
 
         },
