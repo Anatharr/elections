@@ -171,10 +171,10 @@ function lancer_recherche_dep() {
             var obj_dept = new Object();
             let nombre_canton = resultat_php.length;
             obj_dept.name = document.getElementById("dep_choix").options[deroulant_dep.selectedIndex].value;
-
-            obj_dept.canton = [nombre_canton];
+            console.log(obj_dept);
+            obj_dept.canton = new Arr
             for (i = 0; i < nombre_canton; i++) {
-                obj_dept.canton[i].parti = [nombre_nuances];
+                obj_dept.canton[i].parti.length = nombre_nuances;
             }
 
             for (i = 0; i < resultat_php.length; i++) {
