@@ -418,7 +418,7 @@ function lancer_recherche_dep() {
             };
 
             
-            document.getElementById("graphe").innerHTML = "<canvas id=\"myChart\" width=\"1000\" height=\"350\"></canvas>";
+            document.getElementById("graphe_t1").innerHTML = "<canvas id=\"myChart\" width=\"1000\" height=\"350\"></canvas>";
             var myChart = new Chart(document.getElementById('myChart'), config);
 
         },
