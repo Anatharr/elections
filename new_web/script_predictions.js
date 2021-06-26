@@ -200,8 +200,8 @@ function lancer_recherche_dep() {
             let j = 0;
             for (i = 0; i < resultat_php.length; i++) {
                 resultat_php[i].forEach(elem => {
-                    resultat_php_tab[i][j] = new Array();
-                    resultat_php_tab[i][j] = elem;
+                    resultat_php_tab[i] = new Array();
+                    resultat_php_tab[i] = elem;
                     j++;
                 })
             }
