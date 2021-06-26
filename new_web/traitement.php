@@ -21,7 +21,7 @@
             case 2011:
 
                 // Exécution de la requête SQL sécurisée
-                $query = "SELECT code_canton, nom_canton, nuance_liste_1, voix_pourcent_ins_liste_1, nuance_liste_2, voix_pourcent_ins_liste_2, nuance_liste_3, voix_pourcent_ins_liste_3, nuance_liste_4, voix_pourcent_ins_liste_4, nuance_liste_5, voix_pourcent_ins_liste_5, nuance_liste_6, voix_pourcent_ins_liste_6, nuance_liste_7, voix_pourcent_ins_liste_7, nuance_liste_8, voix_pourcent_ins_liste_8, nuance_liste_9, voix_pourcent_ins_liste_9, nuance_liste_10, voix_pourcent_ins_liste_10, nuance_liste_11, voix_pourcent_ins_liste_11, nuance_liste_12, voix_pourcent_ins_liste_12 FROM public.t1_2011_cantons WHERE num_departement=$1;";
+                $query = "SELECT code_canton, nom_canton, nuance_liste_1, voix_pourcent_exp_liste_1, nuance_liste_2, voix_pourcent_exp_liste_2, nuance_liste_3, voix_pourcent_exp_liste_3, nuance_liste_4, voix_pourcent_exp_liste_4, nuance_liste_5, voix_pourcent_exp_liste_5, nuance_liste_6, voix_pourcent_exp_liste_6, nuance_liste_7, voix_pourcent_exp_liste_7, nuance_liste_8, voix_pourcent_exp_liste_8, nuance_liste_9, voix_pourcent_exp_liste_9, nuance_liste_10, voix_pourcent_exp_liste_10, nuance_liste_11, voix_pourcent_exp_liste_11, nuance_liste_12, voix_pourcent_exp_liste_12, nuance_liste_13, voix_pourcent_exp_liste_13 FROM public.t1_2011_cantons WHERE num_departement=$1;";
                 break;
 
             case 2015:
@@ -70,13 +70,13 @@
             case 2008:
 
                 // Exécution de la requête SQL sécurisée
-                $query = "SELECT code_canton, nom_canton, nuance_liste_1, voix_pourcent_ins_liste_1, nuance_liste_2, voix_pourcent_ins_liste_2, nuance_liste_3, voix_pourcent_ins_liste_3 FROM public.t1_2008_cantons WHERE num_departement=$1;";
+                $query = "SELECT code_canton, nom_canton, nuance_liste_1, voix_pourcent_ins_liste_1, nuance_liste_2, voix_pourcent_ins_liste_2, nuance_liste_3, voix_pourcent_ins_liste_3 FROM public.t2_2008_cantons WHERE num_departement=$1;";
                 break;
 
             case 2011:
 
                 // Exécution de la requête SQL sécurisée
-                $query = "SELECT code_canton, nom_canton, nuance_liste_1, voix_pourcent_ins_liste_1, nuance_liste_2, voix_pourcent_ins_liste_2, nuance_liste_3, voix_pourcent_ins_liste_3 FROM public.t1_2011_cantons WHERE num_departement=$1;";
+                $query = "SELECT code_canton, nom_canton, nuance_liste_1, voix_pourcent_exp_liste_1, nuance_liste_2, voix_pourcent_exp_liste_2, nuance_liste_3, voix_pourcent_exp_liste_3 FROM public.t2_2011_cantons WHERE num_departement=$1;";
                 break;
 
             case 2015:
@@ -88,7 +88,7 @@
             case 2021:
 
                 // Exécution de la requête SQL sécurisée
-                $query = "SELECT code_canton, nom_canton, nuance_liste_1, voix_pourcent_ins_liste_1, nuance_liste_2, voix_pourcent_ins_liste_2, nuance_liste_3, voix_pourcent_ins_liste_3 FROM public.t1_2021_cantons WHERE num_departement=$1;";
+                $query = "SELECT code_canton, nom_canton, nuance_liste_1, voix_pourcent_ins_liste_1, nuance_liste_2, voix_pourcent_ins_liste_2, nuance_liste_3, voix_pourcent_ins_liste_3 FROM public.t2_2021_cantons WHERE num_departement=$1;";
                 break;
 
             default:

@@ -75,6 +75,8 @@
         <div class="deroulant_dep_annee">
             <select name="dep_annee" id="dep_annee_choix" onchange="recuperer_departement_annee()">
                 <option value="Default"> --- Année --- </option>
+                <option value="2008">2008</option>
+                <option value="2011">2011</option>
                 <option value="2015">2015</option>
                 <option value="2021">2021</option>
             </select>
