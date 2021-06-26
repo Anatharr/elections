@@ -168,10 +168,14 @@ function lancer_recherche_dep() {
             /* Traitement des données du tableau, création d'un dictionnaire regroupant les cantons et les scores par partis */
             let obj_dept = {};
             obj_dept.name = document.getElementById("dep_choix").options[deroulant_dep.selectedIndex].value;
+            
+            for(i=0; i < nombre_cantons; i++){
+                obj_dept.canton[i] = [];
+            }
 
             for (i = 0; i < resultat_php.length; i++) {
 
-                obj_dept.cantons[i].name = obj_dept.cantons[i].name;
+                obj_dept.cantons[i].name = resultat_php[i][1];
 
                 if (document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value == 2015) {
                     var nombre_nuances = 19;
@@ -348,7 +352,8 @@ function lancer_recherche_dep() {
             };
             var myChart = new Chart(document.getElementById('myChart'), config);
         
-
+            var chainegraph = '<canvas id="myChart" width="1000" height="350"></canvas>';
+            documen
         },
 
         error: function (chr, ajaxOptions, thrownError) {
