@@ -180,8 +180,6 @@ function lancer_recherche_dep() {
             chaine += "<th class='tour1_colonne_dep'>% voix/inscrits</th>";
             chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
             chaine += "<th class='tour1_colonne_dep'>% voix/inscrits</th>";
-            chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
-            chaine += "<th class='tour1_colonne_dep'>% voix/inscrits</th>";
             switch (document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value) {
                 case "2008":
                     break;
@@ -189,12 +187,19 @@ function lancer_recherche_dep() {
                 case "2011":
                     chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
                     chaine += "<th class='tour1_colonne_dep'>% voix/inscrits</th>";
+                    chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
+                    chaine += "<th class='tour1_colonne_dep'>% voix/inscrits</th>";
                     break;
 
                 case "2015":
+                    chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
+                    chaine += "<th class='tour1_colonne_dep'>% voix/inscrits</th>";
                     break;
 
                 case "2021":
+
+                    /* /!\ Modifier en fonction des données de 2021 /!\ */
+
                     break;
 
                 default:
