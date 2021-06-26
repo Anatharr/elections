@@ -144,13 +144,12 @@ function lancer_recherche_dep() {
         dataType: 'json',
         data: { functionname: 'affiche_tour_1_departement', arguments: [document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value, document.getElementById("dep_choix").options[deroulant_dep.selectedIndex].value] },
 
-        success: function (obj, textstatus) {
+        success: function(obj, textstatus) {
             if (!('error' in obj)) {
                 resultat_php = obj.result;
             } else {
                 console.log(obj.error);
             }
-            console.log("ici");
             let chaine = "<table id='tour1_tab'>";
             for (i = 0; i < resultat_php.length; i++) {
                 chaine += "<tr>";
@@ -163,7 +162,6 @@ function lancer_recherche_dep() {
             }
             chaine += "</table>";
             document.getElementById("tour_1").innerHTML = chaine;
-            console.log("là");
 
             /* Traitement des données du tableau, création d'un dictionnaire regroupant les cantons et les scores par partis */
             let obj_dept = {};
@@ -225,10 +223,9 @@ function lancer_recherche_dep() {
                 labels[i] = resultat_php[i][1];
             const data = {
                 labels: labels,
-                datasets: [
-                    {
+                datasets: [{
                         label: 'BC-EXG',
-                        data:tab[0],
+                        data: tab[0],
                         backgroundColor: 'rgb(187, 0, 0)',
                     },
                     {
@@ -321,9 +318,9 @@ function lancer_recherche_dep() {
                         data: tab[18],
                         backgroundColor: 'rgb(64, 64, 64)',
                     },
-                    
+
                 ]
-        
+
             };
             const config = {
                 type: 'bar',
@@ -347,11 +344,11 @@ function lancer_recherche_dep() {
                 }
             };
             var myChart = new Chart(document.getElementById('myChart'), config);
-        
+
 
         },
 
-        error: function (chr, ajaxOptions, thrownError) {
+        error: function(chr, ajaxOptions, thrownError) {
             alert(chr.responseText); //Ce code affichera le message d'erreur, ici Message d'erreur.
         }
 

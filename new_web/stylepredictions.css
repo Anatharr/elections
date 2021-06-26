@@ -634,6 +634,7 @@ h2 {
     border-collapse: collapse;
     position: relative;
     margin-top: 20%;
+    align-content: center;
 }
 
 .tour1_colonne {
