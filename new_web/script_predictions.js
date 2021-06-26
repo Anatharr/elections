@@ -202,7 +202,7 @@ function lancer_recherche_dep() {
             console.log(obj_dept);
             obj_dept.canton = new Array(nombre_canton);
             for (i = 0; i < nombre_canton; i++) {
-                obj_dept.canton[i].parti = new Array[nombre_nuances];
+                obj_dept.canton[i].parti = new Array(nombre_nuances);
             }
 
             for (i = 0; i < resultat_php.length; i++) {
