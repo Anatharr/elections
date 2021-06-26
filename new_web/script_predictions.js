@@ -156,7 +156,7 @@ function lancer_recherche_dep() {
                 resultat_php[i].forEach(elem => {
                     chaine += "<td class='tour1_colonne'>";
                     if (elem == null) {
-                        chaine += " ";
+                        chaine += "    ";
                     } else { chaine += elem; }
                     chaine += "</td>";
                 })
@@ -169,12 +169,12 @@ function lancer_recherche_dep() {
             var obj_dept = new Object();
             let nombre_canton = resultat_php.length;
             obj_dept.name = document.getElementById("dep_choix").options[deroulant_dep.selectedIndex].value;
-/*
-            obj_dept.canton = [];
-            for (i = 0; i < nombre_canton; i++) {
-                obj_dept.canton[i].parti = [];
-            }
-*/
+            /*
+                        obj_dept.canton = [];
+                        for (i = 0; i < nombre_canton; i++) {
+                            obj_dept.canton[i].parti = [];
+                        }
+            */
             for (i = 0; i < resultat_php.length; i++) {
 
                 obj_dept.cantons[i].name = resultat_php[i][1];
