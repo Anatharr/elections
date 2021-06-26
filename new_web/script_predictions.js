@@ -186,7 +186,7 @@ function lancer_recherche_dep() {
                 case 2008:
                     break;
 
-                case 2011:
+                case "2011":
                     chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
                     chaine += "<th class='tour1_colonne_dep'>% voix/inscrits</th>";
                     break;
@@ -281,7 +281,7 @@ function lancer_recherche_dep() {
 
 
             }
-            
+
             /*** Création tab contenant les data de chaque partie par canton */
             var tab = [];
             for (j = 0; j < nombre_nuances; j++) {
