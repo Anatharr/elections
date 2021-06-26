@@ -630,6 +630,14 @@ h2 {
 
 /* TABLEAU TOUR 1 */
 
+#tour1_titre {
+    font-family: 'Exo', sans-serif;
+    position: relative;
+    margin-bottom: 1%;
+    text-align: center;
+    color: rgb(60, 60, 60);
+}
+
 #tour1_tab_dep {
     border-collapse: collapse;
     margin: 0 auto;
@@ -641,6 +649,14 @@ h2 {
 
 .tour1_colonne_dep {
     border: 1px solid black;
+}
+
+#tour2_titre {
+    font-family: 'Exo', sans-serif;
+    position: relative;
+    margin-bottom: 1%;
+    text-align: center;
+    color: rgb(60, 60, 60);
 }
 
 #tour2_tab_dep {

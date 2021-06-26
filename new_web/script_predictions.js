@@ -152,7 +152,8 @@ function lancer_recherche_dep() {
             } else {
                 console.log(obj.error);
             }
-            let chaine = "<table id='tour1_tab_dep'>";
+            let chaine = "<h3 id='tour1_titre'>Résultats aux élections départementales au deuxième tour</h3>";
+            chaine += "<table id='tour1_tab_dep'>";
             chaine += "<tr>";
             chaine += "<th class='tour1_colonne_dep'>Code canton</th>";
             chaine += "<th class='tour1_colonne_dep'>Nom canton</th>";
@@ -412,7 +413,8 @@ function lancer_recherche_dep() {
             } else {
                 console.log(obj.error);
             }
-            let chaine = "<table id='tour2_tab_dep'>";
+            let chaine = "<h3 id='tour2_titre'>Résultats aux élections départementales au deuxième tour</h3>";
+            chaine += "<table id='tour2_tab_dep'>";
             chaine += "<tr>";
             chaine += "<th class='tour2_colonne_dep'>Code canton</th>";
             chaine += "<th class='tour2_colonne_dep'>Nom canton</th>";
