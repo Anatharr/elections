@@ -200,8 +200,10 @@ function lancer_recherche_dep() {
             let nombre_canton = resultat_php.length;
             obj_dept.name = document.getElementById("dep_choix").options[deroulant_dep.selectedIndex].text;
             console.log(obj_dept);
-            obj_dept.canton = new Array(nombre_canton);
+            obj_dept.canton = new Object();
             for (i = 0; i < nombre_canton; i++) {
+                console.log(i);
+                console.log(obj_dept.canton);
                 obj_dept.canton[i].parti = new Array(nombre_nuances);
             }
 
