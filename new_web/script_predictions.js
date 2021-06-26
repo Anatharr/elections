@@ -155,7 +155,7 @@ function lancer_recherche_dep() {
             let chaine = "<table id='tour1_tab_dep'>";
             chaine += "<tr>";
             chaine += "<th class='tour1_colonne_dep'>Code canton</th>";
-            chaine += "<th class='tour1_colonne_dep'>Nom canton/th>";
+            chaine += "<th class='tour1_colonne_dep'>Nom canton</th>";
             chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
             chaine += "<th class='tour1_colonne_dep'>% voix/inscrits</th>";
             chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
@@ -415,7 +415,7 @@ function lancer_recherche_dep() {
             let chaine = "<table id='tour2_tab_dep'>";
             chaine += "<tr>";
             chaine += "<th class='tour2_colonne_dep'>Code canton</th>";
-            chaine += "<th class='tour2_colonne_dep'>Nom canton/th>";
+            chaine += "<th class='tour2_colonne_dep'>Nom canton</th>";
             chaine += "<th class='tour2_colonne_dep'>Nuance</th>";
             chaine += "<th class='tour2_colonne_dep'>% voix/inscrits</th>";
             chaine += "<th class='tour2_colonne_dep'>Nuance</th>";
