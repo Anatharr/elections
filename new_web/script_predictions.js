@@ -166,15 +166,15 @@ function lancer_recherche_dep() {
             document.getElementById("tour_1").innerHTML = chaine;
 
             /* Traitement des données du tableau, création d'un dictionnaire regroupant les cantons et les scores par partis */
-            let obj_dept = {};
+            var obj_dept = new Object();
             let nombre_canton = resultat_php.length;
             obj_dept.name = document.getElementById("dep_choix").options[deroulant_dep.selectedIndex].value;
-
+/*
             obj_dept.canton = [];
             for (i = 0; i < nombre_canton; i++) {
                 obj_dept.canton[i].parti = [];
             }
-
+*/
             for (i = 0; i < resultat_php.length; i++) {
 
                 obj_dept.cantons[i].name = resultat_php[i][1];
