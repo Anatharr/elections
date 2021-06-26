@@ -309,7 +309,10 @@ function affichageGrapheDeptT1(resultat_php) {
     /* Traitement des données du tableau, création d'un dictionnaire regroupant les cantons et les scores par partis */
     var obj_dept = new Object();
 
-
+    let tab = new Array(nombre_nuances);
+    for (i = 0; i < nombre_nuances; i++) {
+        tab[i] = new Array(nombre_canton);
+    }
 
     var nombre_canton = resultat_php.length;
     var nombre_nuances = 0;
@@ -494,10 +497,7 @@ function affichageGrapheDeptT1(resultat_php) {
                     }
                 }
             }
-            var tab = new Array(nombre_nuances);
-            for (var i = 0; i < nombre_nuances; i++) {
-                tab[i] = new Array(nombre_canton);
-            }
+           
             for (j = 0; j < nombre_nuances; j++) {
                 for (i = 0; i < nombre_canton; i++) {
                     tab[j][i] = obj_dept.cantons[i].parti[j].score;
