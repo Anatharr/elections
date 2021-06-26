@@ -196,6 +196,13 @@ function lancer_recherche_dep() {
             chaine += "</table>";
             document.getElementById("tour_1").innerHTML = chaine;
 
+            var resultat_php_tab = new Array(resultat_php.length);
+            for (i = 0; i < resultat_php.length; i++) {
+                resultat_php[i].forEach(elem => {
+                    resultat_php_tab[i] = new Array[elem.length];
+                })
+            }
+
             /* Traitement des données du tableau, création d'un dictionnaire regroupant les cantons et les scores par partis */
             var obj_dept = new Object();
             let nombre_canton = resultat_php.length;
