@@ -212,7 +212,7 @@ function lancer_recherche_dep() {
                     for (k = 0; k < nombre_canton; k++) {
                
                 
-                        obj_dept.cantons[k] = {name: resultat_php[i][1], parti: new Array(nombre_nuances)};
+                        obj_dept.cantons[k] = {name: resultat_php[k][1], parti: new Array(nombre_nuances)};
                       
                     }
                     obj_dept.cantons[i].name = resultat_php[i][1];
