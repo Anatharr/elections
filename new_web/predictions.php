@@ -199,11 +199,13 @@
             <h1 id="graph_dep"> Graphe élections départementales</h1>
         </div>
         
+        
+
+        <div id="tour_1"></div>
+        
         <div class="graphe">
             <canvas id="myChart" width="1000" height="350"></canvas>
         </div>
-
-        <div id="tour_1"></div>
     
 
     </div>
