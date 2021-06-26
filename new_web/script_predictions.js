@@ -182,6 +182,24 @@ function lancer_recherche_dep() {
             chaine += "<th class='tour1_colonne_dep'>% voix/inscrits</th>";
             chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
             chaine += "<th class='tour1_colonne_dep'>% voix/inscrits</th>";
+            switch (document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value) {
+                case 2008:
+                    break;
+
+                case 2011:
+                    chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
+                    chaine += "<th class='tour1_colonne_dep'>% voix/inscrits</th>";
+                    break;
+
+                case 2015:
+                    break;
+
+                case 2021:
+                    break;
+
+                default:
+                    break;
+            }
             chaine += "</tr>";
             let j;
             resultat_php_tab = new Array(resultat_php.length);
@@ -223,27 +241,27 @@ function lancer_recherche_dep() {
                         obj_dept.cantons[k] = { name: resultat_php[k][1], parti: new Array(nombre_nuances) };
 
                     }
-                    
 
-                    obj_dept.cantons[i].parti[0] = {name: 'BC-EXG', score: 0};
-                    obj_dept.cantons[i].parti[1] = {name: 'BC-FG', score: 0};
-                    obj_dept.cantons[i].parti[2] = {name: 'BC-COM', score: 0};
-                    obj_dept.cantons[i].parti[3] = {name: 'BC-PG', score: 0};
-                    obj_dept.cantons[i].parti[4] = {name: 'BC-RDG', score: 0};
-                    obj_dept.cantons[i].parti[5] = {name: 'BC-UG', score: 0};
-                    obj_dept.cantons[i].parti[6] = {name: 'BC-VEC', score: 0};
-                    obj_dept.cantons[i].parti[7] = {name: 'BC-DVG', score: 0};
-                    obj_dept.cantons[i].parti[8] = {name: 'BC-SOC', score: 0};
-                    obj_dept.cantons[i].parti[9] = {name: 'BC-MDM', score: 0};
-                    obj_dept.cantons[i].parti[10] = {name: 'BC-UC', score: 0};
-                    obj_dept.cantons[i].parti[11] = {name: 'BC-DIV', score: 0};
-                    obj_dept.cantons[i].parti[12] = {name: 'BC-UD', score: 0};
-                    obj_dept.cantons[i].parti[13] = {name: 'BC-UDI', score: 0};
-                    obj_dept.cantons[i].parti[14] = {name: 'BC-DVD', score: 0};
-                    obj_dept.cantons[i].parti[15] = {name: 'BC-UMP', score: 0};
-                    obj_dept.cantons[i].parti[16] = {name: 'BC-DLF', score: 0};
-                    obj_dept.cantons[i].parti[17] = {name: 'BC-FN', score: 0};
-                    obj_dept.cantons[i].parti[18] = {name: 'BC-EXD', score: 0};
+
+                    obj_dept.cantons[i].parti[0] = { name: 'BC-EXG', score: 0 };
+                    obj_dept.cantons[i].parti[1] = { name: 'BC-FG', score: 0 };
+                    obj_dept.cantons[i].parti[2] = { name: 'BC-COM', score: 0 };
+                    obj_dept.cantons[i].parti[3] = { name: 'BC-PG', score: 0 };
+                    obj_dept.cantons[i].parti[4] = { name: 'BC-RDG', score: 0 };
+                    obj_dept.cantons[i].parti[5] = { name: 'BC-UG', score: 0 };
+                    obj_dept.cantons[i].parti[6] = { name: 'BC-VEC', score: 0 };
+                    obj_dept.cantons[i].parti[7] = { name: 'BC-DVG', score: 0 };
+                    obj_dept.cantons[i].parti[8] = { name: 'BC-SOC', score: 0 };
+                    obj_dept.cantons[i].parti[9] = { name: 'BC-MDM', score: 0 };
+                    obj_dept.cantons[i].parti[10] = { name: 'BC-UC', score: 0 };
+                    obj_dept.cantons[i].parti[11] = { name: 'BC-DIV', score: 0 };
+                    obj_dept.cantons[i].parti[12] = { name: 'BC-UD', score: 0 };
+                    obj_dept.cantons[i].parti[13] = { name: 'BC-UDI', score: 0 };
+                    obj_dept.cantons[i].parti[14] = { name: 'BC-DVD', score: 0 };
+                    obj_dept.cantons[i].parti[15] = { name: 'BC-UMP', score: 0 };
+                    obj_dept.cantons[i].parti[16] = { name: 'BC-DLF', score: 0 };
+                    obj_dept.cantons[i].parti[17] = { name: 'BC-FN', score: 0 };
+                    obj_dept.cantons[i].parti[18] = { name: 'BC-EXD', score: 0 };
 
                     console.log(obj_dept);
                 }
