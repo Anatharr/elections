@@ -99,11 +99,31 @@ def prepareLabelsExploded(data, oneHotEncode=False):
     
 
 
-def prepareInputDataExploded(data):
-    tmp = data[['NUMTOUR', 'CODDPT', 'CODSUBCOM', 'LIBSUBCOM', 'CODBURVOT', 'CODCAN',
+def prepareInputDataExploded(dataBvot, dataCanton):
+    tmp = dataBvot[['NUMTOUR', 'CODDPT', 'CODSUBCOM', 'LIBSUBCOM', 'CODBURVOT', 'CODCAN',
             'LIBCAN', 'NBRINS', 'NBRVOT', 'NBREXP', 'CODNUA', 'NBRVOIX']].copy()
 
-    # Compute missing data
+    #dictionnaire des duels
+    duels = dict()
+    count=0
+    for dep in dataCanton['Code du département'].unique():
+        duels[str(dep)], count = getDuels(dataCanton, dep, count=count)
+        if duels[str(dep)]==[]:
+            print('empty list for dep : ', dep)
+
+    #dictionnaire optimisé
+    optDuels = optimizeDuelDict(duels)
+    winnersT1 = [duel.split(':') for duel in list(optDuels.keys()) if len(duel.split(':'))<2]
+
+    correction = [str(i) for i in range(1,10)]
+    for winner in winnersT1:
+         for dep, can in optDuels[winner[0]]:
+            if dep in correction:
+                tmp = tmp.loc[~((tmp['CODDPT']=='0'+dep) & (tmp['CODCAN']==int(can)))]
+            else:
+                tmp = tmp.loc[~((tmp['CODDPT']==dep) & (tmp['CODCAN']==int(can)))]
+    
+    # Compute missing dataBvot
     tmp['NBRABS'] = tmp['NBRINS'] - tmp['NBRVOT']
     tmp['NBRBLCNUL'] = tmp['NBRVOT'] - tmp['NBREXP']
     tmp['%ABS/INS'] = tmp['NBRABS'] / tmp['NBRINS']
@@ -111,7 +131,7 @@ def prepareInputDataExploded(data):
     tmp['%EXP/VOT'] = tmp['NBREXP'] / tmp['NBRVOT']
     tmp['%VOIX/EXP'] = tmp['NBRVOIX'] / tmp['NBREXP']
 
-    nuances = getAllNuances(data)
+    nuances = getAllNuances(dataBvot)
     statsFeatures = ['NBRINS', 'NBREXP', '%ABS/INS', '%BLCNUL/VOT', '%EXP/VOT']
     idFeatures = ['CODDPT', 'CODCAN', 'CODSUBCOM', 'CODBURVOT']
 
@@ -120,9 +140,9 @@ def prepareInputDataExploded(data):
     ids = tmp[idFeatures].drop_duplicates()
 
     # Create [%Voix] and fill it
-    voix = pd.DataFrame(0, index=data.index, columns=nuances)
+    voix = pd.DataFrame(0, index=dataBvot.index, columns=nuances)
     for parti in nuances:
-        voix[parti][data['CODNUA']==parti] = tmp[tmp['CODNUA']==parti]['NBRVOIX']
+        voix.loc[dataBvot['CODNUA']==parti, parti] = tmp[tmp['CODNUA']==parti]['NBRVOIX']
     voix = pd.concat([tmp[idFeatures], voix], axis=1).groupby(idFeatures).sum()[nuances]
     voix.index = exprimes.index
 
@@ -132,6 +152,56 @@ def prepareInputDataExploded(data):
     X.index = pd.MultiIndex.from_frame(ids)
     return X.sort_values(['CODDPT', 'CODCAN', 'CODSUBCOM', 'CODBURVOT'])
     
+
+def convertToMultiIndex(data, idFeatures=['CODDPT', 'CODCAN', 'CODSUBCOM', 'CODBURVOT']):
+    ret = data.copy()
+    ret.index = pd.MultiIndex.from_frame(ret[idFeatures])
+    return ret.drop(idFeatures, axis='columns')
+
+
+#################################### Dictionnaire des duels #####################################
+
+def getNuanceOfElected(data, col_siege='Sièges', col_nuance='Nuance'):
+    elected = data[data[col_siege]=='Elus']
+    return list(elected[col_nuance]) if len(elected)!=0 else None
+
+def filterBestNuances(data, col_nuance='Nuance', criteria=12.50):
+    bestCandidat = data[data['% Voix/Ins']>= criteria]
+    
+    if bestCandidat.empty or len(bestCandidat)==1:
+        bestCandidat = data.sort_values(by='Voix', ascending=False).iloc[0:2,:]
+
+    return list(bestCandidat[col_nuance])
+
+def getDuels(data, dep, col_dep='Code du département', col_canton='Code du canton', col_siege='Sièges', col_nuance='Nuance',count=None):
+    '''
+        ATTENTION : data doit etre EXPLODE !
+    '''
+    data = data[data[col_dep]==dep]
+    duels = dict()
+    for canton in data[col_canton].unique():
+        data_canton = data[data[col_canton]==canton]
+        # allow to know if there is a majority in the canton
+        elected = getNuanceOfElected(data_canton, col_siege=col_siege, col_nuance=col_nuance) 
+        
+        if elected is not None:
+            count+=1
+            duels[str(canton)]= elected
+        else:
+            duels[str(canton)] = filterBestNuances(data_canton)
+    return (duels, count) if count is not None else duels
+
+def optimizeDuelDict(duels):
+    optdic = dict()
+    for dep, duelDepDict in duels.items():
+        for canton, duelList in duelDepDict.items():
+            key = ':'.join(duelList)
+            if key in optdic.keys():
+                optdic[key].append((dep, canton))
+            else:
+                optdic[key]= [(dep, canton)]
+    return optdic
+
 
 
 if __name__ == '__main__':
@@ -158,24 +228,24 @@ if __name__ == '__main__':
     dataT2Bvot = dataBvot[dataBvot.NUMTOUR==2]
     print('OK')
 
+    print('Loading Cantons data... ', end='')
+    dataT1Can = pd.read_excel("dataset/raw/Dep_15_Resultats_T1_complet.xlsx", sheet_name='Cantons', header=2)
+    print('OK')
+
+    dataT1CanExploded = explodeLines(dataT1Can)
+
     print('Preparing input data... ', end='')
-    X = prepareInputDataExploded(dataT1Bvot)
+    X = prepareInputDataExploded(dataT1Bvot, dataT1CanExploded)
     X.to_csv("dataset/inputs/XDataFR_Bvot.csv", sep=';')
     print('OK')
 
-    print(X)
-
-
-    # print('Loading Cantons data... ', end='')
-    # dataT2Can = pd.read_excel("dataset/Dep_15_Resultats_T2_complet.xlsx", sheet_name='Cantons')
-    # print('OK')
 
     print('Preparing labels... ', end='')
     y = prepareLabelsExploded(dataT2Bvot)
     y.to_csv('dataset/labels/yDataFR_Bvot.csv', sep=';')
     print('OK')
 
-    print(y)
+    print(X.shape, y.shape)
 
 
 
