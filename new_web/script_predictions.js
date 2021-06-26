@@ -167,7 +167,7 @@ function lancer_recherche_dep() {
             let obj_dept = {};
             obj_dept.name = document.getElementById("dep_choix").options[deroulant_dep.selectedIndex].value;
 
-            for (i = 0; i < nombre_cantons; i++) {
+            for (i = 0; i < nombre_canton; i++) {
                 obj_dept.canton[i] = [];
             }
 
