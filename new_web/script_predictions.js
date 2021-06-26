@@ -203,14 +203,15 @@ function lancer_recherche_dep() {
             console.log(obj_dept);
             obj_dept.cantons = new Array(nombre_canton);
             for (i = 0; i < nombre_canton; i++) {
-                console.log(i);
-                console.log(obj_dept.cantons);
-                obj_dept.cantons[i] = {name:'undefined', parti:[{name:'undefined', score : 0}]};
+               
+                
+               obj_dept.cantons[i].name = 'undefined';
+                obj_dept.cantons[i].parti = new Array(nombre_nuances);
             }
-
+            console.log(obj_dept.cantons);
             for (i = 0; i < resultat_php.length; i++) {
 
-                obj_dept.cantons[i] = resultat_php[i][1];
+                obj_dept.cantons[i].name = resultat_php[i][1];
 
                 if (document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value == 2015) {
                     var nombre_nuances = 19;
