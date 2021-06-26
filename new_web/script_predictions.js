@@ -255,9 +255,9 @@ function lancer_recherche_dep() {
             }
 
             /*** Création tab contenant les data de chaque partie par canton */
+            var tab = [];
             for (j = 0; j < nombre_nuances; j++) {
                 for (i = 0; i < nombre_canton; i++) {
-                    var tab = [];
                     tab[j][i] = obj_dept.cantons[i].parti[j].score;
                 }
             }
