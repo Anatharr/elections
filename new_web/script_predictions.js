@@ -207,51 +207,51 @@ function lancer_recherche_dep() {
             var obj_dept = new Object();
             let nombre_canton = resultat_php.length;
             obj_dept.name = document.getElementById("dep_choix").options[deroulant_dep.selectedIndex].text;
-            console.log(obj_dept);
-            obj_dept.canton = new Array(nombre_canton);
-            for (i = 0; i < nombre_canton; i++) {
-                console.log(i);
-                console.log(obj_dept.canton);
-                obj_dept.canton[i].parti = new Array(nombre_nuances);
-            }
-
+           
+            obj_dept.cantons = new Array(nombre_canton);
+            
+           
             for (i = 0; i < resultat_php.length; i++) {
-
-                obj_dept.cantons[i].name = resultat_php[i][1];
+                
 
                 if (document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value == 2015) {
                     var nombre_nuances = 19;
+                    for (k = 0; k < nombre_canton; k++) {
+               
+                
+                        obj_dept.cantons[k] = {name: resultat_php[k][1], parti: new Array(nombre_nuances)};
+                      
+                    }
+                    obj_dept.cantons[i].name = resultat_php[i][1];
 
-                    obj_dept.cantons[i].parti[0].name = 'BC-EXG';
-                    obj_dept.cantons[i].parti[1].name = 'BC-COM';
-                    obj_dept.cantons[i].parti[2].name = 'BC-FG';
-                    obj_dept.cantons[i].parti[3].name = 'BC-PG';
-                    obj_dept.cantons[i].parti[4].name = 'BC-RDG';
-                    obj_dept.cantons[i].parti[5].name = 'BC-UG';
-                    obj_dept.cantons[i].parti[6].name = 'BC-VEC';
-                    obj_dept.cantons[i].parti[7].name = 'BC-DVG';
-                    obj_dept.cantons[i].parti[8].name = 'BC-SOC';
-                    obj_dept.cantons[i].parti[9].name = 'BC-MDM';
-                    obj_dept.cantons[i].parti[10].name = 'BC-UC';
-                    obj_dept.cantons[i].parti[11].name = 'BC-DIV';
-                    obj_dept.cantons[i].parti[12].name = 'BC-UD';
-                    obj_dept.cantons[i].parti[13].name = 'BC-UDI';
-                    obj_dept.cantons[i].parti[14].name = 'BC-DVD';
-                    obj_dept.cantons[i].parti[15].name = 'BC-LR';
-                    obj_dept.cantons[i].parti[16].name = 'BC-DLF';
-                    obj_dept.cantons[i].parti[17].name = 'BC-FN';
-                    obj_dept.cantons[i].parti[18].name = 'BC-EXD';
+                    obj_dept.cantons[i].parti[0] = {name: 'BC-EXG', score: 0};
+                    obj_dept.cantons[i].parti[1] = {name: 'BC-FG', score: 0};
+                    obj_dept.cantons[i].parti[2] = {name: 'BC-COM', score: 0};
+                    obj_dept.cantons[i].parti[3] = {name: 'BC-PG', score: 0};
+                    obj_dept.cantons[i].parti[4] = {name: 'BC-RDG', score: 0};
+                    obj_dept.cantons[i].parti[5] = {name: 'BC-UG', score: 0};
+                    obj_dept.cantons[i].parti[6] = {name: 'BC-VEC', score: 0};
+                    obj_dept.cantons[i].parti[7] = {name: 'BC-DVG', score: 0};
+                    obj_dept.cantons[i].parti[8] = {name: 'BC-SOC', score: 0};
+                    obj_dept.cantons[i].parti[9] = {name: 'BC-MDM', score: 0};
+                    obj_dept.cantons[i].parti[10] = {name: 'BC-UC', score: 0};
+                    obj_dept.cantons[i].parti[11] = {name: 'BC-DIV', score: 0};
+                    obj_dept.cantons[i].parti[12] = {name: 'BC-UD', score: 0};
+                    obj_dept.cantons[i].parti[13] = {name: 'BC-UDI', score: 0};
+                    obj_dept.cantons[i].parti[14] = {name: 'BC-DVD', score: 0};
+                    obj_dept.cantons[i].parti[15] = {name: 'BC-LR', score: 0};
+                    obj_dept.cantons[i].parti[16] = {name: 'BC-DLF', score: 0};
+                    obj_dept.cantons[i].parti[17] = {name: 'BC-RN', score: 0};
+                    obj_dept.cantons[i].parti[18] = {name: 'BC-EXD', score: 0};
                 }
 
-                for (k = 0; k < nombre_nuances; k++) {
-                    obj_dept.cantons[i].parti[k].score = 0;
-                }
+               
 
                 for (j = 3; j < resultat_php[i].length; j += 2) {
                     if (resultat_php[i][j] != null) {
                         for (k = 0; k < nombre_nuances; k++) {
                             if (obj_dept.cantons[i].parti[k].name == resultat_php[i][j - 1]) {
-                                obj_dept.canton[i].parti[0].score = resultat_php[i][j];
+                                obj_dept.cantons[i].parti[k].score = resultat_php[i][j];
                             }
                         }
 
@@ -260,10 +260,12 @@ function lancer_recherche_dep() {
 
 
             }
+            console.log(obj_dept);
+            /*** Création tab contenant les data de chaque partie par canton */
+            var tab = [];
             for (j = 0; j < nombre_nuances; j++) {
                 for (i = 0; i < nombre_canton; i++) {
-                    var tab = [];
-                    tab[j][i] = obj_dept.canton[i].parti[j].score;
+                    tab[j][i] = obj_dept.cantons[i].parti[j].score;
                 }
             }
             const labels = [];
