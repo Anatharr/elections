@@ -168,8 +168,9 @@ function lancer_recherche_dep() {
             let nombre_canton = resultat_php.length;
             obj_dept.name = document.getElementById("dep_choix").options[deroulant_dep.selectedIndex].value;
 
+            obj_dept.canton = [];
             for (i = 0; i < nombre_canton; i++) {
-                obj_dept.canton[i] = [];
+                obj_dept.canton[i].parti = [];
             }
 
             for (i = 0; i < resultat_php.length; i++) {
