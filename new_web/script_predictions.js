@@ -14,6 +14,7 @@ let section_france = document.getElementById("section_france");
 var bool_deroulant_bloquant;
 
 var resultat_php;
+var resultat_php_tab;
 
 
 
@@ -183,7 +184,7 @@ function lancer_recherche_dep() {
             chaine += "<th class='tour1_colonne_dep'>% voix/inscrits</th>";
             chaine += "</tr>";
             let j;
-            var resultat_php_tab = new Array(resultat_php.length);
+            resultat_php_tab = new Array(resultat_php.length);
             for (i = 0; i < resultat_php.length; i++) {
                 resultat_php_tab[i] = [];
                 j = 0;
