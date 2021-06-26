@@ -238,9 +238,7 @@ function lancer_recherche_dep() {
                     obj_dept.cantons[i].parti[18] = {name: 'BC-EXG', score: 0};
                 }
 
-                for (k = 0; k < nombre_nuances; k++) {
-                    obj_dept.cantons[i].parti[k].score = 0;
-                }
+               
 
                 for (j = 3; j < resultat_php[i].length; j += 2) {
                     if (resultat_php[i][j] != null) {
@@ -260,7 +258,7 @@ function lancer_recherche_dep() {
             for (j = 0; j < nombre_nuances; j++) {
                 for (i = 0; i < nombre_canton; i++) {
                     var tab = [];
-                    tab[j][i] = obj_dept.canton[i].parti[j].score;
+                    tab[j][i] = obj_dept.cantons[i].parti[j].score;
                 }
             }
             const labels = [];
