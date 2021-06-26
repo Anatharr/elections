@@ -196,10 +196,13 @@ function lancer_recherche_dep() {
             chaine += "</table>";
             document.getElementById("tour_1").innerHTML = chaine;
 
-            var resultat_php_tab = new Array(resultat_php.length);
+            var resultat_php_tab = new Array(resultat_php.length)
+            let j = 0;
             for (i = 0; i < resultat_php.length; i++) {
                 resultat_php[i].forEach(elem => {
-                    resultat_php_tab[i] = new Array(elem);
+                    resultat_php_tab[i][j] = new Array();
+                    resultat_php_tab[i][j] = elem;
+                    j++;
                 })
             }
             console.table(resultat_php_tab);
