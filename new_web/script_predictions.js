@@ -205,7 +205,7 @@ function lancer_recherche_dep() {
             for (i = 0; i < nombre_canton; i++) {
                 console.log(i);
                 console.log(obj_dept.canton);
-                obj_dept.canton[i].parti = new Array(nombre_nuances);
+                obj_dept.canton[i] = {name:'undefined', parti:[{name:'undefined', score : 0}]};
             }
 
             for (i = 0; i < resultat_php.length; i++) {
