@@ -453,13 +453,6 @@ CREATE TABLE t1_2011_communes
     nb_voix_liste_13 int,
     voix_pourcent_ins_liste_13 numeric(10,2),
     voix_pourcent_exp_liste_13 numeric(10,2),
-    sexe_liste_14 varchar(5),
-    nom_liste_14 varchar(30),
-    prenom_liste_14 varchar(30),
-    nuance_liste_14 varchar(10),
-    nb_voix_liste_14 int,
-    voix_pourcent_ins_liste_14 numeric(10,2),
-    voix_pourcent_exp_liste_14 numeric(10,2),
     PRIMARY KEY (num_departement, code_canton, code_commune)
 );
 
@@ -780,6 +773,7 @@ CREATE TABLE t1_2008_cantons
     vot_pourcent_ins numeric(10,2),
     nb_blancs_nuls int,
     blancs_nuls_pourcent_ins numeric(10,2),
+    blancs_nuls_pourcent_vot numeric(10,2),
     nb_exprimés int,
     exp_pourcent_ins numeric(10,2),
     exp_pourcent_vot numeric(10,2),
@@ -860,7 +854,7 @@ CREATE TABLE t1_2008_cantons
     nb_voix_liste_11 int,
     voix_pourcent_ins_liste_11 numeric(10,2),
     voix_pourcent_exp_liste_11 numeric(10,2),
-    PRIMARY KEY (num_departement, code_canton, code_commune)
+    PRIMARY KEY (num_departement, code_canton)
 );
 
 -- Copie des résultats aux élections départementales 2008 tour 1
@@ -886,6 +880,7 @@ CREATE TABLE t2_2008_cantons
     vot_pourcent_ins numeric(10,2),
     nb_blancs_nuls int,
     blancs_nuls_pourcent_ins numeric(10,2),
+    blancs_nuls_pourcent_vot numeric(10,2),
     nb_exprimés int,
     exp_pourcent_ins numeric(10,2),
     exp_pourcent_vot numeric(10,2),
@@ -917,7 +912,7 @@ CREATE TABLE t2_2008_cantons
     nb_voix_liste_4 int,
     voix_pourcent_ins_liste_4 numeric(10,2),
     voix_pourcent_exp_liste_4 numeric(10,2),
-    PRIMARY KEY (num_departement, code_canton, code_commune)
+    PRIMARY KEY (num_departement, code_canton)
 );
 
 -- Copie des résultats aux élections départementales 2008 tour 2
