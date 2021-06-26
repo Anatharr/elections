@@ -205,8 +205,8 @@ function lancer_recherche_dep() {
             for (i = 0; i < nombre_canton; i++) {
                
                 
-               obj_dept.cantons[i].name = 'undefined';
-                obj_dept.cantons[i].parti = new Array(nombre_nuances);
+                obj_dept.cantons[i] = {name: 'undefined', parti: new Array(nombre_nuances)};
+              
             }
             console.log(obj_dept.cantons);
             for (i = 0; i < resultat_php.length; i++) {
