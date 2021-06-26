@@ -170,9 +170,9 @@ function lancer_recherche_dep() {
             let nombre_canton = resultat_php.length;
             obj_dept.name = document.getElementById("dep_choix").options[deroulant_dep.selectedIndex].value;
 
-            obj_dept.canton = [nombre_canton];
+            obj_dept.canton.length= nombre_canton;
             for (i = 0; i < nombre_canton; i++) {
-                obj_dept.canton[i].parti = [nombre_nuances];
+                obj_dept.canton[i].parti.length = nombre_nuances;
             }
 
             for (i = 0; i < resultat_php.length; i++) {
