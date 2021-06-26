@@ -632,9 +632,10 @@ h2 {
 
 #tour1_tab {
     border-collapse: collapse;
+    margin: 0 auto;
     position: relative;
     margin-top: 20%;
-    align-content: center;
+    text-align: center;
 }
 
 .tour1_colonne {
