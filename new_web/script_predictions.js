@@ -244,7 +244,7 @@ function lancer_recherche_dep() {
                     if (resultat_php[i][j] != null) {
                         for (k = 0; k < nombre_nuances; k++) {
                             if (obj_dept.cantons[i].parti[k].name == resultat_php[i][j - 1]) {
-                                obj_dept.canton[i].parti[0].score = resultat_php[i][j];
+                                obj_dept.cantons[i].parti[0].score = resultat_php[i][j];
                             }
                         }
 
