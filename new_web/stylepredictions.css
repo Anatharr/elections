@@ -606,7 +606,7 @@ h2 {
 
 #graph_dep {
     font-family: 'Exo', sans-serif;
-    position: absolute;
+    position: relative;
     text-align: center;
     font-size: 200%;
     font-style: italic;
@@ -618,7 +618,7 @@ h2 {
 
 #graph_reg {
     font-family: 'Exo', sans-serif;
-    position: absolute;
+    position: relative;
     font-size: 200%;
     font-style: italic;
     margin-top: 10%;
@@ -634,7 +634,6 @@ h2 {
     border-collapse: collapse;
     margin: 0 auto;
     position: relative;
-    margin-top: 20%;
     text-align: center;
 }
 
