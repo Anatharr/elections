@@ -422,8 +422,6 @@ function lancer_recherche_dep() {
             chaine += "<th class='tour2_colonne_dep'>% voix/inscrits</th>";
             chaine += "<th class='tour2_colonne_dep'>Nuance</th>";
             chaine += "<th class='tour2_colonne_dep'>% voix/inscrits</th>";
-            chaine += "<th class='tour2_colonne_dep'>Nuance</th>";
-            chaine += "<th class='tour2_colonne_dep'>% voix/inscrits</th>";
             chaine += "</tr>";
             for (i = 0; i < resultat_php.length; i++) {
                 chaine += "<tr>";
