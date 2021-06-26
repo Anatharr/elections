@@ -201,16 +201,16 @@ function lancer_recherche_dep() {
             let nombre_canton = resultat_php.length;
             obj_dept.name = document.getElementById("dep_choix").options[deroulant_dep.selectedIndex].text;
             console.log(obj_dept);
-            obj_dept.canton = new Array(nombre_canton);
+            obj_dept.cantons = new Array(nombre_canton);
             for (i = 0; i < nombre_canton; i++) {
                 console.log(i);
-                console.log(obj_dept.canton);
-                obj_dept.canton[i] = {name:'undefined', parti:[{name:'undefined', score : 0}]};
+                console.log(obj_dept.cantons);
+                obj_dept.cantons[i] = {name:'undefined', parti:[{name:'undefined', score : 0}]};
             }
 
             for (i = 0; i < resultat_php.length; i++) {
 
-                obj_dept.cantons[i].name = resultat_php[i][1];
+                obj_dept.cantons[i] = resultat_php[i][1];
 
                 if (document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value == 2015) {
                     var nombre_nuances = 19;
