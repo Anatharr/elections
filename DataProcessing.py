@@ -56,30 +56,6 @@ def prepareLabelsLine(data):
     return y
 
 
-# def prepareLabelsExploded(data):
-#     ids = data[['CODDPT', 'CODSUBCOM', 'CODCAN', 'CODBURVOT']].drop_duplicates()
-#     dataNuances = pd.DataFrame()
-#     dataVoix = pd.DataFrame()
-#     dataAutres = pd.DataFrame(columns=['Abstentions', 'BlancsNuls'])
-
-#     for i, row in ids.iterrows():
-#         query = data.query(' and '.join([col+'=='+(f'"{row[col]}"' if data.dtypes[col]=='object' else str(row[col])) for col in ['CODDPT', 'CODSUBCOM', 'CODBURVOT']]))
-#         dataNuances = dataNuances.append(query['CODNUA'].reset_index(drop=True), ignore_index=True)
-#         dataVoix = dataVoix.append((query['NBRVOIX']/query['NBRINS']).reset_index(drop=True), ignore_index=True)
-#         dataAutres = dataAutres.append(pd.concat([(query['NBRINS']-query['NBRVOT'])/query['NBRINS'], (query['NBRVOT']-query['NBREXP'])/query['NBRINS']], axis=1).drop_duplicates().rename(columns={0: 'Abstentions', 1: 'BlancsNuls'}), ignore_index=True)
-
-#     nuances = getAllNuances(data, colNuance='CODNUA', fmt='exploded')
-#     y = pd.DataFrame(0, columns=nuances, index=dataNuances.index)
-#     tot = len(dataNuances)
-#     for i in dataNuances.index:
-#         print(i*100/tot,'%')
-#         y.loc[i, dataNuances.loc[i]] = dataVoix.loc[i].values
-#     y = pd.concat([y[nuances], dataAutres], axis=1)
-
-#     return y
-
-
-
 def prepareLabelsExploded(data, oneHotEncode=False):
     nuances = getAllNuances(data)
     idFeatures = ['CODDPT', 'CODCAN', 'CODSUBCOM', 'CODBURVOT']
