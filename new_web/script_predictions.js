@@ -245,7 +245,7 @@ function lancer_recherche_dep() {
                     obj_dept.cantons[i].parti[17] = {name: 'BC-FN', score: 0};
                     obj_dept.cantons[i].parti[18] = {name: 'BC-EXD', score: 0};
 
-                    console.log(obj_dept.canton[i].parti);
+                    console.log(obj_dept);
                 }
 
 
