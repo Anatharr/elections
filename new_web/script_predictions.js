@@ -92,10 +92,10 @@ function recuperer_region_annee() {
 }
 
 function recuperer_departement() {
-    document.getElementById("graph_dep").textContent = "Graph élections départementales pour : ";
+    document.getElementById("graph_dep").innerHTML = "Graph élections départementales pour : ";
     deroulant_dep = document.getElementById("dep_choix");
     texte = deroulant_dep.options[deroulant_dep.selectedIndex].text;
-    document.getElementById("graph_dep").textContent = document.getElementById("graph_dep").textContent + texte + " en " + annee_dep;
+    document.getElementById("graph_dep").innerHTML = document.getElementById("graph_dep").textContent + texte + " en " + annee_dep;
 
     /* ICI - VALUE DU DEPARTEMENT */
     console.log(document.getElementById("dep_choix").options[deroulant_dep.selectedIndex].value);
@@ -151,11 +151,11 @@ function lancer_recherche_dep() {
                 console.log(obj.error);
             }
             console.log("ici");
-            let chaine = "<table>";
+            let chaine = "<table id='tour1_tab'>";
             for (i = 0; i < resultat_php.length; i++) {
                 chaine += "<tr>";
                 resultat_php[i].forEach(elem => {
-                    chaine += "<td>";
+                    chaine += "<td class='tour1_colonne'>";
                     chaine += elem;
                     chaine += "</td>";
                 })
