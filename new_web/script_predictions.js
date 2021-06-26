@@ -263,7 +263,7 @@ function lancer_recherche_dep() {
                     obj_dept.cantons[i].parti[17] = { name: 'BC-FN', score: 0 };
                     obj_dept.cantons[i].parti[18] = { name: 'BC-EXD', score: 0 };
 
-                    console.log(obj_dept);
+                    console.table(obj_dept.cantons[i].parti[0]);
                 }
 
 
@@ -281,7 +281,7 @@ function lancer_recherche_dep() {
 
 
             }
-            console.log(obj_dept);
+            
             /*** Création tab contenant les data de chaque partie par canton */
             var tab = [];
             for (j = 0; j < nombre_nuances; j++) {
