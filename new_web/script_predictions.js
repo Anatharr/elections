@@ -155,7 +155,9 @@ function lancer_recherche_dep() {
                 chaine += "<tr>";
                 resultat_php[i].forEach(elem => {
                     chaine += "<td class='tour1_colonne'>";
-                    chaine += elem;
+                    if (elem == "null") {
+                        chaine += "";
+                    } else { chaine += elem; }
                     chaine += "</td>";
                 })
                 chaine += "</tr>";
