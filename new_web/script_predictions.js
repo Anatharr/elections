@@ -165,6 +165,7 @@ function lancer_recherche_dep() {
 
             /* Traitement des données du tableau, création d'un dictionnaire regroupant les cantons et les scores par partis */
             let obj_dept = {};
+            let nombre_canton = resultat_php.length;
             obj_dept.name = document.getElementById("dep_choix").options[deroulant_dep.selectedIndex].value;
 
             for (i = 0; i < nombre_canton; i++) {
@@ -346,10 +347,12 @@ function lancer_recherche_dep() {
                         }
                     }
                 }
-            };
-            var myChart = new Chart(document.getElementById('myChart'), config);
+            }; 
+            
             var chainegraph = '<canvas id="myChart" width="1000" height="350"></canvas>';
             document.getElementById("graphe").innerHTML = chainegraph;
+            var myChart = new Chart(document.getElementById('myChart'), config);
+           
         },
 
         error: function(chr, ajaxOptions, thrownError) {
