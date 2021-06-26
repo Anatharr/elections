@@ -198,11 +198,11 @@ function lancer_recherche_dep() {
             /* Traitement des données du tableau, création d'un dictionnaire regroupant les cantons et les scores par partis */
             var obj_dept = new Object();
             let nombre_canton = resultat_php.length;
-            obj_dept.name = document.getElementById("dep_choix").options[deroulant_dep.selectedIndex].value;
+            obj_dept.name = document.getElementById("dep_choix").options[deroulant_dep.selectedIndex].text;
             console.log(obj_dept);
-            obj_dept.canton = [];
+            obj_dept.canton = new Array(nombre_canton);
             for (i = 0; i < nombre_canton; i++) {
-                obj_dept.canton[i].parti = [];
+                obj_dept.canton[i].parti = new Array[nombre_nuances];
             }
 
             for (i = 0; i < resultat_php.length; i++) {
