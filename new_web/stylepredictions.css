@@ -633,6 +633,7 @@ h2 {
 #tour1_tab {
     border-collapse: collapse;
     margin: 0 auto;
+    margin-bottom: 3%;
     position: relative;
     text-align: center;
 }
