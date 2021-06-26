@@ -608,10 +608,11 @@ h2 {
     font-family: 'Exo', sans-serif;
     position: relative;
     text-align: center;
-    font-size: 200%;
+    font-size: 150%;
     font-style: italic;
-    margin-top: 10%;
+    margin-top: 3%;
     margin-left: 5%;
+    margin-bottom: 3%;
     letter-spacing: 6px;
     color: rgb(60, 60, 60);
 }
@@ -619,10 +620,11 @@ h2 {
 #graph_reg {
     font-family: 'Exo', sans-serif;
     position: relative;
-    font-size: 200%;
+    font-size: 150%;
     font-style: italic;
-    margin-top: 10%;
+    margin-top: 3%;
     margin-left: 5%;
+    margin-bottom: 3%;
     letter-spacing: 6px;
     color: rgb(60, 60, 60);
 }
