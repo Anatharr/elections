@@ -92,7 +92,7 @@ function recuperer_region_annee() {
 }
 
 function recuperer_departement() {
-    document.getElementById("graph_dep").innerHTML = "Graph élections départementales pour : ";
+    document.getElementById("graph_dep").textContent = "Graph élections départementales pour : ";
     deroulant_dep = document.getElementById("dep_choix");
     texte = deroulant_dep.options[deroulant_dep.selectedIndex].text;
     document.getElementById("graph_dep").textContent = document.getElementById("graph_dep").textContent + texte + " en " + annee_dep;
