@@ -200,10 +200,10 @@ function lancer_recherche_dep() {
             var obj_dept = new Object();
             let nombre_canton = resultat_php.length;
             obj_dept.name = document.getElementById("dep_choix").options[deroulant_dep.selectedIndex].text;
-            console.log(obj_dept);
+           
             obj_dept.cantons = new Array(nombre_canton);
             
-            console.log(obj_dept.cantons);
+           
             for (i = 0; i < resultat_php.length; i++) {
                 
 
@@ -253,7 +253,7 @@ function lancer_recherche_dep() {
 
 
             }
-
+            console.log(obj_dept);
             /*** Création tab contenant les data de chaque partie par canton */
             var tab = [];
             for (j = 0; j < nombre_nuances; j++) {
