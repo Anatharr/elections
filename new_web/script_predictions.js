@@ -353,7 +353,7 @@ function lancer_recherche_dep() {
             var myChart = new Chart(document.getElementById('myChart'), config);
         
             var chainegraph = '<canvas id="myChart" width="1000" height="350"></canvas>';
-            documen
+            document.getElementById("graphe").innerHTML = chainegraph;
         },
 
         error: function (chr, ajaxOptions, thrownError) {
