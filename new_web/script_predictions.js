@@ -203,6 +203,8 @@ function lancer_recherche_dep() {
             console.log(obj_dept);
             obj_dept.canton = new Array(nombre_canton);
             for (i = 0; i < nombre_canton; i++) {
+                console.log(i);
+                console.log(obj_dept.canton);
                 obj_dept.canton[i].parti = new Array(nombre_nuances);
             }
 
