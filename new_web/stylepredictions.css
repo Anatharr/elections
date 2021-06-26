@@ -630,7 +630,7 @@ h2 {
 
 /* TABLEAU TOUR 1 */
 
-#tour1_tab {
+#tour1_tab_dep {
     border-collapse: collapse;
     margin: 0 auto;
     margin-bottom: 3%;
@@ -638,7 +638,19 @@ h2 {
     text-align: center;
 }
 
-.tour1_colonne {
+.tour1_colonne_dep {
+    border: 1px solid black;
+}
+
+#tour2_tab_dep {
+    border-collapse: collapse;
+    margin: 0 auto;
+    margin-bottom: 3%;
+    position: relative;
+    text-align: center;
+}
+
+.tour2_colonne_dep {
     border: 1px solid black;
 }
 

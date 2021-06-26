@@ -138,6 +138,8 @@ function lancer_recherche_dep() {
     var request = new XMLHttpRequest();
     request.open('GET', requestURL);
 
+    // Tableau du 1er tour (données à analyser)
+
     jQuery.ajax({
         type: "POST",
         url: 'traitement.php',
@@ -150,11 +152,11 @@ function lancer_recherche_dep() {
             } else {
                 console.log(obj.error);
             }
-            let chaine = "<table id='tour1_tab'>";
+            let chaine = "<table id='tour1_tab_dep'>";
             for (i = 0; i < resultat_php.length; i++) {
                 chaine += "<tr>";
                 resultat_php[i].forEach(elem => {
-                    chaine += "<td class='tour1_colonne'>";
+                    chaine += "<td class='tour1_colonne_dep'>";
                     if (elem == null) {
                         chaine += "";
                     } else { chaine += elem; }
@@ -164,6 +166,238 @@ function lancer_recherche_dep() {
             }
             chaine += "</table>";
             document.getElementById("tour_1").innerHTML = chaine;
+
+            /* Traitement des données du tableau, création d'un dictionnaire regroupant les cantons et les scores par partis */
+            var obj_dept = new Object();
+            let nombre_canton = resultat_php.length;
+            obj_dept.name = document.getElementById("dep_choix").options[deroulant_dep.selectedIndex].value;
+
+            obj_dept.canton = [nombre_canton];
+            for (i = 0; i < nombre_canton; i++) {
+                obj_dept.canton[i].parti = [nombre_nuances];
+            }
+
+            for (i = 0; i < resultat_php.length; i++) {
+
+                obj_dept.cantons[i].name = resultat_php[i][1];
+
+                if (document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value == 2015) {
+                    var nombre_nuances = 19;
+
+                    obj_dept.cantons[i].parti[0].name = 'BC-EXG';
+                    obj_dept.cantons[i].parti[1].name = 'BC-COM';
+                    obj_dept.cantons[i].parti[2].name = 'BC-FG';
+                    obj_dept.cantons[i].parti[3].name = 'BC-PG';
+                    obj_dept.cantons[i].parti[4].name = 'BC-RDG';
+                    obj_dept.cantons[i].parti[5].name = 'BC-UG';
+                    obj_dept.cantons[i].parti[6].name = 'BC-VEC';
+                    obj_dept.cantons[i].parti[7].name = 'BC-DVG';
+                    obj_dept.cantons[i].parti[8].name = 'BC-SOC';
+                    obj_dept.cantons[i].parti[9].name = 'BC-MDM';
+                    obj_dept.cantons[i].parti[10].name = 'BC-UC';
+                    obj_dept.cantons[i].parti[11].name = 'BC-DIV';
+                    obj_dept.cantons[i].parti[12].name = 'BC-UD';
+                    obj_dept.cantons[i].parti[13].name = 'BC-UDI';
+                    obj_dept.cantons[i].parti[14].name = 'BC-DVD';
+                    obj_dept.cantons[i].parti[15].name = 'BC-LR';
+                    obj_dept.cantons[i].parti[16].name = 'BC-DLF';
+                    obj_dept.cantons[i].parti[17].name = 'BC-FN';
+                    obj_dept.cantons[i].parti[18].name = 'BC-EXD';
+                }
+
+                for (k = 0; k < nombre_nuances; k++) {
+                    obj_dept.cantons[i].parti[k].score = 0;
+                }
+
+                for (j = 3; j < resultat_php[i].length; j += 2) {
+                    if (resultat_php[i][j] != null) {
+                        for (k = 0; k < nombre_nuances; k++) {
+                            if (obj_dept.cantons[i].parti[k].name == resultat_php[i][j - 1]) {
+                                obj_dept.canton[i].parti[0].score = resultat_php[i][j];
+                            }
+                        }
+
+                    }
+                }
+
+
+            }
+            for (j = 0; j < nombre_nuances; j++) {
+                for (i = 0; i < nombre_canton; i++) {
+                    var tab = [];
+                    tab[j][i] = obj_dept.canton[i].parti[j].score;
+                }
+            }
+            const labels = [];
+            for (let i = 0; i < nombre_canton; i++)
+                labels[i] = resultat_php[i][1];
+            const data = {
+                labels: labels,
+                datasets: [{
+                        label: 'BC-EXG',
+                        data: tab[0],
+                        backgroundColor: 'rgb(187, 0, 0)',
+                    },
+                    {
+                        label: 'BC-FG',
+                        data: tab[1],
+                        backgroundColor: 'rgb(221, 0, 0)',
+                    },
+                    {
+                        label: 'BC-COM',
+                        data: tab[2],
+                        backgroundColor: 'rgb(221, 0, 0)',
+                    },
+                    {
+                        label: 'BC-PG',
+                        data: tab[3],
+                        backgroundColor: 'rgb(245,142,187)',
+                    },
+                    {
+                        label: 'BC-RDG',
+                        data: tab[4],
+                        backgroundColor: 'rgb(255, 209, 220)',
+                    },
+                    {
+                        label: 'BC-UG',
+                        data: tab[5],
+                        backgroundColor: 'rgb(204, 102, 102)',
+                    },
+                    {
+                        label: 'BC-VEC',
+                        data: tab[6],
+                        backgroundColor: 'rgb(0, 192, 0)',
+                    },
+                    {
+                        label: 'BC-DVG',
+                        data: tab[7],
+                        backgroundColor: 'rgb(255, 192, 192)',
+                    },
+                    {
+                        label: 'BC-SOC',
+                        data: tab[8],
+                        backgroundColor: 'rgb(255, 128, 128)',
+                    },
+                    {
+                        label: 'BC-MDM',
+                        data: tab[9],
+                        backgroundColor: 'rgb(255, 153, 0)',
+                    },
+                    {
+                        label: 'BC-UC',
+                        data: tab[10],
+                        backgroundColor: 'rgb(255, 235, 0)',
+                    },
+                    {
+                        label: 'BC-DIV',
+                        data: tab[11],
+                        backgroundColor: 'rgb(238, 238, 238)',
+                    },
+                    {
+                        label: 'BC-UD',
+                        data: tab[12],
+                        backgroundColor: 'rgb(135, 206, 250)',
+                    },
+                    {
+                        label: 'BC-UDI',
+                        data: tab[13],
+                        backgroundColor: 'rgb(0, 255, 255)',
+                    },
+                    {
+                        label: 'BC-DVD',
+                        data: tab[14],
+                        backgroundColor: 'rgb(173, 193, 253)',
+                    },
+                    {
+                        label: 'BC-LR',
+                        data: tab[15],
+                        backgroundColor: 'rgb(0, 102, 204)',
+                    },
+                    {
+                        label: 'BC-DLF',
+                        data: tab[16],
+                        backgroundColor: 'rgb(0, 130, 196)',
+                    },
+                    {
+                        label: 'BC-RN',
+                        data: tab[17],
+                        backgroundColor: 'rgb(13, 55, 138)',
+                    },
+                    {
+                        label: 'BC-EXD',
+                        data: tab[18],
+                        backgroundColor: 'rgb(64, 64, 64)',
+                    },
+
+                ]
+
+            };
+            const config = {
+                type: 'bar',
+                data: data,
+                options: {
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Chart.js Bar Chart - Stacked'
+                        },
+                    },
+                    responsive: true,
+                    scales: {
+                        x: {
+                            stacked: true,
+                        },
+                        y: {
+                            stacked: true
+                        }
+                    }
+                }
+            };
+
+            var chainegraph = '<canvas id="myChart" width="1000" height="350"></canvas>';
+            document.getElementById("graphe").innerHTML = chainegraph;
+            var myChart = new Chart(document.getElementById('myChart'), config);
+
+        },
+
+        error: function(chr, ajaxOptions, thrownError) {
+            alert(chr.responseText); //Ce code affichera le message d'erreur, ici Message d'erreur.
+        }
+
+
+    })
+
+
+
+
+    // Tableau du 2ème tour (données réelles)
+
+    jQuery.ajax({
+        type: "POST",
+        url: 'traitement.php',
+        dataType: 'json',
+        data: { functionname: 'affiche_tour_2_departement', arguments: [document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value, document.getElementById("dep_choix").options[deroulant_dep.selectedIndex].value] },
+
+        success: function(obj, textstatus) {
+            if (!('error' in obj)) {
+                resultat_php = obj.result;
+            } else {
+                console.log(obj.error);
+            }
+            let chaine = "<table id='tour2_tab_dep'>";
+            for (i = 0; i < resultat_php.length; i++) {
+                chaine += "<tr>";
+                resultat_php[i].forEach(elem => {
+                    chaine += "<td class='tour2_colonne_dep'>";
+                    if (elem == null) {
+                        chaine += "";
+                    } else { chaine += elem; }
+                    chaine += "</td>";
+                })
+                chaine += "</tr>";
+            }
+            chaine += "</table>";
+            document.getElementById("tour_2").innerHTML = chaine;
 
             /* Traitement des données du tableau, création d'un dictionnaire regroupant les cantons et les scores par partis */
             var obj_dept = new Object();
