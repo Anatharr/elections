@@ -203,9 +203,7 @@
 
         <div id="tour_1"></div>
         
-        <div class="graphe">
-            <canvas id="myChart" width="1000" height="350"></canvas>
-        </div>
+        <div class="graphe"></div>
     
 
     </div>
