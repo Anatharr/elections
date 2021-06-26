@@ -183,7 +183,7 @@ function lancer_recherche_dep() {
             chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
             chaine += "<th class='tour1_colonne_dep'>% voix/inscrits</th>";
             switch (document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value) {
-                case 2008:
+                case "2008":
                     break;
 
                 case "2011":
@@ -191,10 +191,10 @@ function lancer_recherche_dep() {
                     chaine += "<th class='tour1_colonne_dep'>% voix/inscrits</th>";
                     break;
 
-                case 2015:
+                case "2015":
                     break;
 
-                case 2021:
+                case "2021":
                     break;
 
                 default:
