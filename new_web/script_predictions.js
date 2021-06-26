@@ -152,7 +152,7 @@ function lancer_recherche_dep() {
             } else {
                 console.log(obj.error);
             }
-            let chaine = "<h3 id='tour1_titre'>Résultats aux élections départementales au deuxième tour</h3>";
+            let chaine = "<h3 id='tour1_titre'>Résultats aux élections départementales au premier tour</h3>";
             chaine += "<table id='tour1_tab_dep'>";
             chaine += "<tr>";
             chaine += "<th class='tour1_colonne_dep'>Code canton</th>";
