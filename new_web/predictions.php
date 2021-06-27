@@ -266,7 +266,7 @@
     </div>
     
 
-    <div class='prediction_ia' style='display: none;'>
+    <div class='prediction_ia' style='display: block;'>
         <div id="graph_reg">
             <h2> Prédictions</h1>
         </div>
@@ -281,7 +281,8 @@
                 <td style="border-left: 1px solid black;">
                     <label class="label_ia" for="deroulant_modele">Sélectionner un canton et le modèle d'IA à utiliser :</label>
 
-                    <div class="deroulant_ia">
+                    <div class="form_ia">
+                        <label id="label_dep">Département</label>
                         <select name="deroulant_canton" id="model_canton">
                             <option value="default">--- Canton ---</option>
                         </select>

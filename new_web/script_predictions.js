@@ -422,7 +422,42 @@ function lancer_recherche_dep() {
     // affichage de la partie prédiction
     document.getElementsByClassName('prediction_ia')[0].style.display = 'block';
     document.getElementsByClassName('resultats_ia')[0].style.display = 'none';
-    fill_cantons();
+    fill_cantons_predictions();
+}
+
+function fill_cantons_predictions() {
+  var cantonSelect = document.getElementById('model_canton')
+  cantonSelect.children.forEach((e) => {
+    if (e.value!='default') {
+      cantonSelect.removeChild(e);
+    }
+  })
+
+  document.getElementById('label_dep').innerHTML = "Département "+document.getElementById("dep_choix").options[deroulant_dep.selectedIndex].innerHTML;
+
+  jQuery.ajax({
+          type: "POST",
+          url: 'traitement.php',
+          dataType: 'json',
+          data: { functionname: 'affiche_tour_1_departement', arguments: [document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value, document.getElementById("dep_choix").options[deroulant_dep.selectedIndex].value] },
+
+          success: function(obj, textstatus) {
+              if (!('error' in obj)) {
+                    resultat_php_tab.forEach((e) => {
+                      var opt = document.createElement('option');
+                      opt.value = e[0];
+                      opt.innerHTML = e[1]+' ('+e[0]+')';
+                      cantonSelect.appendChild(opt);
+                    })
+              } else {
+                  console.log(obj.error);
+              }
+            },
+
+          error: function(chr, ajaxOptions, thrownError) {
+              alert(chr.responseText); //Ce code affichera le message d'erreur, ici Message d'erreur.
+          }          
+    })
 }
 
 
