@@ -229,14 +229,25 @@ function rechercher_données_tour_1() {
                 var compteur_colonne_vide = 0;
                 chaine += "<tr class='tour1_ligne_dep'>";
                 resultat_php[i].forEach(elem => {
-                    console.log(typeof(elem));
-                    chaine += "<td class='tour1_colonne_dep'>";
-                    if (elem == null) {
-                        chaine += "";
-                    } else { chaine += elem; }
-                    chaine += "</td>";
                     resultat_php_tab[i][j] = elem;
                     j++;
+                });
+            }
+            for (i = 0; i < resultat_php.length; i++) {
+                for (k = 0; k < resultat_php_tab[i].length; k++) {
+                    if (resultat_php_tab[i][k] == null) {
+                        compteur_colonne_vide++;
+                    }
+                }
+                resultat_php[i].forEach(elem => {
+                    console.log(typeof(elem));
+                    if (compteur_colonne_vide != resultat_php.length) {
+                        chaine += "<td class='tour1_colonne_dep'>";
+                        if (elem == null) {
+                            chaine += "";
+                        } else { chaine += elem; }
+                        chaine += "</td>";
+                    }
                 });
                 chaine += "</tr>";
             }
