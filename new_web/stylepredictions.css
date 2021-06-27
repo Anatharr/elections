@@ -654,7 +654,11 @@ h2 {
     font-size: 100%;
 }
 
-#tour1_tab_dep tr:hover {
+#tour1_ligne_titres_dep {
+    background-color: azure;
+}
+
+.tour1_ligne_dep:hover {
     background-color: aliceblue;
 }
 
@@ -679,7 +683,11 @@ h2 {
     text-align: center;
 }
 
-#tour2_tab_dep tr:hover {
+#tour2_ligne_titres_dep {
+    background-color: azure;
+}
+
+.tour2_ligne_dep:hover {
     background-color: aliceblue;
 }
 
@@ -687,27 +695,37 @@ h2 {
     border: 1px solid black;
 }
 
-
 .loader {
     border: 16px solid #f3f3f3;
     border-radius: 50%;
     border-top: 16px solid #3498db;
     width: 120px;
     height: 120px;
-    -webkit-animation: spin 2s linear infinite; /* Safari */
+    -webkit-animation: spin 2s linear infinite;
+    /* Safari */
     animation: spin 2s linear infinite;
-  }
-  
-  /* Safari */
-  @-webkit-keyframes spin {
-    0% { -webkit-transform: rotate(0deg); }
-    100% { -webkit-transform: rotate(360deg); }
-  }
-  
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
+}
+
+
+/* Safari */
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
 
 
 /*********************************************************************************************************************/
