@@ -370,23 +370,10 @@ function affichageGrapheDeptT1(resultat_php) {
             }
 
             for (i = 0; i < resultat_php.length; i++) {
-
-                obj_dept.cantons[i].parti[0] = { name: 'EXG', score: 0 };
-                obj_dept.cantons[i].parti[1] = { name: 'COM', score: 0 };
-                obj_dept.cantons[i].parti[2] = { name: 'RDG', score: 0 };
-                obj_dept.cantons[i].parti[3] = { name: 'VEC', score: 0 };
-                obj_dept.cantons[i].parti[4] = { name: 'DVG', score: 0 };
-                obj_dept.cantons[i].parti[5] = { name: 'ECO', score: 0 };
-                obj_dept.cantons[i].parti[6] = { name: 'SOC', score: 0 };
-                obj_dept.cantons[i].parti[7] = { name: 'UDFD', score: 0 };
-                obj_dept.cantons[i].parti[8] = { name: 'M-NC', score: 0 };
-                obj_dept.cantons[i].parti[9] = { name: 'AUT', score: 0 };
-                obj_dept.cantons[i].parti[10] = { name: 'DVD', score: 0 };
-                obj_dept.cantons[i].parti[11] = { name: 'UMP', score: 0 };
-                obj_dept.cantons[i].parti[12] = { name: 'FN', score: 0 };
-                obj_dept.cantons[i].parti[13] = { name: 'EXD', score: 0 };
-                obj_dept.cantons[i].parti[14] = { name: 'REG', score: 0 };
-
+                for (j = 0; j < nombre_nuances; j++) {
+                    obj_dept.cantons[i].parti[j] = { name: tab_nuances_08[j].nom_nuance, score: 0 };
+                  
+                }
 
 
                 for (j = 3; j < resultat_php[i].length; j += 2) {
