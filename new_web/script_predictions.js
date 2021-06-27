@@ -338,6 +338,8 @@ function rechercher_données_tour_2() {
                 chaine += "</table>";
                 document.getElementById("tour_2").innerHTML = chaine;
 
+            } else {
+                document.getElementById("tour_2").innerHTML = "";
             }
 
         },
