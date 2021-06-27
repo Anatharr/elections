@@ -456,6 +456,7 @@ function affichageGrapheDeptT1(resultat_php) {
     for (let i = 0; i < nombre_canton; i++) {
         labels[i] = resultat_php[i][1];
     }
+    console.log(tab_nuances_graphe);
     for (i = 0; i < nombre_nuances; i++) {
 
         datasets_année[i].label = tab_nuances_graphe[i].nom_nuance;
@@ -463,6 +464,7 @@ function affichageGrapheDeptT1(resultat_php) {
         datasets_année[i].backgroundColor = tab_nuances_graphe[i].backgroundColor;
 
     }
+    console.log(tab_nuances_graphe);
     const data = {
         labels: labels,
         datasets: datasets_année,
