@@ -406,6 +406,12 @@ function lancer_recherche_dep() {
 
     // on interroge la base de données pour obtenir les données de l'élection et du tour 2
     rechercher_données_tour_2();
+
+
+    // affichage de la partie prédiction
+    document.getElementsByClassName('prediction_ia')[0].style.display = 'block';
+    document.getElementsByClassName('resultats_ia')[0].style.display = 'none';
+    fill_cantons();
 }
 
 

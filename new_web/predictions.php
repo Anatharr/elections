@@ -265,10 +265,48 @@
         </div>
     </div>
     
+
+    <div class='prediction_ia' style='display: none;'>
+        <div id="graph_reg">
+            <h2> Prédictions</h1>
+        </div>
+
+        <table>
+            <tr>
+                <td>
+                    <div class="label_ia" style='display: none;'>
+                        <label for="resultats_ia">Prédictions de nos modèles</label>
+                    </div>                                        
+                </td>
+                <td style="border-left: 1px solid black;">
+                    <div class="label_ia">
+                        <label for="deroulant_modele">Sélectionner un canton et le modèle d'IA à utiliser :</label>
+                    </div>                    
+
+                    <div class="deroulant_ia">
+                        <select name="deroulant_canton" id="model_canton">
+                            <option value="default">--- Canton ---</option>
+                        </select>
+
+                        <select name="deroulant_modele" id="model_year">
+                            <option value="2015">Modèle 2015</option>
+                        </select>
+
+                        <button class="button_dep" type="button" onclick="lancer_prediction()">Prédire</button>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+
     <script src="script_predictions.js"></script>
     <script src="script_accueil.js"></script>
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
     <script src="boutonremonter.js"></script>
+    <script src="models/predictions.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
     
     
 
