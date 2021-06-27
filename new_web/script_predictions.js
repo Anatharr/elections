@@ -132,6 +132,14 @@ function menu_deroulant_bloquant() {
 /* RECHERCHE ET CONSTRUCTION GRAPH */
 
 function rechercher_données_tour_1() {
+    let scrollDiv = document.getElementById("graph_dep").offsetTop;
+    window.scrollTo({ top: scrollDiv, behavior: 'smooth' });
+    var requestURL = 'http://176.135.226.148:180/predictions.php';
+
+    var request = new XMLHttpRequest();
+    request.open('GET', requestURL);
+
+    // tableau du 1er tour (données à analyser)
 
     jQuery.ajax({
         type: "POST",
@@ -233,7 +241,7 @@ function rechercher_données_tour_1() {
     })
 
 }
-
+}
 function rechercher_données_tour_2() {
 
     jQuery.ajax({
@@ -340,6 +348,7 @@ function affichageGrapheDeptT1(resultat_php) {
 
     var nombre_canton = resultat_php.length;
     var nombre_nuances = 0;
+    var tab_nuances_graphe = {};
     var datasets_année;
     obj_dept.name = document.getElementById("dep_choix").options[deroulant_dep.selectedIndex].text;
 
@@ -347,6 +356,12 @@ function affichageGrapheDeptT1(resultat_php) {
     switch (document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value) {
         case "2008":
             nombre_nuances = 15;
+            var tab_nuances_08 = [
+                { nom_nuance: 'EXG', backgroundColor : 'rgb(187, 0, 0)'},{ nom_nuance:'COM', backgroundColor :'rgb(221, 0, 0)'},{nom_nuance: 'RDG', backgroundColor : 'rgb(255, 209, 220)'},{nom_nuance: 'VEC', backgroundColor : 'rgb(0, 192, 0)'}, {nom_nuance:'DVG', backgroundColor : 'rgb(255, 192, 192)'},
+                {nom_nuance:'ECO', backgroundColor : 'rgb(0, 192, 0)'}, {nom_nuance:'SOC', backgroundColor : 'rgb(255, 128, 128)'}, {nom_nuance:'UDFD', backgroundColor : 'rgb(255, 153, 0)'}, {nom_nuance:'M-NC', backgroundColor : 'rgb(255, 235, 0)'}, {nom_nuance:'AUT', backgroundColor : 'rgb(238, 238, 238)'},
+                {nom_nuance:'DVD', backgroundColor : 'rgb(173, 193, 253)'}, {nom_nuance:'UMP', backgroundColor : 'rgb(0, 102, 204)'}, {nom_nuance:'FN', backgroundColor : 'rgb(13, 55, 138)'}, {nom_nuance:'EXD', backgroundColor : 'rgb(64, 64, 64)'}, {nom_nuance:'REG', backgroundColor : 'rgb(64, 64, 64)'}
+            ];
+
             for (k = 0; k < nombre_canton; k++) {
 
 
@@ -395,83 +410,9 @@ function affichageGrapheDeptT1(resultat_php) {
                     tab[j][i] = obj_dept.cantons[i].parti[j].score;
                 }
             }
-            datasets_année = [{
-                    label: 'EXG',
-                    data: tab[0],
-                    backgroundColor: 'rgb(187, 0, 0)',
-                },
-                {
-                    label: 'COM',
-                    data: tab[1],
-                    backgroundColor: 'rgb(221, 0, 0)',
-                },
-                {
-                    label: 'RDG',
-                    data: tab[2],
-                    backgroundColor: 'rgb(255, 209, 220)',
-                },
-                {
-                    label: 'VEC',
-                    data: tab[3],
-                    backgroundColor: 'rgb(0, 192, 0)',
-                },
-                {
-                    label: 'DVG',
-                    data: tab[4],
-                    backgroundColor: 'rgb(255, 192, 192)',
-                },
-                {
-                    label: 'ECO',
-                    data: tab[5],
-                    backgroundColor: 'rgb(0, 192, 0)',
-                },
-                {
-                    label: 'SOC',
-                    data: tab[6],
-                    backgroundColor: 'rgb(255, 128, 128)',
-                },
-                {
-                    label: 'UDFD',
-                    data: tab[7],
-                    backgroundColor: 'rgb(255, 153, 0)',
-                },
-                {
-                    label: 'M-NC',
-                    data: tab[8],
-                    backgroundColor: 'rgb(255, 235, 0)',
-                },
-                {
-                    label: 'AUT',
-                    data: tab[9],
-                    backgroundColor: 'rgb(238, 238, 238)',
-                },
 
-                {
-                    label: 'DVD',
-                    data: tab[10],
-                    backgroundColor: 'rgb(173, 193, 253)',
-                },
-                {
-                    label: 'UMP',
-                    data: tab[11],
-                    backgroundColor: 'rgb(0, 102, 204)',
-                },
-                {
-                    label: 'FN',
-                    data: tab[12],
-                    backgroundColor: 'rgb(13, 55, 138)',
-                },
-                {
-                    label: 'EXD',
-                    data: tab[13],
-                    backgroundColor: 'rgb(64, 64, 64)',
-                },
-                {
-                    label: 'REG',
-                    data: tab[14],
-                    backgroundColor: 'rgb(64, 64, 64)',
-                },
-            ]
+            tab_nuances_graphe = tab_nuances_08;
+
             break;
 
         case "2011":
@@ -780,8 +721,16 @@ function affichageGrapheDeptT1(resultat_php) {
     /*** Création tab contenant les data de chaque partie par canton */
 
     const labels = [];
-    for (let i = 0; i < nombre_canton; i++)
+    for (let i = 0; i < nombre_canton; i++) {
         labels[i] = resultat_php[i][1];
+    }
+    for (i = 0; i < nombre_nuances; i++) {
+
+        datasets_année[i].label = tab_nuances_graphe[i].nom_nuance;
+        datasets_année[i].data = tab[i];
+        datasets_année[i].backgroundColor = tab_nuances_graphe[i].backgroundColor;
+
+    }
     const data = {
         labels: labels,
         datasets: datasets_année,
