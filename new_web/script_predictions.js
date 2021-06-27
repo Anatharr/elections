@@ -459,7 +459,7 @@ function affichageGrapheDeptT1(resultat_php) {
     var datasets_année = new Array(nombre_nuances);
     console.log(tab_nuances_graphe);
     console.log(datasets_année);
-    for (i = 0; i < nombre_nuances; i++) {
+    for (let i = 0; i < nombre_nuances; i++) {
 
         datasets_année[i].label = tab_nuances_graphe[i].nom_nuance;
         datasets_année[i].data = tab[i];
