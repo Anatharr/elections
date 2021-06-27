@@ -241,7 +241,7 @@ function rechercher_données_tour_1() {
     })
 
 }
-}
+
 function rechercher_données_tour_2() {
 
     jQuery.ajax({
@@ -304,7 +304,8 @@ function rechercher_données_tour_2() {
             chaine += "</table>";
             document.getElementById("tour_2").innerHTML = chaine;
 
-            /* Traitement des données du tableau, création d'un dictionnaire regroupant les cantons et les scores par partis */
+            /* Affiche le graphe */
+            affichageGrapheDeptT2(resultat_php);
 
 
         },
@@ -645,4 +646,3 @@ function affichageGrapheDeptT2(resultat_php){
     var myChart = new Chart(document.getElementById('myChart'), config);
 }
 
-}
