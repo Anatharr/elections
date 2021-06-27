@@ -155,7 +155,8 @@ function rechercher_données_tour_1() {
             }
 
             /* Affiche le graphe */
-            affichageGrapheDeptT1(resultat_php);
+            let data = affichageGrapheDept(resultat_php);
+            configGrapheDeptT(data);
 
             let chaine = "<table id='tour1_tab_dep'>";
             chaine += "<caption id='tour1_titre'>Détails des résultats aux élections départementales au premier tour</caption>";
@@ -260,7 +261,8 @@ function rechercher_données_tour_2() {
             }
 
             /* Affiche le graphe */
-            affichageGrapheDeptT2(resultat_php);
+            let data = affichageGrapheDept(resultat_php);
+            configGrapheDeptT2(data);
 
             let chaine = "<table id='tour2_tab_dep'>";
             chaine += "<caption id='tour2_titre'>Détails des résultats aux élections départementales au deuxième tour</caption>";
@@ -343,7 +345,7 @@ function lancer_recherche_reg() {
     window.scrollTo({ top: scrollDiv, behavior: 'smooth' });
 }
 
-function affichageGrapheDeptT1(resultat_php) {
+function affichageGrapheDept(resultat_php) {
 
     /* Traitement des données du résultat de la requete et préparation des données pour l'affichage du graphe, création d'un dictionnaire regroupant les cantons et les scores par partis */
     var obj_dept = new Object();
@@ -417,7 +419,7 @@ function affichageGrapheDeptT1(resultat_php) {
     }
 
 
-    /************** Affichage et configuration du graphe  **************/
+    /************** Création des datasets à retourner  **************/
 
     /* Création d'un tableau pour chaque canton dans l'objet et ajout du nom des cantons*/
     for (k = 0; k < nombre_canton; k++) {
@@ -475,8 +477,7 @@ function affichageGrapheDeptT1(resultat_php) {
         datasets: datasets_année,
 
     };
-
-    configGrapheDeptT1(data);
+    return data;
 }
 
 function affichageGrapheDeptT2(resultat_php) {
@@ -609,30 +610,6 @@ function affichageGrapheDeptT2(resultat_php) {
         datasets: datasets_année,
 
     };
-    const config = {
-        type: 'bar',
-        data: data,
-        options: {
-            plugins: {
-                title: {
-                    display: true,
-                    text: 'Résulats élections départementales par cantons - Tour 2'
-                },
-            },
-            responsive: true,
-            scales: {
-                x: {
-                    stacked: true,
-                },
-                y: {
-                    stacked: true,
-                }
-            }
-        }
-    };
-
-    document.getElementById("graphe_t2").innerHTML = "<canvas id=\"Graphe_T2\" width=\"1000\" height=\"350\"></canvas>";
-    var myChart = new Chart(document.getElementById('Graphe_T2'), config);
 }
 
 function configGrapheDeptT1(data) {
@@ -659,4 +636,31 @@ function configGrapheDeptT1(data) {
     };
     document.getElementById("graphe_t1").innerHTML = "<canvas id=\"Graphe_T1\" width=\"1000\" height=\"350\"></canvas>";
     var myChart = new Chart(document.getElementById('Graphe_T1'), config);
+}
+
+function configGrapheDeptT2(data) {
+    const config = {
+        type: 'bar',
+        data: data,
+        options: {
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Résulats élections départementales par cantons - Tour 2'
+                },
+            },
+            responsive: true,
+            scales: {
+                x: {
+                    stacked: true,
+                },
+                y: {
+                    stacked: true,
+                }
+            }
+        }
+    };
+
+    document.getElementById("graphe_t2").innerHTML = "<canvas id=\"Graphe_T2\" width=\"1000\" height=\"350\"></canvas>";
+    var myChart = new Chart(document.getElementById('Graphe_T2'), config);
 }
