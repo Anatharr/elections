@@ -486,11 +486,23 @@ function affichageGrapheDept(resultat_php) {
         case "2011":
             nombre_nuances = 17;
             var tab_nuances_11 = [
-                { nom_nuance: 'EXG', backgroundColor: 'rgb(121, 39, 32)' }, { nom_nuance: 'COM', backgroundColor: 'rgb(221, 0, 0)' }, { nom_nuance: 'PG', backgroundColor: 'rgb(251, 101, 129)' }, { nom_nuance: 'RDG', backgroundColor: 'rgb(255, 209, 220)' },
-                { nom_nuance: 'VEC', backgroundColor: 'rgb(49, 112, 35)' }, { nom_nuance: 'DVG', backgroundColor: 'rgb(255, 192, 192)' }, { nom_nuance: 'ECO', backgroundColor: 'rgb(85, 190, 71)' },
-                { nom_nuance: 'SOC', backgroundColor: 'rgb(255, 128, 128)' }, { nom_nuance: 'MODM', backgroundColor: 'rgb(255, 153, 0)' }, { nom_nuance: 'M-NC', backgroundColor: 'rgb(0, 255, 255)' }, { nom_nuance: 'M', backgroundColor: 'rgb(135, 206, 250)' },
-                { nom_nuance: 'AUT', backgroundColor: 'rgb(134, 143, 152)' }, { nom_nuance: 'DVD', backgroundColor: 'rgb(173, 193, 253)' }, { nom_nuance: 'UMP', backgroundColor: 'rgb(0, 102, 204)' },
-                { nom_nuance: 'FN', backgroundColor: 'rgb(13, 55, 138)' }, { nom_nuance: 'EXD', backgroundColor: 'rgb(64, 64, 64)' }, { nom_nuance: 'REG', backgroundColor: 'rgb(220, 191, 163)' }
+                { nom_nuance: 'EXG', backgroundColor: 'rgb(121, 39, 32)' },
+                 { nom_nuance: 'COM', backgroundColor: 'rgb(221, 0, 0)' }, 
+                 { nom_nuance: 'PG', backgroundColor: 'rgb(251, 101, 129)' }, 
+                 { nom_nuance: 'RDG', backgroundColor: 'rgb(255, 209, 220)' },
+                { nom_nuance: 'VEC', backgroundColor: 'rgb(49, 112, 35)' }, 
+                { nom_nuance: 'DVG', backgroundColor: 'rgb(255, 192, 192)' }, 
+                { nom_nuance: 'ECO', backgroundColor: 'rgb(85, 190, 71)' },
+                { nom_nuance: 'SOC', backgroundColor: 'rgb(255, 128, 128)' }, 
+                { nom_nuance: 'MODM', backgroundColor: 'rgb(255, 153, 0)' }, 
+                { nom_nuance: 'M-NC', backgroundColor: 'rgb(0, 255, 255)' }, 
+                { nom_nuance: 'M', backgroundColor: 'rgb(135, 206, 250)' },
+                { nom_nuance: 'AUT', backgroundColor: 'rgb(134, 143, 152)' }, 
+                { nom_nuance: 'DVD', backgroundColor: 'rgb(173, 193, 253)' },
+                 { nom_nuance: 'UMP', backgroundColor: 'rgb(0, 102, 204)' },
+                { nom_nuance: 'FN', backgroundColor: 'rgb(13, 55, 138)' }, 
+                { nom_nuance: 'EXD', backgroundColor: 'rgb(64, 64, 64)' }, 
+                { nom_nuance: 'REG', backgroundColor: 'rgb(220, 191, 163)' }
             ];
 
             tab_nuances_graphe = tab_nuances_11;
@@ -501,13 +513,25 @@ function affichageGrapheDept(resultat_php) {
         case "2015":
             nombre_nuances = 19;
             var tab_nuances_15 = [
-                { nom_nuance: 'BC-EXG', backgroundColor: 'rgb(121, 39, 32)' }, { nom_nuance: 'BC-FG', backgroundColor: 'rgb(161, 40, 48)' }, { nom_nuance: 'BC-COM', backgroundColor: 'rgb(221, 0, 0)' },
-                { nom_nuance: 'BC-PG', backgroundColor: 'rgb(251, 101, 129)' }, { nom_nuance: 'BC-RDG', backgroundColor: 'rgb(255, 209, 220)' },
-                { nom_nuance: 'BC-UG', backgroundColor: 'rgb(204, 102, 102)' }, { nom_nuance: 'BC-VEC', backgroundColor: 'rgb(49, 112, 35)' }, { nom_nuance: 'BC-DVG', backgroundColor: 'rgb(255, 192, 192)' },
-                { nom_nuance: 'BC-SOC', backgroundColor: 'rgb(255, 128, 128)' }, { nom_nuance: 'BC-MDM', backgroundColor: 'rgb(255, 153, 0)' }, { nom_nuance: 'BC-UC', backgroundColor: 'rgb(255, 235, 0)' },
-                { nom_nuance: 'BC-DIV', backgroundColor: 'rgb(134, 143, 152)' }, { nom_nuance: 'BC-UD', backgroundColor: 'rgb(135, 206, 250)' }, { nom_nuance: 'BC-UDI', backgroundColor: 'rgb(0, 255, 255)' },
-                { nom_nuance: 'BC-DVD', backgroundColor: 'rgb(173, 193, 253)' }, { nom_nuance: 'BC-UMP', backgroundColor: 'rgb(0, 102, 204)' },
-                { nom_nuance: 'BC-DLF', backgroundColor: 'rgb(0, 130, 196)' }, { nom_nuance: 'BC-FN', backgroundColor: 'rgb(13, 55, 138)' }, { nom_nuance: 'BC-EXD', backgroundColor: 'rgb(64, 64, 64)' }
+                { nom_nuance: 'BC-EXG', backgroundColor: 'rgb(121, 39, 32)' },
+                { nom_nuance: 'BC-FG', backgroundColor: 'rgb(161, 40, 48)' },
+                { nom_nuance: 'BC-PG', backgroundColor: 'rgb(251, 101, 129)' },
+                { nom_nuance: 'BC-COM', backgroundColor: 'rgb(221, 0, 0)' },
+                { nom_nuance: 'BC-SOC', backgroundColor: 'rgb(255, 128, 128)' },
+                { nom_nuance: 'BC-UG', backgroundColor: 'rgb(204, 102, 102)' },
+                { nom_nuance: 'BC-RDG', backgroundColor: 'rgb(255, 209, 220)' },
+                { nom_nuance: 'BC-DVG', backgroundColor: 'rgb(255, 192, 192)' },
+                { nom_nuance: 'BC-VEC', backgroundColor: 'rgb(49, 112, 35)' },
+                { nom_nuance: 'BC-DIV', backgroundColor: 'rgb(134, 143, 152)' },
+                { nom_nuance: 'BC-MDM', backgroundColor: 'rgb(255, 153, 0)' },
+                { nom_nuance: 'BC-UC', backgroundColor: 'rgb(255, 235, 0)' },
+                { nom_nuance: 'BC-UDI', backgroundColor: 'rgb(0, 255, 255)' },
+                { nom_nuance: 'BC-UMP', backgroundColor: 'rgb(0, 102, 204)' },
+                { nom_nuance: 'BC-UD', backgroundColor: 'rgb(135, 206, 250)' },
+                { nom_nuance: 'BC-DLF', backgroundColor: 'rgb(0, 130, 196)' },
+                { nom_nuance: 'BC-DVD', backgroundColor: 'rgb(173, 193, 253)' },
+                { nom_nuance: 'BC-FN', backgroundColor: 'rgb(13, 55, 138)' },
+                { nom_nuance: 'BC-EXD', backgroundColor: 'rgb(64, 64, 64)' }
             ];
 
             tab_nuances_graphe = tab_nuances_15;
@@ -517,6 +541,36 @@ function affichageGrapheDept(resultat_php) {
             /************* 2021  ***********/
         case "2021":
             nombre_nuances = 26;
+            var tab_nuances_21 = [
+                { nom_nuance: 'BC-EXG', backgroundColor: 'rgb(121, 39, 32)' },
+                { nom_nuance: 'BC-COM', backgroundColor: 'rgb(221, 0, 0)' },
+                { nom_nuance: 'BC-FI', backgroundColor: 'rgb(204, 36, 67)' },
+                { nom_nuance: 'BC-SOC', backgroundColor: 'rgb(255, 128, 128)' },
+                { nom_nuance: 'BC-RDG', backgroundColor: 'rgb(255, 209, 220)' },
+                { nom_nuance: 'BC-UG', backgroundColor: 'rgb(204, 102, 102)' },
+                { nom_nuance: 'BC-DVG', backgroundColor: 'rgb(255, 192, 192)' },
+                { nom_nuance: 'BC-ECO', backgroundColor: 'rgb(85, 190, 71)' },
+                { nom_nuance: 'BC-UGE', backgroundColor: 'rgb(204, 102, 102)' },
+                { nom_nuance: 'BC-DIV', backgroundColor: 'rgb(134, 143, 152)' },
+                { nom_nuance: 'BC-REG', backgroundColor: 'rgb(220, 191, 163)' },
+                { nom_nuance: 'BC-GJ', backgroundColor: 'rgb(255, 255, 0)' },
+                { nom_nuance: 'BC-UCG', backgroundColor: 'rgb(243, 215, 154)' },
+                { nom_nuance: 'BC-REM', backgroundColor: 'rgb(255, 235, 0)' },
+                { nom_nuance: 'BC-MDM', backgroundColor: 'rgb(255, 153, 0)' },
+                { nom_nuance: 'BC-UC', backgroundColor: 'rgb(255, 237, 153)' },
+                { nom_nuance: 'BC-DVC', backgroundColor: 'rgb(250, 197, 119)' },
+                { nom_nuance: 'BC-UCD', backgroundColor: 'rgb(130, 162, 198)' },
+                { nom_nuance: 'BC-UDI', backgroundColor: 'rgb(0, 255, 255)' },
+                { nom_nuance: 'BC-LR', backgroundColor: 'rgb(0, 102, 204)' },
+                { nom_nuance: 'BC-UD', backgroundColor: 'rgb(135, 206, 250)' },
+                { nom_nuance: 'BC-DSV', backgroundColor: 'rgb(128, 64, 192)' },
+                { nom_nuance: 'BC-DVD', backgroundColor: 'rgb(173, 193, 253)' },
+                { nom_nuance: 'BC-RN', backgroundColor: 'rgb(13, 55, 138)' },
+                { nom_nuance: 'BC-UXD', backgroundColor: 'rgb(64, 64, 64)' },
+                { nom_nuance: 'BC-EXD', backgroundColor: 'rgb(64, 64, 64)' }
+            ];
+
+            tab_nuances_graphe = tab_nuances_21;
             break;
 
         default:
@@ -583,138 +637,6 @@ function affichageGrapheDept(resultat_php) {
 
     };
     return data;
-}
-
-function affichageGrapheDeptT2(resultat_php) {
-    /* Traitement des données du résultat de la requete et préparation des données pour l'affichage du graphe, création d'un dictionnaire regroupant les cantons et les scores par partis */
-    var obj_dept = new Object();
-    obj_dept.name = document.getElementById("dep_choix").options[deroulant_dep.selectedIndex].text;
-    obj_dept.cantons = new Array(nombre_canton);
-
-    var nombre_canton = resultat_php.length;
-    var nombre_nuances = 0;
-    var tab_nuances_graphe = {};
-    var datasets_année;
-
-
-    /**** Plusieurs cas, les noms des nuances et leur nombre différent selon l'année ****/
-    switch (document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value) {
-
-        /************* 2008  ***********/
-        case "2008":
-            nombre_nuances = 15;
-
-            /* Tableau regroupant les nuances et leur couleur respective */
-            var tab_nuances_08 = [
-                { nom_nuance: 'EXG', backgroundColor: 'rgb(121, 39, 32)' }, { nom_nuance: 'COM', backgroundColor: 'rgb(221, 0, 0)' }, { nom_nuance: 'RDG', backgroundColor: 'rgb(255, 209, 220)' }, { nom_nuance: 'VEC', backgroundColor: 'rgb(49, 112, 35)' }, { nom_nuance: 'DVG', backgroundColor: 'rgb(255, 192, 192)' },
-                { nom_nuance: 'ECO', backgroundColor: 'rgb(85, 190, 71)' }, { nom_nuance: 'SOC', backgroundColor: 'rgb(255, 128, 128)' }, { nom_nuance: 'UDFD', backgroundColor: 'rgb(255, 153, 0)' }, { nom_nuance: 'M-NC', backgroundColor: 'rgb(0, 255, 255)' }, { nom_nuance: 'AUT', backgroundColor: 'rgb(134, 143, 152)' },
-                { nom_nuance: 'DVD', backgroundColor: 'rgb(173, 193, 253)' }, { nom_nuance: 'UMP', backgroundColor: 'rgb(0, 102, 204)' }, { nom_nuance: 'FN', backgroundColor: 'rgb(13, 55, 138)' }, { nom_nuance: 'EXD', backgroundColor: 'rgb(64, 64, 64)' }, { nom_nuance: 'REG', backgroundColor: 'rgb(220, 191, 163)' }
-            ];
-
-            /* Ajout des datasets */
-            tab_nuances_graphe = tab_nuances_08;
-
-            break;
-
-            /************* 2011  ***********/
-        case "2011":
-            nombre_nuances = 17;
-            var tab_nuances_11 = [
-                { nom_nuance: 'EXG', backgroundColor: 'rgb(121, 39, 32)' }, { nom_nuance: 'COM', backgroundColor: 'rgb(221, 0, 0)' }, { nom_nuance: 'PG', backgroundColor: 'rgb(251, 101, 129)' }, { nom_nuance: 'RDG', backgroundColor: 'rgb(255, 209, 220)' },
-                { nom_nuance: 'VEC', backgroundColor: 'rgb(49, 112, 35)' }, { nom_nuance: 'DVG', backgroundColor: 'rgb(255, 192, 192)' }, { nom_nuance: 'ECO', backgroundColor: 'rgb(85, 190, 71)' },
-                { nom_nuance: 'SOC', backgroundColor: 'rgb(255, 128, 128)' }, { nom_nuance: 'MODM', backgroundColor: 'rgb(255, 153, 0)' }, { nom_nuance: 'M-NC', backgroundColor: 'rgb(0, 255, 255)' }, { nom_nuance: 'M', backgroundColor: 'rgb(135, 206, 250)' },
-                { nom_nuance: 'AUT', backgroundColor: 'rgb(134, 143, 152)' }, { nom_nuance: 'DVD', backgroundColor: 'rgb(173, 193, 253)' }, { nom_nuance: 'UMP', backgroundColor: 'rgb(0, 102, 204)' },
-                { nom_nuance: 'FN', backgroundColor: 'rgb(13, 55, 138)' }, { nom_nuance: 'EXD', backgroundColor: 'rgb(64, 64, 64)' }, { nom_nuance: 'REG', backgroundColor: 'rgb(220, 191, 163)' }
-            ];
-
-            tab_nuances_graphe = tab_nuances_11;
-
-            break;
-
-            /************* 2015  ***********/
-        case "2015":
-            nombre_nuances = 19;
-            var tab_nuances_15 = [
-                { nom_nuance: 'BC-EXG', backgroundColor: 'rgb(121, 39, 32)' }, { nom_nuance: 'BC-FG', backgroundColor: 'rgb(161, 40, 48)' }, { nom_nuance: 'BC-COM', backgroundColor: 'rgb(221, 0, 0)' },
-                { nom_nuance: 'BC-PG', backgroundColor: 'rgb(251, 101, 129)' }, { nom_nuance: 'BC-RDG', backgroundColor: 'rgb(255, 209, 220)' },
-                { nom_nuance: 'BC-UG', backgroundColor: 'rgb(204, 102, 102)' }, { nom_nuance: 'BC-VEC', backgroundColor: 'rgb(49, 112, 35)' }, { nom_nuance: 'BC-DVG', backgroundColor: 'rgb(255, 192, 192)' },
-                { nom_nuance: 'BC-SOC', backgroundColor: 'rgb(255, 128, 128)' }, { nom_nuance: 'BC-MDM', backgroundColor: 'rgb(255, 153, 0)' }, { nom_nuance: 'BC-UC', backgroundColor: 'rgb(255, 235, 0)' },
-                { nom_nuance: 'BC-DIV', backgroundColor: 'rgb(134, 143, 152)' }, { nom_nuance: 'BC-UD', backgroundColor: 'rgb(135, 206, 250)' }, { nom_nuance: 'BC-UDI', backgroundColor: 'rgb(0, 255, 255)' },
-                { nom_nuance: 'BC-DVD', backgroundColor: 'rgb(173, 193, 253)' }, { nom_nuance: 'BC-UMP', backgroundColor: 'rgb(0, 102, 204)' },
-                { nom_nuance: 'BC-DLF', backgroundColor: 'rgb(0, 130, 196)' }, { nom_nuance: 'BC-FN', backgroundColor: 'rgb(13, 55, 138)' }, { nom_nuance: 'BC-EXD', backgroundColor: 'rgb(64, 64, 64)' }
-            ];
-
-            tab_nuances_graphe = tab_nuances_15;
-
-            break;
-
-            /************* 2021  ***********/
-        case "2021":
-            nombre_nuances = 26;
-            break;
-
-        default:
-            break;
-    }
-
-
-    /************** Affichage et configuration du graphe  **************/
-
-    /* Création d'un tableau pour chaque canton dans l'objet et ajout du nom des cantons*/
-    for (k = 0; k < nombre_canton; k++) {
-        obj_dept.cantons[k] = { name: resultat_php[k][1], parti: new Array(nombre_nuances) };
-    }
-
-    /* Initialisation des noms et des scores par nuance dans l'objet */
-    for (i = 0; i < nombre_canton; i++) {
-        for (j = 0; j < nombre_nuances; j++) {
-            obj_dept.cantons[i].parti[j] = { name: tab_nuances_graphe[j].nom_nuance, score: 0 };
-        }
-
-        /* Ajout des scores par parti dans l'objet en parcourant le resultat de la requete */
-        for (j = 3; j < resultat_php[i].length; j += 2) {
-            if (resultat_php[i][j] != null) {
-                for (k = 0; k < nombre_nuances; k++) {
-                    if (obj_dept.cantons[i].parti[k].name == resultat_php[i][j - 1]) {
-                        obj_dept.cantons[i].parti[k].score += Number(resultat_php[i][j]);
-                        break;
-                    }
-                }
-
-            }
-        }
-    }
-    /*Création et instanciation du tableau des scores à 2 dimensions par parti */
-    var tab = new Array(nombre_nuances);
-    for (i = 0; i < nombre_nuances; i++) {
-        tab[i] = new Array(nombre_canton);
-    }
-    for (j = 0; j < nombre_nuances; j++) {
-        for (i = 0; i < nombre_canton; i++) {
-            tab[j][i] = obj_dept.cantons[i].parti[j].score;
-        }
-    }
-
-    const labels = [];
-    for (let i = 0; i < nombre_canton; i++) {
-        labels[i] = resultat_php[i][1];
-    }
-    var datasets_année = new Array(nombre_nuances);
-    for (let i = 0; i < nombre_nuances; i++) {
-        datasets_année[i] = { label: 'undefined', data: null, backgroundColor: 'undefined' };
-    }
-    for (let i = 0; i < nombre_nuances; i++) {
-
-        datasets_année[i].label = tab_nuances_graphe[i].nom_nuance;
-        datasets_année[i].data = tab[i];
-        datasets_année[i].backgroundColor = tab_nuances_graphe[i].backgroundColor;
-
-    }
-    const data = {
-        labels: labels,
-        datasets: datasets_année,
-
-    };
 }
 
 function configGrapheDeptT1(data) {
