@@ -51,13 +51,13 @@ function lancer_prediction() {
   const year = yearSelect.options[yearSelect.selectedIndex].value
   const canton = cantonSelect.options[cantonSelect.selectedIndex].value
 
-  const model = load_model(year, canton)
+  // const model = load_model(year, canton)
 
 
 
 
 
-  const inputData = await getData(year)
+  // const inputData = await getData(year)
 }
 
 
