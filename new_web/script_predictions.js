@@ -616,6 +616,7 @@ function configGrapheDeptT1(data) {
         type: 'bar',
         data: data,
         options: {
+            maxBarThickness : 70,
             plugins: {
                 title: {
                     display: true,
