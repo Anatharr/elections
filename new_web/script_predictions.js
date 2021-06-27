@@ -289,6 +289,10 @@ function rechercher_données_tour_1() {
             setTimeout(function() {
                 window.scrollTo({ top: scrollDiv, behavior: 'smooth' });
                 loader.style.display = "none";
+                graphe_t1.style.display = "none";
+                tour_2.style.display = "none";
+                graphe_t2.style.display = "none";
+                tour_2.style.display = "none";
             }, 500);
 
         },
