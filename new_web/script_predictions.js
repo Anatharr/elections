@@ -505,7 +505,7 @@ function affichageGrapheDeptT1(resultat_php) {
                     if (resultat_php[i][j] != null) {
                         for (k = 0; k < nombre_nuances; k++) {
                             if (obj_dept.cantons[i].parti[k].name == resultat_php[i][j - 1]) {
-                                obj_dept.cantons[i].parti[k].score += resultat_php[i][j];
+                                obj_dept.cantons[i].parti[k].score += Number(resultat_php[i][j]);
                             }
                         }
 
@@ -648,7 +648,7 @@ function affichageGrapheDeptT1(resultat_php) {
                     if (resultat_php[i][j] != null) {
                         for (k = 0; k < nombre_nuances; k++) {
                             if (obj_dept.cantons[i].parti[k].name == resultat_php[i][j - 1]) {
-                                obj_dept.cantons[i].parti[k].score += resultat_php[i][j];
+                                obj_dept.cantons[i].parti[k].score += Number(resultat_php[i][j]);
                             }
                         }
 
