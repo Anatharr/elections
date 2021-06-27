@@ -631,6 +631,7 @@ function configGrapheDeptT1(data) {
             responsive: true,
             scales: {
                 x: {
+                    maxBarThickness : 70,
                     stacked: true,
                     title: {
                         display: true,
