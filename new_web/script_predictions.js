@@ -350,7 +350,7 @@ function affichageGrapheDeptT1(resultat_php) {
 
     var nombre_canton = resultat_php.length;
     var nombre_nuances = 0;
-    var tab_nuances_graphe = {};
+    var tab_nuances_graphe = [];
     var datasets_année;
 
 
