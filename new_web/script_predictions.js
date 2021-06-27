@@ -259,7 +259,7 @@ function rechercher_données_tour_1() {
                 }
             }
             let scrollDiv = document.getElementById("graph_dep").offsetTop;
-            window.scrollTo({ top: scrollDiv, behavior: 'smooth' });
+            setTimeout(window.scrollTo({ top: scrollDiv, behavior: 'smooth' }), 3000);
 
         },
 

@@ -252,7 +252,8 @@
             </select>
         </div>
 
-        <button class="button_reg" type="button" onclick="lancer_recherche_reg()">Lancez la recherche</button>
+        <div class="loader"><button class="button_reg" type="button" onclick="lancer_recherche_reg()">Lancez la recherche</button></div>
+        
 
         <div id="graph_reg">
             <h2> Graphe élections régionales</h1>
