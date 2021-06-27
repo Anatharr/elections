@@ -116,8 +116,8 @@ function recuperer_region() {
 /* MENU DEROULANT BLOQUANT */
 
 function menu_deroulant_bloquant() {
-    let checkbox = document.getElementById("checkbox_burger");
-    let body = document.getElementById("body_id");
+    let checkbox = document.getElementsByClassName("checkbox_burger");
+    let body = document.getElementsByClassName("body_id");
     if (checkbox.checked) {
         body.style.overflowY = "hidden";
         bool_deroulant_bloquant = true;
@@ -147,7 +147,7 @@ function lancer_recherche_dep() {
         dataType: 'json',
         data: { functionname: 'affiche_tour_1_departement', arguments: [document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value, document.getElementById("dep_choix").options[deroulant_dep.selectedIndex].value] },
 
-        success: function (obj, textstatus) {
+        success: function(obj, textstatus) {
             if (!('error' in obj)) {
                 resultat_php = obj.result;
             } else {
@@ -233,7 +233,7 @@ function lancer_recherche_dep() {
 
         },
 
-        error: function (chr, ajaxOptions, thrownError) {
+        error: function(chr, ajaxOptions, thrownError) {
             alert(chr.responseText); //Ce code affichera le message d'erreur, ici Message d'erreur.
         }
 
@@ -251,7 +251,7 @@ function lancer_recherche_dep() {
         dataType: 'json',
         data: { functionname: 'affiche_tour_2_departement', arguments: [document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value, document.getElementById("dep_choix").options[deroulant_dep.selectedIndex].value] },
 
-        success: function (obj, textstatus) {
+        success: function(obj, textstatus) {
             if (!('error' in obj)) {
                 resultat_php = obj.result;
             } else {
@@ -310,7 +310,7 @@ function lancer_recherche_dep() {
 
         },
 
-        error: function (chr, ajaxOptions, thrownError) {
+        error: function(chr, ajaxOptions, thrownError) {
             alert(chr.responseText); //Ce code affichera le message d'erreur, ici Message d'erreur.
         }
 
@@ -392,81 +392,81 @@ function affichageGrapheDeptT1(resultat_php) {
                 }
             }
             datasets_année = [{
-                label: 'EXG',
-                data: tab[0],
-                backgroundColor: 'rgb(187, 0, 0)',
-            },
-            {
-                label: 'COM',
-                data: tab[1],
-                backgroundColor: 'rgb(221, 0, 0)',
-            },
-            {
-                label: 'RDG',
-                data: tab[2],
-                backgroundColor: 'rgb(255, 209, 220)',
-            },
-            {
-                label: 'VEC',
-                data: tab[3],
-                backgroundColor: 'rgb(0, 192, 0)',
-            },
-            {
-                label: 'DVG',
-                data: tab[4],
-                backgroundColor: 'rgb(255, 192, 192)',
-            },
-            {
-                label: 'ECO',
-                data: tab[5],
-                backgroundColor: 'rgb(0, 192, 0)',
-            },
-            {
-                label: 'SOC',
-                data: tab[6],
-                backgroundColor: 'rgb(255, 128, 128)',
-            },
-            {
-                label: 'UDFD',
-                data: tab[7],
-                backgroundColor: 'rgb(255, 153, 0)',
-            },
-            {
-                label: 'M-NC',
-                data: tab[8],
-                backgroundColor: 'rgb(255, 235, 0)',
-            },
-            {
-                label: 'AUT',
-                data: tab[9],
-                backgroundColor: 'rgb(238, 238, 238)',
-            },
+                    label: 'EXG',
+                    data: tab[0],
+                    backgroundColor: 'rgb(187, 0, 0)',
+                },
+                {
+                    label: 'COM',
+                    data: tab[1],
+                    backgroundColor: 'rgb(221, 0, 0)',
+                },
+                {
+                    label: 'RDG',
+                    data: tab[2],
+                    backgroundColor: 'rgb(255, 209, 220)',
+                },
+                {
+                    label: 'VEC',
+                    data: tab[3],
+                    backgroundColor: 'rgb(0, 192, 0)',
+                },
+                {
+                    label: 'DVG',
+                    data: tab[4],
+                    backgroundColor: 'rgb(255, 192, 192)',
+                },
+                {
+                    label: 'ECO',
+                    data: tab[5],
+                    backgroundColor: 'rgb(0, 192, 0)',
+                },
+                {
+                    label: 'SOC',
+                    data: tab[6],
+                    backgroundColor: 'rgb(255, 128, 128)',
+                },
+                {
+                    label: 'UDFD',
+                    data: tab[7],
+                    backgroundColor: 'rgb(255, 153, 0)',
+                },
+                {
+                    label: 'M-NC',
+                    data: tab[8],
+                    backgroundColor: 'rgb(255, 235, 0)',
+                },
+                {
+                    label: 'AUT',
+                    data: tab[9],
+                    backgroundColor: 'rgb(238, 238, 238)',
+                },
 
-            {
-                label: 'DVD',
-                data: tab[10],
-                backgroundColor: 'rgb(173, 193, 253)',
-            },
-            {
-                label: 'UMP',
-                data: tab[11],
-                backgroundColor: 'rgb(0, 102, 204)',
-            },
-            {
-                label: 'FN',
-                data: tab[12],
-                backgroundColor: 'rgb(13, 55, 138)',
-            },
-            {
-                label: 'EXD',
-                data: tab[13],
-                backgroundColor: 'rgb(64, 64, 64)',
-            },
-            {
-                label: 'REG',
-                data: tab[14],
-                backgroundColor: 'rgb(64, 64, 64)',
-            },
+                {
+                    label: 'DVD',
+                    data: tab[10],
+                    backgroundColor: 'rgb(173, 193, 253)',
+                },
+                {
+                    label: 'UMP',
+                    data: tab[11],
+                    backgroundColor: 'rgb(0, 102, 204)',
+                },
+                {
+                    label: 'FN',
+                    data: tab[12],
+                    backgroundColor: 'rgb(13, 55, 138)',
+                },
+                {
+                    label: 'EXD',
+                    data: tab[13],
+                    backgroundColor: 'rgb(64, 64, 64)',
+                },
+                {
+                    label: 'REG',
+                    data: tab[14],
+                    backgroundColor: 'rgb(64, 64, 64)',
+                },
             ]
             break;
 
@@ -522,91 +522,91 @@ function affichageGrapheDeptT1(resultat_php) {
                 }
             }
             datasets_année = [{
-                label: 'EXG',
-                data: tab[0],
-                backgroundColor: 'rgb(187, 0, 0)',
-            },
-            {
-                label: 'COM',
-                data: tab[1],
-                backgroundColor: 'rgb(221, 0, 0)',
-            },
-            {
-                label: 'PG',
-                data: tab[2],
-                backgroundColor: 'rgb(255, 209, 220)',
-            },
-            {
-                label: 'RDG',
-                data: tab[3],
-                backgroundColor: 'rgb(255, 209, 220)',
-            },
-            {
-                label: 'VEC',
-                data: tab[4],
-                backgroundColor: 'rgb(0, 192, 0)',
-            },
-            {
-                label: 'DVG',
-                data: tab[5],
-                backgroundColor: 'rgb(255, 192, 192)',
-            },
-            {
-                label: 'ECO',
-                data: tab[6],
-                backgroundColor: 'rgb(0, 192, 0)',
-            },
-            {
-                label: 'SOC',
-                data: tab[7],
-                backgroundColor: 'rgb(255, 128, 128)',
-            },
-            {
-                label: 'MODM',
-                data: tab[8],
-                backgroundColor: 'rgb(255, 153, 0)',
-            },
-            {
-                label: 'M-NC',
-                data: tab[9],
-                backgroundColor: 'rgb(255, 235, 0)',
-            },
-            {
-                label: 'M',
-                data: tab[10],
-                backgroundColor: 'rgb(255, 235, 0)',
-            },
-            {
-                label: 'AUT',
-                data: tab[11],
-                backgroundColor: 'rgb(238, 238, 238)',
-            },
+                    label: 'EXG',
+                    data: tab[0],
+                    backgroundColor: 'rgb(187, 0, 0)',
+                },
+                {
+                    label: 'COM',
+                    data: tab[1],
+                    backgroundColor: 'rgb(221, 0, 0)',
+                },
+                {
+                    label: 'PG',
+                    data: tab[2],
+                    backgroundColor: 'rgb(255, 209, 220)',
+                },
+                {
+                    label: 'RDG',
+                    data: tab[3],
+                    backgroundColor: 'rgb(255, 209, 220)',
+                },
+                {
+                    label: 'VEC',
+                    data: tab[4],
+                    backgroundColor: 'rgb(0, 192, 0)',
+                },
+                {
+                    label: 'DVG',
+                    data: tab[5],
+                    backgroundColor: 'rgb(255, 192, 192)',
+                },
+                {
+                    label: 'ECO',
+                    data: tab[6],
+                    backgroundColor: 'rgb(0, 192, 0)',
+                },
+                {
+                    label: 'SOC',
+                    data: tab[7],
+                    backgroundColor: 'rgb(255, 128, 128)',
+                },
+                {
+                    label: 'MODM',
+                    data: tab[8],
+                    backgroundColor: 'rgb(255, 153, 0)',
+                },
+                {
+                    label: 'M-NC',
+                    data: tab[9],
+                    backgroundColor: 'rgb(255, 235, 0)',
+                },
+                {
+                    label: 'M',
+                    data: tab[10],
+                    backgroundColor: 'rgb(255, 235, 0)',
+                },
+                {
+                    label: 'AUT',
+                    data: tab[11],
+                    backgroundColor: 'rgb(238, 238, 238)',
+                },
 
-            {
-                label: 'DVD',
-                data: tab[12],
-                backgroundColor: 'rgb(173, 193, 253)',
-            },
-            {
-                label: 'UMP',
-                data: tab[13],
-                backgroundColor: 'rgb(0, 102, 204)',
-            },
-            {
-                label: 'FN',
-                data: tab[14],
-                backgroundColor: 'rgb(13, 55, 138)',
-            },
-            {
-                label: 'EXD',
-                data: tab[15],
-                backgroundColor: 'rgb(64, 64, 64)',
-            },
-            {
-                label: 'REG',
-                data: tab[16],
-                backgroundColor: 'rgb(64, 64, 64)',
-            },
+                {
+                    label: 'DVD',
+                    data: tab[12],
+                    backgroundColor: 'rgb(173, 193, 253)',
+                },
+                {
+                    label: 'UMP',
+                    data: tab[13],
+                    backgroundColor: 'rgb(0, 102, 204)',
+                },
+                {
+                    label: 'FN',
+                    data: tab[14],
+                    backgroundColor: 'rgb(13, 55, 138)',
+                },
+                {
+                    label: 'EXD',
+                    data: tab[15],
+                    backgroundColor: 'rgb(64, 64, 64)',
+                },
+                {
+                    label: 'REG',
+                    data: tab[16],
+                    backgroundColor: 'rgb(64, 64, 64)',
+                },
             ]
             break;
 
@@ -665,100 +665,100 @@ function affichageGrapheDeptT1(resultat_php) {
                 }
             }
             datasets_année = [{
-                label: 'BC-EXG',
-                data: tab[0],
-                backgroundColor: 'rgb(187, 0, 0)',
-            },
-            {
-                label: 'BC-FG',
-                data: tab[1],
-                backgroundColor: 'rgb(221, 0, 0)',
-            },
-            {
-                label: 'BC-COM',
-                data: tab[2],
-                backgroundColor: 'rgb(221, 0, 0)',
-            },
-            {
-                label: 'BC-PG',
-                data: tab[3],
-                backgroundColor: 'rgb(245,142,187)',
-            },
-            {
-                label: 'BC-RDG',
-                data: tab[4],
-                backgroundColor: 'rgb(255, 209, 220)',
-            },
-            {
-                label: 'BC-UG',
-                data: tab[5],
-                backgroundColor: 'rgb(204, 102, 102)',
-            },
-            {
-                label: 'BC-VEC',
-                data: tab[6],
-                backgroundColor: 'rgb(0, 192, 0)',
-            },
-            {
-                label: 'BC-DVG',
-                data: tab[7],
-                backgroundColor: 'rgb(255, 192, 192)',
-            },
-            {
-                label: 'BC-SOC',
-                data: tab[8],
-                backgroundColor: 'rgb(255, 128, 128)',
-            },
-            {
-                label: 'BC-MDM',
-                data: tab[9],
-                backgroundColor: 'rgb(255, 153, 0)',
-            },
-            {
-                label: 'BC-UC',
-                data: tab[10],
-                backgroundColor: 'rgb(255, 235, 0)',
-            },
-            {
-                label: 'BC-DIV',
-                data: tab[11],
-                backgroundColor: 'rgb(238, 238, 238)',
-            },
-            {
-                label: 'BC-UD',
-                data: tab[12],
-                backgroundColor: 'rgb(135, 206, 250)',
-            },
-            {
-                label: 'BC-UDI',
-                data: tab[13],
-                backgroundColor: 'rgb(0, 255, 255)',
-            },
-            {
-                label: 'BC-DVD',
-                data: tab[14],
-                backgroundColor: 'rgb(173, 193, 253)',
-            },
-            {
-                label: 'BC-UMP',
-                data: tab[15],
-                backgroundColor: 'rgb(0, 102, 204)',
-            },
-            {
-                label: 'BC-DLF',
-                data: tab[16],
-                backgroundColor: 'rgb(0, 130, 196)',
-            },
-            {
-                label: 'BC-FN',
-                data: tab[17],
-                backgroundColor: 'rgb(13, 55, 138)',
-            },
-            {
-                label: 'BC-EXD',
-                data: tab[18],
-                backgroundColor: 'rgb(64, 64, 64)',
-            },
+                    label: 'BC-EXG',
+                    data: tab[0],
+                    backgroundColor: 'rgb(187, 0, 0)',
+                },
+                {
+                    label: 'BC-FG',
+                    data: tab[1],
+                    backgroundColor: 'rgb(221, 0, 0)',
+                },
+                {
+                    label: 'BC-COM',
+                    data: tab[2],
+                    backgroundColor: 'rgb(221, 0, 0)',
+                },
+                {
+                    label: 'BC-PG',
+                    data: tab[3],
+                    backgroundColor: 'rgb(245,142,187)',
+                },
+                {
+                    label: 'BC-RDG',
+                    data: tab[4],
+                    backgroundColor: 'rgb(255, 209, 220)',
+                },
+                {
+                    label: 'BC-UG',
+                    data: tab[5],
+                    backgroundColor: 'rgb(204, 102, 102)',
+                },
+                {
+                    label: 'BC-VEC',
+                    data: tab[6],
+                    backgroundColor: 'rgb(0, 192, 0)',
+                },
+                {
+                    label: 'BC-DVG',
+                    data: tab[7],
+                    backgroundColor: 'rgb(255, 192, 192)',
+                },
+                {
+                    label: 'BC-SOC',
+                    data: tab[8],
+                    backgroundColor: 'rgb(255, 128, 128)',
+                },
+                {
+                    label: 'BC-MDM',
+                    data: tab[9],
+                    backgroundColor: 'rgb(255, 153, 0)',
+                },
+                {
+                    label: 'BC-UC',
+                    data: tab[10],
+                    backgroundColor: 'rgb(255, 235, 0)',
+                },
+                {
+                    label: 'BC-DIV',
+                    data: tab[11],
+                    backgroundColor: 'rgb(238, 238, 238)',
+                },
+                {
+                    label: 'BC-UD',
+                    data: tab[12],
+                    backgroundColor: 'rgb(135, 206, 250)',
+                },
+                {
+                    label: 'BC-UDI',
+                    data: tab[13],
+                    backgroundColor: 'rgb(0, 255, 255)',
+                },
+                {
+                    label: 'BC-DVD',
+                    data: tab[14],
+                    backgroundColor: 'rgb(173, 193, 253)',
+                },
+                {
+                    label: 'BC-UMP',
+                    data: tab[15],
+                    backgroundColor: 'rgb(0, 102, 204)',
+                },
+                {
+                    label: 'BC-DLF',
+                    data: tab[16],
+                    backgroundColor: 'rgb(0, 130, 196)',
+                },
+                {
+                    label: 'BC-FN',
+                    data: tab[17],
+                    backgroundColor: 'rgb(13, 55, 138)',
+                },
+                {
+                    label: 'BC-EXD',
+                    data: tab[18],
+                    backgroundColor: 'rgb(64, 64, 64)',
+                },
             ]
 
             break;
