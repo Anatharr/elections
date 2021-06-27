@@ -341,7 +341,7 @@ function affichageGrapheDeptT1(resultat_php) {
 
     obj_dept.cantons = new Array(nombre_canton);
     switch (document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value) {
-     /*   case "2008":
+        case "2008":
             nombre_nuances = 15;
             for (k = 0; k < nombre_canton; k++) {
 
@@ -360,9 +360,9 @@ function affichageGrapheDeptT1(resultat_php) {
                 obj_dept.cantons[i].parti[5] = { name: 'ECO', score: 0 };
                 obj_dept.cantons[i].parti[6] = { name: 'SOC', score: 0 };
                 obj_dept.cantons[i].parti[7] = { name: 'UDFD', score: 0 };
-                obj_dept.cantons[i].parti[10] = { name: 'M-NC', score: 0 };
-                obj_dept.cantons[i].parti[8] = { name: 'AUT', score: 0 };
-                obj_dept.cantons[i].parti[9] = { name: 'DVD', score: 0 };
+                obj_dept.cantons[i].parti[8] = { name: 'M-NC', score: 0 };
+                obj_dept.cantons[i].parti[9] = { name: 'AUT', score: 0 };
+                obj_dept.cantons[i].parti[10] = { name: 'DVD', score: 0 };
                 obj_dept.cantons[i].parti[11] = { name: 'UMP', score: 0 };
                 obj_dept.cantons[i].parti[12] = { name: 'FN', score: 0 };
                 obj_dept.cantons[i].parti[13] = { name: 'EXD', score: 0 };
@@ -374,7 +374,8 @@ function affichageGrapheDeptT1(resultat_php) {
                     if (resultat_php[i][j] != null) {
                         for (k = 0; k < nombre_nuances; k++) {
                             if (obj_dept.cantons[i].parti[k].name == resultat_php[i][j - 1]) {
-                                obj_dept.cantons[i].parti[k].score += resultat_php[i][j];
+                                obj_dept.cantons[i].parti[k].score += Number(resultat_php[i][j]);
+                                break;
                             }
                         }
 
@@ -489,7 +490,7 @@ function affichageGrapheDeptT1(resultat_php) {
                 obj_dept.cantons[i].parti[6] = { name: 'ECO', score: 0 };
                 obj_dept.cantons[i].parti[7] = { name: 'SOC', score: 0 };
                 obj_dept.cantons[i].parti[8] = { name: 'MODM', score: 0 };
-                obj_dept.cantons[i].parti[9] = { name: 'M-NC', score: 0 }; 
+                obj_dept.cantons[i].parti[9] = { name: 'M-NC', score: 0 };
                 obj_dept.cantons[i].parti[10] = { name: 'M', score: 0 };
                 obj_dept.cantons[i].parti[11] = { name: 'AUT', score: 0 };
                 obj_dept.cantons[i].parti[12] = { name: 'DVD', score: 0 };
@@ -497,8 +498,8 @@ function affichageGrapheDeptT1(resultat_php) {
                 obj_dept.cantons[i].parti[14] = { name: 'FN', score: 0 };
                 obj_dept.cantons[i].parti[15] = { name: 'EXD', score: 0 };
                 obj_dept.cantons[i].parti[16] = { name: 'REG', score: 0 };
-               
-                
+
+
 
                 for (j = 3; j < resultat_php[i].length; j += 2) {
                     if (resultat_php[i][j] != null) {
@@ -609,7 +610,7 @@ function affichageGrapheDeptT1(resultat_php) {
             ]
             break;
 
-*/
+
         case "2015":
             nombre_nuances = 19;
             for (k = 0; k < nombre_canton; k++) {
