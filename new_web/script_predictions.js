@@ -115,21 +115,9 @@ function recuperer_region() {
 
 /* MENU DEROULANT BLOQUANT */
 
-function menu_deroulant_bloquant_predictions() {
-    let checkbox = document.getElementById("checkbox_burger_predictions");
-    let body = document.getElementById("body_id_predictions");
-    if (checkbox.checked) {
-        body.style.overflowY = "hidden";
-        bool_deroulant_bloquant = true;
-    } else {
-        body.style.overflowY = "visible";
-        bool_deroulant_bloquant = false;
-    }
-}
-
-function menu_deroulant_bloquant_contact() {
-    let checkbox = document.getElementById("checkbox_burger_contact");
-    let body = document.getElementById("body_id_contact");
+function menu_deroulant_bloquant() {
+    let checkbox = document.getElementById("checkbox_burger");
+    let body = document.getElementById("body_id");
     if (checkbox.checked) {
         body.style.overflowY = "hidden";
         bool_deroulant_bloquant = true;
