@@ -259,7 +259,7 @@ function rechercher_données_tour_1() {
                 }
             }
             let scrollDiv = document.getElementById("graph_dep").offsetTop;
-            setTimeout(function() { window.scrollTo({ top: scrollDiv, behavior: 'smooth' }) }, 3000);
+            setTimeout(function() { window.scrollTo({ top: scrollDiv, behavior: 'smooth' }) }, 1500);
 
         },
 
@@ -680,7 +680,7 @@ function configGrapheDeptT2(data) {
             }
         };
 
-        document.getElementById("graphe_t2").innerHTML = "<canvas id=\"Graphe_T2\" width=\"400px\" height=\"700px\"></canvas>";
+        document.getElementById("graphe_t2").innerHTML = "<canvas id=\"Graphe_T2\" width=\"500px\" height=\"700px\" style=\"margin-left:auto; margin-right:auto\"></canvas>";
         var myChart = new Chart(document.getElementById('Graphe_T2'), config);
     } else {
         document.getElementById("graphe_t2").innerHTML = " ";
