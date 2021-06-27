@@ -634,7 +634,7 @@ function affichageGrapheDeptT2(resultat_php) {
     var myChart = new Chart(document.getElementById('Graphe_T2'), config);
 }
 
-function configGrapheT1(data){
+function configGrapheDeptT1(data){
     const config = {
         type: 'bar',
         data: data,
