@@ -29,47 +29,48 @@ section_france.style.display = "none";
 
 function afficherDeroulantDep() {
     if (!bool_deroulant_bloquant) {
-        let scrollDiv = document.getElementById("texte_choix_echelle").offsetTop;
-        window.scrollTo({ top: scrollDiv, behavior: 'smooth' });
         if (getComputedStyle(section_departement).display != "none") {
-            section_departement.style.display = "none"
+            section_departement.style.display = "none";
         } else {
-            section_departement.style.display = "block"
-            section_region.style.display = "none"
-            section_france.style.display = "none"
-            document.getElementById("graph_dep").textContent = "Graphe élections départementales"
-            document.getElementById("dep_choix").value = "Default"
-            document.getElementById("dep_annee_choix").value = "Default"
+            section_departement.style.display = "block";
+            section_region.style.display = "none";
+            section_france.style.display = "none";
+            document.getElementById("graph_dep").textContent = "Graphe élections départementales";
+            document.getElementById("dep_choix").value = "Default";
+            document.getElementById("dep_annee_choix").value = "Default";
 
         }
+        let scrollDiv = document.getElementById("texte_choix_echelle").offsetTop;
+        window.scrollTo({ top: scrollDiv, behavior: 'smooth' });
     }
 
 }
 
 function afficherDeroulantReg() {
     if (!bool_deroulant_bloquant) {
+        if (getComputedStyle(section_region).display != "none") {
+            section_region.style.display = "none";
+        } else {
+            section_region.style.display = "block";
+            section_departement.style.display = "none";
+            section_france.style.display = "none";
+            document.getElementById("graph_reg").textContent = "Graphe élections régionales";
+            document.getElementById("reg_choix").value = "Default";
+            document.getElementById("reg_annee_choix").value = "Default";
+        }
         let scrollDiv = document.getElementById("texte_choix_echelle").offsetTop;
         window.scrollTo({ top: scrollDiv, behavior: 'smooth' });
-        if (getComputedStyle(section_region).display != "none") {
-            section_region.style.display = "none"
-        } else {
-            section_region.style.display = "block"
-            section_departement.style.display = "none"
-            section_france.style.display = "none"
-            document.getElementById("graph_reg").textContent = "Graphe élections régionales"
-            document.getElementById("reg_choix").value = "Default"
-            document.getElementById("reg_annee_choix").value = "Default"
-        }
     }
 }
 
 function afficherDeroulantFr() {
     if (!bool_deroulant_bloquant) {
+        
+        section_departement.style.display = "none";
+        section_region.style.display = "none";
+        section_france.style.display = "block";
         let scrollDiv = document.getElementById("texte_choix_echelle").offsetTop;
         window.scrollTo({ top: scrollDiv, behavior: 'smooth' });
-        section_departement.style.display = "none"
-        section_region.style.display = "none"
-        section_france.style.display = "block"
     }
 }
 
