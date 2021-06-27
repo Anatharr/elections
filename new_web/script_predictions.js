@@ -132,6 +132,7 @@ function menu_deroulant_bloquant() {
 /* RECHERCHE ET CONSTRUCTION GRAPH */
 
 function rechercher_données_tour_1() {
+
     jQuery.ajax({
         type: "POST",
         url: 'traitement.php',
@@ -230,20 +231,10 @@ function rechercher_données_tour_1() {
 
 
     })
+
 }
 
-function lancer_recherche_dep() {
-    let scrollDiv = document.getElementById("graph_dep").offsetTop;
-    window.scrollTo({ top: scrollDiv, behavior: 'smooth' });
-    var requestURL = 'http://176.135.226.148:180/predictions.php';
-
-    var request = new XMLHttpRequest();
-    request.open('GET', requestURL);
-
-    rechercher_données_tour_1();
-
-
-    // Tableau du 2ème tour (données réelles)
+function rechercher_données_tour_2() {
 
     jQuery.ajax({
         type: "POST",
@@ -317,8 +308,21 @@ function lancer_recherche_dep() {
 
     })
 
+}
 
+function lancer_recherche_dep() {
+    let scrollDiv = document.getElementById("graph_dep").offsetTop;
+    window.scrollTo({ top: scrollDiv, behavior: 'smooth' });
+    var requestURL = 'http://176.135.226.148:180/predictions.php';
 
+    var request = new XMLHttpRequest();
+    request.open('GET', requestURL);
+
+    // on interroge la base de données pour obtenir les données de l'élection et du tour 1 
+    rechercher_données_tour_1();
+
+    // on interroge la base de données pour obtenir les données de l'élection et du tour 2
+    rechercher_données_tour_2();
 }
 
 
