@@ -727,7 +727,7 @@ h2 {
 }
 
 .caption_cyp_steven_nathan span {
-    position: relative;
+    position: absolute;
 }
 
 .caption_cyp_steven_nathan {
@@ -751,7 +751,7 @@ h2 {
 }
 
 .caption_jeremie_dorian span {
-    position: relative;
+    position: absolute;
 }
 
 #caption_jeremie {
