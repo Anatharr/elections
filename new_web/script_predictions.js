@@ -16,6 +16,11 @@ var bool_deroulant_bloquant;
 var resultat_php;
 var resultat_php_tab;
 
+var texte = "";
+var texte_reg = "";
+var annee_dep = "";
+var annee_reg = "";
+
 
 
 /* RESET DES DIFFERENTS AFFICHAGES */
@@ -631,7 +636,7 @@ function configGrapheDeptT2(data) {
             type: 'bar',
             data: data,
             options: {
-                barPercentage : 0.6,
+                maxBarThickness : 3,
                 plugins: {
                     title: {
                         display: true,
