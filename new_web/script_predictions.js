@@ -495,8 +495,8 @@ function affichageGrapheDeptT1(resultat_php) {
         }
     };
 
-    document.getElementById("graphe_t1").innerHTML = "<canvas id=\"myChart\" width=\"1000\" height=\"350\"></canvas>";
-    var myChart = new Chart(document.getElementById('myChart'), config);
+    document.getElementById("graphe_t1").innerHTML = "<canvas id=\"Graphe_T1\" width=\"1000\" height=\"350\"></canvas>";
+    var myChart = new Chart(document.getElementById('Graphe_T1'), config);
 }
 
 function affichageGrapheDeptT2(resultat_php){
@@ -651,7 +651,7 @@ function affichageGrapheDeptT2(resultat_php){
         }
     };
 
-    document.getElementById("graphe_t2").innerHTML = "<canvas id=\"myChart\" width=\"1000\" height=\"350\"></canvas>";
-    var myChart = new Chart(document.getElementById('myChart'), config);
+    document.getElementById("graphe_t2").innerHTML = "<canvas id=\"Graphe_T2\" width=\"1000\" height=\"350\"></canvas>";
+    var myChart = new Chart(document.getElementById('Graphe_T2'), config);
 }
 
