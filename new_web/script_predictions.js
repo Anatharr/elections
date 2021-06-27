@@ -104,7 +104,7 @@ function recuperer_region_annee() {
     deroulant_reg_annee = document.getElementById("reg_annee_choix");
     annee_reg = deroulant_reg_annee.options[deroulant_reg_annee.selectedIndex].text;
     if(texte_reg != "" && annee_reg != "")
-        document.getElementById("graph_reg").textContent = document.getElementById("graph_reg").textContent + texte + " en " + annee_reg;
+        document.getElementById("graph_reg").textContent = document.getElementById("graph_reg").textContent + texte_reg + " en " + annee_reg;
 }
 
 function recuperer_region() {
@@ -112,7 +112,7 @@ function recuperer_region() {
     deroulant_reg = document.getElementById("reg_choix");
     texte = deroulant_reg.options[deroulant_reg.selectedIndex].text;
     if(texte_reg != "" && annee_reg != "")
-        document.getElementById("graph_reg").textContent = document.getElementById("graph_reg").textContent + texte + " en " + annee_reg;
+        document.getElementById("graph_reg").textContent = document.getElementById("graph_reg").textContent + texte_reg + " en " + annee_reg;
 }
 
 
