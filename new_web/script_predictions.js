@@ -341,7 +341,7 @@ function affichageGrapheDeptT1(resultat_php) {
 
     obj_dept.cantons = new Array(nombre_canton);
     switch (document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value) {
-        case "2008":
+     /*   case "2008":
             nombre_nuances = 15;
             for (k = 0; k < nombre_canton; k++) {
 
@@ -362,11 +362,11 @@ function affichageGrapheDeptT1(resultat_php) {
                 obj_dept.cantons[i].parti[7] = { name: 'UDFD', score: 0 };
                 obj_dept.cantons[i].parti[10] = { name: 'M-NC', score: 0 };
                 obj_dept.cantons[i].parti[8] = { name: 'AUT', score: 0 };
-                obj_dept.cantons[i].parti[9] = { name: 'BC-DVD', score: 0 };
-                obj_dept.cantons[i].parti[11] = { name: 'BC-UMP', score: 0 };
-                obj_dept.cantons[i].parti[12] = { name: 'BC-FN', score: 0 };
-                obj_dept.cantons[i].parti[13] = { name: 'BC-EXD', score: 0 };
-                obj_dept.cantons[i].parti[14] = { name: 'BC-REG', score: 0 };
+                obj_dept.cantons[i].parti[9] = { name: 'DVD', score: 0 };
+                obj_dept.cantons[i].parti[11] = { name: 'UMP', score: 0 };
+                obj_dept.cantons[i].parti[12] = { name: 'FN', score: 0 };
+                obj_dept.cantons[i].parti[13] = { name: 'EXD', score: 0 };
+                obj_dept.cantons[i].parti[14] = { name: 'REG', score: 0 };
 
 
 
@@ -609,7 +609,7 @@ function affichageGrapheDeptT1(resultat_php) {
             ]
             break;
 
-
+*/
         case "2015":
             nombre_nuances = 19;
             for (k = 0; k < nombre_canton; k++) {
