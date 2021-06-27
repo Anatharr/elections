@@ -70,7 +70,7 @@ function afficherDeroulantReg() {
 
 function afficherDeroulantFr() {
     if (!bool_deroulant_bloquant) {
-        
+
         section_departement.style.display = "none";
         section_region.style.display = "none";
         section_france.style.display = "block";
@@ -86,7 +86,7 @@ function recuperer_departement_annee() {
     document.getElementById("graph_dep").innerHTML = "Graphe élections départementales pour : ";
     deroulant_dep_annee = document.getElementById("dep_annee_choix");
     annee_dep = deroulant_dep_annee.options[deroulant_dep_annee.selectedIndex].text;
-    if(texte != "" && annee_dep != "")
+    if (texte != "" && annee_dep != "")
         document.getElementById("graph_dep").innerHTML = document.getElementById("graph_dep").textContent + texte + " en " + annee_dep;
 }
 
@@ -94,7 +94,7 @@ function recuperer_departement() {
     document.getElementById("graph_dep").innerHTML = "Graphe élections départementales pour : ";
     deroulant_dep = document.getElementById("dep_choix");
     texte = deroulant_dep.options[deroulant_dep.selectedIndex].text;
-    if(texte != "" && annee_dep != "")
+    if (texte != "" && annee_dep != "")
         document.getElementById("graph_dep").innerHTML = document.getElementById("graph_dep").textContent + texte + " en " + annee_dep;
 }
 
@@ -103,7 +103,7 @@ function recuperer_region_annee() {
     document.getElementById("graph_reg").textContent = "Graphe élections régionales pour : ";
     deroulant_reg_annee = document.getElementById("reg_annee_choix");
     annee_reg = deroulant_reg_annee.options[deroulant_reg_annee.selectedIndex].text;
-    if(texte_reg != "" && annee_reg != "")
+    if (texte_reg != "" && annee_reg != "")
         document.getElementById("graph_reg").textContent = document.getElementById("graph_reg").textContent + texte_reg + " en " + annee_reg;
 }
 
@@ -111,7 +111,7 @@ function recuperer_region() {
     document.getElementById("graph_reg").textContent = "Graphe élections régionales pour : ";
     deroulant_reg = document.getElementById("reg_choix");
     texte_reg = deroulant_reg.options[deroulant_reg.selectedIndex].text;
-    if(texte_reg != "" && annee_reg != "")
+    if (texte_reg != "" && annee_reg != "")
         document.getElementById("graph_reg").textContent = document.getElementById("graph_reg").textContent + texte_reg + " en " + annee_reg;
 }
 
@@ -148,7 +148,7 @@ function rechercher_données_tour_1() {
         dataType: 'json',
         data: { functionname: 'affiche_tour_1_departement', arguments: [document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value, document.getElementById("dep_choix").options[deroulant_dep.selectedIndex].value] },
 
-        success: function (obj, textstatus) {
+        success: function(obj, textstatus) {
             if (!('error' in obj)) {
                 resultat_php = obj.result;
             } else {
@@ -161,7 +161,7 @@ function rechercher_données_tour_1() {
 
             let chaine = "<table id='tour1_tab_dep'>";
             chaine += "<caption id='tour1_titre'>Détails des résultats aux élections départementales au premier tour</caption>";
-            chaine += "<tr class='tour1_ligne_dep'>";
+            chaine += "<tr class='tour1_ligne_titres_dep'>";
             chaine += "<th class='tour1_colonne_dep'>Code canton</th>";
             chaine += "<th class='tour1_colonne_dep'>Nom canton</th>";
             chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
@@ -259,11 +259,11 @@ function rechercher_données_tour_1() {
                 }
             }
             let scrollDiv = document.getElementById("graph_dep").offsetTop;
-            setTimeout(function () {window.scrollTo({ top: scrollDiv, behavior: 'smooth' })}, 1500);
+            setTimeout(function() { window.scrollTo({ top: scrollDiv, behavior: 'smooth' }) }, 1500);
 
         },
 
-        error: function (chr, ajaxOptions, thrownError) {
+        error: function(chr, ajaxOptions, thrownError) {
             alert(chr.responseText); //Ce code affichera le message d'erreur, ici Message d'erreur.
         }
 
@@ -280,7 +280,7 @@ function rechercher_données_tour_2() {
         dataType: 'json',
         data: { functionname: 'affiche_tour_2_departement', arguments: [document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value, document.getElementById("dep_choix").options[deroulant_dep.selectedIndex].value] },
 
-        success: function (obj, textstatus) {
+        success: function(obj, textstatus) {
             if (!('error' in obj)) {
                 resultat_php = obj.result;
             } else {
@@ -295,7 +295,7 @@ function rechercher_données_tour_2() {
 
                 let chaine = "<table id='tour2_tab_dep'>";
                 chaine += "<caption id='tour2_titre'>Détails des résultats aux élections départementales au deuxième tour</caption>";
-                chaine += "<tr>";
+                chaine += "<tr id='tour2_ligne_titres_dep'>";
                 chaine += "<th class='tour2_colonne_dep'>Code canton</th>";
                 chaine += "<th class='tour2_colonne_dep'>Nom canton</th>";
                 chaine += "<th class='tour2_colonne_dep'>Nuance</th>";
@@ -316,11 +316,11 @@ function rechercher_données_tour_2() {
                     case "2015":
                         break;
 
-                    //case "2021":
+                        //case "2021":
 
-                    /* /!\ Modifier en fonction des données de 2021 /!\ */
+                        /* /!\ Modifier en fonction des données de 2021 /!\ */
 
-                    //break;
+                        //break;
 
                     default:
                         console.log("Année invalide");
@@ -347,7 +347,7 @@ function rechercher_données_tour_2() {
 
         },
 
-        error: function (chr, ajaxOptions, thrownError) {
+        error: function(chr, ajaxOptions, thrownError) {
             alert(chr.responseText); //Ce code affichera le message d'erreur, ici Message d'erreur.
         }
 
@@ -423,7 +423,7 @@ function donneesGrapheDept(resultat_php) {
 
             break;
 
-        /************* 2011  ***********/
+            /************* 2011  ***********/
         case "2011":
             nombre_nuances = 17;
             var tab_nuances_11 = [
@@ -451,7 +451,7 @@ function donneesGrapheDept(resultat_php) {
 
             break;
 
-        /************* 2015  ***********/
+            /************* 2015  ***********/
         case "2015":
             nombre_nuances = 19;
             var tab_nuances_15 = [
@@ -480,7 +480,7 @@ function donneesGrapheDept(resultat_php) {
 
             break;
 
-        /************* 2021  ***********/
+            /************* 2021  ***********/
         case "2021":
             nombre_nuances = 26;
             var tab_nuances_21 = [
@@ -682,8 +682,7 @@ function configGrapheDeptT2(data) {
 
         document.getElementById("graphe_t2").innerHTML = "<canvas id=\"Graphe_T2\" width=\"500px\" height=\"700px\" style=\"margin-left:auto; margin-right:auto\"></canvas>";
         var myChart = new Chart(document.getElementById('Graphe_T2'), config);
-    }
-    else {
+    } else {
         document.getElementById("graphe_t2").innerHTML = " ";
     }
 }
