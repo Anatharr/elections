@@ -19,7 +19,16 @@ var resultat_php_tab;
 var texte = "";
 var texte_reg = "";
 var annee_dep = "";
-var anne_reg = "";
+var annee_reg = "";
+
+var graphe_t1 = document.getElementById("graphe_t1");
+graphe_t1.style.display = "none";
+var tour_1 = document.getElementById("tour_1");
+tour_1.style.display = "none";
+var graphe_t2 = document.getElementById("graphe_t2");
+graphe_t2.style.display = "none";
+var tour_2 = document.getElementById("tour_2");
+tour_2.style.display = "none";
 
 
 
@@ -70,7 +79,7 @@ function afficherDeroulantReg() {
 
 function afficherDeroulantFr() {
     if (!bool_deroulant_bloquant) {
-        
+
         section_departement.style.display = "none";
         section_region.style.display = "none";
         section_france.style.display = "block";
@@ -86,7 +95,7 @@ function recuperer_departement_annee() {
     document.getElementById("graph_dep").innerHTML = "Graphe élections départementales pour : ";
     deroulant_dep_annee = document.getElementById("dep_annee_choix");
     annee_dep = deroulant_dep_annee.options[deroulant_dep_annee.selectedIndex].text;
-    if(texte != "" && annee_dep != "")
+    if (texte != "" && annee_dep != "")
         document.getElementById("graph_dep").innerHTML = document.getElementById("graph_dep").textContent + texte + " en " + annee_dep;
 }
 
@@ -94,7 +103,7 @@ function recuperer_departement() {
     document.getElementById("graph_dep").innerHTML = "Graphe élections départementales pour : ";
     deroulant_dep = document.getElementById("dep_choix");
     texte = deroulant_dep.options[deroulant_dep.selectedIndex].text;
-    if(texte != "" && annee_dep != "")
+    if (texte != "" && annee_dep != "")
         document.getElementById("graph_dep").innerHTML = document.getElementById("graph_dep").textContent + texte + " en " + annee_dep;
 }
 
@@ -103,16 +112,16 @@ function recuperer_region_annee() {
     document.getElementById("graph_reg").textContent = "Graphe élections régionales pour : ";
     deroulant_reg_annee = document.getElementById("reg_annee_choix");
     annee_reg = deroulant_reg_annee.options[deroulant_reg_annee.selectedIndex].text;
-    if(texte_reg != "" && annee_reg != "")
-        document.getElementById("graph_reg").textContent = document.getElementById("graph_reg").textContent + texte + " en " + annee_reg;
+    if (texte_reg != "" && annee_reg != "")
+        document.getElementById("graph_reg").textContent = document.getElementById("graph_reg").textContent + texte_reg + " en " + annee_reg;
 }
 
 function recuperer_region() {
     document.getElementById("graph_reg").textContent = "Graphe élections régionales pour : ";
     deroulant_reg = document.getElementById("reg_choix");
-    texte = deroulant_reg.options[deroulant_reg.selectedIndex].text;
-    if(texte_reg != "" && annee_reg != "")
-        document.getElementById("graph_reg").textContent = document.getElementById("graph_reg").textContent + texte + " en " + annee_reg;
+    texte_reg = deroulant_reg.options[deroulant_reg.selectedIndex].text;
+    if (texte_reg != "" && annee_reg != "")
+        document.getElementById("graph_reg").textContent = document.getElementById("graph_reg").textContent + texte_reg + " en " + annee_reg;
 }
 
 
@@ -135,12 +144,6 @@ function menu_deroulant_bloquant() {
 /* RECHERCHE ET CONSTRUCTION GRAPH */
 
 function rechercher_données_tour_1() {
-    let scrollDiv = document.getElementById("graph_dep").offsetTop;
-    window.scrollTo({ top: scrollDiv, behavior: 'smooth' });
-    var requestURL = 'http://176.135.226.148:180/predictions.php';
-
-    var request = new XMLHttpRequest();
-    request.open('GET', requestURL);
 
     // tableau du 1er tour (données à analyser)
 
@@ -150,7 +153,7 @@ function rechercher_données_tour_1() {
         dataType: 'json',
         data: { functionname: 'affiche_tour_1_departement', arguments: [document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value, document.getElementById("dep_choix").options[deroulant_dep.selectedIndex].value] },
 
-        success: function (obj, textstatus) {
+        success: function(obj, textstatus) {
             if (!('error' in obj)) {
                 resultat_php = obj.result;
             } else {
@@ -163,7 +166,7 @@ function rechercher_données_tour_1() {
 
             let chaine = "<table id='tour1_tab_dep'>";
             chaine += "<caption id='tour1_titre'>Détails des résultats aux élections départementales au premier tour</caption>";
-            chaine += "<tr class='tour1_ligne_dep'>";
+            chaine += "<tr id='tour1_ligne_titres_dep'>";
             chaine += "<th class='tour1_colonne_dep'>Code canton</th>";
             chaine += "<th class='tour1_colonne_dep'>Nom canton</th>";
             chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
@@ -223,22 +226,33 @@ function rechercher_données_tour_1() {
             for (i = 0; i < resultat_php.length; i++) {
                 resultat_php_tab[i] = [];
                 j = 0;
+                var compteur_colonne_vide = 0;
                 chaine += "<tr class='tour1_ligne_dep'>";
                 resultat_php[i].forEach(elem => {
-                    chaine += "<td class='tour1_colonne_dep'>";
-                    if (elem == null) {
-                        chaine += "";
-                    } else { chaine += elem; }
-                    chaine += "</td>";
-                    resultat_php_tab[i][j] = elem;
-                    j++;
-                })
+                    for (k = 0; k < resultat_php.length; k++) {
+                        resultat_php[k].forEach(element_vide => {
+                            if (element_vide == null) {
+                                compteur_colonne_vide++;
+                            }
+                        });
+                    }
+                    if (compteur_colonne_vide != resultat_php.length) {
+                        chaine += "<td class='tour1_colonne_dep'>";
+                        if (elem == null) {
+                            chaine += "";
+                        } else { chaine += elem; }
+                        chaine += "</td>";
+                        resultat_php_tab[i][j] = elem;
+                        j++;
+                    }
+                });
                 chaine += "</tr>";
             }
             chaine += "</table>";
             document.getElementById("tour_1").innerHTML = chaine;
             console.table(resultat_php_tab);
             var lignes_tour_1 = document.getElementsByClassName("tour1_ligne_dep");
+            var titres_tour_1 = document.getElementById("tour1_ligne_titres_dep").getElementsByTagName("th");
             for (i = 0; i < lignes_tour_1.length; i++) {
                 switch (document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value) {
 
@@ -260,10 +274,42 @@ function rechercher_données_tour_1() {
 
                 }
             }
+            for (i = 0; i < titres_tour_1.length; i++) {
+                switch (document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value) {
+
+                    case "2008":
+                        titres_tour_1[i].style.fontSize = "75%";
+                        break;
+                    case "2011":
+                        titres_tour_1[i].style.fontSize = "64%";
+                        break;
+                    case "2015":
+                        titres_tour_1[i].style.fontSize = "71%";
+                        break;
+                    case "2021":
+                        titres_tour_1[i].style.fontSize = "60%";
+                        break;
+                    default:
+                        titres_tour_1[i].style.fontSize = "60%";
+                        break;
+
+                }
+            }
+            let scrollDiv = document.getElementById("graph_dep").offsetTop;
+            setTimeout(function() {
+                loader.style.display = "none";
+
+                graphe_t1.style.display = "block";
+                graphe_t2.style.display = "block";
+                tour_1.style.display = "block";
+                tour_2.style.display = "block";
+
+                window.scrollTo({ top: scrollDiv, behavior: 'smooth' });
+            }, 500);
 
         },
 
-        error: function (chr, ajaxOptions, thrownError) {
+        error: function(chr, ajaxOptions, thrownError) {
             alert(chr.responseText); //Ce code affichera le message d'erreur, ici Message d'erreur.
         }
 
@@ -280,7 +326,7 @@ function rechercher_données_tour_2() {
         dataType: 'json',
         data: { functionname: 'affiche_tour_2_departement', arguments: [document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value, document.getElementById("dep_choix").options[deroulant_dep.selectedIndex].value] },
 
-        success: function (obj, textstatus) {
+        success: function(obj, textstatus) {
             if (!('error' in obj)) {
                 resultat_php = obj.result;
             } else {
@@ -295,7 +341,7 @@ function rechercher_données_tour_2() {
 
                 let chaine = "<table id='tour2_tab_dep'>";
                 chaine += "<caption id='tour2_titre'>Détails des résultats aux élections départementales au deuxième tour</caption>";
-                chaine += "<tr>";
+                chaine += "<tr id='tour2_ligne_titres_dep'>";
                 chaine += "<th class='tour2_colonne_dep'>Code canton</th>";
                 chaine += "<th class='tour2_colonne_dep'>Nom canton</th>";
                 chaine += "<th class='tour2_colonne_dep'>Nuance</th>";
@@ -316,11 +362,11 @@ function rechercher_données_tour_2() {
                     case "2015":
                         break;
 
-                    //case "2021":
+                        //case "2021":
 
-                    /* /!\ Modifier en fonction des données de 2021 /!\ */
+                        /* /!\ Modifier en fonction des données de 2021 /!\ */
 
-                    //break;
+                        //break;
 
                     default:
                         console.log("Année invalide");
@@ -328,7 +374,7 @@ function rechercher_données_tour_2() {
                 }
                 chaine += "</tr>";
                 for (i = 0; i < resultat_php.length; i++) {
-                    chaine += "<tr>";
+                    chaine += "<tr class='tour2_ligne_dep'>";
                     resultat_php[i].forEach(elem => {
                         chaine += "<td class='tour2_colonne_dep'>";
                         if (elem == null) {
@@ -347,7 +393,7 @@ function rechercher_données_tour_2() {
 
         },
 
-        error: function (chr, ajaxOptions, thrownError) {
+        error: function(chr, ajaxOptions, thrownError) {
             alert(chr.responseText); //Ce code affichera le message d'erreur, ici Message d'erreur.
         }
 
@@ -359,10 +405,9 @@ function rechercher_données_tour_2() {
 function lancer_recherche_dep() {
     let scrollDiv = document.getElementById("graph_dep").offsetTop;
     window.scrollTo({ top: scrollDiv, behavior: 'smooth' });
-    var requestURL = 'http://176.135.226.148:180/predictions.php';
 
-    var request = new XMLHttpRequest();
-    request.open('GET', requestURL);
+    let loader = document.getElementById("loader");
+    loader.style.display = "inline-block";
 
     // on interroge la base de données pour obtenir les données de l'élection et du tour 1 
     rechercher_données_tour_1();
@@ -429,7 +474,7 @@ function donneesGrapheDept(resultat_php) {
 
             break;
 
-        /************* 2011  ***********/
+            /************* 2011  ***********/
         case "2011":
             nombre_nuances = 17;
             var tab_nuances_11 = [
@@ -457,7 +502,7 @@ function donneesGrapheDept(resultat_php) {
 
             break;
 
-        /************* 2015  ***********/
+            /************* 2015  ***********/
         case "2015":
             nombre_nuances = 19;
             var tab_nuances_15 = [
@@ -486,7 +531,7 @@ function donneesGrapheDept(resultat_php) {
 
             break;
 
-        /************* 2021  ***********/
+            /************* 2021  ***********/
         case "2021":
             nombre_nuances = 26;
             var tab_nuances_21 = [
@@ -593,6 +638,7 @@ function configGrapheDeptT1(data) {
         type: 'bar',
         data: data,
         options: {
+            maxBarThickness: 70,
             plugins: {
                 title: {
                     display: true,
@@ -602,7 +648,9 @@ function configGrapheDeptT1(data) {
             responsive: true,
             scales: {
                 x: {
+                    maxBarThickness: 70,
                     stacked: true,
+                    max: 100,
                     title: {
                         display: true,
                         text: 'Cantons',
@@ -618,6 +666,7 @@ function configGrapheDeptT1(data) {
                 },
                 y: {
                     stacked: true,
+                    max: 100,
                     title: {
                         display: true,
                         text: 'Pourcentages %',
@@ -644,6 +693,7 @@ function configGrapheDeptT2(data) {
             type: 'bar',
             data: data,
             options: {
+                maxBarThickness: 70,
                 plugins: {
                     title: {
                         display: true,
@@ -654,6 +704,7 @@ function configGrapheDeptT2(data) {
                 scales: {
                     x: {
                         stacked: true,
+                        max: 100,
                         title: {
                             display: true,
                             text: 'Cantons',
@@ -669,6 +720,7 @@ function configGrapheDeptT2(data) {
                     },
                     y: {
                         stacked: true,
+                        max: 100,
                         title: {
                             display: true,
                             text: 'Pourcentages',
@@ -688,8 +740,7 @@ function configGrapheDeptT2(data) {
 
         document.getElementById("graphe_t2").innerHTML = "<canvas id=\"Graphe_T2\" width=\"1000\" height=\"350\"></canvas>";
         var myChart = new Chart(document.getElementById('Graphe_T2'), config);
-    }
-    else {
+    } else {
         document.getElementById("graphe_t2").innerHTML = " ";
     }
 }

@@ -192,23 +192,18 @@
         </div>
 
         <button class="button_dep" type="button" onclick="lancer_recherche_dep()">Lancez la recherche</button>
+        <div id="loader"></div>
 
 
         <div id="graph_dep">
             <h2> Graphe élections départementales</h2>
         </div>
         
-        
         <div id="graphe_t1"></div>
-
-        <div id="tour_1"></div>
-        
-
         <div id="graphe_t2"></div>
-
+        <div id="tour_1"></div>
         <div id="tour_2"></div>
-
-    
+        
 
     </div>
 
@@ -253,6 +248,9 @@
         </div>
 
         <button class="button_reg" type="button" onclick="lancer_recherche_reg()">Lancez la recherche</button>
+
+        
+        
 
         <div id="graph_reg">
             <h2> Graphe élections régionales</h1>

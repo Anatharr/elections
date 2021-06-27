@@ -620,6 +620,7 @@ h2 {
 #graph_reg {
     font-family: 'Exo', sans-serif;
     position: relative;
+    text-align: center;
     font-size: 150%;
     font-style: italic;
     margin-top: 3%;
@@ -653,8 +654,16 @@ h2 {
     font-size: 100%;
 }
 
-#tour1_tab_dep tr:hover {
-    background-color: aliceblue;
+#tour1_ligne_titres_dep {
+    background-color: rgba(46, 106, 255, 0.3);
+}
+
+.tour1_ligne_dep {
+    background-color: rgba(46, 106, 255, 0.1);
+}
+
+.tour1_ligne_dep:hover {
+    background-color: rgba(46, 106, 255, 0.3);
 }
 
 .tour1_colonne_dep {
@@ -678,12 +687,56 @@ h2 {
     text-align: center;
 }
 
-#tour2_tab_dep tr:hover {
-    background-color: aliceblue;
+#tour2_ligne_titres_dep {
+    background-color: rgba(46, 106, 255, 0.3);
+}
+
+.tour2_ligne_dep {
+    background-color: rgba(46, 106, 255, 0.1);
+}
+
+.tour2_ligne_dep:hover {
+    background-color: rgba(46, 106, 255, 0.3);
 }
 
 .tour2_colonne_dep {
     border: 1px solid black;
+}
+
+#loader {
+    margin-left: 3%;
+    top: 10px;
+    display: none;
+    position: relative;
+    border: 8px solid rgb(60, 60, 60, 0.3);
+    border-radius: 50%;
+    border-top: 8px solid rgb(60, 60, 60, 0.7);
+    width: 15px;
+    height: 15px;
+    -webkit-animation: spin 1s linear infinite;
+    /* Safari */
+    animation: spin 1s linear infinite;
+}
+
+
+/* Safari */
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 
