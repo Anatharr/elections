@@ -22,9 +22,13 @@ var annee_dep = "";
 var annee_reg = "";
 
 var graphe_t1 = document.getElementById("graphe_t1");
+graphe_t1.style.display = "none";
 var tour_1 = document.getElementById("tour_1");
+tour_1.style.display = "none";
 var graphe_t2 = document.getElementById("graphe_t2");
+graphe_t2.style.display = "none";
 var tour_2 = document.getElementById("tour_2");
+tour_2.style.display = "none";
 
 
 
