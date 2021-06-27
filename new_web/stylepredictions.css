@@ -637,6 +637,9 @@ h2 {
     margin-top: 3%;
     position: relative;
     text-align: center;
+}
+
+#tour1_tab_dep tr {
     font-size: 70%;
 }
 
