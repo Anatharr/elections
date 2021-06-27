@@ -228,7 +228,7 @@ function rechercher_données_tour_1() {
             document.getElementById("tour_1").innerHTML = chaine;
             console.table(resultat_php_tab);
 
-            /* Traitement des données du tableau, création d'un dictionnaire regroupant les cantons et les scores par partis */
+            /* Affiche le graphe */
             affichageGrapheDeptT1(resultat_php);
 
         },
@@ -341,41 +341,44 @@ function lancer_recherche_reg() {
 }
 
 function affichageGrapheDeptT1(resultat_php) {
-    /* Traitement des données du tableau, création d'un dictionnaire regroupant les cantons et les scores par partis */
+
+    /* Traitement des données du résultat de la requete et préparation des données pour l'affichage du graphe, création d'un dictionnaire regroupant les cantons et les scores par partis */
     var obj_dept = new Object();
-
-
+    obj_dept.name = document.getElementById("dep_choix").options[deroulant_dep.selectedIndex].text;
+    obj_dept.cantons = new Array(nombre_canton);
 
     var nombre_canton = resultat_php.length;
     var nombre_nuances = 0;
     var tab_nuances_graphe = {};
     var datasets_année;
-    obj_dept.name = document.getElementById("dep_choix").options[deroulant_dep.selectedIndex].text;
 
-    obj_dept.cantons = new Array(nombre_canton);
+
+    /**** Plusieurs cas, les noms des nuances et leur nombre différent selon l'année ****/
     switch (document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value) {
+
+        /************* 2008  ***********/
         case "2008":
             nombre_nuances = 15;
+
+            /* Tableau regroupant les nuances et leur couleur respective */
             var tab_nuances_08 = [
                 { nom_nuance: 'EXG', backgroundColor: 'rgb(187, 0, 0)' }, { nom_nuance: 'COM', backgroundColor: 'rgb(221, 0, 0)' }, { nom_nuance: 'RDG', backgroundColor: 'rgb(255, 209, 220)' }, { nom_nuance: 'VEC', backgroundColor: 'rgb(0, 192, 0)' }, { nom_nuance: 'DVG', backgroundColor: 'rgb(255, 192, 192)' },
                 { nom_nuance: 'ECO', backgroundColor: 'rgb(0, 192, 0)' }, { nom_nuance: 'SOC', backgroundColor: 'rgb(255, 128, 128)' }, { nom_nuance: 'UDFD', backgroundColor: 'rgb(255, 153, 0)' }, { nom_nuance: 'M-NC', backgroundColor: 'rgb(255, 235, 0)' }, { nom_nuance: 'AUT', backgroundColor: 'rgb(238, 238, 238)' },
                 { nom_nuance: 'DVD', backgroundColor: 'rgb(173, 193, 253)' }, { nom_nuance: 'UMP', backgroundColor: 'rgb(0, 102, 204)' }, { nom_nuance: 'FN', backgroundColor: 'rgb(13, 55, 138)' }, { nom_nuance: 'EXD', backgroundColor: 'rgb(64, 64, 64)' }, { nom_nuance: 'REG', backgroundColor: 'rgb(64, 64, 64)' }
             ];
 
+            /* Création d'un tableau pour chaque canton dans l'objet et ajout du nom des cantons*/
             for (k = 0; k < nombre_canton; k++) {
-
-
                 obj_dept.cantons[k] = { name: resultat_php[k][1], parti: new Array(nombre_nuances) };
-
             }
 
-            for (i = 0; i < resultat_php.length; i++) {
+            /* Initialisation des noms et des scores par nuance dans l'objet */
+            for (i = 0; i < nombre_canton; i++) {
                 for (j = 0; j < nombre_nuances; j++) {
                     obj_dept.cantons[i].parti[j] = { name: tab_nuances_08[j].nom_nuance, score: 0 };
-                  
                 }
 
-
+                /* Ajout des scores par parti dans l'objet en parcourant le resultat de la requete */
                 for (j = 3; j < resultat_php[i].length; j += 2) {
                     if (resultat_php[i][j] != null) {
                         for (k = 0; k < nombre_nuances; k++) {
@@ -388,6 +391,7 @@ function affichageGrapheDeptT1(resultat_php) {
                     }
                 }
             }
+            /*Création et instanciation du tableau des scores à 2 dimensions par parti */
             var tab = new Array(nombre_nuances);
             for (i = 0; i < nombre_nuances; i++) {
                 tab[i] = new Array(nombre_canton);
@@ -398,10 +402,12 @@ function affichageGrapheDeptT1(resultat_php) {
                 }
             }
 
+            /* Ajout des datasets */
             tab_nuances_graphe = tab_nuances_08;
 
             break;
 
+        /************* 2011  ***********/
         case "2011":
             nombre_nuances = 17;
             var tab_nuances_11 = [
@@ -411,34 +417,16 @@ function affichageGrapheDeptT1(resultat_php) {
                 { nom_nuance: 'AUT', backgroundColor: 'rgb(238, 238, 238)' }, { nom_nuance: 'DVD', backgroundColor: 'rgb(173, 193, 253)' }, { nom_nuance: 'UMP', backgroundColor: 'rgb(0, 102, 204)' },
                 { nom_nuance: 'FN', backgroundColor: 'rgb(13, 55, 138)' }, { nom_nuance: 'EXD', backgroundColor: 'rgb(64, 64, 64)' }, { nom_nuance: 'REG', backgroundColor: 'rgb(64, 64, 64)' }
             ];
+
             for (k = 0; k < nombre_canton; k++) {
-
-
                 obj_dept.cantons[k] = { name: resultat_php[k][1], parti: new Array(nombre_nuances) };
-
             }
 
-            for (i = 0; i < resultat_php.length; i++) {
+            for (i = 0; i < nombre_canton; i++) {
 
-                obj_dept.cantons[i].parti[0] = { name: 'EXG', score: 0 };
-                obj_dept.cantons[i].parti[1] = { name: 'COM', score: 0 };
-                obj_dept.cantons[i].parti[2] = { name: 'PG', score: 0 };
-                obj_dept.cantons[i].parti[3] = { name: 'RDG', score: 0 };
-                obj_dept.cantons[i].parti[4] = { name: 'VEC', score: 0 };
-                obj_dept.cantons[i].parti[5] = { name: 'DVG', score: 0 };
-                obj_dept.cantons[i].parti[6] = { name: 'ECO', score: 0 };
-                obj_dept.cantons[i].parti[7] = { name: 'SOC', score: 0 };
-                obj_dept.cantons[i].parti[8] = { name: 'MODM', score: 0 };
-                obj_dept.cantons[i].parti[9] = { name: 'M-NC', score: 0 };
-                obj_dept.cantons[i].parti[10] = { name: 'M', score: 0 };
-                obj_dept.cantons[i].parti[11] = { name: 'AUT', score: 0 };
-                obj_dept.cantons[i].parti[12] = { name: 'DVD', score: 0 };
-                obj_dept.cantons[i].parti[13] = { name: 'UMP', score: 0 };
-                obj_dept.cantons[i].parti[14] = { name: 'FN', score: 0 };
-                obj_dept.cantons[i].parti[15] = { name: 'EXD', score: 0 };
-                obj_dept.cantons[i].parti[16] = { name: 'REG', score: 0 };
-
-
+                for (j = 0; j < nombre_nuances; j++) {
+                    obj_dept.cantons[i].parti[j] = { name: tab_nuances_11[j].nom_nuance, score: 0 };
+                }
 
                 for (j = 3; j < resultat_php[i].length; j += 2) {
                     if (resultat_php[i][j] != null) {
@@ -451,6 +439,7 @@ function affichageGrapheDeptT1(resultat_php) {
                     }
                 }
             }
+
             var tab = new Array(nombre_nuances);
             for (i = 0; i < nombre_nuances; i++) {
                 tab[i] = new Array(nombre_canton);
@@ -460,10 +449,12 @@ function affichageGrapheDeptT1(resultat_php) {
                     tab[j][i] = obj_dept.cantons[i].parti[j].score;
                 }
             }
+
             tab_nuances_graphe = tab_nuances_11;
+
             break;
 
-
+        /************* 2015  ***********/
         case "2015":
             nombre_nuances = 19;
             var tab_nuances_15 = [
@@ -475,36 +466,16 @@ function affichageGrapheDeptT1(resultat_php) {
                 { nom_nuance: 'BC-DVD', backgroundColor: 'rgb(173, 193, 253)' }, { nom_nuance: 'BC-UMP', backgroundColor: 'rgb(0, 102, 204)' },
                 { nom_nuance: 'BC-DLF', backgroundColor: 'rgb(0, 130, 196)' }, { nom_nuance: 'BC-FN', backgroundColor: 'rgb(13, 55, 138)' }, { nom_nuance: 'BC-EXD', backgroundColor: 'rgb(64, 64, 64)' }
             ];
+
             for (k = 0; k < nombre_canton; k++) {
-
-
                 obj_dept.cantons[k] = { name: resultat_php[k][1], parti: new Array(nombre_nuances) };
-
             }
 
-            for (i = 0; i < resultat_php.length; i++) {
+            for (i = 0; i < nombre_canton; i++) {
 
-                obj_dept.cantons[i].parti[0] = { name: 'BC-EXG', score: 0 };
-                obj_dept.cantons[i].parti[1] = { name: 'BC-FG', score: 0 };
-                obj_dept.cantons[i].parti[2] = { name: 'BC-COM', score: 0 };
-                obj_dept.cantons[i].parti[3] = { name: 'BC-PG', score: 0 };
-                obj_dept.cantons[i].parti[4] = { name: 'BC-RDG', score: 0 };
-                obj_dept.cantons[i].parti[5] = { name: 'BC-UG', score: 0 };
-                obj_dept.cantons[i].parti[6] = { name: 'BC-VEC', score: 0 };
-                obj_dept.cantons[i].parti[7] = { name: 'BC-DVG', score: 0 };
-                obj_dept.cantons[i].parti[8] = { name: 'BC-SOC', score: 0 };
-                obj_dept.cantons[i].parti[9] = { name: 'BC-MDM', score: 0 };
-                obj_dept.cantons[i].parti[10] = { name: 'BC-UC', score: 0 };
-                obj_dept.cantons[i].parti[11] = { name: 'BC-DIV', score: 0 };
-                obj_dept.cantons[i].parti[12] = { name: 'BC-UD', score: 0 };
-                obj_dept.cantons[i].parti[13] = { name: 'BC-UDI', score: 0 };
-                obj_dept.cantons[i].parti[14] = { name: 'BC-DVD', score: 0 };
-                obj_dept.cantons[i].parti[15] = { name: 'BC-UMP', score: 0 };
-                obj_dept.cantons[i].parti[16] = { name: 'BC-DLF', score: 0 };
-                obj_dept.cantons[i].parti[17] = { name: 'BC-FN', score: 0 };
-                obj_dept.cantons[i].parti[18] = { name: 'BC-EXD', score: 0 };
-
-
+                for (j = 0; j < nombre_nuances; j++) {
+                    obj_dept.cantons[i].parti[j] = { name: tab_nuances_15[j].nom_nuance, score: 0 };
+                }
 
                 for (j = 3; j < resultat_php[i].length; j += 2) {
                     if (resultat_php[i][j] != null) {
@@ -517,6 +488,7 @@ function affichageGrapheDeptT1(resultat_php) {
                     }
                 }
             }
+
             var tab = new Array(nombre_nuances);
             for (i = 0; i < nombre_nuances; i++) {
                 tab[i] = new Array(nombre_canton);
@@ -526,9 +498,12 @@ function affichageGrapheDeptT1(resultat_php) {
                     tab[j][i] = obj_dept.cantons[i].parti[j].score;
                 }
             }
+
             tab_nuances_graphe = tab_nuances_15;
+
             break;
 
+        /************* 2021  ***********/
         case "2021":
             nombre_nuances = 26;
             break;
@@ -537,9 +512,8 @@ function affichageGrapheDeptT1(resultat_php) {
             break;
     }
 
-    console.log(obj_dept);
 
-    /*** Création tab contenant les data de chaque partie par canton */
+    /************** Affichage et configuration du graphe  **************/
 
     const labels = [];
     for (let i = 0; i < nombre_canton; i++) {
@@ -578,8 +552,6 @@ function affichageGrapheDeptT1(resultat_php) {
             }
         }
     };
-
-
 
     document.getElementById("graphe_t1").innerHTML = "<canvas id=\"myChart\" width=\"1000\" height=\"350\"></canvas>";
     var myChart = new Chart(document.getElementById('myChart'), config);
