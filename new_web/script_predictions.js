@@ -511,10 +511,7 @@ function affichageGrapheDeptT1(resultat_php) {
                     }
                 }
             }
-            let tab = new Array(nombre_nuances);
-            for (i = 0; i < nombre_nuances; i++) {
-                tab[i] = new Array(nombre_canton);
-            }
+            
             for (j = 0; j < nombre_nuances; j++) {
                 for (i = 0; i < nombre_canton; i++) {
                     tab[j][i] = obj_dept.cantons[i].parti[j].score;
@@ -654,10 +651,7 @@ function affichageGrapheDeptT1(resultat_php) {
                     }
                 }
             }
-            let tab = new Array(nombre_nuances);
-            for (i = 0; i < nombre_nuances; i++) {
-                tab[i] = new Array(nombre_canton);
-            }
+           
             for (j = 0; j < nombre_nuances; j++) {
                 for (i = 0; i < nombre_canton; i++) {
                     tab[j][i] = obj_dept.cantons[i].parti[j].score;
