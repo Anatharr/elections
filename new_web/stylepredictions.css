@@ -655,8 +655,7 @@ h2 {
 }
 
 #tour1_ligne_titres_dep {
-    background-color: rgba(233, 237, 247, 0.75);
-    color: white;
+    background-color: rgb(46, 106, 255);
 }
 
 .tour1_ligne_dep {
@@ -689,8 +688,7 @@ h2 {
 }
 
 #tour2_ligne_titres_dep {
-    background-color: rgba(233, 237, 247, 0.75);
-    color: white;
+    background-color: rgb(46, 106, 255);
 }
 
 .tour2_ligne_dep {
