@@ -191,7 +191,7 @@
             </select>
         </div>
 
-        <button class="button_dep" type="button" onclick="lancer_recherche_dep()">Lancez la recherche</button><div class="loader"></div>
+        <button class="button_dep" type="button" onclick="lancer_recherche_dep()">Lancez la recherche</button><span class="loader"></span>
 
 
         <div id="graph_dep">
