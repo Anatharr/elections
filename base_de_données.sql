@@ -922,3 +922,83 @@ CREATE TABLE t2_2008_cantons
 COPY public.t2_2008_cantons
 FROM '/home/pi/Documents/elections/dataset/Departementales_cantons_2008_tour_2.csv'
 WITH (FORMAT CSV, HEADER, DELIMITER ';');
+
+-- Tables des résultats aux élections départementales 2021 tour 1 par cantons
+
+CREATE TABLE t1_2021_cantons
+(
+    num_departement varchar(3),
+    code_canton int,
+    nom_canton varchar(50),
+    nb_inscrits int,
+    nb_abstentions int,
+    nb_votants int,
+    nb_blancs int,
+    nb_nuls int,
+    nb_exprimés int,
+    binome_liste_1 varchar(75),
+    nuance_liste_1 varchar(10),
+    nb_voix_liste_1 int,
+    voix_pourcent_exp_liste_1 numeric(10,2),
+    binome_liste_2 varchar(75),
+    nuance_liste_2 varchar(10),
+    nb_voix_liste_2 int,
+    voix_pourcent_exp_liste_2 numeric(10,2),
+    binome_liste_3 varchar(75),
+    nuance_liste_3 varchar(10),
+    nb_voix_liste_3 int,
+    voix_pourcent_exp_liste_3 numeric(10,2),
+    binome_liste_4 varchar(75),
+    nuance_liste_4 varchar(10),
+    nb_voix_liste_4 int,
+    voix_pourcent_exp_liste_4 numeric(10,2),
+    binome_liste_5 varchar(75),
+    nuance_liste_5 varchar(10),
+    nb_voix_liste_5 int,
+    voix_pourcent_exp_liste_5 numeric(10,2),
+    binome_liste_6 varchar(75),
+    nuance_liste_6 varchar(10),
+    nb_voix_liste_6 int,
+    voix_pourcent_exp_liste_6 numeric(10,2),
+    binome_liste_7 varchar(75),
+    nuance_liste_7 varchar(10),
+    nb_voix_liste_7 int,
+    voix_pourcent_exp_liste_7 numeric(10,2),
+    binome_liste_8 varchar(75),
+    nuance_liste_8 varchar(10),
+    nb_voix_liste_8 int,
+    voix_pourcent_exp_liste_8 numeric(10,2),
+    binome_liste_9 varchar(75),
+    nuance_liste_9 varchar(10),
+    nb_voix_liste_9 int,
+    voix_pourcent_exp_liste_9 numeric(10,2),
+    binome_liste_10 varchar(75),
+    nuance_liste_10 varchar(10),
+    nb_voix_liste_10 int,
+    voix_pourcent_exp_liste_10 numeric(10,2),
+    binome_liste_11 varchar(75),
+    nuance_liste_11 varchar(10),
+    nb_voix_liste_11 int,
+    voix_pourcent_exp_liste_11 numeric(10,2),
+    binome_liste_12 varchar(75),
+    nuance_liste_12 varchar(10),
+    nb_voix_liste_12 int,
+    voix_pourcent_exp_liste_12 numeric(10,2),
+    binome_liste_13 varchar(75),
+    nuance_liste_13 varchar(10),
+    nb_voix_liste_13 int,
+    voix_pourcent_exp_liste_13 numeric(10,2),
+    binome_liste_14 varchar(75),
+    nuance_liste_14 varchar(10),
+    nb_voix_liste_14 int,
+    voix_pourcent_exp_liste_14 numeric(10,2),
+    PRIMARY KEY (num_departement, code_canton)
+);
+
+-- Copie des résultats aux élections départementales 2021 tour 1
+-- par cantons dans la table t1_2021_cantons depuis le fichier 
+-- .csv qui contient les données
+
+COPY public.t1_2021_cantons
+FROM '/home/pi/Documents/elections/dataset/Departementales_cantons_2021_tour_1.csv'
+WITH (FORMAT CSV, HEADER, DELIMITER ';');
