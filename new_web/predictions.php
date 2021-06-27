@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="stylepredictions.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <title>EstiLection</title>
+    <title>Prédictions</title>
 </head>
 
 
@@ -252,10 +252,11 @@
             </select>
         </div>
 
-        <button class="button_reg" type="button" onclick="lancer_recherche_reg()">Lancez la recherche</button>
+        <div class="loader"><button class="button_reg" type="button" onclick="lancer_recherche_reg()">Lancez la recherche</button></div>
+        
 
         <div id="graph_reg">
-            <h2> Graph élections régionales</h1>
+            <h2> Graphe élections régionales</h1>
         </div>
 
     </div>
