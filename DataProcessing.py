@@ -21,6 +21,24 @@ def getAllNuances(data, colNuance='CODNUA', fmt='exploded'):
     return sorted(nuances)
 
 
+def deExplodeLines(data):
+    df = pd.DataFrame()
+    for index, row in data[['Département', 'Code du Canton']].drop_duplicates().iterrows():
+        can = data[(data['Département']==row['Département']) & (data['Code du Canton']==row['Code du Canton'])]
+        header = can[['Département', 'Code du Canton', 'Libellé du Canton', 'Inscrits',
+           'Abstentions', 'Votants', 'Blancs', 'Nuls', 'Exprimés']].iloc[0]
+        canstack = can[['Binôme', 'Nuance', 'Voix', '%Voix/Exp']].stack()
+        canstack.index = [c+'_'+str(i) for i in range(len(can)) for c in ['Binôme', 'Nuance', 'Voix', '%Voix/Exp']]
+        canstack = canstack.append(header)
+        df = df.append(canstack, ignore_index=True)
+
+    df = df.reindex(['Département', 'Code du Canton', 'Libellé du Canton', 'Inscrits',
+           'Abstentions', 'Votants', 'Blancs', 'Nuls', 'Exprimés'] + [c+'_'+str(i) for i in range(getNbBinomes(df)) for c in ['Binôme', 'Nuance', 'Voix', '%Voix/Exp']], axis=1)
+    df = df.sort_values(['Département', 'Code du Canton'])
+    df = df.reset_index(drop=True)
+    return df
+
+
 def explodeLines(data):
     initdf = data[['Code du département', 'Libellé du département', 'Code du canton', 
             'Libellé du canton', 'Inscrits', 'Abstentions', '% Abs/Ins', 'Votants',
@@ -222,6 +240,27 @@ if __name__ == '__main__':
     print('OK')
 
     print(X.shape, y.shape)
+
+
+    # dtypes = {
+    #     'Département':       'object',
+    #     'Code du Canton':    'int64',
+    #     'Libellé du Canton': 'object',
+    #     'Inscrits':          'int64',
+    #     'Abstentions':       'int64',
+    #     'Votants':           'int64',
+    #     'Blancs':            'int64',
+    #     'Nuls':              'int64',
+    #     'Exprimés':          'int64',
+    # }
+    # print('Loading Cantons data... ', end='')
+    # dataT1Can = pd.read_csv("dataset/raw/Dep_21_CanLine.csv", sep=';', dtype=dtypes)
+    # print('OK')
+
+    # print(dataT1Can.dtypes)
+
+    # dataT1Can.to_csv("dataset/raw/Dep_21_CanLine.csv", sep=';', index=False)
+
 
 
 

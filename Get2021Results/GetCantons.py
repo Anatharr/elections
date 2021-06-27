@@ -20,7 +20,7 @@ class ResultSpider(scrapy.Spider):
         dpt = response.meta.get('Département')
         pars = response.css('p[align="left"]')
 
-        for anchor in pars[0].css('a'):
+        for anchor in pars[0].css('a') + (pars[2].css('a') if len(pars)>2 else []):
             url = anchor.xpath('@href').get()
             text = extract(anchor)
             meta = {
@@ -29,18 +29,6 @@ class ResultSpider(scrapy.Spider):
                 'CodeCan': text[text.index('(')+3:text.index(')')],
             }
             yield response.follow(url, callback=self.parseCan, meta=meta)
-
-        if len(pars)>2:
-            for anchor in pars[2].css('a'):
-                url = anchor.xpath('@href').get()
-                text = extract(anchor)
-                meta = {
-                    'Département': dpt,
-                    'Libellé': text[:text.index('(')-1],
-                    'CodeCan': text[text.index('(')+3:text.index(')')],
-                }
-                yield response.follow(url, callback=self.parseCan, meta=meta)
-
 
     def parseCan(self, response):
         dpt = response.meta.get('Département')
@@ -61,7 +49,6 @@ class ResultSpider(scrapy.Spider):
             tableNuances = tables[1]
             tableStats = tables[2]
 
-        print("######## Duel :", duel)
         for row in tableStats.css('tbody > tr'):
             cells = row.css('td')
             stats[extract(cells[0])] = extract(cells[1], convert=True)
@@ -76,6 +63,7 @@ class ResultSpider(scrapy.Spider):
                 'Binôme': extract(cells[0]),
                 'Nuance': extract(cells[1]),
                 'Voix': extract(cells[2], convert=True),
+                'Duel': ':'.join(duel),
             }
 
 
