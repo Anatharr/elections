@@ -688,7 +688,7 @@ h2 {
 }
 
 
-.loader {
+#loader {
     border: 16px solid black;
     border-radius: 50%;
     border-top: 16px solid #3498db;
