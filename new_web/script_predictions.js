@@ -253,7 +253,7 @@ function rechercher_données_tour_1() {
             setTimeout(function() {
                 window.scrollTo({ top: scrollDiv, behavior: 'smooth' });
                 loader.style.display = "none";
-            }, 1000);
+            }, 500);
 
         },
 
