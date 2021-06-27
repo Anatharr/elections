@@ -156,7 +156,7 @@ function rechercher_données_tour_1() {
 
             /* Affiche le graphe */
             let data = affichageGrapheDept(resultat_php);
-            configGrapheDeptT(data);
+            configGrapheDeptT1(data);
 
             let chaine = "<table id='tour1_tab_dep'>";
             chaine += "<caption id='tour1_titre'>Détails des résultats aux élections départementales au premier tour</caption>";
