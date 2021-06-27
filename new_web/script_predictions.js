@@ -226,30 +226,16 @@ function rechercher_données_tour_1() {
             for (i = 0; i < resultat_php.length; i++) {
                 resultat_php_tab[i] = [];
                 j = 0;
-                var compteur_colonne_vide = 0;
                 chaine += "<tr class='tour1_ligne_dep'>";
                 resultat_php[i].forEach(elem => {
+                    chaine += "<td class='tour1_colonne_dep'>";
+                    if (elem == null) {
+                        chaine += "";
+                    } else { chaine += elem; }
+                    chaine += "</td>";
                     resultat_php_tab[i][j] = elem;
                     j++;
-                });
-            }
-            for (i = 0; i < resultat_php.length; i++) {
-                for (k = 0; k < resultat_php_tab[i].length; k++) {
-                    if (resultat_php_tab[i][k] == null) {
-                        if (k > compteur_colonne_vide) {
-                            compteur_colonne_vide = k;
-                        }
-                    }
-                }
-            }
-            for (i = 0; i < resultat_php.length; i++) {
-                for (k = 0; k <= compteur_colonne_vide; k++) {
-                    chaine += "<td class='tour1_colonne_dep'>";
-                    if (resultat_php[i][k] == null) {
-                        chaine += "";
-                    } else { chaine += resultat_php[i][k]; }
-                    chaine += "</td>";
-                }
+                })
                 chaine += "</tr>";
             }
             chaine += "</table>";
