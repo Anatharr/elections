@@ -339,7 +339,7 @@ function rechercher_données_tour_2() {
                 document.getElementById("tour_2").innerHTML = chaine;
 
             } else {
-                document.getElementById("tour_2").innerHTML = null;
+                document.getElementById("tour_2").innerHTML = " ";
             }
 
         },
