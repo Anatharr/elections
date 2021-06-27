@@ -355,7 +355,7 @@ function lancer_recherche_dep() {
     window.scrollTo({ top: scrollDiv, behavior: 'smooth' });
 
     let loader = document.getElementById("loader");
-    loader.style.display = "inline-block";
+    loader.style.display = "block";
 
     // on interroge la base de données pour obtenir les données de l'élection et du tour 1 
     rechercher_données_tour_1();
