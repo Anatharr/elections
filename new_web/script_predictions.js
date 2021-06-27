@@ -628,7 +628,7 @@ function configGrapheDeptT1(data) {
             }
         }
     };
-    document.getElementById("graphe_t1").innerHTML = "<canvas id=\"Graphe_T1\" width=\"1000\" height=\"350\"></canvas>";
+    document.getElementById("graphe_t1").innerHTML = "<canvas id=\"Graphe_T1\"></canvas>";
     var myChart = new Chart(document.getElementById('Graphe_T1'), config);
 }
 
@@ -644,7 +644,7 @@ function configGrapheDeptT2(data) {
                         text: 'Résulats élections départementales par cantons - Tour 2'
                     },
                 },
-                responsive: true,
+                responsive: false,
                 scales: {
                     x: {
                         stacked: true,
@@ -680,7 +680,7 @@ function configGrapheDeptT2(data) {
             }
         };
 
-        document.getElementById("graphe_t2").innerHTML = "<canvas id=\"Graphe_T2\" width=\"1000\" height=\"350\"></canvas>";
+        document.getElementById("graphe_t2").innerHTML = "<canvas id=\"Graphe_T2\" width=\"400px\" height=\"700px\"></canvas>";
         var myChart = new Chart(document.getElementById('Graphe_T2'), config);
     }
     else {
