@@ -160,36 +160,64 @@ function rechercher_données_tour_1() {
 
             let chaine = "<table id='tour1_tab_dep'>";
             chaine += "<caption id='tour1_titre'>Détails des résultats aux élections départementales au premier tour</caption>";
-            chaine += "<tr>";
-            chaine += "<th class='tour1_colonne_dep'>Code canton</th>";
-            chaine += "<th class='tour1_colonne_dep'>Nom canton</th>";
-            chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
-            chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
-            chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
-            chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
-            chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
-            chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
-            chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
-            chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
-            chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
-            chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
-            chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
-            chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
-            chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
-            chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
-            chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
-            chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
-            chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
-            chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
-            chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
-            chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
-            chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
-            chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
+
             switch (document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value) {
                 case "2008":
+                    document.getElementsByClassName("tour1_ligne_dep").style.fontSize = "76%";
+                    chaine += "<tr class='tour_1_ligne_dep'>";
+                    chaine += "<th class='tour1_colonne_dep'>Code canton</th>";
+                    chaine += "<th class='tour1_colonne_dep'>Nom canton</th>";
+                    chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
+                    chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
+                    chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
+                    chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
+                    chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
+                    chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
+                    chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
+                    chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
+                    chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
+                    chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
+                    chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
+                    chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
+                    chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
+                    chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
+                    chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
+                    chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
+                    chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
+                    chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
+                    chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
+                    chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
+                    chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
+                    chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
                     break;
 
                 case "2011":
+                    document.getElementsByClassName("tour1_ligne_dep").style.fontSize = "64%";
+                    chaine += "<tr class='tour_1_ligne_dep'>";
+                    chaine += "<th class='tour1_colonne_dep'>Code canton</th>";
+                    chaine += "<th class='tour1_colonne_dep'>Nom canton</th>";
+                    chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
+                    chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
+                    chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
+                    chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
+                    chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
+                    chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
+                    chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
+                    chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
+                    chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
+                    chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
+                    chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
+                    chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
+                    chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
+                    chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
+                    chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
+                    chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
+                    chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
+                    chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
+                    chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
+                    chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
+                    chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
+                    chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
                     chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
                     chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
                     chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
@@ -197,11 +225,63 @@ function rechercher_données_tour_1() {
                     break;
 
                 case "2015":
+                    document.getElementsByClassName("tour1_ligne_dep").style.fontSize = "71%";
+                    chaine += "<tr class='tour_1_ligne_dep'>";
+                    chaine += "<th class='tour1_colonne_dep'>Code canton</th>";
+                    chaine += "<th class='tour1_colonne_dep'>Nom canton</th>";
+                    chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
+                    chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
+                    chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
+                    chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
+                    chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
+                    chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
+                    chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
+                    chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
+                    chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
+                    chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
+                    chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
+                    chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
+                    chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
+                    chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
+                    chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
+                    chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
+                    chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
+                    chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
+                    chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
+                    chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
+                    chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
+                    chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
                     chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
                     chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
                     break;
 
                 case "2021":
+                    document.getElementsByClassName("tour1_ligne_dep").style.fontSize = "60%";
+                    chaine += "<tr class='tour_1_ligne_dep'>";
+                    chaine += "<th class='tour1_colonne_dep'>Code canton</th>";
+                    chaine += "<th class='tour1_colonne_dep'>Nom canton</th>";
+                    chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
+                    chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
+                    chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
+                    chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
+                    chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
+                    chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
+                    chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
+                    chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
+                    chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
+                    chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
+                    chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
+                    chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
+                    chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
+                    chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
+                    chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
+                    chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
+                    chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
+                    chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
+                    chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
+                    chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
+                    chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
+                    chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
                     chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
                     chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
                     chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
@@ -220,7 +300,7 @@ function rechercher_données_tour_1() {
             for (i = 0; i < resultat_php.length; i++) {
                 resultat_php_tab[i] = [];
                 j = 0;
-                chaine += "<tr>";
+                chaine += "<tr class='tour_1_ligne_dep'>";
                 resultat_php[i].forEach(elem => {
                     chaine += "<td class='tour1_colonne_dep'>";
                     if (elem == null) {
@@ -268,27 +348,49 @@ function rechercher_données_tour_2() {
 
             if (document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value != "2021") {
 
-                let chaine = "<table id='tour2_tab_dep'>";
-                chaine += "<caption id='tour2_titre'>Détails des résultats aux élections départementales au deuxième tour</caption>";
-                chaine += "<tr>";
-                chaine += "<th class='tour2_colonne_dep'>Code canton</th>";
-                chaine += "<th class='tour2_colonne_dep'>Nom canton</th>";
-                chaine += "<th class='tour2_colonne_dep'>Nuance</th>";
-                chaine += "<th class='tour2_colonne_dep'>% voix/exprimés</th>";
-                chaine += "<th class='tour2_colonne_dep'>Nuance</th>";
-                chaine += "<th class='tour2_colonne_dep'>% voix/exprimés</th>";
-                chaine += "<th class='tour2_colonne_dep'>Nuance</th>";
-                chaine += "<th class='tour2_colonne_dep'>% voix/exprimés</th>";
                 switch (document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value) {
                     case "2008":
+                        let chaine = "<table id='tour2_tab_dep'>";
+                        chaine += "<caption id='tour2_titre'>Détails des résultats aux élections départementales au deuxième tour</caption>";
+                        chaine += "<tr>";
+                        chaine += "<th class='tour2_colonne_dep'>Code canton</th>";
+                        chaine += "<th class='tour2_colonne_dep'>Nom canton</th>";
+                        chaine += "<th class='tour2_colonne_dep'>Nuance</th>";
+                        chaine += "<th class='tour2_colonne_dep'>% voix/exprimés</th>";
+                        chaine += "<th class='tour2_colonne_dep'>Nuance</th>";
+                        chaine += "<th class='tour2_colonne_dep'>% voix/exprimés</th>";
+                        chaine += "<th class='tour2_colonne_dep'>Nuance</th>";
+                        chaine += "<th class='tour2_colonne_dep'>% voix/exprimés</th>";
                         chaine += "<th class='tour2_colonne_dep'>Nuance</th>";
                         chaine += "<th class='tour2_colonne_dep'>% voix/exprimés</th>";
                         break;
 
                     case "2011":
+                        let chaine = "<table id='tour2_tab_dep'>";
+                        chaine += "<caption id='tour2_titre'>Détails des résultats aux élections départementales au deuxième tour</caption>";
+                        chaine += "<tr>";
+                        chaine += "<th class='tour2_colonne_dep'>Code canton</th>";
+                        chaine += "<th class='tour2_colonne_dep'>Nom canton</th>";
+                        chaine += "<th class='tour2_colonne_dep'>Nuance</th>";
+                        chaine += "<th class='tour2_colonne_dep'>% voix/exprimés</th>";
+                        chaine += "<th class='tour2_colonne_dep'>Nuance</th>";
+                        chaine += "<th class='tour2_colonne_dep'>% voix/exprimés</th>";
+                        chaine += "<th class='tour2_colonne_dep'>Nuance</th>";
+                        chaine += "<th class='tour2_colonne_dep'>% voix/exprimés</th>";
                         break;
 
                     case "2015":
+                        let chaine = "<table id='tour2_tab_dep'>";
+                        chaine += "<caption id='tour2_titre'>Détails des résultats aux élections départementales au deuxième tour</caption>";
+                        chaine += "<tr>";
+                        chaine += "<th class='tour2_colonne_dep'>Code canton</th>";
+                        chaine += "<th class='tour2_colonne_dep'>Nom canton</th>";
+                        chaine += "<th class='tour2_colonne_dep'>Nuance</th>";
+                        chaine += "<th class='tour2_colonne_dep'>% voix/exprimés</th>";
+                        chaine += "<th class='tour2_colonne_dep'>Nuance</th>";
+                        chaine += "<th class='tour2_colonne_dep'>% voix/exprimés</th>";
+                        chaine += "<th class='tour2_colonne_dep'>Nuance</th>";
+                        chaine += "<th class='tour2_colonne_dep'>% voix/exprimés</th>";
                         break;
 
                         //case "2021":
