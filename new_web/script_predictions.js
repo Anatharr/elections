@@ -147,7 +147,7 @@ function rechercher_données_tour_1() {
         dataType: 'json',
         data: { functionname: 'affiche_tour_1_departement', arguments: [document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value, document.getElementById("dep_choix").options[deroulant_dep.selectedIndex].value] },
 
-        success: function(obj, textstatus) {
+        success: function (obj, textstatus) {
             if (!('error' in obj)) {
                 resultat_php = obj.result;
             } else {
@@ -258,7 +258,7 @@ function rechercher_données_tour_1() {
 
         },
 
-        error: function(chr, ajaxOptions, thrownError) {
+        error: function (chr, ajaxOptions, thrownError) {
             alert(chr.responseText); //Ce code affichera le message d'erreur, ici Message d'erreur.
         }
 
@@ -275,7 +275,7 @@ function rechercher_données_tour_2() {
         dataType: 'json',
         data: { functionname: 'affiche_tour_2_departement', arguments: [document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value, document.getElementById("dep_choix").options[deroulant_dep.selectedIndex].value] },
 
-        success: function(obj, textstatus) {
+        success: function (obj, textstatus) {
             if (!('error' in obj)) {
                 resultat_php = obj.result;
             } else {
@@ -336,7 +336,7 @@ function rechercher_données_tour_2() {
 
         },
 
-        error: function(chr, ajaxOptions, thrownError) {
+        error: function (chr, ajaxOptions, thrownError) {
             alert(chr.responseText); //Ce code affichera le message d'erreur, ici Message d'erreur.
         }
 
@@ -389,9 +389,22 @@ function affichageGrapheDept(resultat_php) {
 
             /* Tableau regroupant les nuances et leur couleur respective */
             var tab_nuances_08 = [
-                { nom_nuance: 'EXG', backgroundColor: 'rgb(121, 39, 32)' }, { nom_nuance: 'COM', backgroundColor: 'rgb(221, 0, 0)' }, { nom_nuance: 'RDG', backgroundColor: 'rgb(255, 209, 220)' }, { nom_nuance: 'VEC', backgroundColor: 'rgb(49, 112, 35)' }, { nom_nuance: 'DVG', backgroundColor: 'rgb(255, 192, 192)' },
-                { nom_nuance: 'ECO', backgroundColor: 'rgb(85, 190, 71)' }, { nom_nuance: 'SOC', backgroundColor: 'rgb(255, 128, 128)' }, { nom_nuance: 'UDFD', backgroundColor: 'rgb(255, 153, 0)' }, { nom_nuance: 'M-NC', backgroundColor: 'rgb(0, 255, 255)' }, { nom_nuance: 'AUT', backgroundColor: 'rgb(134, 143, 152)' },
-                { nom_nuance: 'DVD', backgroundColor: 'rgb(173, 193, 253)' }, { nom_nuance: 'UMP', backgroundColor: 'rgb(0, 102, 204)' }, { nom_nuance: 'FN', backgroundColor: 'rgb(13, 55, 138)' }, { nom_nuance: 'EXD', backgroundColor: 'rgb(64, 64, 64)' }, { nom_nuance: 'REG', backgroundColor: 'rgb(220, 191, 163)' }
+                { nom_nuance: 'EXG', backgroundColor: 'rgb(121, 39, 32)' },
+                { nom_nuance: 'COM', backgroundColor: 'rgb(221, 0, 0)' },
+                { nom_nuance: 'SOC', backgroundColor: 'rgb(255, 128, 128)' },
+                { nom_nuance: 'RDG', backgroundColor: 'rgb(255, 209, 220)' },
+                { nom_nuance: 'DVG', backgroundColor: 'rgb(255, 192, 192)' },
+                { nom_nuance: 'VEC', backgroundColor: 'rgb(49, 112, 35)' },
+                { nom_nuance: 'ECO', backgroundColor: 'rgb(85, 190, 71)' },
+                { nom_nuance: 'REG', backgroundColor: 'rgb(220, 191, 163)' },
+                { nom_nuance: 'AUT', backgroundColor: 'rgb(134, 143, 152)' },
+                { nom_nuance: 'UDFD', backgroundColor: 'rgb(255, 153, 0)' },
+                { nom_nuance: 'M-NC', backgroundColor: 'rgb(0, 255, 255)' },
+                { nom_nuance: 'UMP', backgroundColor: 'rgb(0, 102, 204)' },
+                { nom_nuance: 'DVD', backgroundColor: 'rgb(173, 193, 253)' },
+                { nom_nuance: 'FN', backgroundColor: 'rgb(13, 55, 138)' },
+                { nom_nuance: 'EXD', backgroundColor: 'rgb(64, 64, 64)' },
+
             ];
 
             /* Ajout des datasets */
@@ -399,34 +412,35 @@ function affichageGrapheDept(resultat_php) {
 
             break;
 
-            /************* 2011  ***********/
+        /************* 2011  ***********/
         case "2011":
             nombre_nuances = 17;
             var tab_nuances_11 = [
                 { nom_nuance: 'EXG', backgroundColor: 'rgb(121, 39, 32)' },
                 { nom_nuance: 'COM', backgroundColor: 'rgb(221, 0, 0)' },
                 { nom_nuance: 'PG', backgroundColor: 'rgb(251, 101, 129)' },
-                { nom_nuance: 'RDG', backgroundColor: 'rgb(255, 209, 220)' },
-                { nom_nuance: 'VEC', backgroundColor: 'rgb(49, 112, 35)' },
-                { nom_nuance: 'DVG', backgroundColor: 'rgb(255, 192, 192)' },
-                { nom_nuance: 'ECO', backgroundColor: 'rgb(85, 190, 71)' },
                 { nom_nuance: 'SOC', backgroundColor: 'rgb(255, 128, 128)' },
+                { nom_nuance: 'RDG', backgroundColor: 'rgb(255, 209, 220)' },
+                { nom_nuance: 'DVG', backgroundColor: 'rgb(255, 192, 192)' },
+                { nom_nuance: 'VEC', backgroundColor: 'rgb(49, 112, 35)' },
+                { nom_nuance: 'ECO', backgroundColor: 'rgb(85, 190, 71)' },
+                { nom_nuance: 'REG', backgroundColor: 'rgb(220, 191, 163)' },
+                { nom_nuance: 'AUT', backgroundColor: 'rgb(134, 143, 152)' },
                 { nom_nuance: 'MODM', backgroundColor: 'rgb(255, 153, 0)' },
                 { nom_nuance: 'M-NC', backgroundColor: 'rgb(0, 255, 255)' },
                 { nom_nuance: 'M', backgroundColor: 'rgb(135, 206, 250)' },
-                { nom_nuance: 'AUT', backgroundColor: 'rgb(134, 143, 152)' },
-                { nom_nuance: 'DVD', backgroundColor: 'rgb(173, 193, 253)' },
                 { nom_nuance: 'UMP', backgroundColor: 'rgb(0, 102, 204)' },
+                { nom_nuance: 'DVD', backgroundColor: 'rgb(173, 193, 253)' },
                 { nom_nuance: 'FN', backgroundColor: 'rgb(13, 55, 138)' },
                 { nom_nuance: 'EXD', backgroundColor: 'rgb(64, 64, 64)' },
-                { nom_nuance: 'REG', backgroundColor: 'rgb(220, 191, 163)' }
+
             ];
 
             tab_nuances_graphe = tab_nuances_11;
 
             break;
 
-            /************* 2015  ***********/
+        /************* 2015  ***********/
         case "2015":
             nombre_nuances = 19;
             var tab_nuances_15 = [
@@ -455,7 +469,7 @@ function affichageGrapheDept(resultat_php) {
 
             break;
 
-            /************* 2021  ***********/
+        /************* 2021  ***********/
         case "2021":
             nombre_nuances = 26;
             var tab_nuances_21 = [
