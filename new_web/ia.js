@@ -37,12 +37,29 @@ function fill_cantons() {
     }
   })
 
-  resultat_php_tab.forEach((e) => {
-    var opt = document.createElement('option');
-    opt.value = e[0];
-    opt.innerHTML = e[1]+' ('+e[0]+')';
-    cantonSelect.appendChild(opt);
-  })
+  jQuery.ajax({
+          type: "POST",
+          url: 'traitement.php',
+          dataType: 'json',
+          data: { functionname: 'affiche_tour_1_departement', arguments: [document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value, document.getElementById("dep_choix").options[deroulant_dep.selectedIndex].value] },
+
+          success: function(obj, textstatus) {
+              if (!('error' in obj)) {
+                    resultat_php_tab.forEach((e) => {
+                      var opt = document.createElement('option');
+                      opt.value = e[0];
+                      opt.innerHTML = e[1]+' ('+e[0]+')';
+                      cantonSelect.appendChild(opt);
+                    })
+              } else {
+                  console.log(obj.error);
+              }
+            }
+
+          error: function(chr, ajaxOptions, thrownError) {
+              alert(chr.responseText); //Ce code affichera le message d'erreur, ici Message d'erreur.
+          }          
+    })
 }
 
 function lancer_prediction() {
