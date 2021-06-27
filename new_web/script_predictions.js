@@ -351,7 +351,7 @@ function affichageGrapheDeptT1(resultat_php) {
     var nombre_canton = resultat_php.length;
     var nombre_nuances = 0;
     var tab_nuances_graphe = [];
-    var datasets_année =[];
+    
 
 
     /**** Plusieurs cas, les noms des nuances et leur nombre différent selon l'année ****/
@@ -456,6 +456,7 @@ function affichageGrapheDeptT1(resultat_php) {
     for (let i = 0; i < nombre_canton; i++) {
         labels[i] = resultat_php[i][1];
     }
+    var datasets_année =[nombre_nuances];
     console.log(tab_nuances_graphe);
     console.log(datasets_année);
     for (i = 0; i < nombre_nuances; i++) {
