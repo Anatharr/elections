@@ -271,7 +271,8 @@ h2 {
 
 .images_map {
     text-align: center;
-    height: 1500px;
+    display: inline-block;
+    height: 200%;
 }
 
 #img_dep {
