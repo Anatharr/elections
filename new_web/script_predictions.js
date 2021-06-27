@@ -135,8 +135,6 @@ function menu_deroulant_bloquant() {
 /* RECHERCHE ET CONSTRUCTION GRAPH */
 
 function rechercher_données_tour_1() {
-    let scrollDiv = document.getElementById("graph_dep").offsetTop;
-    window.scrollTo({ top: scrollDiv, behavior: 'smooth' });
     var requestURL = 'http://176.135.226.148:180/predictions.php';
 
     var request = new XMLHttpRequest();
@@ -269,6 +267,8 @@ function rechercher_données_tour_1() {
 
 
     })
+    let scrollDiv = document.getElementById("graph_dep").offsetTop;
+    window.scrollTo({ top: scrollDiv, behavior: 'smooth' });
 
 }
 
