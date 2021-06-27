@@ -647,6 +647,11 @@ h2 {
     font-size: 75%;
 }
 
+#tour1_tab_dep tr:hover {
+    background-color: lightblue;
+    font-size: 100%;
+}
+
 .tour1_colonne_dep {
     border: 1px solid black;
 }
