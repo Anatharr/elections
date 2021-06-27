@@ -255,7 +255,8 @@ function rechercher_données_tour_1() {
                 }
             }
             let scrollDiv = document.getElementById("graph_dep").offsetTop;
-            setTimeout(function() { window.scrollTo({ top: scrollDiv, behavior: 'smooth' }); loader.display = "none" }, 1000);
+            setTimeout(function() { window.scrollTo({ top: scrollDiv, behavior: 'smooth' });
+                loader.display = "none" }, 1000);
 
         },
 
@@ -324,7 +325,7 @@ function rechercher_données_tour_2() {
                 }
                 chaine += "</tr>";
                 for (i = 0; i < resultat_php.length; i++) {
-                    chaine += "<tr class='tour2_ligne_dep>";
+                    chaine += "<tr class='tour2_ligne_dep'>";
                     resultat_php[i].forEach(elem => {
                         chaine += "<td class='tour2_colonne_dep'>";
                         if (elem == null) {
