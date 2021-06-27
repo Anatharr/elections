@@ -689,10 +689,12 @@ h2 {
 
 
 .loader {
+    margin-top: 2%;
+    margin-left: 3%;
     display: inline-block;
-    border: 16px solid black;
+    border: 16px solid rgb(60, 60, 60, 0.3);
     border-radius: 50%;
-    border-top: 16px solid #3498db;
+    border-top: 16px solid rgb(60, 60, 60, 0.7);
     width: 15px;
     height: 15px;
     -webkit-animation: spin 2s linear infinite; /* Safari */
