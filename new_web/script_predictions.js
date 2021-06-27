@@ -631,7 +631,7 @@ function configGrapheDeptT2(data) {
             type: 'bar',
             data: data,
             options: {
-                barPercentage : 0.6,
+                maxBarThickness : 0.5,
                 plugins: {
                     title: {
                         display: true,
