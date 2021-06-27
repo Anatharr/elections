@@ -131,16 +131,7 @@ function menu_deroulant_bloquant() {
 
 /* RECHERCHE ET CONSTRUCTION GRAPH */
 
-function lancer_recherche_dep() {
-    let scrollDiv = document.getElementById("graph_dep").offsetTop;
-    window.scrollTo({ top: scrollDiv, behavior: 'smooth' });
-    var requestURL = 'http://176.135.226.148:180/predictions.php';
-
-    var request = new XMLHttpRequest();
-    request.open('GET', requestURL);
-
-    // Tableau du 1er tour (données à analyser)
-
+function rechercher_données_tour_1() {
     jQuery.ajax({
         type: "POST",
         url: 'traitement.php',
@@ -239,8 +230,17 @@ function lancer_recherche_dep() {
 
 
     })
+}
 
+function lancer_recherche_dep() {
+    let scrollDiv = document.getElementById("graph_dep").offsetTop;
+    window.scrollTo({ top: scrollDiv, behavior: 'smooth' });
+    var requestURL = 'http://176.135.226.148:180/predictions.php';
 
+    var request = new XMLHttpRequest();
+    request.open('GET', requestURL);
+
+    rechercher_données_tour_1();
 
 
     // Tableau du 2ème tour (données réelles)
