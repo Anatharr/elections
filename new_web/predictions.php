@@ -274,14 +274,12 @@
         <table>
             <tr>
                 <td>
-                    <div class="label_ia" style='display: none;'>
-                        <label for="resultats_ia">Prédictions de nos modèles</label>
+                    <div class="resultats_ia" style='display: none;'>
+                        <label class="label_ia">Prédictions de nos modèles</label>
                     </div>                                        
                 </td>
                 <td style="border-left: 1px solid black;">
-                    <div class="label_ia">
-                        <label for="deroulant_modele">Sélectionner un canton et le modèle d'IA à utiliser :</label>
-                    </div>                    
+                    <label class="label_ia" for="deroulant_modele">Sélectionner un canton et le modèle d'IA à utiliser :</label>
 
                     <div class="deroulant_ia">
                         <select name="deroulant_canton" id="model_canton">
@@ -305,7 +303,7 @@
     <script src="script_accueil.js"></script>
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
     <script src="boutonremonter.js"></script>
-    <script src="models/predictions.js"></script>
+    <script src="ia.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
     
     

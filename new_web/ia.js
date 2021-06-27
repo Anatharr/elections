@@ -1,6 +1,6 @@
-baseURL = document.window.location.hostname;
+baseURL = window.location.hostname;
 
-async function getData() {
+async function getData(year) {
   const carsDataResponse = await fetch(hostname + '/dataset/inputs/XDataFR_Bvot.csv');
   const carsData = await carsDataResponse.json();
   const cleaned = carsData.map(car => ({
@@ -29,9 +29,35 @@ async function loadTruncatedMobileNet() {
   return tf.model({inputs: mobilenet.inputs, outputs: layer.output});
 }
 
+function fill_cantons() {
+  var cantonSelect = document.getElementById('model_canton')
+  cantonSelect.children.forEach((e) => {
+    if (e.value!='default') {
+      cantonSelect.removeChild(e);
+    }
+  })
+
+  resultat_php_tab.forEach((e) => {
+    var opt = document.createElement('option');
+    opt.value = e[0];
+    opt.innerHTML = e[1]+' ('+e[0]+')';
+    cantonSelect.appendChild(opt);
+  })
+}
 
 function lancer_prediction() {
-    
+  const yearSelect = document.getElementById('model_year')
+  const cantonSelect = document.getElementById('model_canton')
+  const year = yearSelect.options[yearSelect.selectedIndex].value
+  const canton = cantonSelect.options[cantonSelect.selectedIndex].value
+
+  // const model = load_model(year, canton)
+
+
+
+
+
+  // const inputData = await getData(year)
 }
 
 
