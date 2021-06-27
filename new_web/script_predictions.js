@@ -632,6 +632,7 @@ function configGrapheDeptT1(data) {
         type: 'bar',
         data: data,
         options: {
+            maxBarThickness: 70,
             plugins: {
                 title: {
                     display: true,
@@ -643,6 +644,7 @@ function configGrapheDeptT1(data) {
                 x: {
                     maxBarThickness: 70,
                     stacked: true,
+                    max: 100,
                     title: {
                         display: true,
                         text: 'Cantons',
@@ -658,6 +660,7 @@ function configGrapheDeptT1(data) {
                 },
                 y: {
                     stacked: true,
+                    max: 100,
                     title: {
                         display: true,
                         text: 'Pourcentages %',
@@ -695,6 +698,7 @@ function configGrapheDeptT2(data) {
                 scales: {
                     x: {
                         stacked: true,
+                        max: 100,
                         title: {
                             display: true,
                             text: 'Cantons',
@@ -710,6 +714,7 @@ function configGrapheDeptT2(data) {
                     },
                     y: {
                         stacked: true,
+                        max: 100,
                         title: {
                             display: true,
                             text: 'Pourcentages',
