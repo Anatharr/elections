@@ -240,7 +240,7 @@ function rechercher_données_tour_1() {
                 switch (document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value) {
 
                     case "2008":
-                        lignes_tour_1[i].style.fontSize = "76%";
+                        lignes_tour_1[i].style.fontSize = "75%";
                         break;
                     case "2011":
                         lignes_tour_1[i].style.fontSize = "64%";
