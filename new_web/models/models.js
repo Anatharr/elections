@@ -1,4 +1,4 @@
-baseURL = document.window.location.hostname;
+baseURL = window.location.hostname;
 
 async function getData(year) {
   const carsDataResponse = await fetch(hostname + '/dataset/inputs/XDataFR_Bvot.csv');
