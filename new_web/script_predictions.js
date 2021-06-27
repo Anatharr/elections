@@ -37,7 +37,7 @@ function afficherDeroulantDep() {
             section_departement.style.display = "block"
             section_region.style.display = "none"
             section_france.style.display = "none"
-            document.getElementById("graph_dep").textContent = "Graph élections départementales"
+            document.getElementById("graph_dep").textContent = "Graphe élections départementales"
             document.getElementById("dep_choix").value = "Default"
             document.getElementById("dep_annee_choix").value = "Default"
 
@@ -56,7 +56,7 @@ function afficherDeroulantReg() {
             section_region.style.display = "block"
             section_departement.style.display = "none"
             section_france.style.display = "none"
-            document.getElementById("graph_reg").textContent = "Graph élections régionales"
+            document.getElementById("graph_reg").textContent = "Graphe élections régionales"
             document.getElementById("reg_choix").value = "Default"
             document.getElementById("reg_annee_choix").value = "Default"
         }
@@ -93,7 +93,7 @@ function recuperer_region_annee() {
 }
 
 function recuperer_departement() {
-    document.getElementById("graph_dep").innerHTML = "Graph élections départementales pour : ";
+    document.getElementById("graph_dep").innerHTML = "Graphe élections départementales pour : ";
     deroulant_dep = document.getElementById("dep_choix");
     texte = deroulant_dep.options[deroulant_dep.selectedIndex].text;
     document.getElementById("graph_dep").innerHTML = document.getElementById("graph_dep").textContent + texte + " en " + annee_dep;
@@ -103,7 +103,7 @@ function recuperer_departement() {
 }
 
 function recuperer_region() {
-    document.getElementById("graph_reg").textContent = "Graph élections régionales pour : ";
+    document.getElementById("graph_reg").textContent = "Graphe élections régionales pour : ";
     deroulant_reg = document.getElementById("reg_choix");
     texte = deroulant_reg.options[deroulant_reg.selectedIndex].text;
     document.getElementById("graph_reg").textContent = document.getElementById("graph_reg").textContent + texte + " en " + annee_reg;
@@ -474,30 +474,8 @@ function affichageGrapheDeptT1(resultat_php) {
         datasets: datasets_année,
 
     };
-    const config = {
-        type: 'bar',
-        data: data,
-        options: {
-            plugins: {
-                title: {
-                    display: true,
-                    text: 'Résulats élections départementales par cantons - Tour 1'
-                },
-            },
-            responsive: true,
-            scales: {
-                x: {
-                    stacked: true,
-                },
-                y: {
-                    stacked: true,
-                }
-            }
-        }
-    };
 
-    document.getElementById("graphe_t1").innerHTML = "<canvas id=\"Graphe_T1\" width=\"1000\" height=\"350\"></canvas>";
-    var myChart = new Chart(document.getElementById('Graphe_T1'), config);
+    configGrapheDeptT1(data);
 }
 
 function affichageGrapheDeptT2(resultat_php) {
@@ -654,4 +632,30 @@ function affichageGrapheDeptT2(resultat_php) {
 
     document.getElementById("graphe_t2").innerHTML = "<canvas id=\"Graphe_T2\" width=\"1000\" height=\"350\"></canvas>";
     var myChart = new Chart(document.getElementById('Graphe_T2'), config);
+}
+
+function configGrapheT1(data){
+    const config = {
+        type: 'bar',
+        data: data,
+        options: {
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Résulats élections départementales par cantons - Tour 1'
+                },
+            },
+            responsive: true,
+            scales: {
+                x: {
+                    stacked: true,
+                },
+                y: {
+                    stacked: true,
+                }
+            }
+        }
+    };
+    document.getElementById("graphe_t1").innerHTML = "<canvas id=\"Graphe_T1\" width=\"1000\" height=\"350\"></canvas>";
+    var myChart = new Chart(document.getElementById('Graphe_T1'), config);
 }
