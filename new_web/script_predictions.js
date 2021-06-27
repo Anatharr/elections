@@ -236,19 +236,18 @@ function rechercher_données_tour_1() {
             for (i = 0; i < resultat_php.length; i++) {
                 for (k = 0; k < resultat_php_tab[i].length; k++) {
                     if (resultat_php_tab[i][k] == null) {
-                        compteur_colonne_vide++;
+                        if (k > compteur_colonne_vide) {
+                            compteur_colonne_vide = k;
+                        }
                     }
                 }
-                resultat_php[i].forEach(elem => {
-                    console.log(typeof(elem));
-                    if (compteur_colonne_vide != resultat_php.length) {
-                        chaine += "<td class='tour1_colonne_dep'>";
-                        if (elem == null) {
-                            chaine += "";
-                        } else { chaine += elem; }
-                        chaine += "</td>";
-                    }
-                });
+                for (k = 0; k <= compteur_colonne_vide; k++) {
+                    chaine += "<td class='tour1_colonne_dep'>";
+                    if (elem == null) {
+                        chaine += "";
+                    } else { chaine += elem; }
+                    chaine += "</td>";
+                }
                 chaine += "</tr>";
             }
             chaine += "</table>";
