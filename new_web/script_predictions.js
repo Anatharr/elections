@@ -430,7 +430,7 @@ function fill_cantons_predictions() {
 
           success: function(obj, textstatus) {
               if (!('error' in obj)) {
-                    resultat_php_tab.forEach((e) => {
+                    obj.result.forEach((e) => {
                       var opt = document.createElement('option');
                       opt.value = e[0];
                       opt.innerHTML = e[1]+' ('+e[0]+')';
