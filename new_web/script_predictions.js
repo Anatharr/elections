@@ -226,15 +226,23 @@ function rechercher_données_tour_1() {
             for (i = 0; i < resultat_php.length; i++) {
                 resultat_php_tab[i] = [];
                 j = 0;
+                var compteur_colonne_vide = 0;
                 chaine += "<tr class='tour1_ligne_dep'>";
                 resultat_php[i].forEach(elem => {
-                    chaine += "<td class='tour1_colonne_dep'>";
-                    if (elem == null) {
-                        chaine += "";
-                    } else { chaine += elem; }
-                    chaine += "</td>";
-                    resultat_php_tab[i][j] = elem;
-                    j++;
+                    for (k = 0; k < resultat_php.length; k++) {
+                        if (resultat_php[k][elem] == null) {
+                            compteur_colonne_vide++;
+                        }
+                    }
+                    if (compteur_colonne_vide != resultat_php.length) {
+                        chaine += "<td class='tour1_colonne_dep'>";
+                        if (elem == null) {
+                            chaine += "";
+                        } else { chaine += elem; }
+                        chaine += "</td>";
+                        resultat_php_tab[i][j] = elem;
+                        j++;
+                    }
                 })
                 chaine += "</tr>";
             }
@@ -667,7 +675,7 @@ function configGrapheDeptT2(data) {
             type: 'bar',
             data: data,
             options: {
-                maxBarThickness : 70,
+                maxBarThickness: 70,
                 plugins: {
                     title: {
                         display: true,
