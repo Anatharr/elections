@@ -147,13 +147,17 @@ function rechercher_données_tour_1() {
         dataType: 'json',
         data: { functionname: 'affiche_tour_1_departement', arguments: [document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value, document.getElementById("dep_choix").options[deroulant_dep.selectedIndex].value] },
 
-        success: function (obj, textstatus) {
+        success: function(obj, textstatus) {
             if (!('error' in obj)) {
                 resultat_php = obj.result;
             } else {
                 console.log(obj.error);
             }
-            let chaine = "<h3 id='tour1_titre'>Résultats aux élections départementales au premier tour</h3>";
+
+            /* Affiche le graphe */
+            affichageGrapheDeptT1(resultat_php);
+
+            let chaine = "<h3 id='tour1_titre'>Détails des résultats aux élections départementales au premier tour</h3>";
             chaine += "<table id='tour1_tab_dep'>";
             chaine += "<tr>";
             chaine += "<th class='tour1_colonne_dep'>Code canton</th>";
@@ -228,12 +232,9 @@ function rechercher_données_tour_1() {
             document.getElementById("tour_1").innerHTML = chaine;
             console.table(resultat_php_tab);
 
-            /* Affiche le graphe */
-            affichageGrapheDeptT1(resultat_php);
-
         },
 
-        error: function (chr, ajaxOptions, thrownError) {
+        error: function(chr, ajaxOptions, thrownError) {
             alert(chr.responseText); //Ce code affichera le message d'erreur, ici Message d'erreur.
         }
 
@@ -250,13 +251,17 @@ function rechercher_données_tour_2() {
         dataType: 'json',
         data: { functionname: 'affiche_tour_2_departement', arguments: [document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value, document.getElementById("dep_choix").options[deroulant_dep.selectedIndex].value] },
 
-        success: function (obj, textstatus) {
+        success: function(obj, textstatus) {
             if (!('error' in obj)) {
                 resultat_php = obj.result;
             } else {
                 console.log(obj.error);
             }
-            let chaine = "<h3 id='tour2_titre'>Résultats aux élections départementales au deuxième tour</h3>";
+
+            /* Affiche le graphe */
+            affichageGrapheDeptT2(resultat_php);
+
+            let chaine = "<h3 id='tour2_titre'>Détails des résultats aux élections départementales au deuxième tour</h3>";
             chaine += "<table id='tour2_tab_dep'>";
             chaine += "<tr>";
             chaine += "<th class='tour2_colonne_dep'>Code canton</th>";
@@ -304,13 +309,9 @@ function rechercher_données_tour_2() {
             chaine += "</table>";
             document.getElementById("tour_2").innerHTML = chaine;
 
-            /* Affiche le graphe */
-            affichageGrapheDeptT2(resultat_php);
-
-
         },
 
-        error: function (chr, ajaxOptions, thrownError) {
+        error: function(chr, ajaxOptions, thrownError) {
             alert(chr.responseText); //Ce code affichera le message d'erreur, ici Message d'erreur.
         }
 
@@ -351,7 +352,7 @@ function affichageGrapheDeptT1(resultat_php) {
     var nombre_canton = resultat_php.length;
     var nombre_nuances = 0;
     var tab_nuances_graphe = [];
-    
+
 
 
     /**** Plusieurs cas, les noms des nuances et leur nombre différent selon l'année ****/
@@ -373,7 +374,7 @@ function affichageGrapheDeptT1(resultat_php) {
 
             break;
 
-        /************* 2011  ***********/
+            /************* 2011  ***********/
         case "2011":
             nombre_nuances = 17;
             var tab_nuances_11 = [
@@ -388,7 +389,7 @@ function affichageGrapheDeptT1(resultat_php) {
 
             break;
 
-        /************* 2015  ***********/
+            /************* 2015  ***********/
         case "2015":
             nombre_nuances = 19;
             var tab_nuances_15 = [
@@ -405,7 +406,7 @@ function affichageGrapheDeptT1(resultat_php) {
 
             break;
 
-        /************* 2021  ***********/
+            /************* 2021  ***********/
         case "2021":
             nombre_nuances = 26;
             break;
@@ -457,8 +458,8 @@ function affichageGrapheDeptT1(resultat_php) {
         labels[i] = resultat_php[i][1];
     }
     var datasets_année = new Array(nombre_nuances);
-    for(let i = 0; i < nombre_nuances; i++){
-        datasets_année[i] = {label : 'undefined', data : null, backgroundColor : 'undefined'};
+    for (let i = 0; i < nombre_nuances; i++) {
+        datasets_année[i] = { label: 'undefined', data: null, backgroundColor: 'undefined' };
     }
     for (let i = 0; i < nombre_nuances; i++) {
 
@@ -467,7 +468,7 @@ function affichageGrapheDeptT1(resultat_php) {
         datasets_année[i].backgroundColor = tab_nuances_graphe[i].backgroundColor;
 
     }
-    
+
     const data = {
         labels: labels,
         datasets: datasets_année,
@@ -499,7 +500,7 @@ function affichageGrapheDeptT1(resultat_php) {
     var myChart = new Chart(document.getElementById('Graphe_T1'), config);
 }
 
-function affichageGrapheDeptT2(resultat_php){
+function affichageGrapheDeptT2(resultat_php) {
     /* Traitement des données du résultat de la requete et préparation des données pour l'affichage du graphe, création d'un dictionnaire regroupant les cantons et les scores par partis */
     var obj_dept = new Object();
     obj_dept.name = document.getElementById("dep_choix").options[deroulant_dep.selectedIndex].text;
@@ -530,7 +531,7 @@ function affichageGrapheDeptT2(resultat_php){
 
             break;
 
-        /************* 2011  ***********/
+            /************* 2011  ***********/
         case "2011":
             nombre_nuances = 17;
             var tab_nuances_11 = [
@@ -545,7 +546,7 @@ function affichageGrapheDeptT2(resultat_php){
 
             break;
 
-        /************* 2015  ***********/
+            /************* 2015  ***********/
         case "2015":
             nombre_nuances = 19;
             var tab_nuances_15 = [
@@ -562,7 +563,7 @@ function affichageGrapheDeptT2(resultat_php){
 
             break;
 
-        /************* 2021  ***********/
+            /************* 2021  ***********/
         case "2021":
             nombre_nuances = 26;
             break;
@@ -614,8 +615,8 @@ function affichageGrapheDeptT2(resultat_php){
         labels[i] = resultat_php[i][1];
     }
     var datasets_année = new Array(nombre_nuances);
-    for(let i = 0; i < nombre_nuances; i++){
-        datasets_année[i] = {label : 'undefined', data : null, backgroundColor : 'undefined'};
+    for (let i = 0; i < nombre_nuances; i++) {
+        datasets_année[i] = { label: 'undefined', data: null, backgroundColor: 'undefined' };
     }
     for (let i = 0; i < nombre_nuances; i++) {
 
@@ -654,4 +655,3 @@ function affichageGrapheDeptT2(resultat_php){
     document.getElementById("graphe_t2").innerHTML = "<canvas id=\"Graphe_T2\" width=\"1000\" height=\"350\"></canvas>";
     var myChart = new Chart(document.getElementById('Graphe_T2'), config);
 }
-
