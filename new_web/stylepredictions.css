@@ -620,6 +620,7 @@ h2 {
 #graph_reg {
     font-family: 'Exo', sans-serif;
     position: relative;
+    text-align: center;
     font-size: 150%;
     font-style: italic;
     margin-top: 3%;
