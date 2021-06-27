@@ -348,10 +348,11 @@ function rechercher_données_tour_2() {
 
             if (document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value != "2021") {
 
+                let chaine = "<table id='tour2_tab_dep'>";
+                chaine += "<caption id='tour2_titre'>Détails des résultats aux élections départementales au deuxième tour</caption>";
+
                 switch (document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value) {
                     case "2008":
-                        let chaine = "<table id='tour2_tab_dep'>";
-                        chaine += "<caption id='tour2_titre'>Détails des résultats aux élections départementales au deuxième tour</caption>";
                         chaine += "<tr>";
                         chaine += "<th class='tour2_colonne_dep'>Code canton</th>";
                         chaine += "<th class='tour2_colonne_dep'>Nom canton</th>";
@@ -366,8 +367,6 @@ function rechercher_données_tour_2() {
                         break;
 
                     case "2011":
-                        let chaine = "<table id='tour2_tab_dep'>";
-                        chaine += "<caption id='tour2_titre'>Détails des résultats aux élections départementales au deuxième tour</caption>";
                         chaine += "<tr>";
                         chaine += "<th class='tour2_colonne_dep'>Code canton</th>";
                         chaine += "<th class='tour2_colonne_dep'>Nom canton</th>";
@@ -380,8 +379,6 @@ function rechercher_données_tour_2() {
                         break;
 
                     case "2015":
-                        let chaine = "<table id='tour2_tab_dep'>";
-                        chaine += "<caption id='tour2_titre'>Détails des résultats aux élections départementales au deuxième tour</caption>";
                         chaine += "<tr>";
                         chaine += "<th class='tour2_colonne_dep'>Code canton</th>";
                         chaine += "<th class='tour2_colonne_dep'>Nom canton</th>";
