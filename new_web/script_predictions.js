@@ -160,7 +160,7 @@ function rechercher_données_tour_1() {
 
             let chaine = "<table id='tour1_tab_dep'>";
             chaine += "<caption id='tour1_titre'>Détails des résultats aux élections départementales au premier tour</caption>";
-            chaine += "<tr>";
+            chaine += "<tr class='tour1_ligne_dep'>";
             chaine += "<th class='tour1_colonne_dep'>Code canton</th>";
             chaine += "<th class='tour1_colonne_dep'>Nom canton</th>";
             chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
@@ -218,7 +218,7 @@ function rechercher_données_tour_1() {
             for (i = 0; i < resultat_php.length; i++) {
                 resultat_php_tab[i] = [];
                 j = 0;
-                chaine += "<tr>";
+                chaine += "<tr class='tour1_ligne_dep'>";
                 resultat_php[i].forEach(elem => {
                     chaine += "<td class='tour1_colonne_dep'>";
                     if (elem == null) {
@@ -233,6 +233,28 @@ function rechercher_données_tour_1() {
             chaine += "</table>";
             document.getElementById("tour_1").innerHTML = chaine;
             console.table(resultat_php_tab);
+            var lignes_tour_1 = document.getElementsByClassName("tour1_ligne_dep");
+            for (i = 0; i < lignes_tour_1.length; i++) {
+                switch (document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value) {
+
+                    case "2008":
+                        lignes_tour_1[i].style.fontSize = "76%";
+                        break;
+                    case "2011":
+                        lignes_tour_1[i].style.fontSize = "64%";
+                        break;
+                    case "2015":
+                        lignes_tour_1[i].style.fontSize = "71%";
+                        break;
+                    case "2021":
+                        lignes_tour_1[i].style.fontSize = "60%";
+                        break;
+                    default:
+                        lignes_tour_1[i].style.fontSize = "60%";
+                        break;
+
+                }
+            }
 
         },
 
