@@ -395,7 +395,7 @@ function affichageGrapheDeptT1(resultat_php) {
             var tab_nuances_15 = [
                 { nom_nuance: 'BC-EXG', backgroundColor: 'rgb(187, 0, 0)' }, { nom_nuance: 'BC-FG', backgroundColor: 'rgb(221, 0, 0)' }, { nom_nuance: 'BC-COM', backgroundColor: 'rgb(221, 0, 0)' },
                 { nom_nuance: 'BC-PG', backgroundColor: 'rgb(255, 209, 220)' }, { nom_nuance: 'BC-RDG', backgroundColor: 'rgb(255, 209, 220)' },
-                { nom_nuance: 'BC-UG', backgroundColor: 'rgb(204, 102, 102)' }, { nom_nuance: 'BC-VEC', backgroundColor: 'rgb(0, 192, 0)' }, { nom_nuance: 'DVG', backgroundColor: 'rgb(255, 192, 192)' },
+                { nom_nuance: 'BC-UG', backgroundColor: 'rgb(204, 102, 102)' }, { nom_nuance: 'BC-VEC', backgroundColor: 'rgb(0, 192, 0)' }, { nom_nuance: 'BC-DVG', backgroundColor: 'rgb(255, 192, 192)' },
                 { nom_nuance: 'BC-SOC', backgroundColor: 'rgb(255, 128, 128)' }, { nom_nuance: 'BC-MDM', backgroundColor: 'rgb(255, 153, 0)' }, { nom_nuance: 'BC-UC', backgroundColor: 'rgb(255, 235, 0)' },
                 { nom_nuance: 'BC-DIV', backgroundColor: 'rgb(238, 238, 238)' }, { nom_nuance: 'BC-UD', backgroundColor: 'rgb(135, 206, 250)' }, { nom_nuance: 'BC-UDI', backgroundColor: 'rgb(0, 255, 255)' },
                 { nom_nuance: 'BC-DVD', backgroundColor: 'rgb(173, 193, 253)' }, { nom_nuance: 'BC-UMP', backgroundColor: 'rgb(0, 102, 204)' },
