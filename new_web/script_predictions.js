@@ -147,7 +147,7 @@ function rechercher_données_tour_1() {
         dataType: 'json',
         data: { functionname: 'affiche_tour_1_departement', arguments: [document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value, document.getElementById("dep_choix").options[deroulant_dep.selectedIndex].value] },
 
-        success: function(obj, textstatus) {
+        success: function (obj, textstatus) {
             if (!('error' in obj)) {
                 resultat_php = obj.result;
             } else {
@@ -260,7 +260,7 @@ function rechercher_données_tour_1() {
 
         },
 
-        error: function(chr, ajaxOptions, thrownError) {
+        error: function (chr, ajaxOptions, thrownError) {
             alert(chr.responseText); //Ce code affichera le message d'erreur, ici Message d'erreur.
         }
 
@@ -277,7 +277,7 @@ function rechercher_données_tour_2() {
         dataType: 'json',
         data: { functionname: 'affiche_tour_2_departement', arguments: [document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value, document.getElementById("dep_choix").options[deroulant_dep.selectedIndex].value] },
 
-        success: function(obj, textstatus) {
+        success: function (obj, textstatus) {
             if (!('error' in obj)) {
                 resultat_php = obj.result;
             } else {
@@ -313,11 +313,11 @@ function rechercher_données_tour_2() {
                     case "2015":
                         break;
 
-                        //case "2021":
+                    //case "2021":
 
-                        /* /!\ Modifier en fonction des données de 2021 /!\ */
+                    /* /!\ Modifier en fonction des données de 2021 /!\ */
 
-                        //break;
+                    //break;
 
                     default:
                         console.log("Année invalide");
@@ -344,7 +344,7 @@ function rechercher_données_tour_2() {
 
         },
 
-        error: function(chr, ajaxOptions, thrownError) {
+        error: function (chr, ajaxOptions, thrownError) {
             alert(chr.responseText); //Ce code affichera le message d'erreur, ici Message d'erreur.
         }
 
@@ -420,7 +420,7 @@ function donneesGrapheDept(resultat_php) {
 
             break;
 
-            /************* 2011  ***********/
+        /************* 2011  ***********/
         case "2011":
             nombre_nuances = 17;
             var tab_nuances_11 = [
@@ -448,7 +448,7 @@ function donneesGrapheDept(resultat_php) {
 
             break;
 
-            /************* 2015  ***********/
+        /************* 2015  ***********/
         case "2015":
             nombre_nuances = 19;
             var tab_nuances_15 = [
@@ -477,7 +477,7 @@ function donneesGrapheDept(resultat_php) {
 
             break;
 
-            /************* 2021  ***********/
+        /************* 2021  ***********/
         case "2021":
             nombre_nuances = 26;
             var tab_nuances_21 = [
@@ -611,7 +611,7 @@ function configGrapheDeptT1(data) {
                     stacked: true,
                     title: {
                         display: true,
-                        text: 'Pourcentages',
+                        text: 'Pourcentages %',
                         color: '#911',
                         font: {
                             family: 'Calibri',
@@ -630,52 +630,57 @@ function configGrapheDeptT1(data) {
 }
 
 function configGrapheDeptT2(data) {
-    const config = {
-        type: 'bar',
-        data: data,
-        options: {
-            plugins: {
-                title: {
-                    display: true,
-                    text: 'Résulats élections départementales par cantons - Tour 2'
-                },
-            },
-            responsive: true,
-            scales: {
-                x: {
-                    stacked: true,
+    if (document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value != 2021) {
+        const config = {
+            type: 'bar',
+            data: data,
+            options: {
+                plugins: {
                     title: {
                         display: true,
-                        text: 'Cantons',
-                        color: '#911',
-                        font: {
-                            family: 'Calibri',
-                            size: 20,
-                            style: 'normal',
-                            lineHeight: 1.2
-                        },
-                        padding: { top: 30, left: 0, right: 0, bottom: 0 }
-                    }
+                        text: 'Résulats élections départementales par cantons - Tour 2'
+                    },
                 },
-                y: {
-                    stacked: true,
-                    title: {
-                        display: true,
-                        text: 'Pourcentages',
-                        color: '#911',
-                        font: {
-                            family: 'Calibri',
-                            size: 20,
-                            style: 'normal',
-                            lineHeight: 1.2
-                        },
-                        padding: { top: 30, left: 0, right: 0, bottom: 0 }
+                responsive: true,
+                scales: {
+                    x: {
+                        stacked: true,
+                        title: {
+                            display: true,
+                            text: 'Cantons',
+                            color: '#911',
+                            font: {
+                                family: 'Calibri',
+                                size: 20,
+                                style: 'normal',
+                                lineHeight: 1.2
+                            },
+                            padding: { top: 30, left: 0, right: 0, bottom: 0 }
+                        }
+                    },
+                    y: {
+                        stacked: true,
+                        title: {
+                            display: true,
+                            text: 'Pourcentages',
+                            color: '#911',
+                            font: {
+                                family: 'Calibri',
+                                size: 20,
+                                style: 'normal',
+                                lineHeight: 1.2
+                            },
+                            padding: { top: 30, left: 0, right: 0, bottom: 0 }
+                        }
                     }
                 }
             }
-        }
-    };
+        };
 
-    document.getElementById("graphe_t2").innerHTML = "<canvas id=\"Graphe_T2\" width=\"1000\" height=\"350\"></canvas>";
-    var myChart = new Chart(document.getElementById('Graphe_T2'), config);
+        document.getElementById("graphe_t2").innerHTML = "<canvas id=\"Graphe_T2\" width=\"1000\" height=\"350\"></canvas>";
+        var myChart = new Chart(document.getElementById('Graphe_T2'), config);
+    }
+    else {
+        document.getElementById("graphe_t2").innerHTML = " ";
+    }
 }

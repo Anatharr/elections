@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="stylepredictions.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <title>EstiLection</title>
+    <title>Prédictions</title>
 </head>
 
 
