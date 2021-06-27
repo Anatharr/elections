@@ -21,6 +21,11 @@ var texte_reg = "";
 var annee_dep = "";
 var annee_reg = "";
 
+var graphe_t1 = document.getElementById("graphe_t1");
+var tour_1 = document.getElementById("tour_1");
+var graphe_t2 = document.getElementById("graphe_t2");
+var tour_2 = document.getElementById("tour_2");
+
 
 
 /* RESET DES DIFFERENTS AFFICHAGES */
@@ -658,11 +663,7 @@ function configGrapheDeptT2(data) {
             type: 'bar',
             data: data,
             options: {
-<<<<<<< HEAD
                 maxBarThickness : 3,
-=======
-                maxBarThickness: 0.5,
->>>>>>> f740ecbd3cf6dbea555269b5cf96ea062f453134
                 plugins: {
                     title: {
                         display: true,

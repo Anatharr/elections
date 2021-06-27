@@ -200,14 +200,14 @@
         </div>
         
         
-        <div id="graphe_t1"></div>
+        <div id="graphe_t1" style="none"></div>
 
-        <div id="tour_1"></div>
+        <div id="tour_1" style="none"></div>
         
 
-        <div id="graphe_t2"></div>
+        <div id="graphe_t2" style="none"></div>
 
-        <div id="tour_2"></div>
+        <div id="tour_2" style="none"></div>
 
     
 
