@@ -200,14 +200,14 @@
         </div>
         
         
-        <div id="graphe_t1" style="none"></div>
+        <div id="graphe_t1" styly.display = "none"></div>
 
-        <div id="tour_1" style="none"></div>
+        <div id="tour_1" style.display ="none"></div>
         
 
-        <div id="graphe_t2" style="none"></div>
+        <div id="graphe_t2" style.display ="none"></div>
 
-        <div id="tour_2" style="none"></div>
+        <div id="tour_2" style.display ="none"></div>
 
     
 
