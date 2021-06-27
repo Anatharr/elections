@@ -659,7 +659,7 @@ h2 {
 }
 
 .tour1_ligne_dep {
-    background-color: rgba(46, 106, 255, 0.3);
+    background-color: rgba(46, 106, 255, 0.15);
 }
 
 .tour1_ligne_dep:hover {
@@ -692,7 +692,7 @@ h2 {
 }
 
 .tour2_ligne_dep {
-    background-color: rgba(46, 106, 255, 0.3);
+    background-color: rgba(46, 106, 255, 0.15);
 }
 
 .tour2_ligne_dep:hover {
