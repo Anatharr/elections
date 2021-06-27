@@ -417,8 +417,10 @@ function affichageGrapheDeptT1(resultat_php) {
                 { nom_nuance: 'AUT', backgroundColor: 'rgb(238, 238, 238)' }, { nom_nuance: 'DVD', backgroundColor: 'rgb(173, 193, 253)' }, { nom_nuance: 'UMP', backgroundColor: 'rgb(0, 102, 204)' },
                 { nom_nuance: 'FN', backgroundColor: 'rgb(13, 55, 138)' }, { nom_nuance: 'EXD', backgroundColor: 'rgb(64, 64, 64)' }, { nom_nuance: 'REG', backgroundColor: 'rgb(64, 64, 64)' }
             ];
+            
+            tab_nuances_graphe = tab_nuances_11;
 
-            for (k = 0; k < nombre_canton; k++) {
+           /* for (k = 0; k < nombre_canton; k++) {
                 obj_dept.cantons[k] = { name: resultat_php[k][1], parti: new Array(nombre_nuances) };
             }
 
@@ -448,9 +450,9 @@ function affichageGrapheDeptT1(resultat_php) {
                 for (i = 0; i < nombre_canton; i++) {
                     tab[j][i] = obj_dept.cantons[i].parti[j].score;
                 }
-            }
+            }*/
 
-            tab_nuances_graphe = tab_nuances_11;
+           
 
             break;
 
@@ -514,6 +516,37 @@ function affichageGrapheDeptT1(resultat_php) {
 
 
     /************** Affichage et configuration du graphe  **************/
+    for (k = 0; k < nombre_canton; k++) {
+        obj_dept.cantons[k] = { name: resultat_php[k][1], parti: new Array(nombre_nuances) };
+    }
+
+    for (i = 0; i < nombre_canton; i++) {
+
+        for (j = 0; j < nombre_nuances; j++) {
+            obj_dept.cantons[i].parti[j] = { name: tab_nuances_graphe[j].nom_nuance, score: 0 };
+        }
+
+        for (j = 3; j < resultat_php[i].length; j += 2) {
+            if (resultat_php[i][j] != null) {
+                for (k = 0; k < nombre_nuances; k++) {
+                    if (obj_dept.cantons[i].parti[k].name == resultat_php[i][j - 1]) {
+                        obj_dept.cantons[i].parti[k].score += Number(resultat_php[i][j]);
+                    }
+                }
+
+            }
+        }
+    }
+
+    var tab = new Array(nombre_nuances);
+    for (i = 0; i < nombre_nuances; i++) {
+        tab[i] = new Array(nombre_canton);
+    }
+    for (j = 0; j < nombre_nuances; j++) {
+        for (i = 0; i < nombre_canton; i++) {
+            tab[j][i] = obj_dept.cantons[i].parti[j].score;
+        }
+    }
 
     const labels = [];
     for (let i = 0; i < nombre_canton; i++) {
