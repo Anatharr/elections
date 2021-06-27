@@ -155,8 +155,8 @@ function rechercher_données_tour_1() {
             }
 
             /* Affiche le graphe */
-            //let data = affichageGrapheDept(resultat_php);
-            //configGrapheDeptT1(data);
+            let data = donneesGrapheDept(resultat_php);
+            configGrapheDeptT1(data);
 
             let chaine = "<table id='tour1_tab_dep'>";
             chaine += "<caption id='tour1_titre'>Détails des résultats aux élections départementales au premier tour</caption>";
@@ -285,8 +285,8 @@ function rechercher_données_tour_2() {
             }
 
             /* Affiche le graphe */
-            //let data = affichageGrapheDept(resultat_php);
-            //configGrapheDeptT2(data);
+            let data = donneesGrapheDept(resultat_php);
+            configGrapheDeptT2(data);
 
             if (document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value != 2021) {
 
@@ -375,7 +375,7 @@ function lancer_recherche_reg() {
     window.scrollTo({ top: scrollDiv, behavior: 'smooth' });
 }
 
-function affichageGrapheDept(resultat_php) {
+function donneesGrapheDept(resultat_php) {
 
     /* Traitement des données du résultat de la requete et préparation des données pour l'affichage du graphe, création d'un dictionnaire regroupant les cantons et les scores par partis */
     var obj_dept = new Object();
@@ -513,6 +513,7 @@ function affichageGrapheDept(resultat_php) {
             break;
 
         default:
+            console.log("Année invalide");
             break;
     }
 
@@ -593,9 +594,33 @@ function configGrapheDeptT1(data) {
             scales: {
                 x: {
                     stacked: true,
+                    title: {
+                        display: true,
+                        text: 'Cantons',
+                        color: '#911',
+                        font: {
+                          family: 'Calibri',
+                          size: 20,
+                          style: 'normal',
+                          lineHeight: 1.2
+                        },
+                        padding: {top: 30, left: 0, right: 0, bottom: 0}
+                      }
                 },
                 y: {
                     stacked: true,
+                    title: {
+                        display: true,
+                        text: 'Pourcentages',
+                        color: '#911',
+                        font: {
+                          family: 'Calibri',
+                          size: 20,
+                          style: 'normal',
+                          lineHeight: 1.2
+                        },
+                        padding: {top: 30, left: 0, right: 0, bottom: 0}
+                      }
                 }
             }
         }
@@ -619,9 +644,33 @@ function configGrapheDeptT2(data) {
             scales: {
                 x: {
                     stacked: true,
+                    title: {
+                        display: true,
+                        text: 'Cantons',
+                        color: '#911',
+                        font: {
+                          family: 'Calibri',
+                          size: 20,
+                          style: 'normal',
+                          lineHeight: 1.2
+                        },
+                        padding: {top: 30, left: 0, right: 0, bottom: 0}
+                      }
                 },
                 y: {
                     stacked: true,
+                    title: {
+                        display: true,
+                        text: 'Pourcentages',
+                        color: '#911',
+                        font: {
+                          family: 'Calibri',
+                          size: 20,
+                          style: 'normal',
+                          lineHeight: 1.2
+                        },
+                        padding: {top: 30, left: 0, right: 0, bottom: 0}
+                      }
                 }
             }
         }
