@@ -289,7 +289,7 @@ function rechercher_données_tour_1() {
             setTimeout(function() {
                 loader.style.display = "none";
                 graphe_t1.style.display = "block";
-                tour_2.style.display = "block";
+                tour_1.style.display = "block";
                 graphe_t2.style.display = "block";
                 tour_2.style.display = "block";
                 window.scrollTo({ top: scrollDiv, behavior: 'smooth' });
