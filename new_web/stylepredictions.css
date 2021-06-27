@@ -655,12 +655,16 @@ h2 {
 }
 
 #tour1_ligne_titres_dep {
-    background-color: dodgerblue;
+    background-color: rgba(233, 237, 247, 0.75);
     color: white;
 }
 
+.tour1_ligne_dep {
+    background-color: rgb(240, 248, 255, 0.5);
+}
+
 .tour1_ligne_dep:hover {
-    background-color: aliceblue;
+    background-color: rgb(240, 248, 255, 1);
 }
 
 .tour1_colonne_dep {
@@ -685,12 +689,16 @@ h2 {
 }
 
 #tour2_ligne_titres_dep {
-    background-color: dodgerblue;
+    background-color: rgba(233, 237, 247, 0.75);
     color: white;
 }
 
+.tour2_ligne_dep {
+    background-color: rgb(240, 248, 255, 0.5);
+}
+
 .tour2_ligne_dep:hover {
-    background-color: aliceblue;
+    background-color: rgb(240, 248, 255, 1);
 }
 
 .tour2_colonne_dep {
