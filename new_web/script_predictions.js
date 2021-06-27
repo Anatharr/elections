@@ -201,9 +201,10 @@ function rechercher_données_tour_1() {
                     break;
 
                 case "2021":
-
-                    /* /!\ Modifier en fonction des données de 2021 /!\ */
-
+                    chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
+                    chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
+                    chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
+                    chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
                     break;
 
                 default:
@@ -284,11 +285,11 @@ function rechercher_données_tour_2() {
                 case "2015":
                     break;
 
-                case "2021":
+                    //case "2021":
 
                     /* /!\ Modifier en fonction des données de 2021 /!\ */
 
-                    break;
+                    //break;
 
                 default:
                     console.log("Année invalide");
@@ -634,7 +635,7 @@ function affichageGrapheDeptT2(resultat_php) {
     var myChart = new Chart(document.getElementById('Graphe_T2'), config);
 }
 
-function configGrapheDeptT1(data){
+function configGrapheDeptT1(data) {
     const config = {
         type: 'bar',
         data: data,
