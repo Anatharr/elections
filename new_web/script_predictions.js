@@ -456,7 +456,7 @@ function affichageGrapheDeptT1(resultat_php) {
     for (let i = 0; i < nombre_canton; i++) {
         labels[i] = resultat_php[i][1];
     }
-    var datasets_année =[nombre_nuances];
+    var datasets_année = new Array(nombre_nuances);
     console.log(tab_nuances_graphe);
     console.log(datasets_année);
     for (i = 0; i < nombre_nuances; i++) {
