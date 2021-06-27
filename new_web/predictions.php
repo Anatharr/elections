@@ -255,7 +255,7 @@
         <button class="button_reg" type="button" onclick="lancer_recherche_reg()">Lancez la recherche</button>
 
         <div id="graph_reg">
-            <h2> Graph élections régionales</h1>
+            <h2> Graphe élections régionales</h1>
         </div>
 
     </div>
