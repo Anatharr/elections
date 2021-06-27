@@ -241,11 +241,13 @@ function rechercher_données_tour_1() {
                         }
                     }
                 }
+            }
+            for (i = 0; i < resultat_php.length; i++) {
                 for (k = 0; k <= compteur_colonne_vide; k++) {
                     chaine += "<td class='tour1_colonne_dep'>";
-                    if (elem == null) {
+                    if (resultat_php[i][k] == null) {
                         chaine += "";
-                    } else { chaine += elem; }
+                    } else { chaine += resultat_php[i][k]; }
                     chaine += "</td>";
                 }
                 chaine += "</tr>";
