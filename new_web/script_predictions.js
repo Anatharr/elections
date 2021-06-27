@@ -339,7 +339,7 @@ function rechercher_données_tour_2() {
                 document.getElementById("tour_2").innerHTML = chaine;
 
             } else {
-                document.getElementById("tour_2").innerHTML = "";
+                document.getElementById("tour_2").innerHTML = null;
             }
 
         },
@@ -599,13 +599,13 @@ function configGrapheDeptT1(data) {
                         text: 'Cantons',
                         color: '#911',
                         font: {
-                          family: 'Calibri',
-                          size: 20,
-                          style: 'normal',
-                          lineHeight: 1.2
+                            family: 'Calibri',
+                            size: 20,
+                            style: 'normal',
+                            lineHeight: 1.2
                         },
-                        padding: {top: 30, left: 0, right: 0, bottom: 0}
-                      }
+                        padding: { top: 30, left: 0, right: 0, bottom: 0 }
+                    }
                 },
                 y: {
                     stacked: true,
@@ -614,13 +614,13 @@ function configGrapheDeptT1(data) {
                         text: 'Pourcentages',
                         color: '#911',
                         font: {
-                          family: 'Calibri',
-                          size: 20,
-                          style: 'normal',
-                          lineHeight: 1.2
+                            family: 'Calibri',
+                            size: 20,
+                            style: 'normal',
+                            lineHeight: 1.2
                         },
-                        padding: {top: 30, left: 0, right: 0, bottom: 0}
-                      }
+                        padding: { top: 30, left: 0, right: 0, bottom: 0 }
+                    }
                 }
             }
         }
@@ -649,13 +649,13 @@ function configGrapheDeptT2(data) {
                         text: 'Cantons',
                         color: '#911',
                         font: {
-                          family: 'Calibri',
-                          size: 20,
-                          style: 'normal',
-                          lineHeight: 1.2
+                            family: 'Calibri',
+                            size: 20,
+                            style: 'normal',
+                            lineHeight: 1.2
                         },
-                        padding: {top: 30, left: 0, right: 0, bottom: 0}
-                      }
+                        padding: { top: 30, left: 0, right: 0, bottom: 0 }
+                    }
                 },
                 y: {
                     stacked: true,
@@ -664,13 +664,13 @@ function configGrapheDeptT2(data) {
                         text: 'Pourcentages',
                         color: '#911',
                         font: {
-                          family: 'Calibri',
-                          size: 20,
-                          style: 'normal',
-                          lineHeight: 1.2
+                            family: 'Calibri',
+                            size: 20,
+                            style: 'normal',
+                            lineHeight: 1.2
                         },
-                        padding: {top: 30, left: 0, right: 0, bottom: 0}
-                      }
+                        padding: { top: 30, left: 0, right: 0, bottom: 0 }
+                    }
                 }
             }
         }
