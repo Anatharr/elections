@@ -460,8 +460,6 @@ function affichageGrapheDeptT1(resultat_php) {
     for(let i = 0; i < nombre_nuances; i++){
         datasets_année[i] = {label : 'undefined', data : null, backgroundColor : 'undefined'};
     }
-    console.log(tab_nuances_graphe);
-    console.log(datasets_année);
     for (let i = 0; i < nombre_nuances; i++) {
 
         datasets_année[i].label = tab_nuances_graphe[i].nom_nuance;
@@ -615,7 +613,11 @@ function affichageGrapheDeptT2(resultat_php){
     for (let i = 0; i < nombre_canton; i++) {
         labels[i] = resultat_php[i][1];
     }
-    for (i = 0; i < nombre_nuances; i++) {
+    var datasets_année = new Array(nombre_nuances);
+    for(let i = 0; i < nombre_nuances; i++){
+        datasets_année[i] = {label : 'undefined', data : null, backgroundColor : 'undefined'};
+    }
+    for (let i = 0; i < nombre_nuances; i++) {
 
         datasets_année[i].label = tab_nuances_graphe[i].nom_nuance;
         datasets_année[i].data = tab[i];
