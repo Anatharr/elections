@@ -798,7 +798,7 @@ function affichageGrapheDeptT1(resultat_php) {
                     stacked: true,
                 },
                 y: {
-                    max: 100,
+                    stacked: true,
                 }
             }
         }
