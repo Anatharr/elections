@@ -16,6 +16,9 @@ var bool_deroulant_bloquant;
 var resultat_php;
 var resultat_php_tab;
 
+var texte = "";
+var annee_dep = "";
+
 
 
 /* RESET DES DIFFERENTS AFFICHAGES */
@@ -78,24 +81,22 @@ function afficherDeroulantFr() {
 /* RECUPERATION DE LA VALEUR CHOISIE DANS LES MENUS DEROULANTS */
 
 function recuperer_departement_annee() {
-    var texte = null;
-    var annee_dep = null;
     document.getElementById("graph_dep").innerHTML = "Graphe élections départementales pour : ";
     deroulant_dep_annee = document.getElementById("dep_annee_choix");
     annee_dep = deroulant_dep_annee.options[deroulant_dep_annee.selectedIndex].text;
-    document.getElementById("graph_dep").innerHTML = document.getElementById("graph_dep").textContent + texte + " en " + annee_dep;
+    if(texte != "" && annee_dep != "")
+        document.getElementById("graph_dep").innerHTML = document.getElementById("graph_dep").textContent + texte + " en " + annee_dep;
 
     /* ICI - VALUE ANNE DU DEPARTEMENT */
     console.log(document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value);
 }
 
 function recuperer_departement() {
-    var texte = null;
-    var annee_dep = null;
     document.getElementById("graph_dep").innerHTML = "Graphe élections départementales pour : ";
     deroulant_dep = document.getElementById("dep_choix");
     texte = deroulant_dep.options[deroulant_dep.selectedIndex].text;
-    document.getElementById("graph_dep").innerHTML = document.getElementById("graph_dep").textContent + texte + " en " + annee_dep;
+    if(texte != "" && annee_dep != "")
+        document.getElementById("graph_dep").innerHTML = document.getElementById("graph_dep").textContent + texte + " en " + annee_dep;
 
     /* ICI - VALUE DU DEPARTEMENT */
     console.log(document.getElementById("dep_choix").options[deroulant_dep.selectedIndex].value);
