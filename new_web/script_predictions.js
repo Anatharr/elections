@@ -78,6 +78,8 @@ function afficherDeroulantFr() {
 /* RECUPERATION DE LA VALEUR CHOISIE DANS LES MENUS DEROULANTS */
 
 function recuperer_departement_annee() {
+    var texte = null;
+    var annee_dep = null;
     document.getElementById("graph_dep").innerHTML = "Graphe élections départementales pour : ";
     deroulant_dep_annee = document.getElementById("dep_annee_choix");
     annee_dep = deroulant_dep_annee.options[deroulant_dep_annee.selectedIndex].text;
@@ -88,6 +90,8 @@ function recuperer_departement_annee() {
 }
 
 function recuperer_departement() {
+    var texte = null;
+    var annee_dep = null;
     document.getElementById("graph_dep").innerHTML = "Graphe élections départementales pour : ";
     deroulant_dep = document.getElementById("dep_choix");
     texte = deroulant_dep.options[deroulant_dep.selectedIndex].text;
