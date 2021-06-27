@@ -238,18 +238,23 @@ function rechercher_données_tour_1() {
 
                     case "2008":
                         lignes_tour_1[i].style.fontSize = "75%";
+                        document.getElementById("tour1_ligne_titres_dep").style.fontSize = "75%";
                         break;
                     case "2011":
                         lignes_tour_1[i].style.fontSize = "64%";
+                        document.getElementById("tour1_ligne_titres_dep").style.fontSize = "64%";
                         break;
                     case "2015":
                         lignes_tour_1[i].style.fontSize = "71%";
+                        document.getElementById("tour1_ligne_titres_dep").style.fontSize = "71%";
                         break;
                     case "2021":
                         lignes_tour_1[i].style.fontSize = "60%";
+                        document.getElementById("tour1_ligne_titres_dep").style.fontSize = "60%";
                         break;
                     default:
                         lignes_tour_1[i].style.fontSize = "60%";
+                        document.getElementById("tour1_ligne_titres_dep").style.fontSize = "60%";
                         break;
 
                 }
