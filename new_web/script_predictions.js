@@ -135,10 +135,6 @@ function menu_deroulant_bloquant() {
 /* RECHERCHE ET CONSTRUCTION GRAPH */
 
 function rechercher_données_tour_1() {
-    var requestURL = 'http://176.135.226.148:180/predictions.php';
-
-    var request = new XMLHttpRequest();
-    request.open('GET', requestURL);
 
     // tableau du 1er tour (données à analyser)
 
