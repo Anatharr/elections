@@ -229,7 +229,7 @@ function rechercher_données_tour_1() {
                 var compteur_colonne_vide = 0;
                 chaine += "<tr class='tour1_ligne_dep'>";
                 resultat_php[i].forEach(elem => {
-                    console.log(elem[i]);
+                    console.log(typeof(elem));
                     chaine += "<td class='tour1_colonne_dep'>";
                     if (elem == null) {
                         chaine += "";
