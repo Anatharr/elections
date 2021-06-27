@@ -78,19 +78,13 @@ function afficherDeroulantFr() {
 /* RECUPERATION DE LA VALEUR CHOISIE DANS LES MENUS DEROULANTS */
 
 function recuperer_departement_annee() {
+    document.getElementById("graph_dep").innerHTML = "Graphe élections départementales pour : ";
     deroulant_dep_annee = document.getElementById("dep_annee_choix");
     annee_dep = deroulant_dep_annee.options[deroulant_dep_annee.selectedIndex].text;
+    document.getElementById("graph_dep").innerHTML = document.getElementById("graph_dep").textContent + texte + " en " + annee_dep;
 
     /* ICI - VALUE ANNE DU DEPARTEMENT */
     console.log(document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value);
-}
-
-function recuperer_region_annee() {
-    deroulant_reg_annee = document.getElementById("reg_annee_choix");
-    annee_reg = deroulant_reg_annee.options[deroulant_reg_annee.selectedIndex].text;
-
-    /* ICI - VALUE ANNE DE LA REGION */
-    console.log(document.getElementById("reg_annee_choix").options[deroulant_reg_annee.selectedIndex].value);
 }
 
 function recuperer_departement() {
@@ -101,6 +95,17 @@ function recuperer_departement() {
 
     /* ICI - VALUE DU DEPARTEMENT */
     console.log(document.getElementById("dep_choix").options[deroulant_dep.selectedIndex].value);
+}
+
+
+function recuperer_region_annee() {
+    document.getElementById("graph_reg").textContent = "Graphe élections régionales pour : ";
+    deroulant_reg_annee = document.getElementById("reg_annee_choix");
+    annee_reg = deroulant_reg_annee.options[deroulant_reg_annee.selectedIndex].text;
+    document.getElementById("graph_reg").textContent = document.getElementById("graph_reg").textContent + texte + " en " + annee_reg;
+
+    /* ICI - VALUE ANNE DE LA REGION */
+    console.log(document.getElementById("reg_annee_choix").options[deroulant_reg_annee.selectedIndex].value);
 }
 
 function recuperer_region() {
