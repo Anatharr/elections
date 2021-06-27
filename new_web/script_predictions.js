@@ -16,11 +16,6 @@ var bool_deroulant_bloquant;
 var resultat_php;
 var resultat_php_tab;
 
-var texte = "";
-var texte_reg = "";
-var annee_dep = "";
-var anne_reg = "";
-
 
 
 /* RESET DES DIFFERENTS AFFICHAGES */
@@ -626,7 +621,7 @@ function configGrapheDeptT1(data) {
             }
         }
     };
-    document.getElementById("graphe_t1").innerHTML = "<canvas id=\"Graphe_T1\"></canvas>";
+    document.getElementById("graphe_t1").innerHTML = "<canvas id=\"Graphe_T1\" width=\"1000\" height=\"350\"></canvas>";
     var myChart = new Chart(document.getElementById('Graphe_T1'), config);
 }
 
@@ -636,13 +631,14 @@ function configGrapheDeptT2(data) {
             type: 'bar',
             data: data,
             options: {
+                barPercentage : 0.6,
                 plugins: {
                     title: {
                         display: true,
                         text: 'Résulats élections départementales par cantons - Tour 2'
                     },
                 },
-                responsive: false,
+                responsive: true,
                 scales: {
                     x: {
                         stacked: true,
@@ -678,7 +674,7 @@ function configGrapheDeptT2(data) {
             }
         };
 
-        document.getElementById("graphe_t2").innerHTML = "<canvas id=\"Graphe_T2\" width=\"500px\" height=\"700px\" style=\"margin-left:auto; margin-right:auto\"></canvas>";
+        document.getElementById("graphe_t2").innerHTML = "<canvas id=\"Graphe_T2\" width=\"1000\" height=\"350\"></canvas>";
         var myChart = new Chart(document.getElementById('Graphe_T2'), config);
     } else {
         document.getElementById("graphe_t2").innerHTML = " ";
