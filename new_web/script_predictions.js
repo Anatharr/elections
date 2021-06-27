@@ -17,7 +17,9 @@ var resultat_php;
 var resultat_php_tab;
 
 var texte = "";
+var texte_reg = "";
 var annee_dep = "";
+var anne_reg = "";
 
 
 
@@ -101,14 +103,16 @@ function recuperer_region_annee() {
     document.getElementById("graph_reg").textContent = "Graphe élections régionales pour : ";
     deroulant_reg_annee = document.getElementById("reg_annee_choix");
     annee_reg = deroulant_reg_annee.options[deroulant_reg_annee.selectedIndex].text;
-    document.getElementById("graph_reg").textContent = document.getElementById("graph_reg").textContent + texte + " en " + annee_reg;
+    if(texte_reg != "" && annee_reg != "")
+        document.getElementById("graph_reg").textContent = document.getElementById("graph_reg").textContent + texte + " en " + annee_reg;
 }
 
 function recuperer_region() {
     document.getElementById("graph_reg").textContent = "Graphe élections régionales pour : ";
     deroulant_reg = document.getElementById("reg_choix");
     texte = deroulant_reg.options[deroulant_reg.selectedIndex].text;
-    document.getElementById("graph_reg").textContent = document.getElementById("graph_reg").textContent + texte + " en " + annee_reg;
+    if(texte_reg != "" && annee_reg != "")
+        document.getElementById("graph_reg").textContent = document.getElementById("graph_reg").textContent + texte + " en " + annee_reg;
 }
 
 
