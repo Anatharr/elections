@@ -367,41 +367,6 @@ function affichageGrapheDeptT1(resultat_php) {
                 { nom_nuance: 'DVD', backgroundColor: 'rgb(173, 193, 253)' }, { nom_nuance: 'UMP', backgroundColor: 'rgb(0, 102, 204)' }, { nom_nuance: 'FN', backgroundColor: 'rgb(13, 55, 138)' }, { nom_nuance: 'EXD', backgroundColor: 'rgb(64, 64, 64)' }, { nom_nuance: 'REG', backgroundColor: 'rgb(64, 64, 64)' }
             ];
 
-            /* Création d'un tableau pour chaque canton dans l'objet et ajout du nom des cantons*/
-            for (k = 0; k < nombre_canton; k++) {
-                obj_dept.cantons[k] = { name: resultat_php[k][1], parti: new Array(nombre_nuances) };
-            }
-
-            /* Initialisation des noms et des scores par nuance dans l'objet */
-            for (i = 0; i < nombre_canton; i++) {
-                for (j = 0; j < nombre_nuances; j++) {
-                    obj_dept.cantons[i].parti[j] = { name: tab_nuances_08[j].nom_nuance, score: 0 };
-                }
-
-                /* Ajout des scores par parti dans l'objet en parcourant le resultat de la requete */
-                for (j = 3; j < resultat_php[i].length; j += 2) {
-                    if (resultat_php[i][j] != null) {
-                        for (k = 0; k < nombre_nuances; k++) {
-                            if (obj_dept.cantons[i].parti[k].name == resultat_php[i][j - 1]) {
-                                obj_dept.cantons[i].parti[k].score += Number(resultat_php[i][j]);
-                                break;
-                            }
-                        }
-
-                    }
-                }
-            }
-            /*Création et instanciation du tableau des scores à 2 dimensions par parti */
-            var tab = new Array(nombre_nuances);
-            for (i = 0; i < nombre_nuances; i++) {
-                tab[i] = new Array(nombre_canton);
-            }
-            for (j = 0; j < nombre_nuances; j++) {
-                for (i = 0; i < nombre_canton; i++) {
-                    tab[j][i] = obj_dept.cantons[i].parti[j].score;
-                }
-            }
-
             /* Ajout des datasets */
             tab_nuances_graphe = tab_nuances_08;
 
@@ -417,42 +382,8 @@ function affichageGrapheDeptT1(resultat_php) {
                 { nom_nuance: 'AUT', backgroundColor: 'rgb(238, 238, 238)' }, { nom_nuance: 'DVD', backgroundColor: 'rgb(173, 193, 253)' }, { nom_nuance: 'UMP', backgroundColor: 'rgb(0, 102, 204)' },
                 { nom_nuance: 'FN', backgroundColor: 'rgb(13, 55, 138)' }, { nom_nuance: 'EXD', backgroundColor: 'rgb(64, 64, 64)' }, { nom_nuance: 'REG', backgroundColor: 'rgb(64, 64, 64)' }
             ];
-            
+
             tab_nuances_graphe = tab_nuances_11;
-
-           /* for (k = 0; k < nombre_canton; k++) {
-                obj_dept.cantons[k] = { name: resultat_php[k][1], parti: new Array(nombre_nuances) };
-            }
-
-            for (i = 0; i < nombre_canton; i++) {
-
-                for (j = 0; j < nombre_nuances; j++) {
-                    obj_dept.cantons[i].parti[j] = { name: tab_nuances_11[j].nom_nuance, score: 0 };
-                }
-
-                for (j = 3; j < resultat_php[i].length; j += 2) {
-                    if (resultat_php[i][j] != null) {
-                        for (k = 0; k < nombre_nuances; k++) {
-                            if (obj_dept.cantons[i].parti[k].name == resultat_php[i][j - 1]) {
-                                obj_dept.cantons[i].parti[k].score += Number(resultat_php[i][j]);
-                            }
-                        }
-
-                    }
-                }
-            }
-
-            var tab = new Array(nombre_nuances);
-            for (i = 0; i < nombre_nuances; i++) {
-                tab[i] = new Array(nombre_canton);
-            }
-            for (j = 0; j < nombre_nuances; j++) {
-                for (i = 0; i < nombre_canton; i++) {
-                    tab[j][i] = obj_dept.cantons[i].parti[j].score;
-                }
-            }*/
-
-           
 
             break;
 
@@ -469,38 +400,6 @@ function affichageGrapheDeptT1(resultat_php) {
                 { nom_nuance: 'BC-DLF', backgroundColor: 'rgb(0, 130, 196)' }, { nom_nuance: 'BC-FN', backgroundColor: 'rgb(13, 55, 138)' }, { nom_nuance: 'BC-EXD', backgroundColor: 'rgb(64, 64, 64)' }
             ];
 
-            for (k = 0; k < nombre_canton; k++) {
-                obj_dept.cantons[k] = { name: resultat_php[k][1], parti: new Array(nombre_nuances) };
-            }
-
-            for (i = 0; i < nombre_canton; i++) {
-
-                for (j = 0; j < nombre_nuances; j++) {
-                    obj_dept.cantons[i].parti[j] = { name: tab_nuances_15[j].nom_nuance, score: 0 };
-                }
-
-                for (j = 3; j < resultat_php[i].length; j += 2) {
-                    if (resultat_php[i][j] != null) {
-                        for (k = 0; k < nombre_nuances; k++) {
-                            if (obj_dept.cantons[i].parti[k].name == resultat_php[i][j - 1]) {
-                                obj_dept.cantons[i].parti[k].score += Number(resultat_php[i][j]);
-                            }
-                        }
-
-                    }
-                }
-            }
-
-            var tab = new Array(nombre_nuances);
-            for (i = 0; i < nombre_nuances; i++) {
-                tab[i] = new Array(nombre_canton);
-            }
-            for (j = 0; j < nombre_nuances; j++) {
-                for (i = 0; i < nombre_canton; i++) {
-                    tab[j][i] = obj_dept.cantons[i].parti[j].score;
-                }
-            }
-
             tab_nuances_graphe = tab_nuances_15;
 
             break;
@@ -516,28 +415,32 @@ function affichageGrapheDeptT1(resultat_php) {
 
 
     /************** Affichage et configuration du graphe  **************/
+    
+    /* Création d'un tableau pour chaque canton dans l'objet et ajout du nom des cantons*/
     for (k = 0; k < nombre_canton; k++) {
         obj_dept.cantons[k] = { name: resultat_php[k][1], parti: new Array(nombre_nuances) };
     }
 
+    /* Initialisation des noms et des scores par nuance dans l'objet */
     for (i = 0; i < nombre_canton; i++) {
-
         for (j = 0; j < nombre_nuances; j++) {
             obj_dept.cantons[i].parti[j] = { name: tab_nuances_graphe[j].nom_nuance, score: 0 };
         }
 
+        /* Ajout des scores par parti dans l'objet en parcourant le resultat de la requete */
         for (j = 3; j < resultat_php[i].length; j += 2) {
             if (resultat_php[i][j] != null) {
                 for (k = 0; k < nombre_nuances; k++) {
                     if (obj_dept.cantons[i].parti[k].name == resultat_php[i][j - 1]) {
                         obj_dept.cantons[i].parti[k].score += Number(resultat_php[i][j]);
+                        break;
                     }
                 }
 
             }
         }
     }
-
+    /*Création et instanciation du tableau des scores à 2 dimensions par parti */
     var tab = new Array(nombre_nuances);
     for (i = 0; i < nombre_nuances; i++) {
         tab[i] = new Array(nombre_canton);
