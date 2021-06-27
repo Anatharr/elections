@@ -680,7 +680,7 @@ function configGrapheDeptT2(data) {
             }
         };
 
-        document.getElementById("graphe_t2").innerHTML = "<canvas id=\"Graphe_T2\" width=\"400px\" height=\"700px\" style=\"margin-left=auto; margin-right=auto\"></canvas>";
+        document.getElementById("graphe_t2").innerHTML = "<canvas id=\"Graphe_T2\" width=\"500px\" height=\"700px\" style=\"margin-left:auto; margin-right:auto\"></canvas>";
         var myChart = new Chart(document.getElementById('Graphe_T2'), config);
     }
     else {
