@@ -328,7 +328,7 @@ function rechercher_données_tour_2() {
                 }
                 chaine += "</tr>";
                 for (i = 0; i < resultat_php.length; i++) {
-                    chaine += "<tr>";
+                    chaine += "<tr class='tour2_ligne_dep>";
                     resultat_php[i].forEach(elem => {
                         chaine += "<td class='tour2_colonne_dep'>";
                         if (elem == null) {
