@@ -699,7 +699,7 @@ h2 {
 
 .loader {
     margin-left: 3%;
-    top: 2%;
+    top: 10px;
     display: inline-block;
     position: relative;
     border: 8px solid rgb(60, 60, 60, 0.3);
