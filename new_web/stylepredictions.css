@@ -271,12 +271,10 @@ h2 {
 
 .images_map {
     text-align: center;
-    height: 1200px;
 }
 
 #img_dep {
     position: relative;
-    text-align: center;
     width: 15%;
     height: auto;
     margin-right: 15%;
@@ -284,7 +282,6 @@ h2 {
 
 #img_reg {
     position: relative;
-    text-align: center;
     width: 15%;
     top: 15%;
     height: auto;
@@ -292,7 +289,6 @@ h2 {
 
 #img_fr {
     position: relative;
-    text-align: center;
     width: 15%;
     height: auto;
     margin-left: 15%;
