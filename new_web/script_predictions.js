@@ -230,9 +230,11 @@ function rechercher_données_tour_1() {
                 chaine += "<tr class='tour1_ligne_dep'>";
                 resultat_php[i].forEach(elem => {
                     for (k = 0; k < resultat_php.length; k++) {
-                        if (resultat_php[k][elem] == null) {
-                            compteur_colonne_vide++;
-                        }
+                        resultat_php[k].forEach(element_vide => {
+                            if (element_vide == null) {
+                                compteur_colonne_vide++;
+                            }
+                        });
                     }
                     if (compteur_colonne_vide != resultat_php.length) {
                         chaine += "<td class='tour1_colonne_dep'>";
@@ -243,7 +245,7 @@ function rechercher_données_tour_1() {
                         resultat_php_tab[i][j] = elem;
                         j++;
                     }
-                })
+                });
                 chaine += "</tr>";
             }
             chaine += "</table>";
@@ -301,7 +303,7 @@ function rechercher_données_tour_1() {
                 graphe_t2.style.display = "block";
                 tour_1.style.display = "block";
                 tour_2.style.display = "block";
-                
+
                 window.scrollTo({ top: scrollDiv, behavior: 'smooth' });
             }, 500);
 
@@ -639,7 +641,7 @@ function configGrapheDeptT1(data) {
             responsive: true,
             scales: {
                 x: {
-                    maxBarThickness : 70,
+                    maxBarThickness: 70,
                     stacked: true,
                     title: {
                         display: true,
