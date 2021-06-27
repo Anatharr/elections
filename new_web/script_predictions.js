@@ -284,11 +284,11 @@ function rechercher_données_tour_2() {
                 console.log(obj.error);
             }
 
-            /* Affiche le graphe */
-            let data = donneesGrapheDept(resultat_php);
-            configGrapheDeptT2(data);
-
             if (document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value != 2021) {
+
+                /* Affiche le graphe */
+                let data = donneesGrapheDept(resultat_php);
+                configGrapheDeptT2(data);
 
                 let chaine = "<table id='tour2_tab_dep'>";
                 chaine += "<caption id='tour2_titre'>Détails des résultats aux élections départementales au deuxième tour</caption>";
