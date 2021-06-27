@@ -54,7 +54,7 @@ function fill_cantons() {
               } else {
                   console.log(obj.error);
               }
-            }
+            },
 
           error: function(chr, ajaxOptions, thrownError) {
               alert(chr.responseText); //Ce code affichera le message d'erreur, ici Message d'erreur.
