@@ -66,7 +66,7 @@
                     if ($position_arobase === false)
                         echo '<p>Votre email doit comporter un arobase.</p>';
                     else {
-                        $retour = mail('mailto:nathan.rochas@insa-cvl.fr', 'Envoi depuis la page Contact', $_POST['message']);
+                        $retour = mail('nathan.rochas014@gmail.com', 'Envoi depuis la page Contact', $_POST['message'], 'From: '.$_POST['email']);
                         if($retour)
                             echo '<p>Votre message a été envoyé.</p>';
                         else
