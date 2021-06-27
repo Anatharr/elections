@@ -639,8 +639,8 @@ h2 {
     text-align: center;
 }
 
-#tour1_tab_dep tr {
-    font-size: 60%;
+.tour_1_ligne_dep {
+    background-color: white;
 }
 
 #tour1_titre {
