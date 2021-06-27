@@ -266,7 +266,7 @@
     </div>
     
 
-    <div class='prediction_ia' style='display: block;'>
+    <div class='prediction_ia' style='display: none;'>
         <div id="graph_reg">
             <h2> Prédictions</h1>
         </div>
