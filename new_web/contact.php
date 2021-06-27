@@ -53,8 +53,10 @@
             <p>Si vous avez la moindre question n'hésitez pas à nous contacter à l'adresse suivante :</p>
             <form method="post">
                 <label>Email</label>
+                <br/>
                 <input type="email" name="email" required><br>
                 <label>Message</label>
+                <br />
                 <textarea name="message" required></textarea><br>
                 <input type="submit">
             </form>
@@ -64,7 +66,7 @@
                     if ($position_arobase === false)
                         echo '<p>Votre email doit comporter un arobase.</p>';
                     else {
-                        $retour = mail('mailto:nathan.rochas@insa-cvl.fr', 'Envoi depuis la page Contact', $_POST['message'], 'From: ' . $_POST['email']);
+                        $retour = mail('mailto:nathan.rochas@insa-cvl.fr', 'Envoi depuis la page Contact', $_POST['message']);
                         if($retour)
                             echo '<p>Votre message a été envoyé.</p>';
                         else
