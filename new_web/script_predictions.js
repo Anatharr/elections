@@ -147,7 +147,7 @@ function rechercher_données_tour_1() {
         dataType: 'json',
         data: { functionname: 'affiche_tour_1_departement', arguments: [document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value, document.getElementById("dep_choix").options[deroulant_dep.selectedIndex].value] },
 
-        success: function (obj, textstatus) {
+        success: function(obj, textstatus) {
             if (!('error' in obj)) {
                 resultat_php = obj.result;
             } else {
@@ -206,6 +206,8 @@ function rechercher_données_tour_1() {
                     chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
                     chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
                     chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
+                    chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
+                    chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
                     break;
 
                 default:
@@ -258,7 +260,7 @@ function rechercher_données_tour_1() {
 
         },
 
-        error: function (chr, ajaxOptions, thrownError) {
+        error: function(chr, ajaxOptions, thrownError) {
             alert(chr.responseText); //Ce code affichera le message d'erreur, ici Message d'erreur.
         }
 
@@ -275,7 +277,7 @@ function rechercher_données_tour_2() {
         dataType: 'json',
         data: { functionname: 'affiche_tour_2_departement', arguments: [document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value, document.getElementById("dep_choix").options[deroulant_dep.selectedIndex].value] },
 
-        success: function (obj, textstatus) {
+        success: function(obj, textstatus) {
             if (!('error' in obj)) {
                 resultat_php = obj.result;
             } else {
@@ -286,57 +288,61 @@ function rechercher_données_tour_2() {
             //let data = affichageGrapheDept(resultat_php);
             //configGrapheDeptT2(data);
 
-            let chaine = "<table id='tour2_tab_dep'>";
-            chaine += "<caption id='tour2_titre'>Détails des résultats aux élections départementales au deuxième tour</caption>";
-            chaine += "<tr>";
-            chaine += "<th class='tour2_colonne_dep'>Code canton</th>";
-            chaine += "<th class='tour2_colonne_dep'>Nom canton</th>";
-            chaine += "<th class='tour2_colonne_dep'>Nuance</th>";
-            chaine += "<th class='tour2_colonne_dep'>% voix/exprimés</th>";
-            chaine += "<th class='tour2_colonne_dep'>Nuance</th>";
-            chaine += "<th class='tour2_colonne_dep'>% voix/exprimés</th>";
-            chaine += "<th class='tour2_colonne_dep'>Nuance</th>";
-            chaine += "<th class='tour2_colonne_dep'>% voix/exprimés</th>";
-            switch (document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value) {
-                case "2008":
-                    chaine += "<th class='tour2_colonne_dep'>Nuance</th>";
-                    chaine += "<th class='tour2_colonne_dep'>% voix/exprimés</th>";
-                    break;
+            if (document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value) {
 
-                case "2011":
-                    break;
-
-                case "2015":
-                    break;
-
-                    //case "2021":
-
-                    /* /!\ Modifier en fonction des données de 2021 /!\ */
-
-                    //break;
-
-                default:
-                    console.log("Année invalide");
-                    break;
-            }
-            chaine += "</tr>";
-            for (i = 0; i < resultat_php.length; i++) {
+                let chaine = "<table id='tour2_tab_dep'>";
+                chaine += "<caption id='tour2_titre'>Détails des résultats aux élections départementales au deuxième tour</caption>";
                 chaine += "<tr>";
-                resultat_php[i].forEach(elem => {
-                    chaine += "<td class='tour2_colonne_dep'>";
-                    if (elem == null) {
-                        chaine += "";
-                    } else { chaine += elem; }
-                    chaine += "</td>";
-                })
+                chaine += "<th class='tour2_colonne_dep'>Code canton</th>";
+                chaine += "<th class='tour2_colonne_dep'>Nom canton</th>";
+                chaine += "<th class='tour2_colonne_dep'>Nuance</th>";
+                chaine += "<th class='tour2_colonne_dep'>% voix/exprimés</th>";
+                chaine += "<th class='tour2_colonne_dep'>Nuance</th>";
+                chaine += "<th class='tour2_colonne_dep'>% voix/exprimés</th>";
+                chaine += "<th class='tour2_colonne_dep'>Nuance</th>";
+                chaine += "<th class='tour2_colonne_dep'>% voix/exprimés</th>";
+                switch (document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value) {
+                    case "2008":
+                        chaine += "<th class='tour2_colonne_dep'>Nuance</th>";
+                        chaine += "<th class='tour2_colonne_dep'>% voix/exprimés</th>";
+                        break;
+
+                    case "2011":
+                        break;
+
+                    case "2015":
+                        break;
+
+                        //case "2021":
+
+                        /* /!\ Modifier en fonction des données de 2021 /!\ */
+
+                        //break;
+
+                    default:
+                        console.log("Année invalide");
+                        break;
+                }
                 chaine += "</tr>";
+                for (i = 0; i < resultat_php.length; i++) {
+                    chaine += "<tr>";
+                    resultat_php[i].forEach(elem => {
+                        chaine += "<td class='tour2_colonne_dep'>";
+                        if (elem == null) {
+                            chaine += "";
+                        } else { chaine += elem; }
+                        chaine += "</td>";
+                    })
+                    chaine += "</tr>";
+                }
+                chaine += "</table>";
+                document.getElementById("tour_2").innerHTML = chaine;
+
             }
-            chaine += "</table>";
-            document.getElementById("tour_2").innerHTML = chaine;
 
         },
 
-        error: function (chr, ajaxOptions, thrownError) {
+        error: function(chr, ajaxOptions, thrownError) {
             alert(chr.responseText); //Ce code affichera le message d'erreur, ici Message d'erreur.
         }
 
@@ -412,7 +418,7 @@ function affichageGrapheDept(resultat_php) {
 
             break;
 
-        /************* 2011  ***********/
+            /************* 2011  ***********/
         case "2011":
             nombre_nuances = 17;
             var tab_nuances_11 = [
@@ -440,7 +446,7 @@ function affichageGrapheDept(resultat_php) {
 
             break;
 
-        /************* 2015  ***********/
+            /************* 2015  ***********/
         case "2015":
             nombre_nuances = 19;
             var tab_nuances_15 = [
@@ -469,7 +475,7 @@ function affichageGrapheDept(resultat_php) {
 
             break;
 
-        /************* 2021  ***********/
+            /************* 2021  ***********/
         case "2021":
             nombre_nuances = 26;
             var tab_nuances_21 = [
