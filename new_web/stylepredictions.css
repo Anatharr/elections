@@ -224,7 +224,7 @@ h2 {
 }
 
 #body_contact {
-    overflow-y: hidden;
+    overflow-y: auto;
     background: url("images/background_2.png") no-repeat;
     background-size: cover;
 }
