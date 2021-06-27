@@ -10,7 +10,7 @@
 </head>
 
 
-<body class="predictions" id="body_id" class="body_id">
+<body class="predictions" id="body_id_predictions">
 
     <div class="retour_haut_page">
         <a href="#ancrehautpage"><img src="images/to_top.png" /></a>
@@ -19,7 +19,7 @@
     <nav role="navigation">
         <div id="menuToggle">
 
-            <input type="checkbox" id="checkbox_burger" onclick="menu_deroulant_bloquant()" />
+            <input type="checkbox" id="checkbox_burger_predictions" onclick="menu_deroulant_bloquant_predictions()" />
 
             <span></span>
             <span></span>
