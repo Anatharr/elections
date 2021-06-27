@@ -192,7 +192,7 @@
         </div>
 
         <button class="button_dep" type="button" onclick="lancer_recherche_dep()">Lancez la recherche</button>
-        <div class="loader"></div>
+        <div id="loader"></div>
 
 
         <div id="graph_dep">

@@ -255,7 +255,7 @@ function rechercher_données_tour_1() {
                 }
             }
             let scrollDiv = document.getElementById("graph_dep").offsetTop;
-            setTimeout(function() { window.scrollTo({ top: scrollDiv, behavior: 'smooth' }) }, 1500);
+            setTimeout(function() { window.scrollTo({ top: scrollDiv, behavior: 'smooth' }); loader.display = "none" }, 1000);
 
         },
 
@@ -353,6 +353,11 @@ function rechercher_données_tour_2() {
 }
 
 function lancer_recherche_dep() {
+    let scrollDiv = document.getElementById("graph_dep").offsetTop;
+    window.scrollTo({ top: scrollDiv, behavior: 'smooth' });
+
+    let loader = document.getElementById("loader");
+    loader.display = "inline-block";
 
     // on interroge la base de données pour obtenir les données de l'élection et du tour 1 
     rechercher_données_tour_1();
