@@ -233,6 +233,7 @@ function rechercher_données_tour_1() {
             document.getElementById("tour_1").innerHTML = chaine;
             console.table(resultat_php_tab);
             var lignes_tour_1 = document.getElementsByClassName("tour1_ligne_dep");
+            var titres_tour_1 = document.getElementById("tour1_ligne_titres_dep").getElementsByTagName("th");
             for (i = 0; i < lignes_tour_1.length; i++) {
                 switch (document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value) {
 
@@ -250,6 +251,27 @@ function rechercher_données_tour_1() {
                         break;
                     default:
                         lignes_tour_1[i].style.fontSize = "60%";
+                        break;
+
+                }
+            }
+            for (i = 0; i < titres_tour_1.length; i++) {
+                switch (document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value) {
+
+                    case "2008":
+                        titres_tour_1[i].style.fontSize = "75%";
+                        break;
+                    case "2011":
+                        titres_tour_1[i].style.fontSize = "64%";
+                        break;
+                    case "2015":
+                        titres_tour_1[i].style.fontSize = "71%";
+                        break;
+                    case "2021":
+                        titres_tour_1[i].style.fontSize = "60%";
+                        break;
+                    default:
+                        titres_tour_1[i].style.fontSize = "60%";
                         break;
 
                 }
@@ -636,7 +658,11 @@ function configGrapheDeptT2(data) {
             type: 'bar',
             data: data,
             options: {
+<<<<<<< HEAD
                 maxBarThickness : 3,
+=======
+                maxBarThickness: 0.5,
+>>>>>>> f740ecbd3cf6dbea555269b5cf96ea062f453134
                 plugins: {
                     title: {
                         display: true,
