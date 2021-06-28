@@ -854,7 +854,7 @@ function recupererCsv (departement, canton) {
             }
             j++;
         }
-        //console.log(tab_final);
+        console.log(tab_final);
         return tab_final;
     }
     });
