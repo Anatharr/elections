@@ -83,7 +83,7 @@ function load_model(dataT1, year, canton) {
 }
 
 
-async function lancer_prediction() {
+function lancer_prediction() {
     const yearSelect = document.getElementById('model_name')
     const dptSelect = document.getElementById("dep_annee_choix")
     const cantonSelect = document.getElementById('model_canton')
@@ -146,10 +146,7 @@ async function lancer_prediction() {
 
 
 
-    
-
-
-function recupererCsv (departement, canton) {
+async function recupererCsv (departement, canton) {
     return $.ajax({
     type: "GET",
     url: "/datasets/XDataFR_2015_Can.csv",
