@@ -1,8 +1,7 @@
 function initialisation(id) {
     var somme_value = 0;
     var slider = document.getElementById(id);
-    var value = document.getElementById(id + "_value")
-    var variable_bloquante = 1;
+    var value = document.getElementById(id + "_value");
 
     value.innerHTML = slider.value;
 
@@ -11,11 +10,12 @@ function initialisation(id) {
         somme_value = somme_value + parseInt(document.getElementById(i + "_value").innerHTML)
 
         if(somme_value > 100) {
-            variable_bloquante = i;
             console.log(somme_value - 100);
-            document.getElementById(i + "_value").innerHTML = parseInt(document.getElementById(variable_bloquante + "_value").innerHTML - (somme_value - 100));
-            document.getElementById("somme_value").innerHTML = parseInt(somme_value) - (somme_value - 100);
-            document.getElementById(i).value = parseInt(document.getElementById(i + "_value").innerHTML);
+            value.innerHTML = parseInt(value.innerHTML - (somme_value - 100));
+            slider.value = parseInt(value.innerHTML);
+
+            document.getElementById("somme_value").innerHTML = parseInt((somme_value) - (somme_value - 100));
+            
             break;
         }
         else {

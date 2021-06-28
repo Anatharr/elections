@@ -30,6 +30,9 @@ graphe_t2.style.display = "none";
 var tour_2 = document.getElementById("tour_2");
 tour_2.style.display = "none";
 
+var afficher_graph_reg = document.getElementById("graph_reg_dev");
+afficher_graph_reg.style.display = "none";
+
 
 
 /* RESET DES DIFFERENTS AFFICHAGES */
@@ -430,6 +433,20 @@ function fill_cantons_predictions() {
 
         success: function(obj, textstatus) {
             if (!('error' in obj)) {
+                const dataT1 = obj.result;
+                dataT1.forEach((e) => {
+                    var opt = document.createElement('option');
+                    opt.value = e[0];
+                    opt.innerHTML = e[1] + ' (' + e[0] + ')';
+                    cantonSelect.appendChild(opt);
+                })
+            } else {
+                console.log(obj.error);
+            }
+        },
+
+        success: function(obj, textstatus) {
+            if (!('error' in obj)) {
                 resultat_php_tab.forEach((e) => {
                     var opt = document.createElement('option');
                     opt.value = e[0];
@@ -450,6 +467,7 @@ function fill_cantons_predictions() {
 
 
 function lancer_recherche_reg() {
+    afficher_graph_reg.style.display = "block";
     let scrollDiv = document.getElementById("graph_reg").offsetTop;
     window.scrollTo({ top: scrollDiv, behavior: 'smooth' });
 }
@@ -481,8 +499,8 @@ function donneesGrapheDept(resultat_php) {
                 { nom_nuance: 'SOC', backgroundColor: 'rgb(255, 128, 128)' },
                 { nom_nuance: 'RDG', backgroundColor: 'rgb(255, 209, 220)' },
                 { nom_nuance: 'DVG', backgroundColor: 'rgb(255, 192, 192)' },
-                { nom_nuance: 'VEC', backgroundColor: 'rgb(49, 112, 35)' },
-                { nom_nuance: 'ECO', backgroundColor: 'rgb(85, 190, 71)' },
+                { nom_nuance: 'VEC', backgroundColor: 'rgb(0, 192, 0)' },
+                { nom_nuance: 'ECO', backgroundColor: 'rgb(119, 255, 119)' },
                 { nom_nuance: 'REG', backgroundColor: 'rgb(220, 191, 163)' },
                 { nom_nuance: 'AUT', backgroundColor: 'rgb(134, 143, 152)' },
                 { nom_nuance: 'UDFD', backgroundColor: 'rgb(255, 153, 0)' },
@@ -509,8 +527,8 @@ function donneesGrapheDept(resultat_php) {
                 { nom_nuance: 'SOC', backgroundColor: 'rgb(255, 128, 128)' },
                 { nom_nuance: 'RDG', backgroundColor: 'rgb(255, 209, 220)' },
                 { nom_nuance: 'DVG', backgroundColor: 'rgb(255, 192, 192)' },
-                { nom_nuance: 'VEC', backgroundColor: 'rgb(49, 112, 35)' },
-                { nom_nuance: 'ECO', backgroundColor: 'rgb(85, 190, 71)' },
+                { nom_nuance: 'VEC', backgroundColor: 'rgb(0, 192, 0)' },
+                { nom_nuance: 'ECO', backgroundColor: 'rgb(119, 255, 119)' },
                 { nom_nuance: 'REG', backgroundColor: 'rgb(220, 191, 163)' },
                 { nom_nuance: 'AUT', backgroundColor: 'rgb(134, 143, 152)' },
                 { nom_nuance: 'MODM', backgroundColor: 'rgb(255, 153, 0)' },
@@ -539,7 +557,7 @@ function donneesGrapheDept(resultat_php) {
                 { nom_nuance: 'BC-UG', backgroundColor: 'rgb(204, 102, 102)' },
                 { nom_nuance: 'BC-RDG', backgroundColor: 'rgb(255, 209, 220)' },
                 { nom_nuance: 'BC-DVG', backgroundColor: 'rgb(255, 192, 192)' },
-                { nom_nuance: 'BC-VEC', backgroundColor: 'rgb(49, 112, 35)' },
+                { nom_nuance: 'BC-VEC', backgroundColor: 'rgb(0, 192, 0)' },
                 { nom_nuance: 'BC-DIV', backgroundColor: 'rgb(134, 143, 152)' },
                 { nom_nuance: 'BC-MDM', backgroundColor: 'rgb(255, 153, 0)' },
                 { nom_nuance: 'BC-UC', backgroundColor: 'rgb(255, 235, 0)' },
@@ -567,7 +585,7 @@ function donneesGrapheDept(resultat_php) {
                 { nom_nuance: 'BC-RDG', backgroundColor: 'rgb(255, 209, 220)' },
                 { nom_nuance: 'BC-UG', backgroundColor: 'rgb(204, 102, 102)' },
                 { nom_nuance: 'BC-DVG', backgroundColor: 'rgb(255, 192, 192)' },
-                { nom_nuance: 'BC-ECO', backgroundColor: 'rgb(85, 190, 71)' },
+                { nom_nuance: 'BC-ECO', backgroundColor: 'rgb(119, 255, 119)' },
                 { nom_nuance: 'BC-UGE', backgroundColor: 'rgb(204, 102, 102)' },
                 { nom_nuance: 'BC-DIV', backgroundColor: 'rgb(134, 143, 152)' },
                 { nom_nuance: 'BC-REG', backgroundColor: 'rgb(220, 191, 163)' },

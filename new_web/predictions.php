@@ -249,12 +249,11 @@
 
         <button class="button_reg" type="button" onclick="lancer_recherche_reg()">Lancez la recherche</button>
 
-        
-        
-
         <div id="graph_reg">
             <h2> Graphe élections régionales</h1>
         </div>
+
+        <h2 id="graph_reg_dev" style="margin-top : 15%;">en développement...</h1>
 
     </div>
 
@@ -266,7 +265,7 @@
     </div>
     
 
-    <div class='prediction_ia' style='display: block;'>
+    <div class='prediction_ia' style='display: none;'>
         <div id="graph_reg">
             <h2> Prédictions</h1>
         </div>
@@ -281,12 +280,11 @@
                 <td style="border-left: 1px solid black;">
                     <label class="label_ia" for="deroulant_modele">Sélectionner un canton et le modèle d'IA à utiliser :</label>
 
-                    <div class="form_ia">
+                    <div class="form_ia_line">
                         <label id="label_dep">Département</label>
                         <select name="deroulant_canton" id="model_canton">
                             <option value="default">--- Canton ---</option>
                         </select>
-
                         <select name="deroulant_modele" id="model_year">
                             <option value="2015">Modèle 2015</option>
                         </select>
