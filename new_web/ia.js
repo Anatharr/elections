@@ -5,7 +5,7 @@ available_models = ['BC-COM_BC-DVD_BC-FN', 'BC-COM_BC-FN', 'BC-COM_BC-FN_BC-UD',
 ]
 
 $(document).ready(function() {
-    sel = document.getElementById('model_year')
+    sel = document.getElementById('model_name')
     available_models.forEach(e => {
       var opt = document.createElement('option');
       opt.value = '2015_'+e;
@@ -62,27 +62,7 @@ function getDuel(data, canton) {
 }
 
 
-async function load_model(year, canton) {
-
-  jQuery.ajax({
-      type: "POST",
-      url: 'traitement.php',
-      dataType: 'json',
-      data: { functionname: 'donnees_ia_tour_1_departement', arguments: [year, canton] },
-
-      success: function(obj, textstatus) {
-          if (!('error' in obj)) {
-              dataT1 = obj.result
-          } else {
-              console.log(obj.error);
-          }
-      },
-
-      error: function(chr, ajaxOptions, thrownError) {
-        alert(chr.responseText); //Ce code affichera le message d'erreur, ici Message d'erreur.
-      }
-  })
-
+function load_model(dataT1, year, canton) {
 
   var duel = getDuel(dataT1, canton).sort();
   console.log("DUEL :" + duel)
@@ -104,16 +84,53 @@ async function load_model(year, canton) {
 
 
 function lancer_prediction() {
-    const yearSelect = document.getElementById('model_year')
+    const yearSelect = document.getElementById('model_name')
+    const dptSelect = document.getElementById("dep_annee_choix")
     const cantonSelect = document.getElementById('model_canton')
     const year = yearSelect.options[yearSelect.selectedIndex].value
+    const dpt = dptSelect.options[dptSelect.selectedIndex].value
     const canton = cantonSelect.options[cantonSelect.selectedIndex].value
     let a = null;
     let b = canton;
 
-    const model = load_model(year, canton)
-    if (model==null) return;
+    if (canton=='default') {
+      alert("Veuillez spécifier un canton pour réaliser la prédiction.");
+      return;
+    }
 
+
+    $.ajax({
+        type: "POST",
+        url: 'traitement.php',
+        dataType: 'json',
+        async: true,
+        data: { functionname: 'donnees_ia_tour_1_departement', arguments: [year, canton] },
+
+        success: function(obj, textstatus) {
+            if (!('error' in obj)) {
+                var dataT1 = obj.result
+                
+                const model = load_model(dataT1, year, canton);
+                if (model==null) return;
+
+                const inputData = await recupererCsv(dpt, canton)
+
+                console.log('Received')
+                console.log(inputData)
+                console.log(model)
+
+            } else {
+                console.log(obj.error);
+            }
+        },
+
+        error: function(chr, ajaxOptions, thrownError) {
+          alert(chr.responseText); //Ce code affichera le message d'erreur, ici Message d'erreur.
+        }
+    });
+}
+
+<<<<<<< HEAD
     tab_pred_ia = document.getElementByClassName('resultats_ia');
     let chaine = "<table id = 'tab_chaine_ia'>"
     chaine += "<tr id = 'ligne1_chaine_ia'>"
@@ -128,11 +145,56 @@ function lancer_prediction() {
     tab_pred_ia.innerHTML = chaine;
 
 
+=======
+function recupererCsv (departement, canton) {
+    return $.ajax({
+    type: "GET",
+    url: "/datasets/XDataFR_2015_Can.csv",
+    dataType: "text",
+    success: function(data) {
+>>>>>>> c713adb617d88ce87aa28057eabd9b20edbdc719
 
+        var allTextLines = data.split(/\r\n|\n/);
+        var headers = allTextLines[0].split(',');
+        var lines = [];
 
+        for (var x=1; x<allTextLines.length; x++) {
+            var data = allTextLines[x].split(',');
+            if (data.length == headers.length) {
 
+                var tarr = [];
+                for (var y=0; y<headers.length; y++) {
+                    tarr.push(data[y]);
+                }
+                lines.push(tarr);
+            }
+        }
+    
+        let ligne;
+        let j = 0;
+        let tab_final = [];
+        for (let i = 0; i < lines.length; i++) {
+            if (lines[i][0] == departement) {
+                ligne = i;
+                break;
 
-    // const inputData = await getData(year)
+            }
+        }
+    
+        j = ligne;
+        while (lines[j][0] == departement) {
+            if (lines[j][1] == canton) {
+                for (let k = 0; k < lines[j].length; k++) {
+                    tab_final[k] = lines[j][k];
+                }
+                break;
+            }
+            j++;
+        }
+        console.log(tab_final);
+        return tab_final;
+    }
+    });
 }
 
 
