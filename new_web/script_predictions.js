@@ -811,7 +811,7 @@ function recupererCsv (departement, canton) {
     dataType: "text",
     success: function(data) {
 
-        var allTextLines = allText.split(/\r\n|\n/);
+        var allTextLines = data.split(/\r\n|\n/);
         var headers = allTextLines[0].split(',');
         var lines = [];
 
