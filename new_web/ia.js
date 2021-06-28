@@ -111,6 +111,7 @@ async function lancer_prediction() {
         console.log(dataT1.error);
         return;
     }
+    console.log(dataT1)
     dataT1 = dataT1.result;
 
     const model = await load_model(dataT1, year, canton);
