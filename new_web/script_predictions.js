@@ -773,3 +773,18 @@ function configGrapheDeptT2(data) {
         document.getElementById("graphe_t2").innerHTML = " ";
     }
 }
+
+
+
+$.ajax({
+type: "GET",
+url: "test.txt",
+dataType: "text",
+success: function(data) {
+    console.log("Les datas :" + data);
+},
+error: function () {
+    alert("Oh shit...");
+}
+});
+
