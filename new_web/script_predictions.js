@@ -806,7 +806,6 @@ function passage_parti_tour_2(data, canton) {
 function requestCSV(f){return new CSVAJAX(f);};
 function CSVAJAX(filepath)
 {
-    var tab_csv;
     this.request = new XMLHttpRequest();
     this.request.timeout = 10000;
     this.request.open("GET", filepath, true);
@@ -823,7 +822,6 @@ function CSVAJAX(filepath)
                 d.splice(i,1);
         }
         this.parent.response = d;
-        tab_csv = this.parent.response;
 
     };
     this.request.send();
