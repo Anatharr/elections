@@ -837,6 +837,8 @@ function recupererCsv(canton, departement) {
     let j = 0;
     let tab_final = [];
     for (let i = 0; i < test_csv.length; i++) {
+        console.log(i);
+        console.log(test_csv[i][0]);
         if (test_csv[i][0] == departement) {
             ligne = i;
 
