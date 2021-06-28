@@ -783,10 +783,10 @@ function passage_parti_tour_2(data, canton) {
         if (data[i][0] == canton.toString()) {
             console.log("donnée :" + data[i][k]);
             console.log("float :" + parseFloat(data[i][k + 1]));
-            if (data[i][k] != null) {
+            while (data[i][k] != null) {
                 if (parseFloat(data[i][k + 1]) > 50.0) {
                     retour = [];
-                    retour = data[i][k];
+                    retour.push(data[i][k]);
                     console.log("50% :" + retour);
                     return retour;
                 }
