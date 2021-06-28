@@ -1,7 +1,7 @@
-baseURL = window.location.hostname;
 
 async function getData(year) {
-  const carsDataResponse = await fetch(baseURL + '/dataset/inputs/XDataFR_Bvot.csv');
+  const dataset = await fetch('/datasets/XDataFR_'+year+'_Can.csv');
+
   // const carsData = await carsDataResponse.json();
   // const cleaned = carsData.map(car => ({
   //   mpg: car.Miles_per_Gallon,
@@ -21,11 +21,10 @@ async function getData(year) {
 
 
 async function load_model(year, canton) {
-  const model = await tf.loadLayersModel(baseURL + '/models/'+year+'/'+duel+'/model.json');
 
-  // Return a model that outputs an internal activation.
-  // const layer = mobilenet.getLayer('conv_pw_13_relu');
-  // return tf.model({inputs: mobilenet.inputs, outputs: layer.output});
+
+  const model = await tf.loadLayersModel('/models/'+year+'/'+duel+'/model.json');
+  return model;
 }
 
 
