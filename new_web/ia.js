@@ -72,7 +72,7 @@ async function load_model(year, canton) {
 
       success: function(obj, textstatus) {
           if (!('error' in obj)) {
-              dataT1 = obj.result
+              const dataT1 = obj.result
           } else {
               console.log(obj.error);
           }
@@ -109,7 +109,12 @@ function lancer_prediction() {
     const year = yearSelect.options[yearSelect.selectedIndex].value
     const canton = cantonSelect.options[cantonSelect.selectedIndex].value
 
-    const model = load_model(year, canton)
+    if (canton=='default') {
+      alert("Veuillez spécifier un canton pour réaliser la prédiction.");
+      return;
+    }
+
+    const model = load_model(year, canton);
     if (model==null) return;
 
 
