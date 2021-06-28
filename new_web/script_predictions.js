@@ -782,7 +782,8 @@ function passage_parti_tour_2(data, canton) {
     for (i = 0; i < data.length; i++) {
         if (data[i][0] == canton.toString()) {
             console.log("donnée :" + data[i][k]);
-            while (data[i][k] != null) {
+            console.log("float :" + parseFloat(data[i][k + 1]));
+            if (data[i][k] != null) {
                 if (parseFloat(data[i][k + 1]) > 50.0) {
                     retour = [];
                     retour = data[i][k];
@@ -800,7 +801,7 @@ function passage_parti_tour_2(data, canton) {
     }
 }
 
-function recupererCsv () {
+function recupererCsv() {
     $.ajax({
         url: '/test.txt',
         type: 'GET',
