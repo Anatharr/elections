@@ -85,7 +85,7 @@ async function load_model(dataT1, year, canton) {
 
 async function lancer_prediction() {
     const modelSelect = document.getElementById('model_name')
-    const dptSelect = document.getElementById("dep_annee_choix")
+    const dptSelect = document.getElementById("dep_choix")
     const cantonSelect = document.getElementById('model_canton')
     const modelname = modelSelect.options[modelSelect.selectedIndex].value
     const dpt = dptSelect.options[dptSelect.selectedIndex].value
