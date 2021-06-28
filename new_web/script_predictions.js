@@ -794,6 +794,7 @@ function passage_parti_tour_2(data, canton) {
     for (i = 0; i < data.length; i++) {
         if (data[i][0] == canton.toString()) {
             let k = 2;
+            console.log(data[i][k]);
             while (data[i][k] != null) {
                 if (data[i][k + 1] > 50.0) {
                     retour = [];
