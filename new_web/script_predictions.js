@@ -804,29 +804,38 @@ function passage_parti_tour_2(data, canton) {
 
 
 
-
-$(document).ready(function() {
+function recupererCsv (departement, canton) {
     $.ajax({
-        type: "GET",
-        url: "data.txt",
-        dataType: "text",
-        success: function(data) {processData(data);}
-     });
-});
+    type: "GET",
+    url: "/datasets/XDataFR_2015_Can.csv",
+    dataType: "text",
+    success: function(data) {
+        let ligne;
+        let j = 0;
+        let tab_final = [];
+        let canton = '4';
+        let departement = '2';
+        for (let i = 0; i < data.length; i++) {
+            if (data[i][0] == departement) {
+                ligne = i;
+                break;
 
-function processData(allText) {
-    var record_num = 5;  // or however many elements there are in each row
-    var allTextLines = allText.split(/\r\n|\n/);
-    var entries = allTextLines[0].split(',');
-    var lines = [];
-
-    var headings = entries.splice(0,record_num);
-    while (entries.length>0) {
-        var tarr = [];
-        for (var j=0; j<record_num; j++) {
-            tarr.push(headings[j]+":"+entries.shift());
+            }
         }
-        lines.push(tarr);
+    
+        j = ligne;
+        while (data[j][0] == departement) {
+            if (data[j][1] == canton) {
+                for (let k = 0; k < data[j].length; k++) {
+                    tab_final[k] = data[j][k];
+                    break;
+                }
+
+            }
+            j++;
+        }
+        console.log(tab_final);
+        return tab_final;
     }
-    console.log(lines);
+    });
 }
