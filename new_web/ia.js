@@ -63,6 +63,7 @@ function getDuel(data, canton) {
 
 
 async function load_model(year, canton) {
+    var duel;
 
   jQuery.ajax({
       type: "POST",
@@ -84,7 +85,7 @@ async function load_model(year, canton) {
   })
 
 
-  var duel = getDuel(dataT1, canton).sort();
+  duel = getDuel(dataT1, canton).sort();
   console.log(duel)
 
   if (duel.length<2) {
