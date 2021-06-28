@@ -273,7 +273,7 @@
 
         <div class="details_ia" style="display: none;">
             <label class="label_ia">Evolution de l'erreur et la précision du modèle au cours de l'entraînement</label>
-            <label id="model_name"></label>
+            <label id="model_name_image"></label>
             <br>
             <img id="image_ia" src="" alt="">
         </div>

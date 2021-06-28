@@ -1086,13 +1086,13 @@ h2 {
     text-align: center;
 }
 
-#model_name {
+#model_name_image {
     font-family: 'Exo', sans-serif;
     text-align: center;
     font-size: 100%;
     font-style: italic;
     margin-top: 2%;
     margin-bottom: 3%;
-    letter-spacing: 6px;
+    letter-spacing: 4px;
     color: rgb(60, 60, 60);
 }
