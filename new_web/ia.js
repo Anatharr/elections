@@ -65,7 +65,7 @@ function getDuel(data, canton) {
 function load_model(dataT1, year, canton) {
 
   var duel = getDuel(dataT1, canton).sort();
-  console.log("DUEL :" +duel)
+  console.log("DUEL :" + duel)
 
   if (duel.length<2) {
     alert("La détection automatique a détecté une majorité absolue, pour faire une prédiction veuillez choisir un modèle manuellement.");
@@ -90,6 +90,8 @@ function lancer_prediction() {
     const year = yearSelect.options[yearSelect.selectedIndex].value
     const dpt = dptSelect.options[dptSelect.selectedIndex].value
     const canton = cantonSelect.options[cantonSelect.selectedIndex].value
+    let a = null;
+    let b = canton;
 
     if (canton=='default') {
       alert("Veuillez spécifier un canton pour réaliser la prédiction.");
@@ -128,12 +130,29 @@ function lancer_prediction() {
     });
 }
 
+<<<<<<< HEAD
+    tab_pred_ia = document.getElementByClassName('resultats_ia');
+    let chaine = "<table id = 'tab_chaine_ia'>"
+    chaine += "<tr id = 'ligne1_chaine_ia'>"
+    for(let i = 0; i < getDuel(a,b).length; i++) {
+        chaine += "<td>" + getDuel(a,b)[i] + "</td>";
+    }
+    chaine += "<tr id = 'ligne2_chaine_ia'>"
+    for(let j = 0; j < getDuel(a,b).length; j++) {
+        chaine += "<td>" + "pourcentage..." + "</td>";
+    }
+    chaine += "</tr>" + "</table>";
+    tab_pred_ia.innerHTML = chaine;
+
+
+=======
 function recupererCsv (departement, canton) {
     return $.ajax({
     type: "GET",
     url: "/datasets/XDataFR_2015_Can.csv",
     dataType: "text",
     success: function(data) {
+>>>>>>> c713adb617d88ce87aa28057eabd9b20edbdc719
 
         var allTextLines = data.split(/\r\n|\n/);
         var headers = allTextLines[0].split(',');
