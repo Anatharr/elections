@@ -782,22 +782,24 @@ function passage_parti_tour_2(data, canton) {
     for (i = 0; i < data.length; i++) {
         if (data[i][0] == canton.toString()) {
             console.log("donnée :" + data[i][k]);
-            while (data[i][k] != null) {
-                if (data[i][k + 1] > 50.0) {
+            console.log("float :" + parseFloat(data[i][k + 1]));
+            if (data[i][k] != null) {
+                if (parseFloat(data[i][k + 1]) > 50.0) {
                     retour = [];
                     retour = data[i][k];
                     console.log("50% :" + retour);
                     return retour;
                 }
-                if (data[i][k + 1] > 12.5) {
+                if (parseFloat(data[i][k + 1]) > 12.5) {
                     retour.push(data[i][k]);
                     k = k + 2;
+                    console.log("12.5% :" + retour);
                 }
             }
-            console.log("12.5% :" + retour);
-            return retour;
         }
     }
+    console.log("résultat :" + retour);
+    return retour;
 }
 
 function recupererCsv (canton, departement) {
