@@ -782,31 +782,77 @@ function passage_parti_tour_2(data, canton) {
     for (i = 0; i < data.length; i++) {
         if (data[i][0] == canton.toString()) {
             console.log("donnée :" + data[i][k]);
+            console.log("float :" + parseFloat(data[i][k + 1]));
             while (data[i][k] != null) {
-                if (data[i][k + 1] > 50.0) {
+                if (parseFloat(data[i][k + 1]) > 50.0) {
                     retour = [];
-                    retour = data[i][k];
+                    retour.push(data[i][k]);
                     console.log("50% :" + retour);
                     return retour;
                 }
-                if (data[i][k + 1] > 12.5) {
+                if (parseFloat(data[i][k + 1]) > 12.5) {
                     retour.push(data[i][k]);
-                    k = k + 2;
+                    console.log("12.5% :" + retour);
                 }
+                k = k + 2;
             }
-            console.log("12.5% :" + retour);
-            return retour;
         }
     }
+    console.log("résultat :" + retour);
+    return retour;
 }
 
-function recupererCsv () {
-    $.ajax({
-        url: '/test.txt',
-        type: 'GET',
-        dataType: 'text',
-        success: function(data) {
-            console.log(data);
+
+function requestCSV(f){return new CSVAJAX(f);};
+function CSVAJAX(filepath)
+{
+    this.request = new XMLHttpRequest();
+    this.request.timeout = 10000;
+    this.request.open("GET", filepath, true);
+    this.request.parent = this;
+    this.request.onload = function() 
+    {
+        var d = this.response.split('\n'); /*1st separator*/
+        var i = d.length;
+        while(i--)
+        {
+            if(d[i] !== "")
+                d[i] = d[i].split(','); /*2nd separator*/
+            else
+                d.splice(i,1);
         }
-    });
+        this.parent.response = d;
+
+    };
+    this.request.send();
+};
+
+
+function recupererCsv(canton, departement) {
+    var test_csv = requestCSV("test.txt"); 
+    console.log(test_csv);
+    canton = '4';
+    departement = '2';
+    let ligne;
+    let j = 0;
+    let tab_final = [];
+    for (let i = 0; i < test_csv.length; i++) {
+        if (test_csv[i][0] == departement) {
+            ligne = i;
+
+        }
+    }
+    j = ligne;
+    while (test_csv[j][0] == departement) {
+        if (test_csv[j][1] == canton) {
+            for (let k = 0; k < test_csv[j].length; k++) {
+                tab_final[k] = test_csv[j][k];
+            }
+
+        }
+        j++;
+    }
+    
+    console.log(tab_final);
 }
+

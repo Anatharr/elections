@@ -56,6 +56,8 @@
         <p id="texte_choix_echelle">Choisissez les éléctions qui vous intéressent :</p>
     </div>
 
+    <button type="button" onclick="recupererCsv()">CLICK</button>
+
 
     <div class="images_map">
         <img class="dep" id="img_dep" src="images/dep_nb.png" onmouseover="this.src='images/dep_couleur.png'"
