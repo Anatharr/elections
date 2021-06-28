@@ -813,7 +813,7 @@ function recupererCsv(canton, departement) {
         type: 'GET',
         dataType: 'text',
         success: function(data) {
-
+            console.log(data);
             for (let i = 0; i < data.length; i++) {
                 if (data[i][0] == departement) {
                     ligne = i;
