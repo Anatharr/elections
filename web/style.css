@@ -1,0 +1,89 @@
+
+
+/* GESTION DES IMAGES */
+
+#img_dep{
+    max-width: 20%;
+    height: auto;
+}
+
+#img_reg{
+    margin-left: 10%;
+    max-width: 20%;
+    height: auto;
+}
+
+#img_fr{
+    margin-left: 10%;
+    max-width: 20%;
+    height: auto;   
+}
+
+
+/*** MENU DEROULANTS ****/
+
+/*Label*/
+
+.label_deroulant_dep_annee label {
+    position: absolute;
+    margin-top: 2%;
+    top: 75%;
+    left: 15%;
+}
+
+.label_deroulant_reg_annee label {
+    position: absolute;
+    margin-top: 2%;
+    top: 75%;
+    left: 45%;
+}
+.label_deroulant_dep label {
+    position: absolute;
+    margin-top: 2%;
+    top: 85%;
+    left: 15%;
+}
+
+.label_deroulant_reg label {
+    position: absolute;
+    margin-top: 2%;
+    top: 85%;
+    left: 45%;
+}
+
+
+/*Deroulants*/
+
+.deroulant_dep_annee select {
+    position: absolute;
+    margin-top: 1%;
+    top: 80%;
+    left: 16%;
+    box-shadow: 2px 2px 2px #CCC;
+}
+
+.deroulant_reg_annee select {
+    position: absolute;
+    margin-top: 1%;
+    top: 80%;
+    left: 46%;
+    box-shadow: 2px 2px 2px #CCC;
+}
+
+
+.deroulant_dep select {
+    position: absolute;
+    margin-top: 1%;
+    top: 90%;
+    left: 16%;
+    box-shadow: 2px 2px 2px #CCC;
+}
+
+.deroulant_reg select {
+    position: absolute;
+    margin-top: 1%;
+    top: 90%;
+    left: 46%;
+    box-shadow: 2px 2px 2px #CCC;
+}
+
