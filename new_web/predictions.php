@@ -249,6 +249,8 @@
 
         <button class="button_reg" type="button" onclick="lancer_recherche_reg()">Lancez la recherche</button>
 
+        <h2 id="graph_reg_dev">en développement...</h1>
+
         
         
 

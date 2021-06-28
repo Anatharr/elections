@@ -30,6 +30,9 @@ graphe_t2.style.display = "none";
 var tour_2 = document.getElementById("tour_2");
 tour_2.style.display = "none";
 
+var afficher_graph_reg = document.getElementById("graph_reg_dev");
+afficher_graph_reg.style.display = "none";
+
 
 
 /* RESET DES DIFFERENTS AFFICHAGES */
@@ -450,6 +453,7 @@ function fill_cantons_predictions() {
 
 
 function lancer_recherche_reg() {
+    afficher_graph_reg.style.display = "block";
     let scrollDiv = document.getElementById("graph_reg").offsetTop;
     window.scrollTo({ top: scrollDiv, behavior: 'smooth' });
 }
