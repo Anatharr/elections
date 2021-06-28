@@ -103,7 +103,7 @@ async function lancer_prediction() {
         type: "POST",
         url: 'traitement.php',
         dataType: 'json',
-        data: { functionname: 'donnees_ia_tour_1_departement', arguments: [year, canton] },
+        data: { functionname: 'donnees_ia_tour_1_departement', arguments: [year, parseInt(canton)] },
         error: function(chr, ajaxOptions, thrownError) {
           alert(chr.responseText); //Ce code affichera le message d'erreur, ici Message d'erreur.
         }
