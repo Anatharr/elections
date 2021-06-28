@@ -680,7 +680,7 @@ function configGrapheDeptT1(data) {
                     maxBarThickness: 70,
                     stacked: true,
                     max: 100,
-                    }
+                    
                 },
                 y: {
                     stacked: true,
@@ -723,7 +723,7 @@ function configGrapheDeptT2(data) {
                     x: {
                         stacked: true,
                         max: 100,
-                        }
+                        
                     },
                     y: {
                         stacked: true,
