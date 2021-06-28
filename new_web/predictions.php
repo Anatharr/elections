@@ -249,12 +249,11 @@
 
         <button class="button_reg" type="button" onclick="lancer_recherche_reg()">Lancez la recherche</button>
 
-        
-        
-
         <div id="graph_reg">
             <h2> Graphe élections régionales</h1>
         </div>
+
+        <h2 id="graph_reg_dev" style="margin-top : 15%;">en développement...</h1>
 
     </div>
 
