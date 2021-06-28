@@ -99,7 +99,7 @@ async function lancer_prediction() {
         return;
     }
 
-    console.log(dpt)
+    console.log('DPT : '+dpt)
 
     var dataT1 = await $.ajax({
         type: "POST",
