@@ -811,6 +811,7 @@ function CSVAJAX(filepath,callback)
     this.request.open("GET", filepath, true);
     this.request.parent = this;
     this.request.onload = function() 
+    var tab_csv;
     {
         var d = this.response.split('\n'); /*1st separator*/
         var i = d.length;
@@ -822,7 +823,7 @@ function CSVAJAX(filepath,callback)
                 d.splice(i,1);
         }
         this.parent.response = d;
-        var tab_csv = this.parent.response;
+        tab_csv = this.parent.response;
 
     };
     this.request.send();
