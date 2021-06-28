@@ -156,7 +156,7 @@ async function lancer_prediction() {
     }
     chaine += "<tr id='ligne2_chaine_ia'>"
     for (let j = 0; j < duel.length; j++) {
-        chaine += "<td>" + output[j] + "</td>";
+        chaine += "<td>" + output[0][j] + "</td>";
     }
     chaine += "</tr>" + "</table>";
     tab_pred_ia.innerHTML = chaine;
