@@ -62,7 +62,7 @@ function getDuel(data, canton) {
 }
 
 
-function load_model(dataT1, year, canton) {
+async function load_model(dataT1, year, canton) {
 
   var duel = getDuel(dataT1, canton).sort();
   console.log("DUEL :" + duel)
@@ -83,7 +83,7 @@ function load_model(dataT1, year, canton) {
 }
 
 
-function lancer_prediction() {
+async function lancer_prediction() {
     const yearSelect = document.getElementById('model_name')
     const dptSelect = document.getElementById("dep_annee_choix")
     const cantonSelect = document.getElementById('model_canton')
@@ -98,56 +98,47 @@ function lancer_prediction() {
       return;
     }
 
-
-    $.ajax({
+    var dataT1 = await $.ajax({
         type: "POST",
         url: 'traitement.php',
         dataType: 'json',
-        async: true,
         data: { functionname: 'donnees_ia_tour_1_departement', arguments: [year, canton] },
-
-        success: async function(obj, textstatus) {
-            if (!('error' in obj)) {
-                var dataT1 = obj.result
-                
-                const model = load_model(dataT1, year, canton);
-                if (model==null) return;
-
-                const inputData = await recupererCsv(dpt, canton)
-
-                console.log('Received')
-                console.log(inputData)
-                console.log(model)
-
-                tab_pred_ia = document.getElementByClassName('resultats_ia');
-                let chaine = "<table id = 'tab_chaine_ia'>"
-                chaine += "<tr id = 'ligne1_chaine_ia'>"
-                for(let i = 0; i < getDuel(a,b).length; i++) {
-                    chaine += "<td>" + getDuel(a,b)[i] + "</td>";
-                }
-                chaine += "<tr id = 'ligne2_chaine_ia'>"
-                for(let j = 0; j < getDuel(a,b).length; j++) {
-                    chaine += "<td>" + "pourcentage..." + "</td>";
-                }
-                chaine += "</tr>" + "</table>";
-                tab_pred_ia.innerHTML = chaine;
-
-
-            } else {
-                console.log(obj.error);
-            }
-        },
-
         error: function(chr, ajaxOptions, thrownError) {
           alert(chr.responseText); //Ce code affichera le message d'erreur, ici Message d'erreur.
         }
     });
+    if ('error' in dataT1) {
+        console.log(obj.error);
+        return;
+    }
+
+    const model = await load_model(dataT1, year, canton);
+    if (model==null) return;
+
+    const inputData = await recupererCsv(dpt, canton)
+
+    console.log('Received')
+    console.log(inputData)
+    console.log(model)
+
+    tab_pred_ia = document.getElementByClassName('resultats_ia');
+    let chaine = "<table id = 'tab_chaine_ia'>"
+    chaine += "<tr id = 'ligne1_chaine_ia'>"
+    for(let i = 0; i < getDuel(a,b).length; i++) {
+        chaine += "<td>" + getDuel(a,b)[i] + "</td>";
+    }
+    chaine += "<tr id = 'ligne2_chaine_ia'>"
+    for(let j = 0; j < getDuel(a,b).length; j++) {
+        chaine += "<td>" + "pourcentage..." + "</td>";
+    }
+    chaine += "</tr>" + "</table>";
+    tab_pred_ia.innerHTML = chaine;
     
 }
 
 
 
-async function recupererCsv (departement, canton) {
+function recupererCsv (departement, canton) {
     return $.ajax({
     type: "GET",
     url: "/datasets/XDataFR_2015_Can.csv",
