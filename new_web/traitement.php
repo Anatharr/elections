@@ -1,7 +1,6 @@
 <?php
 
 
-    $connString = "host=localhost dbname=electionsdb user=pi password=estilections";
 
 
     // Requête BDD tour 1 des départementales
@@ -11,7 +10,7 @@
         $result = array();
 
         // Connexion, sélection de la base de données
-        $dbconn = pg_connect($connString)
+        $dbconn = pg_connect("host=localhost dbname=electionsdb user=pi password=estilections")
         or die('Connexion impossible : ' . pg_last_error());
         switch ($annee) {
 
@@ -66,7 +65,7 @@
         $result = array();
 
         // Connexion, sélection de la base de données
-        $dbconn = pg_connect($connString)
+        $dbconn = pg_connect("host=localhost dbname=electionsdb user=pi password=estilections")
         or die('Connexion impossible : ' . pg_last_error());
         switch ($annee) {
 
@@ -119,7 +118,7 @@
         $result = array();
 
         // Connexion, sélection de la base de données
-        $dbconn = pg_connect($connString)
+        $dbconn = pg_connect("host=localhost dbname=electionsdb user=pi password=estilections")
         or die('Connexion impossible : ' . pg_last_error());
         switch ($annee) {
 
@@ -173,7 +172,7 @@
         $result = array();
 
         // Connexion, sélection de la base de données
-        $dbconn = pg_connect($connString)
+        $dbconn = pg_connect("host=localhost dbname=electionsdb user=pi password=estilections")
         or die('Connexion impossible : ' . pg_last_error());
         switch ($annee) {
 
