@@ -72,6 +72,7 @@ async function load_model(dataT1, year, canton, modelname) {
           alert("La détection automatique n'a pas trouvé de modèle correspondant, veuillez sélectionner manuellement un modèle ou changer de canton.");
           return null;
       }
+      load_image(year, duel)
       const model = await tf.loadLayersModel('/models/' + year + '/' + duel + '/model.json');
       return model;
     }
@@ -80,10 +81,16 @@ async function load_model(dataT1, year, canton, modelname) {
       return null;      
     }
 
+    load_image(year, modelname)
     const model = await tf.loadLayersModel('/models/' + year + '/' + modelname + '/model.json');
     return model;
 }
 
+
+function load_image(year, modelname) {
+  img = document.getElementById('image_ia');
+  img.src = "/models/"+year+"-figures/"+modelname+".png";
+}
 
 async function lancer_prediction() {
     const modelSelect = document.getElementById('model_name')
@@ -118,8 +125,14 @@ async function lancer_prediction() {
     const model = await load_model(dataT1, year, canton, modelname);
     if (model == null) return;
 
-    const inputData = await recupererCsv(dpt, canton)
+    const inputData = await getInput(year, dpt, canton);
+    if ('error' in inputData) {
+        console.log(dataT1.error);
+        return;
+    }
+
     console.table(inputData);
+
 
     var duel = getDuel(dataT1, canton)
 
@@ -139,6 +152,18 @@ async function lancer_prediction() {
 
 }
 
+
+function getInput(year, departement, canton) {
+  return $.ajax({
+        type: "POST",
+        url: 'traitement.php',
+        dataType: 'json',
+        data: { functionname: 'donnees_ia_tour_1_input', arguments: [year, departement, canton] },
+        error: function(chr, ajaxOptions, thrownError) {
+            alert(chr.responseText); //Ce code affichera le message d'erreur, ici Message d'erreur.
+        }
+    });
+}
 
 
 function recupererCsv(departement, canton) {

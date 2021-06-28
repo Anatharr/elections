@@ -271,6 +271,11 @@
             <h2> Prédictions</h2>
         </div>
 
+        <div class="details_ia">
+            <label class="label_ia">Evolution de l'erreur et la précision du modèle au cours de l'entraînement</label>
+            <img id="image_ia" src="" alt="Evolution de l'erreur et la précision du modèle au cours de l'entraînement">
+        </div>
+
         <table>
             <tr>
                 <td>
