@@ -805,7 +805,7 @@ function passage_parti_tour_2(data, canton) {
 
 
 function recupererCsv (departement, canton) {
-    $.ajax({
+    jQuery.ajax({
     type: "GET",
     url: "/datasets/XDataFR_2015_Can.csv",
     dataType: "text",
