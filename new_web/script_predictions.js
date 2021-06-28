@@ -821,7 +821,7 @@ function recupererCsv (departement, canton) {
 
                 var tarr = [];
                 for (var y=0; y<headers.length; y++) {
-                    tarr.push(headers[y]+":"+data[y]);
+                    tarr.push(data[y]);
                 }
                 lines.push(tarr);
             }
@@ -848,13 +848,13 @@ function recupererCsv (departement, canton) {
             if (lines[j][1] == canton) {
                 for (let k = 0; k < lines[j].length; k++) {
                     tab_final[k] = lines[j][k];
-                    break;
                 }
+                break;
 
             }
             j++;
         }
-        //console.log(tab_final);
+        console.log(tab_final);
         return tab_final;
     }
     });
