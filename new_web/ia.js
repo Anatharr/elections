@@ -138,10 +138,11 @@ async function lancer_prediction() {
 
 
     input = tf.tensor([inputData.result.map(parseFloat)])
-    console.log(input)
+    console.log(input, inputData, modelname)
     output = model.predict(input).array()
 
     var duel = getDuel(dataT1, canton)
+    console.log(duel)
 
     tab_pred_ia = document.getElementsByClassName('resultats_ia');
     let chaine = "<table id = 'tab_chaine_ia'>"
