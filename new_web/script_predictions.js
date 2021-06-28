@@ -256,7 +256,7 @@ function rechercher_données_tour_1() {
                         lignes_tour_1[i].style.fontSize = "64%";
                         break;
                     case "2015":
-                        lignes_tour_1[i].style.fontSize = "71%";
+                        lignes_tour_1[i].style.fontSize = "66%";
                         break;
                     case "2021":
                         lignes_tour_1[i].style.fontSize = "60%";
