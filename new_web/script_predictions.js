@@ -830,6 +830,7 @@ function CSVAJAX(filepath)
 
 function recupererCsv(canton, departement) {
     var test_csv = requestCSV("test.txt"); 
+    console.log(test_csv);
     canton = '4';
     departement = '2';
     let ligne;
@@ -851,7 +852,7 @@ function recupererCsv(canton, departement) {
         }
         j++;
     }
-    console.log(test_csv);
+    
     console.log(tab_final);
 }
 
