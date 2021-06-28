@@ -52,27 +52,35 @@ function getDuel(data, canton) {
             }
         }
     }
-    return retour;
+    return retour.sort();
 }
 
 
-async function load_model(dataT1, year, canton) {
+async function load_model(dataT1, year, canton, modelname) {
 
-    var duel = getDuel(dataT1, canton).sort();
-    console.log("DUEL :" + duel)
+    if (modelname=='default') {
+      var duel = getDuel(dataT1, canton);
+      console.log("DUEL :" + duel);
 
-    if (duel.length < 2) {
-        alert("La détection automatique a détecté une majorité absolue, pour faire une prédiction veuillez choisir un modèle manuellement.");
-        return null;
+      if (duel.length < 2) {
+          alert("La détection automatique a détecté une majorité absolue, pour faire une prédiction veuillez choisir un modèle manuellement.");
+          return null;
+      }
+
+      duel = duel.join('_')
+      if (!available_models.includes(duel)) {
+          alert("La détection automatique n'a pas trouvé de modèle correspondant, veuillez sélectionner manuellement un modèle ou changer de canton.");
+          return null;
+      }
+      const model = await tf.loadLayersModel('/models/' + year + '/' + duel + '/model.json');
+      return model;
+    }
+    else if (!available_models.includes(modelname)) {
+      alert("Le modèle spécifié n'a pas été trouvé.");
+      return null;      
     }
 
-    duel = duel.join('_')
-    if (!available_models.includes(duel)) {
-        alert("La détection automatique n'a pas trouvé de modèle correspondant, veuillez sélectionner manuellement un modèle ou changer de canton.");
-        return null;
-    }
-
-    const model = await tf.loadLayersModel('/models/' + year + '/' + duel + '/model.json');
+    const model = await tf.loadLayersModel('/models/' + year + '/' + modelname + '/model.json');
     return model;
 }
 
@@ -84,8 +92,6 @@ async function lancer_prediction() {
     const modelname = modelSelect.options[modelSelect.selectedIndex].value
     const dpt = dptSelect.options[dptSelect.selectedIndex].value
     const canton = cantonSelect.options[cantonSelect.selectedIndex].value
-    let a = null;
-    let b = canton;
     const year=2015;
 
     if (canton == 'default') {
@@ -109,22 +115,23 @@ async function lancer_prediction() {
 
     dataT1 = dataT1.result;
 
-    const model = await load_model(dataT1, year, canton);
+    const model = await load_model(dataT1, year, canton, modelname);
     if (model == null) return;
 
     const inputData = await recupererCsv(dpt, canton)
+    console.table(inputData);
 
-
+    var duel = getDuel(dataT1, canton)
 
 
     tab_pred_ia = document.getElementsByClassName('resultats_ia');
     let chaine = "<table id = 'tab_chaine_ia'>"
     chaine += "<tr id = 'ligne1_chaine_ia'>"
-    for (let i = 0; i < getDuel(a, b).length; i++) {
-        chaine += "<td>" + getDuel(a, b)[i] + "</td>";
+    for (let i = 0; i < duel.length; i++) {
+        chaine += "<td>" + duel[i] + "</td>";
     }
     chaine += "<tr id = 'ligne2_chaine_ia'>"
-    for (let j = 0; j < getDuel(a, b).length; j++) {
+    for (let j = 0; j < duel.length; j++) {
         chaine += "<td>" + "pourcentage..." + "</td>";
     }
     chaine += "</tr>" + "</table>";
@@ -157,29 +164,11 @@ function recupererCsv(departement, canton) {
                 }
             }
 
-            let ligne;
-            let j = 0;
-            let tab_final = [];
             for (let i = 0; i < lines.length; i++) {
-                if (lines[i][0] == departement) {
-                    ligne = i;
-                    break;
-
-                }
+              if (lines[i][0]==departement && lines[i][1]==canton) {
+                return lines[i];
+              }
             }
-
-            j = ligne;
-            while (lines[j][0] == departement) {
-                if (lines[j][1] == canton) {
-                    for (let k = 0; k < lines[j].length; k++) {
-                        tab_final[k] = lines[j][k];
-                    }
-                    break;
-                }
-                j++;
-            }
-            console.log(tab_final);
-            return tab_final;
         }
     });
 }
