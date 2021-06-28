@@ -775,16 +775,29 @@ function configGrapheDeptT2(data) {
 }
 
 
-function lectureCsv () {
-    $.ajax({
-    type: "GET",
-    url: "test.txt",
-    dataType: "text",
-    success: function(data) {
-        console.log("Les datas :" + data);
-    },
-    error: function () {
-        alert("Oh shit...");
+
+
+function passage_parti_tour_2(data, canton) {
+
+    let retour = [];
+    let k = 2;
+    for (i = 0; i < data.length; i++) {
+        if (data[i][0] == canton.toString()) {
+            console.log("donnée :" + data[i][k]);
+            while (data[i][k] != null) {
+                if (data[i][k + 1] > 50.0) {
+                    retour = [];
+                    retour = data[i][k];
+                    console.log("50% :" + retour);
+                    return retour;
+                }
+                if (data[i][k + 1] > 12.5) {
+                    retour.push(data[i][k]);
+                    k = k + 2;
+                }
+            }
+        }
+        console.log("12.5% :" + retour);
+        return retour;
     }
- });
 }
