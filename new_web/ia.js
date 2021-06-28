@@ -137,10 +137,9 @@ async function lancer_prediction() {
 
 
 
-    console.table(inputData.result)
     input = tf.tensor([inputData.result.map(parseFloat)])
+    console.log(input)
     output = model.predict(input).array()
-    console.log(input, output)
 
     var duel = getDuel(dataT1, canton)
 
