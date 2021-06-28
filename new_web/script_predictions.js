@@ -848,8 +848,8 @@ function recupererCsv (departement, canton) {
             if (lines[j][1] == canton) {
                 for (let k = 0; k < lines[j].length; k++) {
                     tab_final[k] = lines[j][k];
-                    break;
                 }
+                break;
 
             }
             j++;
