@@ -809,7 +809,7 @@ function passage_parti_tour_2(data, canton) {
     for (i = 0; i < data.length; i++) {
         if (data[i][0] == canton.toString()) {
             console.log("donnée :" + data[i][k]);
-            if (data[i][k] != null) {
+            while (data[i][k] != null) {
                 if (data[i][k + 1] > 50.0) {
                     retour = [];
                     retour = data[i][k];
