@@ -411,7 +411,7 @@ function lancer_recherche_dep() {
 
     // affichage de la partie prédiction
     document.getElementsByClassName('prediction_ia')[0].style.display = 'block';
-    document.getElementsByClassName('resultats_ia')[0].style.display = 'none';
+    document.getElementsByClassName('resultats_ia')[0].style.display = 'block';
     fill_cantons_predictions();
 }
 
@@ -802,8 +802,6 @@ function passage_parti_tour_2(data, canton) {
     return retour;
 }
 
-
-
 function recupererCsv (departement, canton) {
     jQuery.ajax({
     type: "GET",
@@ -826,15 +824,10 @@ function recupererCsv (departement, canton) {
                 lines.push(tarr);
             }
         }
-        console.log(lines);
     
-
-
-
         let ligne;
         let j = 0;
         let tab_final = [];
-        //console.log(data);
         for (let i = 0; i < lines.length; i++) {
             if (lines[i][0] == departement) {
                 ligne = i;
@@ -850,7 +843,6 @@ function recupererCsv (departement, canton) {
                     tab_final[k] = lines[j][k];
                 }
                 break;
-
             }
             j++;
         }
@@ -859,5 +851,3 @@ function recupererCsv (departement, canton) {
     }
     });
 }
-
-recupererCsv(2, 4);
