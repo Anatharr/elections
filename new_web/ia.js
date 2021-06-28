@@ -128,9 +128,7 @@ function lancer_prediction() {
           alert(chr.responseText); //Ce code affichera le message d'erreur, ici Message d'erreur.
         }
     });
-}
-
-<<<<<<< HEAD
+    
     tab_pred_ia = document.getElementByClassName('resultats_ia');
     let chaine = "<table id = 'tab_chaine_ia'>"
     chaine += "<tr id = 'ligne1_chaine_ia'>"
@@ -144,15 +142,19 @@ function lancer_prediction() {
     chaine += "</tr>" + "</table>";
     tab_pred_ia.innerHTML = chaine;
 
+}
 
-=======
+
+
+    
+
+
 function recupererCsv (departement, canton) {
     return $.ajax({
     type: "GET",
     url: "/datasets/XDataFR_2015_Can.csv",
     dataType: "text",
     success: function(data) {
->>>>>>> c713adb617d88ce87aa28057eabd9b20edbdc719
 
         var allTextLines = data.split(/\r\n|\n/);
         var headers = allTextLines[0].split(',');
