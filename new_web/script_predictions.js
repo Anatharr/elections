@@ -798,18 +798,15 @@ function passage_parti_tour_2(data, canton) {
             return retour;
         }
     }
-<<<<<<< HEAD
 }
 
 function recupererCsv () {
     $.ajax({
-        url: 'test.txt',
-        type: 'POST',
+        url: '/test.txt',
+        type: 'GET',
         dataType: 'text',
         success: function(data) {
             console.log(data);
         }
     });
-=======
->>>>>>> aa50c0e57b85e58ec62f48663dbe10a19f7d790b
 }
