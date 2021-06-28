@@ -151,7 +151,7 @@
                 return $result;
             
         }
-        $res = pg_query_params($dbconn, $query, array($num_departement)) or die('Échec de la requête : ' . pg_last_error());
+        $res = pg_query_params($dbconn, $query, array($departement)) or die('Échec de la requête : ' . pg_last_error());
 
         // Ferme la connexion
         pg_close($dbconn);
