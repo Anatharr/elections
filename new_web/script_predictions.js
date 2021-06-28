@@ -789,18 +789,20 @@ function configGrapheDeptT2(data) {
 }
 
 
-
-$.ajax({
-type: "GET",
-url: "test.txt",
-dataType: "text",
-success: function(data) {
-    console.log("Les datas :" + data);
-},
-error: function () {
-    alert("Oh shit...");
+function lectureCsv () {
+    $.ajax({
+    type: "GET",
+    url: "test.txt",
+    dataType: "text",
+    success: function(data) {
+        console.log("Les datas :" + data);
+    },
+    error: function () {
+        alert("Oh shit...");
+    }
+    });
 }
-});
+
 
 function passage_parti_tour_2(data, canton) {
 
