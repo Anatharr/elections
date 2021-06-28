@@ -815,13 +815,13 @@ function recupererCsv (departement, canton) {
         var headers = allTextLines[0].split(',');
         var lines = [];
 
-        for (var i=1; i<allTextLines.length; i++) {
-            var data = allTextLines[i].split(',');
+        for (var x=1; i<allTextLines.length; x++) {
+            var data = allTextLines[x].split(',');
             if (data.length == headers.length) {
 
                 var tarr = [];
-                for (var j=0; j<headers.length; j++) {
-                    tarr.push(headers[j]+":"+data[j]);
+                for (var y=0; y<headers.length; y++) {
+                    tarr.push(headers[y]+":"+data[y]);
                 }
                 lines.push(tarr);
             }
