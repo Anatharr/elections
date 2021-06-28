@@ -76,13 +76,13 @@ async function load_model(dataT1, year, canton, modelname) {
       const model = await tf.loadLayersModel('/models/' + year + '/' + duel + '/model.json');
       return model;
     }
-    else if (!available_models.includes(modelname)) {
+    else if (!available_models.includes(modelname.split(' ').map(e => 'BC-'+e).join('_'))) {
       alert("Le modèle spécifié n'a pas été trouvé.");
       return null;      
     }
 
     load_image(year, modelname)
-    const model = await tf.loadLayersModel('/models/' + year + '/' + modelname + '/model.json');
+    const model = await tf.loadLayersModel('/models/' + year + '/' + modelname.split(' ').map(e => 'BC-'+e).join('_') + '/model.json');
     return model;
 }
 
@@ -98,7 +98,7 @@ async function lancer_prediction() {
     const modelSelect = document.getElementById('model_name')
     const dptSelect = document.getElementById("dep_choix")
     const cantonSelect = document.getElementById('model_canton')
-    const modelname = modelSelect.options[modelSelect.selectedIndex].value.split(' ').map(e => 'BC-'+e).join('_')
+    const modelname = modelSelect.options[modelSelect.selectedIndex].value
     const dpt = dptSelect.options[dptSelect.selectedIndex].value
     const canton = cantonSelect.options[cantonSelect.selectedIndex].value
     const year=2015;
