@@ -92,7 +92,7 @@ async function lancer_prediction() {
     const canton = cantonSelect.options[cantonSelect.selectedIndex].value
     let a = null;
     let b = canton;
-    const year=2019;
+    const year=2015;
 
     if (canton=='default') {
       alert("Veuillez spécifier un canton pour réaliser la prédiction.");
