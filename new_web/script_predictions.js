@@ -805,7 +805,8 @@ function passage_parti_tour_2(data, canton) {
 function recupererCsv(canton, departement) {
     canton = '4';
     departement = '2';
-    let ligne, j;
+    let ligne;
+    let j = 0;
     let tab = [];
     $.ajax({
         url: '/test.txt',
@@ -822,7 +823,9 @@ function recupererCsv(canton, departement) {
             j = ligne;
             while (data[j][0] == departement) {
                 if (data[j][1] == canton) {
-                    tab = data[j][1];
+                    for (let k = 0; k < data[j].length; k++) {
+                        tab[k] = data[j][k];
+                    }
                     break;
                 }
                 j++;
