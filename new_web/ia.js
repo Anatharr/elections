@@ -119,6 +119,20 @@ function lancer_prediction() {
                 console.log(inputData)
                 console.log(model)
 
+                tab_pred_ia = document.getElementByClassName('resultats_ia');
+                let chaine = "<table id = 'tab_chaine_ia'>"
+                chaine += "<tr id = 'ligne1_chaine_ia'>"
+                for(let i = 0; i < getDuel(a,b).length; i++) {
+                    chaine += "<td>" + getDuel(a,b)[i] + "</td>";
+                }
+                chaine += "<tr id = 'ligne2_chaine_ia'>"
+                for(let j = 0; j < getDuel(a,b).length; j++) {
+                    chaine += "<td>" + "pourcentage..." + "</td>";
+                }
+                chaine += "</tr>" + "</table>";
+                tab_pred_ia.innerHTML = chaine;
+
+
             } else {
                 console.log(obj.error);
             }
@@ -129,19 +143,6 @@ function lancer_prediction() {
         }
     });
     
-    tab_pred_ia = document.getElementByClassName('resultats_ia');
-    let chaine = "<table id = 'tab_chaine_ia'>"
-    chaine += "<tr id = 'ligne1_chaine_ia'>"
-    for(let i = 0; i < getDuel(a,b).length; i++) {
-        chaine += "<td>" + getDuel(a,b)[i] + "</td>";
-    }
-    chaine += "<tr id = 'ligne2_chaine_ia'>"
-    for(let j = 0; j < getDuel(a,b).length; j++) {
-        chaine += "<td>" + "pourcentage..." + "</td>";
-    }
-    chaine += "</tr>" + "</table>";
-    tab_pred_ia.innerHTML = chaine;
-
 }
 
 
