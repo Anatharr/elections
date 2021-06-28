@@ -143,19 +143,20 @@ async function lancer_prediction() {
 
     var duel = getDuel(dataT1, canton)
 
-    tab_pred_ia = document.getElementsByClassName('resultats_ia');
-    let chaine = "<table id = 'tab_chaine_ia'>"
-    chaine += "<tr id = 'ligne1_chaine_ia'>"
+
+    document.getElementsByClassName('resultats_ia')[0].style.display = 'block';
+    tab_pred_ia = document.getElementById('tab_chaine_ia_div');
+    let chaine = "<table id='tab_chaine_ia'>"
+    chaine += "<tr id='ligne1_chaine_ia'>"
     for (let i = 0; i < duel.length; i++) {
         chaine += "<td>" + duel[i] + "</td>";
     }
-    chaine += "<tr id = 'ligne2_chaine_ia'>"
+    chaine += "<tr id='ligne2_chaine_ia'>"
     for (let j = 0; j < duel.length; j++) {
         chaine += "<td>" + output[j] + "</td>";
     }
     chaine += "</tr>" + "</table>";
     tab_pred_ia.innerHTML = chaine;
-    console.log(chaine);
 
 }
 

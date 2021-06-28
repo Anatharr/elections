@@ -284,6 +284,8 @@
                 <td>
                     <div class="resultats_ia" style='display: none;'>
                         <label class="label_ia">Prédictions de nos modèles</label>
+                        <br>
+                        <div id="tab_chaine_ia_div"></div>
                     </div>                                        
                 </td>
                 <td style="border-left: 1px solid black;">
