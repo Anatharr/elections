@@ -98,7 +98,7 @@ async function lancer_prediction() {
     const modelSelect = document.getElementById('model_name')
     const dptSelect = document.getElementById("dep_choix")
     const cantonSelect = document.getElementById('model_canton')
-    const modelname = modelSelect.options[modelSelect.selectedIndex].value
+    const modelname = modelSelect.options[modelSelect.selectedIndex].value.split(' ').map(e => 'BC-'+e).join('_')
     const dpt = dptSelect.options[dptSelect.selectedIndex].value
     const canton = cantonSelect.options[cantonSelect.selectedIndex].value
     const year=2015;
@@ -135,8 +135,8 @@ async function lancer_prediction() {
 
 
 
-    console.log(inputData[0])
-    input = tf.tensor(inputData[0])
+    console.log(inputData)
+    input = tf.tensor(inputData)
     output = model.predict(input).array()
     console.log(input, output)
 
