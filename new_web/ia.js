@@ -70,6 +70,7 @@ async function load_model(year, canton) {
       type: "POST",
       url: 'traitement.php',
       dataType: 'json',
+      async: true,
       data: { functionname: 'donnees_ia_tour_1_departement', arguments: [year, canton] },
 
       success: function(obj, textstatus) {
