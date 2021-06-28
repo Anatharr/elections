@@ -268,7 +268,7 @@
 
     <div class='prediction_ia' style='display: none;'>
         <div id="graph_reg">
-            <h2> Prédictions</h1>
+            <h2> Prédictions</h2>
         </div>
 
         <table>
