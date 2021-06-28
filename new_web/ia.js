@@ -147,6 +147,7 @@ async function lancer_prediction() {
     document.getElementsByClassName('resultats_ia')[0].style.display = 'block';
     tab_pred_ia = document.getElementById('tab_chaine_ia_div');
     let chaine = "<table id='tab_chaine_ia'>"
+    chaine += "<label class='label_ia'>Prédictions de nos modèles</label>";
     chaine += "<tr id='ligne1_chaine_ia'>"
     for (let i = 0; i < duel.length; i++) {
         chaine += "<td>" + duel[i] + "</td>";

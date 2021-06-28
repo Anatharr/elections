@@ -1096,3 +1096,17 @@ h2 {
     letter-spacing: 4px;
     color: rgb(60, 60, 60);
 }
+
+#tab_chaine_ia {
+    margin-right: 10%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    margin-bottom: 3%;
+    margin-top: 3%;
+    position: relative;
+    text-align: center;
+}
+
+#tab_chaine_ia td {
+    border: 1px solid black;        
+}
