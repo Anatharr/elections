@@ -811,17 +811,17 @@ function recupererCsv (departement, canton) {
     dataType: "text",
     success: function(data) {
 
-        var allTextLines = allText.split(/\r\n|\n/);
+        var allTextLines = data.split(/\r\n|\n/);
         var headers = allTextLines[0].split(',');
         var lines = [];
 
-        for (var x=1; i<allTextLines.length; x++) {
+        for (var x=1; x<allTextLines.length; x++) {
             var data = allTextLines[x].split(',');
             if (data.length == headers.length) {
 
                 var tarr = [];
                 for (var y=0; y<headers.length; y++) {
-                    tarr.push(headers[y]+":"+data[y]);
+                    tarr.push(data[y]);
                 }
                 lines.push(tarr);
             }
@@ -835,8 +835,8 @@ function recupererCsv (departement, canton) {
         let j = 0;
         let tab_final = [];
         //console.log(data);
-        for (let i = 0; i < data.length; i++) {
-            if (data[i][0] == departement) {
+        for (let i = 0; i < lines.length; i++) {
+            if (lines[i][0] == departement) {
                 ligne = i;
                 break;
 
@@ -844,17 +844,17 @@ function recupererCsv (departement, canton) {
         }
     
         j = ligne;
-        while (data[j][0] == departement) {
-            if (data[j][1] == canton) {
-                for (let k = 0; k < data[j].length; k++) {
-                    tab_final[k] = data[j][k];
-                    break;
+        while (lines[j][0] == departement) {
+            if (lines[j][1] == canton) {
+                for (let k = 0; k < lines[j].length; k++) {
+                    tab_final[k] = lines[j][k];
                 }
+                break;
 
             }
             j++;
         }
-        //console.log(tab_final);
+        console.log(tab_final);
         return tab_final;
     }
     });
