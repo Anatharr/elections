@@ -108,9 +108,10 @@ async function lancer_prediction() {
         }
     });
     if ('error' in dataT1) {
-        console.log(obj.error);
+        console.log(dataT1.error);
         return;
     }
+    dataT1 = dataT1.result;
 
     const model = await load_model(dataT1, year, canton);
     if (model==null) return;
