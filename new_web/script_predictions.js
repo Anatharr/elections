@@ -430,7 +430,8 @@ function fill_cantons_predictions() {
 
           success: function(obj, textstatus) {
               if (!('error' in obj)) {
-                    obj.result.forEach((e) => {
+                    const dataT1 = obj.result;
+                    dataT1.forEach((e) => {
                       var opt = document.createElement('option');
                       opt.value = e[0];
                       opt.innerHTML = e[1]+' ('+e[0]+')';
