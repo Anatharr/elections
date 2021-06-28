@@ -1016,3 +1016,38 @@ CREATE TABLE t1_2021_cantons
 COPY public.t1_2021_cantons
 FROM '/home/pi/Documents/elections/dataset/Departementales_cantons_2021_tour_1.csv'
 WITH (FORMAT CSV, HEADER, DELIMITER ';');
+
+CREATE TABLE input_data_2015
+(
+    code_departement varchar(3),
+    code_canton int,
+    nb_inscrits int,
+    nb_exprimés int,
+    abs_pourcent_ins numeric(10,2),
+    blancs_nuls_pourcent_vot float,
+    exp_pourcent_vot numeric(10,2),
+    BC_COM float,
+    BC_DIV float,
+    BC-DLF float,
+    BC-DVD float,
+    BC-DVG float,
+    BC-EXD float,
+    BC-EXG float,
+    BC-FG float,
+    BC-FN float,
+    BC-MDM float,
+    BC-PG float,
+    BC-RDG float,
+    BC-SOC float,
+    BC-UC float,
+    BC-UD float,
+    BC-UDI float,
+    BC-UG float,
+    BC-UMP float,
+    BC-VEC float,
+    PRIMARY KEY (code_departement, code_canton)
+);
+
+COPY public.input_data_2015
+FROM '/home/pi/Documents/elections/dataset/XDataFR_2015_Can.csv'
+WITH (FORMAT CSV, HEADER, DELIMITER ';');
