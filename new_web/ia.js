@@ -58,6 +58,8 @@ function getDuel(data, canton) {
 
 async function load_model(dataT1, year, canton, modelname) {
 
+    modelname = modelname=='default' ? 'default' : modelname.slice(5)
+
     if (modelname=='default') {
       var duel = getDuel(dataT1, canton);
       console.log("DUEL :" + duel);
@@ -76,13 +78,13 @@ async function load_model(dataT1, year, canton, modelname) {
       const model = await tf.loadLayersModel('/models/' + year + '/' + duel + '/model.json');
       return model;
     }
-    else if (!available_models.includes(modelname.split(' ').map(e => 'BC-'+e).join('_'))) {
+    else if (!available_models.includes(modelname)) {
       alert("Le modèle spécifié n'a pas été trouvé.");
       return null;      
     }
 
     load_image(year, modelname)
-    const model = await tf.loadLayersModel('/models/' + year + '/' + modelname.split(' ').map(e => 'BC-'+e).join('_') + '/model.json');
+    const model = await tf.loadLayersModel('/models/' + year + '/' + modelname + '/model.json');
     return model;
 }
 
@@ -136,7 +138,7 @@ async function lancer_prediction() {
 
 
     console.table(inputData.result)
-    input = tf.tensor(inputData.result.map(parseFloat))
+    input = tf.tensor([inputData.result.map(parseFloat)])
     output = model.predict(input).array()
     console.log(input, output)
 
