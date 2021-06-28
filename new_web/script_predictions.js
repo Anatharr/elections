@@ -838,4 +838,4 @@ function recupererCsv (departement, canton) {
     });
 }
 
-recuperer_csv(2, 4);
+recupererCsv(2, 4);
