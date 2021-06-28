@@ -792,9 +792,9 @@ function passage_parti_tour_2(data, canton) {
                 }
                 if (parseFloat(data[i][k + 1]) > 12.5) {
                     retour.push(data[i][k]);
-                    k = k + 2;
                     console.log("12.5% :" + retour);
                 }
+                k = k + 2;
             }
         }
     }
@@ -802,9 +802,9 @@ function passage_parti_tour_2(data, canton) {
     return retour;
 }
 
-function recupererCsv (canton, departement) {
+function recupererCsv(canton, departement) {
     canton = '4';
-    departement ='2';
+    departement = '2';
     let ligne, j;
     let tab = [];
     $.ajax({
@@ -812,16 +812,16 @@ function recupererCsv (canton, departement) {
         type: 'GET',
         dataType: 'text',
         success: function(data) {
-            
-            for(let i = 0; i < data.length; i++) {
-                if(data[i][0] == departement) {
+
+            for (let i = 0; i < data.length; i++) {
+                if (data[i][0] == departement) {
                     ligne = i;
                     break;
                 }
             }
             j = ligne;
-            while(data[j][0] == departement) {
-                if(data[j][1] == canton) {
+            while (data[j][0] == departement) {
+                if (data[j][1] == canton) {
                     tab = data[j][1];
                     break;
                 }
