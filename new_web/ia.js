@@ -10,7 +10,7 @@ $(document).ready(function() {
       var opt = document.createElement('option');
       opt.value = '2015_'+e;
       opt.innerHTML =  'Modèle 2015 (' + e.split('_').map(e => e.slice(3)).join(' ') + ')';
-      cantonSelect.appendChild(opt);
+      sel.appendChild(opt);
     })
 });
 
