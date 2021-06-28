@@ -817,7 +817,7 @@ function recupererCsv (canton, departement) {
             for(let i = 0; i < data.length; i++) {
                 if(data[i][0] == departement) {
                     ligne = i;
-                    break;
+
                 }
             }
             j = ligne;
@@ -826,7 +826,7 @@ function recupererCsv (canton, departement) {
                     for(let k = 0; k < data[j].length; k++) {
                         tab[k] = data[j][k];
                     }
-                    break;
+
                 }
                 j++;
             }
