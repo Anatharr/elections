@@ -774,36 +774,3 @@ function configGrapheDeptT2(data) {
     }
 }
 
-
-function recupererCsv(canton, departement) {
-    canton = '4';
-    departement = '2';
-    let ligne;
-    let j = 0;
-    let tab = [];
-    $.ajax({
-        url: '/test.txt',
-        type: 'GET',
-        dataType: 'text',
-        success: function(data) {
-
-            for (let i = 0; i < data.length; i++) {
-                if (data[i][0] == departement) {
-                    ligne = i;
-                    break;
-                }
-            }
-            j = ligne;
-            while (data[j][0] == departement) {
-                if (data[j][1] == canton) {
-                    for (let k = 0; k < data[j].length; k++) {
-                        tab[k] = data[j][k];
-                    }
-                    break;
-                }
-                j++;
-            }
-            console.log(tab);
-        }
-    });
-}
