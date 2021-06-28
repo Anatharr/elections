@@ -680,18 +680,7 @@ function configGrapheDeptT1(data) {
                     maxBarThickness: 70,
                     stacked: true,
                     max: 100,
-                    title: {
-                        display: true,
-                        text: 'Cantons',
-                        color: '#911',
-                        font: {
-                            family: 'Calibri',
-                            size: 20,
-                            style: 'normal',
-                            lineHeight: 1.2
-                        },
-                        padding: { top: 30, left: 0, right: 0, bottom: 0 }
-                    }
+                    
                 },
                 y: {
                     stacked: true,
@@ -734,18 +723,7 @@ function configGrapheDeptT2(data) {
                     x: {
                         stacked: true,
                         max: 100,
-                        title: {
-                            display: true,
-                            text: 'Cantons',
-                            color: '#911',
-                            font: {
-                                family: 'Calibri',
-                                size: 20,
-                                style: 'normal',
-                                lineHeight: 1.2
-                            },
-                            padding: { top: 30, left: 0, right: 0, bottom: 0 }
-                        }
+                        
                     },
                     y: {
                         stacked: true,
