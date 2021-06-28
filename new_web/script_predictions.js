@@ -810,9 +810,31 @@ function recupererCsv (departement, canton) {
     url: "/datasets/XDataFR_2015_Can.csv",
     dataType: "text",
     success: function(data) {
+
+        var allTextLines = allText.split(/\r\n|\n/);
+        var headers = allTextLines[0].split(',');
+        var lines = [];
+
+        for (var x=1; i<allTextLines.length; x++) {
+            var data = allTextLines[x].split(',');
+            if (data.length == headers.length) {
+
+                var tarr = [];
+                for (var y=0; y<headers.length; y++) {
+                    tarr.push(headers[y]+":"+data[y]);
+                }
+                lines.push(tarr);
+            }
+        }
+        console.log(lines);
+    
+
+
+
         let ligne;
         let j = 0;
         let tab_final = [];
+        //console.log(data);
         for (let i = 0; i < data.length; i++) {
             if (data[i][0] == departement) {
                 ligne = i;
@@ -832,7 +854,7 @@ function recupererCsv (departement, canton) {
             }
             j++;
         }
-        console.log(tab_final);
+        //console.log(tab_final);
         return tab_final;
     }
     });
