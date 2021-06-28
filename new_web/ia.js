@@ -106,7 +106,7 @@ function lancer_prediction() {
         async: true,
         data: { functionname: 'donnees_ia_tour_1_departement', arguments: [year, canton] },
 
-        success: function(obj, textstatus) {
+        success: async function(obj, textstatus) {
             if (!('error' in obj)) {
                 var dataT1 = obj.result
                 

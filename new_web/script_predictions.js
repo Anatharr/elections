@@ -250,13 +250,13 @@ function rechercher_données_tour_1() {
                 switch (document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value) {
 
                     case "2008":
-                        lignes_tour_1[i].style.fontSize = "75%";
+                        lignes_tour_1[i].style.fontSize = "70%";
                         break;
                     case "2011":
                         lignes_tour_1[i].style.fontSize = "64%";
                         break;
                     case "2015":
-                        lignes_tour_1[i].style.fontSize = "66%";
+                        lignes_tour_1[i].style.fontSize = "60%";
                         break;
                     case "2021":
                         lignes_tour_1[i].style.fontSize = "60%";
@@ -271,13 +271,13 @@ function rechercher_données_tour_1() {
                 switch (document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value) {
 
                     case "2008":
-                        titres_tour_1[i].style.fontSize = "75%";
+                        titres_tour_1[i].style.fontSize = "70%";
                         break;
                     case "2011":
                         titres_tour_1[i].style.fontSize = "64%";
                         break;
                     case "2015":
-                        titres_tour_1[i].style.fontSize = "71%";
+                        titres_tour_1[i].style.fontSize = "60%";
                         break;
                     case "2021":
                         titres_tour_1[i].style.fontSize = "60%";
