@@ -191,7 +191,7 @@
             case 2015:
 
                 // Exécution de la requête SQL sécurisée
-                $query = "SELECT nb_inscrits, nb_exprimés, abs_pourcent_ins, blancs_nuls_pourcent_vot, exp_pourcent_vot, bc_com, bc_div, bc_dlf, bc_dvd, bc_dvg, bc_exd, bc_exg, bc_fg, bc_fn, bc_mdm, bc_pg, bc_rdg, bc_soc, bc_uc, bc_ud, bc_udi, bc_ug, bc_ump, bc_vec, nuance_liste_12, voix_pourcent_ins_liste_12, voix_pourcent_exp_liste_12 FROM public.input_data_2015 WHERE code_departement=$1 and code_canton=$2;";
+                $query = "SELECT nb_inscrits, nb_exprimés, abs_pourcent_ins, blancs_nuls_pourcent_vot, exp_pourcent_vot, bc_com, bc_div, bc_dlf, bc_dvd, bc_dvg, bc_exd, bc_exg, bc_fg, bc_fn, bc_mdm, bc_pg, bc_rdg, bc_soc, bc_uc, bc_ud, bc_udi, bc_ug, bc_ump, bc_vec FROM public.input_data_2015 WHERE code_departement=$1 and code_canton=$2;";
                 break;
 
             // case 2021:

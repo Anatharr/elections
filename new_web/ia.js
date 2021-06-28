@@ -90,6 +90,7 @@ async function load_model(dataT1, year, canton, modelname) {
 function load_image(year, modelname) {
   img = document.getElementById('image_ia');
   img.src = "/models/"+year+"-figures/"+modelname+".png";
+  document.getElementsByClassName('details_ia')[0].style.display = 'block';
 }
 
 async function lancer_prediction() {

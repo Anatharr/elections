@@ -1081,3 +1081,18 @@ h2 {
     letter-spacing: 6px;
     color: rgb(60, 60, 60);
 }
+
+.details_ia {
+    text-align: center;
+}
+
+#model_name {
+    font-family: 'Exo', sans-serif;
+    text-align: center;
+    font-size: 100%;
+    font-style: italic;
+    margin-top: 2%;
+    margin-bottom: 3%;
+    letter-spacing: 6px;
+    color: rgb(60, 60, 60);
+}
