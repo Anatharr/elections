@@ -410,8 +410,8 @@ function lancer_recherche_dep() {
 
 
     // affichage de la partie prédiction
-    document.getElementsByClassName('prediction_ia')[0].style.display = 'none';
-    document.getElementsByClassName('resultats_ia')[0].style.display = 'none';
+    document.getElementsByClassName('prediction_ia')[0].style.display = 'block';
+    document.getElementsByClassName('resultats_ia')[0].style.display = 'block';
     fill_cantons_predictions();
 }
 
