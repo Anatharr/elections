@@ -56,7 +56,6 @@
         <p id="texte_choix_echelle">Choisissez les éléctions qui vous intéressent :</p>
     </div>
 
-    <button type="button" onclick="processData()">CLICK</button>
 
 
     <div class="images_map">

@@ -813,8 +813,6 @@ function recupererCsv (departement, canton) {
         let ligne;
         let j = 0;
         let tab_final = [];
-        let canton = '4';
-        let departement = '2';
         for (let i = 0; i < data.length; i++) {
             if (data[i][0] == departement) {
                 ligne = i;
@@ -839,3 +837,5 @@ function recupererCsv (departement, canton) {
     }
     });
 }
+
+recuperer_csv(2, 4);
