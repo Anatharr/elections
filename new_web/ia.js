@@ -84,14 +84,15 @@ async function load_model(dataT1, year, canton) {
 
 
 async function lancer_prediction() {
-    const yearSelect = document.getElementById('model_name')
+    const modelSelect = document.getElementById('model_name')
     const dptSelect = document.getElementById("dep_annee_choix")
     const cantonSelect = document.getElementById('model_canton')
-    const year = yearSelect.options[yearSelect.selectedIndex].value
+    const modelname = modelSelect.options[modelSelect.selectedIndex].value
     const dpt = dptSelect.options[dptSelect.selectedIndex].value
     const canton = cantonSelect.options[cantonSelect.selectedIndex].value
     let a = null;
     let b = canton;
+    const year=2015;
 
     if (canton == 'default') {
         alert("Veuillez spécifier un canton pour réaliser la prédiction.");
@@ -102,7 +103,7 @@ async function lancer_prediction() {
         type: "POST",
         url: 'traitement.php',
         dataType: 'json',
-        data: { functionname: 'donnees_ia_tour_1_departement', arguments: [year, canton] },
+        data: { functionname: 'donnees_ia_tour_1_departement', arguments: [year, parseInt(canton)] },
         error: function(chr, ajaxOptions, thrownError) {
             alert(chr.responseText); //Ce code affichera le message d'erreur, ici Message d'erreur.
         }
