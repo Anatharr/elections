@@ -827,26 +827,25 @@ function CSVAJAX(filepath)
     this.request.send();
 };
 
-var test_csv = requestCSV("test.txt"); 
-console.log(test_csv);
 
 function recupererCsv(canton, departement) {
+    var test_csv = requestCSV("test.txt"); 
     canton = '4';
     departement = '2';
     let ligne;
     let j = 0;
     let tab_final = [];
-    for (let i = 0; i < tab_csv.length; i++) {
-        if (tab_csv[i][0] == departement) {
+    for (let i = 0; i < test_csv.length; i++) {
+        if (test_csv[i][0] == departement) {
             ligne = i;
 
         }
     }
     j = ligne;
-    while (tab_csv[j][0] == departement) {
-        if (tab_csv[j][1] == canton) {
-            for (let k = 0; k < tab_csv[j].length; k++) {
-                tab_final[k] = tab_csv[j][k];
+    while (test_csv[j][0] == departement) {
+        if (test_csv[j][1] == canton) {
+            for (let k = 0; k < test_csv[j].length; k++) {
+                tab_final[k] = test_csv[j][k];
             }
 
         }
