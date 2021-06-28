@@ -91,7 +91,7 @@ function load_image(year, modelname) {
   img = document.getElementById('image_ia');
   img.src = "/models/"+year+"-figures/"+modelname+".png";
   document.getElementsByClassName('details_ia')[0].style.display = 'block';
-  document.getElementsById('model_name_image').innerHTML = modelname;
+  document.getElementById('model_name_image').innerHTML = modelname;
 }
 
 async function lancer_prediction() {
@@ -137,7 +137,7 @@ async function lancer_prediction() {
 
     input = tf.tensor(inputData[0])
     output = model.predict(input).array()
-
+    console.log(input, output)
 
     var duel = getDuel(dataT1, canton)
 
