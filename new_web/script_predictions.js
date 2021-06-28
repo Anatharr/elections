@@ -413,37 +413,37 @@ function lancer_recherche_dep() {
 }
 
 function fill_cantons_predictions() {
-  var cantonSelect = document.getElementById('model_canton')
-  cantonSelect.children.forEach((e) => {
-    if (e.value!='default') {
-      cantonSelect.removeChild(e);
-    }
-  })
+    var cantonSelect = document.getElementById('model_canton')
+    cantonSelect.children.forEach((e) => {
+        if (e.value != 'default') {
+            cantonSelect.removeChild(e);
+        }
+    })
 
-  document.getElementById('label_dep').innerHTML = "Département "+document.getElementById("dep_choix").options[deroulant_dep.selectedIndex].innerHTML;
+    document.getElementById('label_dep').innerHTML = "Département " + document.getElementById("dep_choix").options[deroulant_dep.selectedIndex].innerHTML;
 
-  jQuery.ajax({
-          type: "POST",
-          url: 'traitement.php',
-          dataType: 'json',
-          data: { functionname: 'affiche_tour_1_departement', arguments: [document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value, document.getElementById("dep_choix").options[deroulant_dep.selectedIndex].value] },
+    jQuery.ajax({
+        type: "POST",
+        url: 'traitement.php',
+        dataType: 'json',
+        data: { functionname: 'affiche_tour_1_departement', arguments: [document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value, document.getElementById("dep_choix").options[deroulant_dep.selectedIndex].value] },
 
-          success: function(obj, textstatus) {
-              if (!('error' in obj)) {
-                    resultat_php_tab.forEach((e) => {
-                      var opt = document.createElement('option');
-                      opt.value = e[0];
-                      opt.innerHTML = e[1]+' ('+e[0]+')';
-                      cantonSelect.appendChild(opt);
-                    })
-              } else {
-                  console.log(obj.error);
-              }
-            },
+        success: function(obj, textstatus) {
+            if (!('error' in obj)) {
+                resultat_php_tab.forEach((e) => {
+                    var opt = document.createElement('option');
+                    opt.value = e[0];
+                    opt.innerHTML = e[1] + ' (' + e[0] + ')';
+                    cantonSelect.appendChild(opt);
+                })
+            } else {
+                console.log(obj.error);
+            }
+        },
 
-          error: function(chr, ajaxOptions, thrownError) {
-              alert(chr.responseText); //Ce code affichera le message d'erreur, ici Message d'erreur.
-          }          
+        error: function(chr, ajaxOptions, thrownError) {
+            alert(chr.responseText); //Ce code affichera le message d'erreur, ici Message d'erreur.
+        }
     })
 }
 
@@ -768,4 +768,27 @@ function configGrapheDeptT2(data) {
     } else {
         document.getElementById("graphe_t2").innerHTML = " ";
     }
+}
+
+function passage_parti_tour_2(data, canton) {
+
+    let retour = [];
+    for (i = 0; i < data.length; i++) {
+        if (data[i][0] == canton.toString()) {
+            let k = 2;
+            while (data[i][k] != null) {
+                if (data[i][k + 1] > 50.0) {
+                    retour = [];
+                    retour = data[i][k];
+                    return retour;
+                }
+                if (data[i][k + 1] > 12.5) {
+                    retour += data[i][k];
+                    k = k + 2;
+                }
+            }
+        }
+    }
+    return retour;
+
 }
