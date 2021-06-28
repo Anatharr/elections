@@ -774,3 +774,68 @@ function configGrapheDeptT2(data) {
     }
 }
 
+
+function passage_parti_tour_2(data, canton) {
+
+    let retour = [];
+    let k = 2;
+    for (i = 0; i < data.length; i++) {
+        if (data[i][0] == canton.toString()) {
+            console.log("donnée :" + data[i][k]);
+            console.log("float :" + parseFloat(data[i][k + 1]));
+            while (data[i][k] != null) {
+                if (parseFloat(data[i][k + 1]) > 50.0) {
+                    retour = [];
+                    retour.push(data[i][k]);
+                    console.log("50% :" + retour);
+                    return retour;
+                }
+                if (parseFloat(data[i][k + 1]) > 12.5) {
+                    retour.push(data[i][k]);
+                    console.log("12.5% :" + retour);
+                }
+                k = k + 2;
+            }
+        }
+    }
+    console.log("résultat :" + retour);
+    return retour;
+}
+
+
+
+function recupererCsv (departement, canton) {
+    $.ajax({
+    type: "GET",
+    url: "/datasets/XDataFR_2015_Can.csv",
+    dataType: "text",
+    success: function(data) {
+        let ligne;
+        let j = 0;
+        let tab_final = [];
+        for (let i = 0; i < data.length; i++) {
+            if (data[i][0] == departement) {
+                ligne = i;
+                break;
+
+            }
+        }
+    
+        j = ligne;
+        while (data[j][0] == departement) {
+            if (data[j][1] == canton) {
+                for (let k = 0; k < data[j].length; k++) {
+                    tab_final[k] = data[j][k];
+                    break;
+                }
+
+            }
+            j++;
+        }
+        console.log(tab_final);
+        return tab_final;
+    }
+    });
+}
+
+recupererCsv(2, 4);
