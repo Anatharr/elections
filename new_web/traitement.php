@@ -214,7 +214,7 @@
                 }
                 break;
 
-            case 'estimation_tour_2_departement':
+            case 'donnees_ia_tour_1_departement':
                 if ( !is_array($_POST['arguments']) || (count($_POST['arguments']) != 2 ) ) {
                     $resultat_requete['error'] = "Erreur d'arguments !";
                 }
