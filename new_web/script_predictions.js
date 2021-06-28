@@ -802,35 +802,31 @@ function passage_parti_tour_2(data, canton) {
     return retour;
 }
 
-function recupererCsv(canton, departement) {
-    canton = '4';
-    departement = '2';
-    let ligne;
-    let j = 0;
-    let tab = [];
-    $.ajax({
-        url: '/test.txt',
-        type: 'GET',
-        dataType: 'text',
-        success: function(data) {
 
-            for (let i = 0; i < data.length; i++) {
-                if (data[i][0] == departement) {
-                    ligne = i;
-                    break;
-                }
-            }
-            j = ligne;
-            while (data[j][0] == departement) {
-                if (data[j][1] == canton) {
-                    for (let k = 0; k < data[j].length; k++) {
-                        tab[k] = data[j][k];
-                    }
-                    break;
-                }
-                j++;
-            }
-            console.log(tab);
+
+
+$(document).ready(function() {
+    $.ajax({
+        type: "GET",
+        url: "data.txt",
+        dataType: "text",
+        success: function(data) {processData(data);}
+     });
+});
+
+function processData(allText) {
+    var record_num = 5;  // or however many elements there are in each row
+    var allTextLines = allText.split(/\r\n|\n/);
+    var entries = allTextLines[0].split(',');
+    var lines = [];
+
+    var headings = entries.splice(0,record_num);
+    while (entries.length>0) {
+        var tarr = [];
+        for (var j=0; j<record_num; j++) {
+            tarr.push(headings[j]+":"+entries.shift());
         }
-    });
+        lines.push(tarr);
+    }
+    console.log(lines);
 }
