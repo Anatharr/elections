@@ -794,21 +794,21 @@ function passage_parti_tour_2(data, canton) {
     let k = 2;
     for (i = 0; i < data.length; i++) {
         if (data[i][0] == canton.toString()) {
-            console.log(data[i][k]);
+            console.log("donnée :" + data[i][k]);
             if (data[i][k] != null) {
                 if (data[i][k + 1] > 50.0) {
                     retour = [];
                     retour = data[i][k];
-                    console.log(retour);
+                    console.log("50% :" + retour);
                     return retour;
                 }
                 if (data[i][k + 1] > 12.5) {
-                    retour += data[i][k];
+                    retour.push(data[i][k]);
                     k = k + 2;
                 }
             }
         }
+        console.log("12.5% :" + retour);
+        return retour;
     }
-    console.log(retour);
-    return retour;
 }
