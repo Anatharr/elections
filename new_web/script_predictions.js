@@ -822,10 +822,10 @@ function CSVAJAX(filepath)
                 d.splice(i,1);
         }
         this.parent.response = d;
-        console.log(this.parent.response);
 
     };
     this.request.send();
+    console.log(this.request);
 };
 
 
