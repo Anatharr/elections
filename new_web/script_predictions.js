@@ -802,35 +802,32 @@ function passage_parti_tour_2(data, canton) {
     return retour;
 }
 
-function recupererCsv(canton, departement) {
-    canton = '4';
-    departement = '2';
-    let ligne;
-    let j = 0;
-    let tab = [];
-    $.ajax({
-        url: '/test.txt',
-        type: 'GET',
-        dataType: 'text',
-        success: function(data) {
-            console.log(data);
-            for (let i = 0; i < data.length; i++) {
-                if (data[i][0] == departement) {
-                    ligne = i;
 
-                }
-            }
-            j = ligne;
-            while (data[j][0] == departement) {
-                if (data[j][1] == canton) {
-                    for (let k = 0; k < data[j].length; k++) {
-                        tab[k] = data[j][k];
-                    }
-
-                }
-                j++;
-            }
-            console.log(tab);
+function requestCSV(f,c){return new CSVAJAX(f,c);};
+function CSVAJAX(filepath,callback)
+{
+    this.request = new XMLHttpRequest();
+    this.request.timeout = 10000;
+    this.request.open("GET", filepath, true);
+    this.request.parent = this;
+    this.callback = callback;
+    this.request.onload = function() 
+    {
+        var d = this.response.split('\n'); /*1st separator*/
+        var i = d.length;
+        while(i--)
+        {
+            if(d[i] !== "")
+                d[i] = d[i].split(','); /*2nd separator*/
+            else
+                d.splice(i,1);
         }
-    });
-}
+        this.parent.response = d;
+        if(typeof this.parent.callback !== "undefined")
+            this.parent.callback(d);
+    };
+    this.request.send();
+};
+
+var test_csv = requestCSV("test.txt",drawlines(lines)); 
+console.log(test_csv);
