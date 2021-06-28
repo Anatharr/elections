@@ -775,8 +775,6 @@ function configGrapheDeptT2(data) {
 }
 
 
-
-
 function passage_parti_tour_2(data, canton) {
 
     let retour = [];
@@ -800,4 +798,15 @@ function passage_parti_tour_2(data, canton) {
             return retour;
         }
     }
+}
+
+function recupererCsv () {
+    $.ajax({
+        url: '/test.txt',
+        type: 'GET',
+        dataType: 'text',
+        success: function(data) {
+            console.log(data);
+        }
+    });
 }
