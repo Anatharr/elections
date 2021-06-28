@@ -813,10 +813,11 @@ function recupererCsv (departement, canton) {
         let ligne;
         let j = 0;
         let tab_final = [];
+        console.log(data);
         for (let i = 0; i < data.length; i++) {
             if (data[i][0] == departement) {
                 ligne = i;
-
+                break;
 
             }
         }
@@ -826,7 +827,7 @@ function recupererCsv (departement, canton) {
             if (data[j][1] == canton) {
                 for (let k = 0; k < data[j].length; k++) {
                     tab_final[k] = data[j][k];
-
+                    break;
                 }
 
             }
