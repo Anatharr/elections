@@ -789,32 +789,21 @@ function configGrapheDeptT2(data) {
 }
 
 
-<<<<<<< HEAD
+
 function lectureCsv () {
     $.ajax({
-=======
-
-$.ajax({
->>>>>>> aadd2c537a5f21553692d9a261cd9315b2974e41
     type: "GET",
     url: "test.txt",
     dataType: "text",
     success: function(data) {
         console.log("Les datas :" + data);
     },
-<<<<<<< HEAD
     error: function () {
         alert("Oh shit...");
     }
     });
 }
 
-=======
-    error: function() {
-        alert("Oh shit...");
-    }
-});
->>>>>>> aadd2c537a5f21553692d9a261cd9315b2974e41
 
 function passage_parti_tour_2(data, canton) {
 
@@ -840,3 +829,6 @@ function passage_parti_tour_2(data, canton) {
         return retour;
     }
 }
+
+
+
