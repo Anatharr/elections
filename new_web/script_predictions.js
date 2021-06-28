@@ -775,33 +775,6 @@ function configGrapheDeptT2(data) {
 }
 
 
-function passage_parti_tour_2(data, canton) {
-
-    let retour = [];
-    let k = 2;
-    for (i = 0; i < data.length; i++) {
-        if (data[i][0] == canton.toString()) {
-            console.log("donnée :" + data[i][k]);
-            console.log("float :" + parseFloat(data[i][k + 1]));
-            while (data[i][k] != null) {
-                if (parseFloat(data[i][k + 1]) > 50.0) {
-                    retour = [];
-                    retour.push(data[i][k]);
-                    console.log("50% :" + retour);
-                    return retour;
-                }
-                if (parseFloat(data[i][k + 1]) > 12.5) {
-                    retour.push(data[i][k]);
-                    console.log("12.5% :" + retour);
-                }
-                k = k + 2;
-            }
-        }
-    }
-    console.log("résultat :" + retour);
-    return retour;
-}
-
 function recupererCsv(canton, departement) {
     canton = '4';
     departement = '2';
