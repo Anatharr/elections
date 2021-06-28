@@ -138,7 +138,7 @@ async function lancer_prediction() {
 
 
     console.table(inputData.result)
-    input = tf.tensor([inputData.result.map(parseFloat)])
+    input = tf.tensor(inputData.result.map(parseFloat).expandDims(0))
     output = model.predict(input).array()
     console.log(input, output)
 
