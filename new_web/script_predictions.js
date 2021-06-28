@@ -250,13 +250,13 @@ function rechercher_données_tour_1() {
                 switch (document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value) {
 
                     case "2008":
-                        lignes_tour_1[i].style.fontSize = "75%";
+                        lignes_tour_1[i].style.fontSize = "70%";
                         break;
                     case "2011":
                         lignes_tour_1[i].style.fontSize = "64%";
                         break;
                     case "2015":
-                        lignes_tour_1[i].style.fontSize = "71%";
+                        lignes_tour_1[i].style.fontSize = "60%";
                         break;
                     case "2021":
                         lignes_tour_1[i].style.fontSize = "60%";
@@ -271,13 +271,13 @@ function rechercher_données_tour_1() {
                 switch (document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value) {
 
                     case "2008":
-                        titres_tour_1[i].style.fontSize = "75%";
+                        titres_tour_1[i].style.fontSize = "70%";
                         break;
                     case "2011":
                         titres_tour_1[i].style.fontSize = "64%";
                         break;
                     case "2015":
-                        titres_tour_1[i].style.fontSize = "71%";
+                        titres_tour_1[i].style.fontSize = "60%";
                         break;
                     case "2021":
                         titres_tour_1[i].style.fontSize = "60%";
@@ -780,52 +780,3 @@ function passage_parti_tour_2(data, canton) {
     return retour;
 }
 
-function recupererCsv (departement, canton) {
-    jQuery.ajax({
-    type: "GET",
-    url: "/datasets/XDataFR_2015_Can.csv",
-    dataType: "text",
-    success: function(data) {
-
-        var allTextLines = data.split(/\r\n|\n/);
-        var headers = allTextLines[0].split(',');
-        var lines = [];
-
-        for (var x=1; x<allTextLines.length; x++) {
-            var data = allTextLines[x].split(',');
-            if (data.length == headers.length) {
-
-                var tarr = [];
-                for (var y=0; y<headers.length; y++) {
-                    tarr.push(data[y]);
-                }
-                lines.push(tarr);
-            }
-        }
-    
-        let ligne;
-        let j = 0;
-        let tab_final = [];
-        for (let i = 0; i < lines.length; i++) {
-            if (lines[i][0] == departement) {
-                ligne = i;
-                break;
-
-            }
-        }
-    
-        j = ligne;
-        while (lines[j][0] == departement) {
-            if (lines[j][1] == canton) {
-                for (let k = 0; k < lines[j].length; k++) {
-                    tab_final[k] = lines[j][k];
-                }
-                break;
-            }
-            j++;
-        }
-        console.log(tab_final);
-        return tab_final;
-    }
-    });
-}
