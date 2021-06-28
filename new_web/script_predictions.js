@@ -793,12 +793,13 @@ function passage_parti_tour_2(data, canton) {
                 if (parseFloat(data[i][k + 1]) > 12.5) {
                     retour.push(data[i][k]);
                     k = k + 2;
+                    console.log("12.5% :" + retour);
                 }
             }
-            console.log("12.5% :" + retour);
-            return retour;
         }
     }
+    console.log("résultat :" + retour);
+    return retour;
 }
 
 function recupererCsv() {
