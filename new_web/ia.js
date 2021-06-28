@@ -84,7 +84,7 @@ async function load_model(year, canton) {
   })
 
 
-  duel = getDuel(dataT1, canton).sort();
+  var duel = getDuel(dataT1, canton).sort();
   console.log(duel)
 
   if (duel.length<2) {
