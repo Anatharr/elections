@@ -825,7 +825,7 @@ function CSVAJAX(filepath)
 
     };
     this.request.send();
-    console.log(this.request);
+    console.log(d);
 };
 
 
