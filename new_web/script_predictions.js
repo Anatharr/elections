@@ -730,7 +730,7 @@ function configGrapheDeptT2(data) {
                         max: 100,
                         title: {
                             display: true,
-                            text: 'Pourcentages',
+                            text: 'Pourcentages %',
                             color: '#911',
                             font: {
                                 family: 'Calibri',
