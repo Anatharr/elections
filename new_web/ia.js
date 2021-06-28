@@ -24,8 +24,8 @@ async function load_model(year, canton) {
   const model = await tf.loadLayersModel(baseURL + '/models/'+year+'/'+duel+'/model.json');
 
   // Return a model that outputs an internal activation.
-  const layer = mobilenet.getLayer('conv_pw_13_relu');
-  return tf.model({inputs: mobilenet.inputs, outputs: layer.output});
+  // const layer = mobilenet.getLayer('conv_pw_13_relu');
+  // return tf.model({inputs: mobilenet.inputs, outputs: layer.output});
 }
 
 

@@ -281,12 +281,11 @@
                 <td style="border-left: 1px solid black;">
                     <label class="label_ia" for="deroulant_modele">Sélectionner un canton et le modèle d'IA à utiliser :</label>
 
-                    <div class="form_ia">
+                    <div class="form_ia_line">
                         <label id="label_dep">Département</label>
                         <select name="deroulant_canton" id="model_canton">
                             <option value="default">--- Canton ---</option>
                         </select>
-
                         <select name="deroulant_modele" id="model_year">
                             <option value="2015">Modèle 2015</option>
                         </select>
