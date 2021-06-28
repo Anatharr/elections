@@ -835,8 +835,8 @@ function recupererCsv (departement, canton) {
         let j = 0;
         let tab_final = [];
         //console.log(data);
-        for (let i = 0; i < data.length; i++) {
-            if (data[i][0] == departement) {
+        for (let i = 0; i < lines.length; i++) {
+            if (lines[i][0] == departement) {
                 ligne = i;
                 break;
 
@@ -844,10 +844,10 @@ function recupererCsv (departement, canton) {
         }
     
         j = ligne;
-        while (data[j][0] == departement) {
-            if (data[j][1] == canton) {
-                for (let k = 0; k < data[j].length; k++) {
-                    tab_final[k] = data[j][k];
+        while (lines[j][0] == departement) {
+            if (lines[j][1] == canton) {
+                for (let k = 0; k < lines[j].length; k++) {
+                    tab_final[k] = lines[j][k];
                     break;
                 }
 
