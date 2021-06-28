@@ -851,6 +851,7 @@ function recupererCsv(canton, departement) {
         }
         j++;
     }
+    console.log(test_csv);
     console.log(tab_final);
 }
 
