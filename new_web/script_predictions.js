@@ -433,21 +433,7 @@ function fill_cantons_predictions() {
 
         success: function(obj, textstatus) {
             if (!('error' in obj)) {
-                const dataT1 = obj.result;
-                dataT1.forEach((e) => {
-                    var opt = document.createElement('option');
-                    opt.value = e[0];
-                    opt.innerHTML = e[1] + ' (' + e[0] + ')';
-                    cantonSelect.appendChild(opt);
-                })
-            } else {
-                console.log(obj.error);
-            }
-        },
-
-        success: function(obj, textstatus) {
-            if (!('error' in obj)) {
-                resultat_php_tab.forEach((e) => {
+                obj.result.forEach((e) => {
                     var opt = document.createElement('option');
                     opt.value = e[0];
                     opt.innerHTML = e[1] + ' (' + e[0] + ')';
@@ -789,22 +775,6 @@ function configGrapheDeptT2(data) {
 }
 
 
-
-function lectureCsv () {
-    $.ajax({
-    type: "GET",
-    url: "test.txt",
-    dataType: "text",
-    success: function(data) {
-        console.log("Les datas :" + data);
-    },
-    error: function () {
-        alert("Oh shit...");
-    }
-    });
-}
-
-
 function passage_parti_tour_2(data, canton) {
 
     let retour = [];
@@ -812,7 +782,7 @@ function passage_parti_tour_2(data, canton) {
     for (i = 0; i < data.length; i++) {
         if (data[i][0] == canton.toString()) {
             console.log("donnée :" + data[i][k]);
-            if (data[i][k] != null) {
+            while (data[i][k] != null) {
                 if (data[i][k + 1] > 50.0) {
                     retour = [];
                     retour = data[i][k];
@@ -824,11 +794,19 @@ function passage_parti_tour_2(data, canton) {
                     k = k + 2;
                 }
             }
+            console.log("12.5% :" + retour);
+            return retour;
         }
-        console.log("12.5% :" + retour);
-        return retour;
     }
 }
 
-
-
+function recupererCsv () {
+    $.ajax({
+        url: '/test.txt',
+        type: 'GET',
+        dataType: 'text',
+        success: function(data) {
+            console.log(data);
+        }
+    });
+}
