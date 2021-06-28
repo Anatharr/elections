@@ -63,7 +63,6 @@ function getDuel(data, canton) {
 
 
 async function load_model(year, canton) {
-    var duel;
 
   jQuery.ajax({
       type: "POST",
@@ -85,8 +84,8 @@ async function load_model(year, canton) {
   })
 
 
-  duel = getDuel(dataT1, canton).sort();
-  console.log(duel)
+  var duel = getDuel(dataT1, canton).sort();
+  console.log("DUEL :" +duel)
 
   if (duel.length<2) {
     alert("La détection automatique a détecté une majorité absolue, pour faire une prédiction veuillez choisir un modèle manuellement.");
@@ -113,7 +112,7 @@ function lancer_prediction() {
     const model = load_model(year, canton)
     if (model==null) return;
 
-    console.log(duel);
+    //console.log(duel);
 
 
 
