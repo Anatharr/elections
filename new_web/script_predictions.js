@@ -821,7 +821,7 @@ function recupererCsv (departement, canton) {
 
                 var tarr = [];
                 for (var y=0; y<headers.length; y++) {
-                    tarr.push(headers[y]+":"+data[y]);
+                    tarr.push(data[y]);
                 }
                 lines.push(tarr);
             }
