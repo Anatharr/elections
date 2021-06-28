@@ -829,5 +829,5 @@ function CSVAJAX(filepath,callback)
     this.request.send();
 };
 
-var test_csv = requestCSV("test.txt",drawlines(lines)); 
+var test_csv = requestCSV("test.txt"); 
 console.log(test_csv);
