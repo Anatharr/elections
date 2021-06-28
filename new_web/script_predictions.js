@@ -825,13 +825,12 @@ function CSVAJAX(filepath)
 
     };
     this.request.send();
-    console.log(d);
 };
 
 
 function recupererCsv(canton, departement) {
     var test_csv = requestCSV("test.txt"); 
-    //console.log(test_csv);
+    console.log(test_csv);
     canton = '4';
     departement = '2';
     let ligne;
