@@ -288,7 +288,7 @@
                             <option value="default">--- Canton ---</option>
                         </select>
                         <select name="deroulant_modele" id="model_year">
-                            <option value="2015">Modèle 2015</option>
+                            <option value="2015">Modèle 2015 (automatique)</option>
                         </select>
 
                         <button class="button_dep" type="button" onclick="lancer_prediction()">Prédire</button>

@@ -54,9 +54,6 @@ function getDuel(data, canton) {
 
 async function load_model(year, canton) {
 
-  const year = document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value
-  const canton = document.getElementById("dep_choix").options[deroulant_dep.selectedIndex].value
-
   jQuery.ajax({
       type: "POST",
       url: 'traitement.php',
@@ -65,7 +62,7 @@ async function load_model(year, canton) {
 
       success: function(obj, textstatus) {
           if (!('error' in obj)) {
-              dataT1 = obj.result
+              var dataT1 = obj.result
           } else {
               console.log(obj.error);
           }
@@ -77,7 +74,8 @@ async function load_model(year, canton) {
   })
 
 
-  // duel = getDuel(data, )
+  duel = getDuel(dataT1, canton).sort().join('_');
+  console.log(duel)
 
   const model = await tf.loadLayersModel('/models/'+year+'/'+duel+'/model.json');
   return model;
