@@ -282,7 +282,7 @@
         <table>
             <tr>
                 <td>
-                    <div class="resultats_ia" style='display: none;'>
+                    <div class="resultats_ia" style='display: none; padding-right: 10%;'>
                         <br>
                         <div id="tab_chaine_ia_div"></div>
                     </div>                                        

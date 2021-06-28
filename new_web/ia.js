@@ -141,6 +141,8 @@ async function lancer_prediction() {
 
     output = tf.tensor([0.12, 0.44]).expandDims(0)
 
+    output = await output.array()
+
     var duel = getDuel(dataT1, canton)
 
 
@@ -154,7 +156,7 @@ async function lancer_prediction() {
     }
     chaine += "<tr id='ligne2_chaine_ia'>"
     for (let j = 0; j < duel.length; j++) {
-        chaine += "<td>" + output.array()[j] + "</td>";
+        chaine += "<td>" + output[j] + "</td>";
     }
     chaine += "</tr>" + "</table>";
     tab_pred_ia.innerHTML = chaine;
