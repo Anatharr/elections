@@ -39,25 +39,19 @@ function getDuel(data, canton) {
     let k = 2;
     for (i = 0; i < data.length; i++) {
         if (data[i][0] == canton) {
-            console.log("donnée :" + data[i][k]);
-            console.log("Inscrits :" + parseFloat(data[i][k + 1]));
-            console.log("Exprimés :" + parseFloat(data[i][k + 2]));
             while (data[i][k] != null) {
                 if (parseFloat(data[i][k + 2]) > 50.0 && parseFloat(data[i][k + 1] > 25.0)) {
                     retour = [];
                     retour.push(data[i][k]);
-                    console.log("majorité absolue :" + retour);
                     return retour;
                 }
                 if (parseFloat(data[i][k + 2]) > 12.5) {
                     retour.push(data[i][k]);
-                    console.log("Plus de 12.5% des voix :" + retour);
                 }
                 k = k + 3;
             }
         }
     }
-    console.log("résultat :" + retour);
     return retour;
 }
 
@@ -99,8 +93,6 @@ async function lancer_prediction() {
         return;
     }
 
-    console.log('DPT : '+dpt)
-
     var dataT1 = await $.ajax({
         type: "POST",
         url: 'traitement.php',
@@ -114,7 +106,7 @@ async function lancer_prediction() {
         console.log(dataT1.error);
         return;
     }
-    console.log(dataT1)
+
     dataT1 = dataT1.result;
 
     const model = await load_model(dataT1, year, canton);
@@ -122,11 +114,10 @@ async function lancer_prediction() {
 
     const inputData = await recupererCsv(dpt, canton)
 
-    console.log('Received')
-    console.log(inputData)
-    console.log(model)
 
-    tab_pred_ia = document.getElementByClassName('resultats_ia');
+
+
+    tab_pred_ia = document.getElementsByClassName('resultats_ia');
     let chaine = "<table id = 'tab_chaine_ia'>"
     chaine += "<tr id = 'ligne1_chaine_ia'>"
     for (let i = 0; i < getDuel(a, b).length; i++) {
@@ -151,11 +142,11 @@ function recupererCsv(departement, canton) {
         success: function(data) {
 
             var allTextLines = data.split(/\r\n|\n/);
-            var headers = allTextLines[0].split(',');
+            var headers = allTextLines[0].split(';');
             var lines = [];
 
             for (var x = 1; x < allTextLines.length; x++) {
-                var data = allTextLines[x].split(',');
+                var data = allTextLines[x].split(';');
                 if (data.length == headers.length) {
 
                     var tarr = [];
