@@ -112,6 +112,8 @@ function lancer_prediction() {
     const model = load_model(year, canton)
     if (model==null) return;
 
+    console.log(duel);
+
 
 
 
