@@ -822,6 +822,7 @@ function CSVAJAX(filepath,callback)
                 d.splice(i,1);
         }
         this.parent.response = d;
+        var tab_csv = this.parent.response;
 
     };
     this.request.send();
@@ -829,3 +830,29 @@ function CSVAJAX(filepath,callback)
 
 var test_csv = requestCSV("test.txt"); 
 console.log(test_csv);
+
+function recupererCsv(canton, departement) {
+    canton = '4';
+    departement = '2';
+    let ligne;
+    let j = 0;
+    let tab_final = [];
+    for (let i = 0; i < tab_csv.length; i++) {
+        if (tab_csv[i][0] == departement) {
+            ligne = i;
+
+        }
+    }
+    j = ligne;
+    while (tab_csv[j][0] == departement) {
+        if (tab_csv[j][1] == canton) {
+            for (let k = 0; k < tab_csv[j].length; k++) {
+                tab_final[k] = tab_csv[j][k];
+            }
+
+        }
+        j++;
+    }
+    console.log(tab_final);
+}
+
