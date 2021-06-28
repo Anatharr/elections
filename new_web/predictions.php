@@ -56,7 +56,6 @@
         <p id="texte_choix_echelle">Choisissez les éléctions qui vous intéressent :</p>
     </div>
 
-    <button type="button" onclick="processData()">CLICK</button>
 
 
     <div class="images_map">
@@ -300,12 +299,13 @@
 
 
 
-    <script src="script_predictions.js"></script>
+    
     <script src="script_accueil.js"></script>
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
     <script src="boutonremonter.js"></script>
     <script src="ia.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+    <script src="script_predictions.js"></script>
     
     
 
