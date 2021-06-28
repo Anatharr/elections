@@ -91,6 +91,7 @@ function load_image(year, modelname) {
   img = document.getElementById('image_ia');
   img.src = "/models/"+year+"-figures/"+modelname+".png";
   document.getElementsByClassName('details_ia')[0].style.display = 'block';
+  document.getElementsById('model_name_image').innerHTML = modelname;
 }
 
 async function lancer_prediction() {
@@ -132,11 +133,13 @@ async function lancer_prediction() {
         return;
     }
 
-    console.table(inputData);
+
+
+    input = tf.tensor(inputData[0])
+    output = model.predict(input).array()
 
 
     var duel = getDuel(dataT1, canton)
-
 
     tab_pred_ia = document.getElementsByClassName('resultats_ia');
     let chaine = "<table id = 'tab_chaine_ia'>"
@@ -146,10 +149,11 @@ async function lancer_prediction() {
     }
     chaine += "<tr id = 'ligne2_chaine_ia'>"
     for (let j = 0; j < duel.length; j++) {
-        chaine += "<td>" + "pourcentage..." + "</td>";
+        chaine += "<td>" + output[j] + "</td>";
     }
     chaine += "</tr>" + "</table>";
     tab_pred_ia.innerHTML = chaine;
+    console.log(chaine);
 
 }
 
