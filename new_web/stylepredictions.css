@@ -1097,8 +1097,12 @@ h2 {
     color: rgb(60, 60, 60);
 }
 
-#tab_chaine_ia {
+#tab_chaine_ia_div {
     margin-right: 10%;
+    position: relative;
+}
+
+#tab_chaine_ia {
     border-collapse: collapse;
     margin: 0 auto;
     margin-bottom: 3%;
