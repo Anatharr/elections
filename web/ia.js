@@ -37,7 +37,7 @@ async function load_model(dataT1, year, canton, modelname) {
             result = []
             Object.entries(obj.result).forEach(([year, line]) => {
                 line.forEach(e => {
-                    result.append(year+'_'+e)
+                    result.push(year+'_'+e)
                 })
             })
 
