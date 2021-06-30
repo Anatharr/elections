@@ -23,6 +23,26 @@ function getDuel(data, canton) {
 
 async function load_model(dataT1, year, canton, modelname) {
 
+    available_models = await $.ajax({
+        type: "POST",
+        url: 'traitement.php',
+        dataType: 'json',
+        data: { functionname: 'get_available_models', arguments: '' },
+
+        success: function(obj, textstatus) {
+            if ('error' in obj) {
+                console.log(obj.error)
+                return
+            }
+
+            return obj.result
+        },
+
+        error: function(chr, ajaxOptions, thrownError) {
+            console.log(chr.responseText); //Ce code affichera le message d'erreur, ici Message d'erreur.
+        }
+    });
+
     modelname = modelname=='default' ? 'default' : modelname.slice(5)
 
     if (modelname=='default') {
@@ -172,26 +192,3 @@ function recupererCsv(departement, canton) {
         }
     });
 }
-
-
-// async function predict() {
-//   // Capture the frame from the webcam.
-//   const img = await getImage();
-
-//   // Make a prediction through mobilenet, getting the internal activation of
-//   // the mobilenet model, i.e., "embeddings" of the input images.
-//   const embeddings = truncatedMobileNet.predict(img);
-
-//   // Make a prediction through our newly-trained model using the embeddings
-//   // from mobilenet as input.
-//   const predictions = model.predict(embeddings);
-
-//   // Returns the index with the maximum probability. This number corresponds
-//   // to the class the model thinks is the most probable given the input.
-//   const predictedClass = predictions.as1D().argMax();
-//   const classId = (await predictedClass.data())[0];
-//   img.dispose();
-
-//   ui.predictClass(classId);
-//   await tf.nextFrame();
-// }
