@@ -42,37 +42,6 @@ section_region.style.display = "none";
 section_france.style.display = "none";
 
 
-$(document).ready(function (){
-    alert('test');
-    $.ajax({
-        type: "POST",
-        url: 'traitement.php',
-        dataType: 'json',
-        data: { functionname: 'get_all_years', arguments: '' },
-
-        success: function(obj, textstatus) {
-            console.log(obj.result)
-            if ('error' in obj) {
-                console.log(obj.error)
-                return
-            }
-            
-            sel = document.getElementById("dep_annee_choix")
-            res = obj.result.filter(e => (/t1_\d+_/).test(e)).map(e => e[0].slice(3,7))
-            res.forEach(e => {
-                var opt = document.createElement('option')
-                opt.value = e
-                opt.innerHTML = e
-                sel.appendChild(opt)
-            })
-        },
-
-        error: function(chr, ajaxOptions, thrownError) {
-            console.log(chr.responseText); //Ce code affichera le message d'erreur, ici Message d'erreur.
-        }
-   });
-});
-
 
 /* AFFICHAGE DES MENUS DEROULANTS */
 
