@@ -324,12 +324,7 @@
                 break;
 
             case 'get_all_years':
-                if (isset($_POST['arguments'])) {
-                    $resultat_requete['error'] = "Erreur d'arguments !";
-                }
-                else {
-                    $resultat_requete['result'] = get_all_years();
-                }
+                $resultat_requete['result'] = get_all_years();
                 break;
 
             default:

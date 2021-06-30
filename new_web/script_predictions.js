@@ -47,9 +47,10 @@ $(document).ready(function (){
         type: "POST",
         url: 'traitement.php',
         dataType: 'json',
-        data: { functionname: 'get_all_years' },
+        data: { functionname: 'get_all_years', arguments: '' },
 
         success: function(obj, textstatus) {
+            console.log(obj.result)
             if ('error' in obj) {
                 console.log(obj.error)
                 return
