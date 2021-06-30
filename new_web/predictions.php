@@ -357,7 +357,7 @@
                     }
                     console.log(obj.result)
                     sel = document.getElementById('model_name')
-                    obj.result.forEach((line, year) => {
+                    Object.entries(obj.result).forEach((year, line) => {
                         line.forEach(e => {
                             var opt = document.createElement('option');
                             opt.value = year + '_' + e;
