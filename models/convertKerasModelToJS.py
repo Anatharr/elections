@@ -26,3 +26,5 @@ for name in models:
 
 
 os.rmdir('tmp_figures')
+os.rmdir('models')
+os.mkdir('models')

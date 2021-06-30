@@ -29,26 +29,30 @@ async function load_model(dataT1, year, canton, modelname) {
         dataType: 'json',
         data: { functionname: 'get_available_models', arguments: '' },
 
-        error: function(chr, ajaxOptions, thrownError) {
-            console.log(chr.responseText); //Ce code affichera le message d'erreur, ici Message d'erreur.
-        }
-    }).then((obj, textstatus) => {
+        success: function(obj, textstatus) {
             if ('error' in obj) {
                 console.log(obj.error)
                 return
             }
+            result = []
+            Object.entries(obj.result).forEach(([year, line]) => {
+                line.forEach(e => {
+                    result.append(year+'_'+e)
+                })
+            })
 
-            return obj.result
+            return result
         },
-    );
 
-    console.log(available_models)
+        error: function(chr, ajaxOptions, thrownError) {
+            console.log(chr.responseText); //Ce code affichera le message d'erreur, ici Message d'erreur.
+        }
+    });
 
-    modelname = modelname=='default' ? 'default' : modelname.slice(5)
 
     if (modelname=='default') {
       var duel = getDuel(dataT1, canton);
-      console.log("DUEL :" + duel);
+      console.log("DUEL détecté:" + duel);
 
       if (duel.length < 2) {
           alert("La détection automatique a détecté une majorité absolue, pour faire une prédiction veuillez choisir un modèle manuellement.");
