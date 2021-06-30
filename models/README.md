@@ -12,4 +12,4 @@ Lorsque tous les modèles vous conviennent, vous pouvez enregistrer vos modèles
 Les modèles enregistrés de cette façon doivent être convertis à l'aide du fichier **convertKerasModelToJS.py** afin que le le site web puisse charger nos modèles. Il faut ensuite déplacer le contenu du dossier js dans le dossier **../web/models**.
 
 
-Remarque : la cellule fake prédiction simule une prédiction sur les données des élections de 2015 car nous n'avons pas eu le temps d'intégrer les données de 2021 dans la base de données du site. Les prédictions du site sont faites à partir des données d'entrainement de l'IA.
+Remarque : la cellule **fake prédiction** dans **Stilection_Bvot_model.ipynb** simule une prédiction sur les données des élections de 2015 car nous n'avons pas eu le temps d'intégrer les données de 2021 dans la base de données du site. Les prédictions du site sont faites à partir des données d'entrainement de l'IA.
