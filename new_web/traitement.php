@@ -222,6 +222,31 @@
     }
     
 
+        function get_all_years() {
+
+        $result = array();
+
+        // Connexion, sélection de la base de données
+        $dbconn = pg_connect("host=localhost dbname=electionsdb user=pi password=estilections")
+        or die('Connexion impossible : ' . pg_last_error());
+
+        $query = "SELECT tablename FROM pg_catalog.pg_tables WHERE schemaname != 'pg_catalog' AND schemaname != 'information_schema';"
+
+        $res = pg_query($dbconn, $query) or die('Échec de la requête : ' . pg_last_error());
+
+        // Ferme la connexion
+        pg_close($dbconn);
+
+        while ($row = pg_fetch_row($res)) {
+            $result[] = $row;
+        }
+
+        //On retourne la requête
+        return $result;
+
+    }
+
+
     header('Content-Type: application/json');
 
     $resultat_requete = array();
@@ -295,6 +320,15 @@
                 }
                 else {
                     $resultat_requete['result'] = estimation_tour_2_region( intval($_POST['arguments'][0]), strval($_POST['arguments'][1]) );
+                }
+                break;
+
+            case 'get_all_years':
+                if (isset($_POST['arguments'])) {
+                    $resultat_requete['error'] = "Erreur d'arguments !";
+                }
+                else {
+                    $resultat_requete['result'] = get_all_years();
                 }
                 break;
 

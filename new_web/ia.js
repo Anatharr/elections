@@ -14,25 +14,6 @@ $(document).ready(function() {
     })
 });
 
-async function getData(year) {
-    const dataset = await fetch('/datasets/XDataFR_' + year + '_Can.csv');
-
-    // const carsData = await carsDataResponse.json();
-    // const cleaned = carsData.map(car => ({
-    //   mpg: car.Miles_per_Gallon,
-    //   horsepower: car.Horsepower,
-    // }))
-    // .filter(car => (car.mpg != null && car.horsepower != null));
-
-
-    // const img = await webcam.capture();
-    // const processedImg =
-    //     tf.tidy(() => img.expandDims(0).toFloat().div(127).sub(1));
-    // img.dispose();
-    // return processedImg;
-
-    // return cleaned;
-}
 
 function getDuel(data, canton) {
     let retour = [];

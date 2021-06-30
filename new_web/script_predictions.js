@@ -42,6 +42,35 @@ section_region.style.display = "none";
 section_france.style.display = "none";
 
 
+$(document).ready(function (){
+    $.ajax({
+        type: "POST",
+        url: 'traitement.php',
+        dataType: 'json',
+        data: { functionname: 'get_all_years' },
+
+        success: function(obj, textstatus) {
+            if ('error' in obj) {
+                console.log(obj.error)
+                return
+            }
+            
+            sel = document.getElementById("dep_annee_choix")
+            obj.result.forEach(e => {
+                var opt = document.createElement('option')
+                opt.value = e
+                opt.innerHTML = e
+                sel.appendChild(opt)
+            })
+        },
+
+        error: function(chr, ajaxOptions, thrownError) {
+            console.log(chr.responseText); //Ce code affichera le message d'erreur, ici Message d'erreur.
+        }
+   });
+});
+
+
 /* AFFICHAGE DES MENUS DEROULANTS */
 
 function afficherDeroulantDep() {
@@ -172,57 +201,8 @@ function rechercher_données_tour_1() {
             chaine += "<tr id='tour1_ligne_titres_dep'>";
             chaine += "<th class='tour1_colonne_dep'>Code canton</th>";
             chaine += "<th class='tour1_colonne_dep'>Nom canton</th>";
-            chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
-            chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
-            chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
-            chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
-            chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
-            chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
-            chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
-            chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
-            chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
-            chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
-            chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
-            chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
-            chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
-            chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
-            chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
-            chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
-            chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
-            chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
-            chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
-            chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
-            chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
-            chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
-            switch (document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value) {
-                case "2008":
-                    break;
-
-                case "2011":
-                    chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
-                    chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
-                    chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
-                    chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
-                    break;
-
-                case "2015":
-                    chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
-                    chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
-                    break;
-
-                case "2021":
-                    chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
-                    chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
-                    chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
-                    chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
-                    chaine += "<th class='tour1_colonne_dep'>Nuance</th>";
-                    chaine += "<th class='tour1_colonne_dep'>% voix/exprimés</th>";
-                    break;
-
-                default:
-                    console.log("Année invalide");
-                    break;
-            }
+            chaine += "<th class='tour1_colonne_dep'>Nuance</th>\
+                       <th class='tour1_colonne_dep'>% voix/exprimés</th>".repeat(resultat_php[0].length-2);
             chaine += "</tr>";
             let j;
             resultat_php_tab = new Array(resultat_php.length);
@@ -247,45 +227,12 @@ function rechercher_données_tour_1() {
             var lignes_tour_1 = document.getElementsByClassName("tour1_ligne_dep");
             var titres_tour_1 = document.getElementById("tour1_ligne_titres_dep").getElementsByTagName("th");
             for (i = 0; i < lignes_tour_1.length; i++) {
-                switch (document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value) {
-
-                    case "2008":
-                        lignes_tour_1[i].style.fontSize = "70%";
-                        break;
-                    case "2011":
-                        lignes_tour_1[i].style.fontSize = "64%";
-                        break;
-                    case "2015":
-                        lignes_tour_1[i].style.fontSize = "60%";
-                        break;
-                    case "2021":
-                        lignes_tour_1[i].style.fontSize = "60%";
-                        break;
-                    default:
-                        lignes_tour_1[i].style.fontSize = "60%";
-                        break;
-
-                }
-            }
-            for (i = 0; i < titres_tour_1.length; i++) {
-                switch (document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value) {
-
-                    case "2008":
-                        titres_tour_1[i].style.fontSize = "70%";
-                        break;
-                    case "2011":
-                        titres_tour_1[i].style.fontSize = "64%";
-                        break;
-                    case "2015":
-                        titres_tour_1[i].style.fontSize = "60%";
-                        break;
-                    case "2021":
-                        titres_tour_1[i].style.fontSize = "60%";
-                        break;
-                    default:
-                        titres_tour_1[i].style.fontSize = "60%";
-                        break;
-
+                if (lignes_tour_1[i].length <= 24) {
+                    lignes_tour_1[i].style.fontSize = "70%";
+                } else if (lignes_tour_1[i].length <= 26) {
+                    lignes_tour_1[i].style.fontSize = "64%";
+                } else {
+                    lignes_tour_1[i].style.fontSize = "60%";
                 }
             }
             let scrollDiv = document.getElementById("graph_dep").offsetTop;
@@ -337,34 +284,8 @@ function rechercher_données_tour_2() {
                 chaine += "<tr id='tour2_ligne_titres_dep'>";
                 chaine += "<th class='tour2_colonne_dep'>Code canton</th>";
                 chaine += "<th class='tour2_colonne_dep'>Nom canton</th>";
-                chaine += "<th class='tour2_colonne_dep'>Nuance</th>";
-                chaine += "<th class='tour2_colonne_dep'>% voix/exprimés</th>";
-                chaine += "<th class='tour2_colonne_dep'>Nuance</th>";
-                chaine += "<th class='tour2_colonne_dep'>% voix/exprimés</th>";
-                chaine += "<th class='tour2_colonne_dep'>Nuance</th>";
-                chaine += "<th class='tour2_colonne_dep'>% voix/exprimés</th>";
-                switch (document.getElementById("dep_annee_choix").options[deroulant_dep_annee.selectedIndex].value) {
-                    case "2008":
-                        chaine += "<th class='tour2_colonne_dep'>Nuance</th>";
-                        chaine += "<th class='tour2_colonne_dep'>% voix/exprimés</th>";
-                        break;
-
-                    case "2011":
-                        break;
-
-                    case "2015":
-                        break;
-
-                        //case "2021":
-
-                        /* /!\ Modifier en fonction des données de 2021 /!\ */
-
-                        //break;
-
-                    default:
-                        console.log("Année invalide");
-                        break;
-                }
+                chaine += "<th class='tour1_colonne_dep'>Nuance</th>\
+                           <th class='tour1_colonne_dep'>% voix/exprimés</th>".repeat(resultat_php[0].length-2);
                 chaine += "</tr>";
                 for (i = 0; i < resultat_php.length; i++) {
                     chaine += "<tr class='tour2_ligne_dep'>";
@@ -596,7 +517,7 @@ function donneesGrapheDept(resultat_php) {
             break;
 
         default:
-            console.log("Année invalide");
+            console.log("Coloration spéciale indisponible car l'année n'est pas reconnue.");
             break;
     }
 
@@ -611,7 +532,7 @@ function donneesGrapheDept(resultat_php) {
     /* Initialisation des noms et des scores par nuance dans l'objet */
     for (i = 0; i < nombre_canton; i++) {
         for (j = 0; j < nombre_nuances; j++) {
-            obj_dept.cantons[i].parti[j] = { name: tab_nuances_graphe[j].nom_nuance, score: 0 };
+            obj_dept.cantons[i].parti[j] = { name: tab_nuances_graphe[j]?.nom_nuance, score: 0 };
         }
 
         /* Ajout des scores par parti dans l'objet en parcourant le resultat de la requete */
@@ -648,9 +569,9 @@ function donneesGrapheDept(resultat_php) {
     }
     for (let i = 0; i < nombre_nuances; i++) {
 
-        datasets_année[i].label = tab_nuances_graphe[i].nom_nuance;
+        datasets_année[i].label = tab_nuances_graphe[i]?.nom_nuance;
         datasets_année[i].data = tab[i];
-        datasets_année[i].backgroundColor = tab_nuances_graphe[i].backgroundColor;
+        datasets_année[i].backgroundColor = tab_nuances_graphe[i]?.backgroundColor;
 
     }
 
@@ -750,33 +671,5 @@ function configGrapheDeptT2(data) {
     } else {
         document.getElementById("graphe_t2").innerHTML = " ";
     }
-}
-
-
-function passage_parti_tour_2(data, canton) {
-
-    let retour = [];
-    let k = 2;
-    for (i = 0; i < data.length; i++) {
-        if (data[i][0] == canton.toString()) {
-            console.log("donnée :" + data[i][k]);
-            console.log("float :" + parseFloat(data[i][k + 1]));
-            while (data[i][k] != null) {
-                if (parseFloat(data[i][k + 1]) > 50.0) {
-                    retour = [];
-                    retour.push(data[i][k]);
-                    console.log("50% :" + retour);
-                    return retour;
-                }
-                if (parseFloat(data[i][k + 1]) > 12.5) {
-                    retour.push(data[i][k]);
-                    console.log("12.5% :" + retour);
-                }
-                k = k + 2;
-            }
-        }
-    }
-    console.log("résultat :" + retour);
-    return retour;
 }
 
