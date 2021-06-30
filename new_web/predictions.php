@@ -328,8 +328,7 @@
                     sel = document.getElementById("dep_annee_choix")
                     res = obj.result.filter(e => (/t1_\d+_/).test(e))
                                     .map(e => e[0].slice(3,7))
-                                    .filter((e,i) => res.indexOf(e)==i)
-                                    .sort()
+                    res = res.filter((e,i) => res.indexOf(e)==i).sort()
                     res.forEach(e => {
                         var opt = document.createElement('option')
                         opt.value = e
