@@ -217,10 +217,6 @@
         <div class="deroulant_reg_annee">
             <select name="reg_annee" id="reg_annee_choix" onchange="recuperer_region_annee()">
                 <option value="Default"> --- Année --- </option>
-                <option value="1998">1998</option>
-                <option value="2004">2004</option>
-                <option value="2010">2010</option>
-                <option value="2015">2015</option>
             </select>
         </div>
 
@@ -317,7 +313,6 @@
     <script src="ia.js"></script>
     <script type="text/javascript">
         $(document).ready(function (){
-            alert('test');
             $.ajax({
                 type: "POST",
                 url: 'traitement.php',
@@ -325,7 +320,6 @@
                 data: { functionname: 'get_all_years', arguments: '' },
 
                 success: function(obj, textstatus) {
-                    console.log(obj.result)
                     if ('error' in obj) {
                         console.log(obj.error)
                         return
@@ -333,6 +327,7 @@
                     
                     sel = document.getElementById("dep_annee_choix")
                     res = obj.result.filter(e => (/t1_\d+_/).test(e)).map(e => e[0].slice(3,7))
+                    res.filter((e,i) => res.indexOf(e)==i).sort()
                     res.forEach(e => {
                         var opt = document.createElement('option')
                         opt.value = e
