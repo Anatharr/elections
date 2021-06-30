@@ -29,24 +29,22 @@ async function load_model(dataT1, year, canton, modelname) {
         dataType: 'json',
         data: { functionname: 'get_available_models', arguments: '' },
 
-        success: function(obj, textstatus) {
-            if ('error' in obj) {
-                console.log(obj.error)
-                return
-            }
-            result = []
-            Object.entries(obj.result).forEach(([year, line]) => {
-                line.forEach(e => {
-                    result.push(year+'_'+e)
-                })
-            })
-
-            return result
-        },
-
         error: function(chr, ajaxOptions, thrownError) {
             console.log(chr.responseText); //Ce code affichera le message d'erreur, ici Message d'erreur.
         }
+    }).then((obj, textstatus) => {
+        if ('error' in obj) {
+            console.log(obj.error)
+            return
+        }
+        result = []
+        Object.entries(obj.result).forEach(([year, line]) => {
+            line.forEach(e => {
+                result.push(year+'_'+e)
+            })
+        })
+
+        return result
     });
 
     console.log(available_models)
@@ -60,16 +58,14 @@ async function load_model(dataT1, year, canton, modelname) {
           return null;
       }
 
-      duel = duel.join('_')
-      if (!available_models.includes(duel)) {
+      modelname = year+'_'+duel.join('_')
+      if (!available_models.includes(modelname)) {
           alert("La détection automatique n'a pas trouvé de modèle correspondant, veuillez sélectionner manuellement un modèle ou changer de canton.");
           return null;
       }
-      load_image(year, duel)
-      const model = await tf.loadLayersModel('/models/' + year + '/' + duel + '/model.json');
-      return model;
     }
-    else if (!available_models.includes(modelname)) {
+
+    if (!available_models.includes(modelname)) {
       alert("Le modèle spécifié n'a pas été trouvé.");
       return null;      
     }
