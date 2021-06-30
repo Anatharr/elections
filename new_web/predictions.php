@@ -76,10 +76,6 @@
         <div class="deroulant_dep_annee">
             <select name="dep_annee" id="dep_annee_choix" onchange="recuperer_departement_annee()">
                 <option value="Default"> --- Année --- </option>
-                <option value="2008">2008</option>
-                <option value="2011">2011</option>
-                <option value="2015">2015</option>
-                <option value="2021">2021</option>
             </select>
         </div>
 
@@ -217,10 +213,6 @@
         <div class="deroulant_reg_annee">
             <select name="reg_annee" id="reg_annee_choix" onchange="recuperer_region_annee()">
                 <option value="Default"> --- Année --- </option>
-                <option value="1998">1998</option>
-                <option value="2004">2004</option>
-                <option value="2010">2010</option>
-                <option value="2015">2015</option>
             </select>
         </div>
 
@@ -309,13 +301,73 @@
 
 
     
-    <script src="script_accueil.js"></script>
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
+    <script src="script_accueil.js"></script>
     <script src="boutonremonter.js"></script>
-    <script src="ia.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
     <script src="script_predictions.js"></script>
-    
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+    <script src="ia.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function (){
+            $.ajax({
+                type: "POST",
+                url: 'traitement.php',
+                dataType: 'json',
+                data: { functionname: 'get_all_years', arguments: '' },
+
+                success: function(obj, textstatus) {
+                    if ('error' in obj) {
+                        console.log(obj.error)
+                        return
+                    }
+                    
+                    sel = document.getElementById("dep_annee_choix")
+                    res = obj.result.filter(e => (/t1_\d+_/).test(e))
+                                    .map(e => e[0].slice(3,7))
+                    res = res.filter((e,i) => res.indexOf(e)==i).sort()
+                    res.forEach(e => {
+                        var opt = document.createElement('option')
+                        opt.value = e
+                        opt.innerHTML = e
+                        sel.appendChild(opt)
+                    })
+                },
+
+                error: function(chr, ajaxOptions, thrownError) {
+                    console.log(chr.responseText); //Ce code affichera le message d'erreur, ici Message d'erreur.
+                }
+            });
+
+
+            $.ajax({
+                type: "POST",
+                url: 'traitement.php',
+                dataType: 'json',
+                data: { functionname: 'get_available_models', arguments: '' },
+
+                success: function(obj, textstatus) {
+                    if ('error' in obj) {
+                        console.log(obj.error)
+                        return
+                    }
+
+                    sel = document.getElementById('model_name')
+                    Object.entries(obj.result).forEach(([year, line]) => {
+                        line.forEach(e => {
+                            var opt = document.createElement('option');
+                            opt.value = year + '_' + e;
+                            opt.innerHTML = 'Modèle ' + year + ' (' + e.split('_').map(e => e.slice(3)).join(' ') + ')';
+                            sel.appendChild(opt);
+                        })
+                    })
+                },
+
+                error: function(chr, ajaxOptions, thrownError) {
+                    console.log(chr.responseText); //Ce code affichera le message d'erreur, ici Message d'erreur.
+                }
+            });
+        });
+    </script>
     
 
 </body>
