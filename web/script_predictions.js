@@ -174,7 +174,7 @@ function rechercher_données_tour_1() {
             chaine += "<th class='tour1_colonne_dep'>Code canton</th>";
             chaine += "<th class='tour1_colonne_dep'>Nom canton</th>";
             chaine += "<th class='tour1_colonne_dep'>Nuance</th>\
-                       <th class='tour1_colonne_dep'>% voix/exprimés</th>".repeat(resultat_php[0].length-2);
+                       <th class='tour1_colonne_dep'>% voix/exprimés</th>".repeat((resultat_php[0].length-2)/2);
             chaine += "</tr>";
             let j;
             resultat_php_tab = new Array(resultat_php.length);
@@ -257,7 +257,7 @@ function rechercher_données_tour_2() {
                 chaine += "<th class='tour2_colonne_dep'>Code canton</th>";
                 chaine += "<th class='tour2_colonne_dep'>Nom canton</th>";
                 chaine += "<th class='tour1_colonne_dep'>Nuance</th>\
-                           <th class='tour1_colonne_dep'>% voix/exprimés</th>".repeat(resultat_php[0].length-2);
+                           <th class='tour1_colonne_dep'>% voix/exprimés</th>".repeat((resultat_php[0].length-2)/2);
                 chaine += "</tr>";
                 for (i = 0; i < resultat_php.length; i++) {
                     chaine += "<tr class='tour2_ligne_dep'>";

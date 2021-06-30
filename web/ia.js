@@ -29,7 +29,10 @@ async function load_model(dataT1, year, canton, modelname) {
         dataType: 'json',
         data: { functionname: 'get_available_models', arguments: '' },
 
-        success: function(obj, textstatus) {
+        error: function(chr, ajaxOptions, thrownError) {
+            console.log(chr.responseText); //Ce code affichera le message d'erreur, ici Message d'erreur.
+        }
+    }).then((obj, textstatus) => {
             if ('error' in obj) {
                 console.log(obj.error)
                 return
@@ -37,11 +40,7 @@ async function load_model(dataT1, year, canton, modelname) {
 
             return obj.result
         },
-
-        error: function(chr, ajaxOptions, thrownError) {
-            console.log(chr.responseText); //Ce code affichera le message d'erreur, ici Message d'erreur.
-        }
-    });
+    );
 
     modelname = modelname=='default' ? 'default' : modelname.slice(5)
 
@@ -76,7 +75,7 @@ async function load_model(dataT1, year, canton, modelname) {
 
 function load_image(year, modelname) {
   img = document.getElementById('image_ia');
-  img.src = "/models/"+year+"-figures/"+modelname+".png";
+  img.src = "/models/"+year+"/"+modelname+"/figure.png";
   document.getElementsByClassName('details_ia')[0].style.display = 'block';
   document.getElementById('model_name_image').innerHTML = modelname;
 }
