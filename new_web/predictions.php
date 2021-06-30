@@ -60,6 +60,7 @@
 
     <div class="images_map">
         <img class="dep" id="img_dep" src="images/dep_nb.png" onmouseover="this.src='images/dep_couleur.png'"
+            onmouseout="this.src='images/dep_nb.png'" onclick="afficherDeroulantDep()" alt="Images département">
         <img class="reg" id="img_reg" src="images/reg_nb.png" onmouseover="this.src='images/reg_couleur.png'"
             onmouseout="this.src='images/reg_nb.png'" onclick="afficherDeroulantReg()" alt="Images région">
         <img class="fr" id="img_fr" src="images/fr_nb.png" onmouseover="this.src='images/fr_couleur.png'"
@@ -67,6 +68,7 @@
     </div>
 
     <div class="section_departement" id="section_departement">
+
         <div class="label_deroulant_dep_annee">
             <label for="dep_annee_choix"> Sélectionner une année :</label>
         </div>
@@ -76,7 +78,9 @@
                 <option value="Default"> --- Année --- </option>
             </select>
         </div>
+
         <div class="label_deroulant_dep">
+            <label for="dep_choix"> Sélectionner un département :</label>
         </div>
 
         <div class="deroulant_dep">
@@ -101,9 +105,10 @@
                 <option value="17">17 - Charente-Maritime</option>
                 <option value="18">18 - Cher</option>
                 <option value="19">19 - Corrèze</option>
-
+                <option value="21">21 - Côte-d'Or</option>
                 <option value="22">22 - Côtes-d'Armor</option>
                 <option value="23">23 - Creuse</option>
+                <option value="24">24 - Dordogne</option>
                 <option value="25">25 - Doubs</option>
                 <option value="26">26 - Drôme</option>
                 <option value="27">27 - Eure</option>
