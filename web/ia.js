@@ -49,6 +49,7 @@ async function load_model(dataT1, year, canton, modelname) {
         }
     });
 
+    console.log(available_models)
 
     if (modelname=='default') {
       var duel = getDuel(dataT1, canton);
