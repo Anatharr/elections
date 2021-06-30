@@ -42,6 +42,8 @@ async function load_model(dataT1, year, canton, modelname) {
         },
     );
 
+    console.log(available_models)
+
     modelname = modelname=='default' ? 'default' : modelname.slice(5)
 
     if (modelname=='default') {
