@@ -341,7 +341,36 @@
                 error: function(chr, ajaxOptions, thrownError) {
                     console.log(chr.responseText); //Ce code affichera le message d'erreur, ici Message d'erreur.
                 }
-           });
+            });
+
+
+            $.ajax({
+                type: "POST",
+                url: 'traitement.php',
+                dataType: 'json',
+                data: { functionname: 'get_available_models', arguments: '' },
+
+                success: function(obj, textstatus) {
+                    if ('error' in obj) {
+                        console.log(obj.error)
+                        return
+                    }
+                    console.log(obj.result)
+                    sel = document.getElementById('model_name')
+                    obj.result.forEach((line, year) => {
+                        line.forEach(e => {
+                            var opt = document.createElement('option');
+                            opt.value = year + '_' + e;
+                            opt.innerHTML = 'Modèle ' + year + ' (' + e.split('_').map(e => e.slice(3)).join(' ') + ')';
+                            sel.appendChild(opt);
+                        })
+                    })
+                },
+
+                error: function(chr, ajaxOptions, thrownError) {
+                    console.log(chr.responseText); //Ce code affichera le message d'erreur, ici Message d'erreur.
+                }
+            });
         });
     </script>
     

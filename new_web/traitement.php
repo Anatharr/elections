@@ -222,8 +222,7 @@
     }
     
 
-        function get_all_years() {
-
+    function get_all_years() {
         $result = array();
 
         // Connexion, sélection de la base de données
@@ -231,7 +230,6 @@
         or die('Connexion impossible : ' . pg_last_error());
 
         $query = "SELECT tablename FROM pg_catalog.pg_tables WHERE schemaname != 'pg_catalog' AND schemaname != 'information_schema';";
-
         $res = pg_query($dbconn, $query) or die('Échec de la requête : ' . pg_last_error());
 
         // Ferme la connexion
@@ -244,6 +242,15 @@
         //On retourne la requête
         return $result;
 
+    }
+
+    function get_all_years() {
+        $result = array();
+        foreach (scandir('models') as $year) {
+            $result[$year] = scandir('models/'.$year);
+        }
+        
+        return $result;
     }
 
 
@@ -325,6 +332,10 @@
 
             case 'get_all_years':
                 $resultat_requete['result'] = get_all_years();
+                break;
+
+            case 'get_available_models':
+                $resultat_requete['result'] = get_available_models();
                 break;
 
             default:
