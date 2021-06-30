@@ -230,7 +230,7 @@
         $dbconn = pg_connect("host=localhost dbname=electionsdb user=pi password=estilections")
         or die('Connexion impossible : ' . pg_last_error());
 
-        $query = "SELECT tablename FROM pg_catalog.pg_tables WHERE schemaname != 'pg_catalog' AND schemaname != 'information_schema';"
+        $query = "SELECT tablename FROM pg_catalog.pg_tables WHERE schemaname != 'pg_catalog' AND schemaname != 'information_schema';";
 
         $res = pg_query($dbconn, $query) or die('Échec de la requête : ' . pg_last_error());
 
