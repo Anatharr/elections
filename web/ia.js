@@ -58,14 +58,14 @@ async function load_model(dataT1, year, canton, modelname) {
           return null;
       }
 
-      modelname = year+'_'+duel.join('_')
-      if (!available_models.includes(modelname)) {
+      modelname = duel.join('_')
+      if (!available_models.includes(year+'_'+modelname)) {
           alert("La détection automatique n'a pas trouvé de modèle correspondant, veuillez sélectionner manuellement un modèle ou changer de canton.");
           return null;
       }
     }
 
-    if (!available_models.includes(modelname)) {
+    if (!available_models.includes(year+'_'+modelname)) {
       alert("Le modèle spécifié n'a pas été trouvé.");
       return null;      
     }
@@ -90,7 +90,7 @@ async function lancer_prediction() {
     const modelname = modelSelect.options[modelSelect.selectedIndex].value
     const dpt = dptSelect.options[dptSelect.selectedIndex].value
     const canton = cantonSelect.options[cantonSelect.selectedIndex].value
-    const year=2015;
+    const year=2015; // Pour l'instant nous n'avons implémenté que des modèles pour 2015 mais le système est prévu pour des modèles entrainés sur différentes années
 
     if (canton == 'default') {
         alert("Veuillez spécifier un canton pour réaliser la prédiction.");
