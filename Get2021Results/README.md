@@ -17,4 +17,7 @@ Pour extraire les données au niveau cantonnal, il faut utiliser la commande sui
 scrapy runspider GetCantons.py -O cantons.csv
 ```
 
-Attention, le script dépend entièrement du site web du gouvernement, qui peut changer à tout moment. Avant utilisation veuillez adapter le script aux éventuels changements.
+Pour les autres échelles il suffit d'adapter la commande.
+
+
+**Attention, le script dépend entièrement du site web du gouvernement, qui peut changer à tout moment. Avant utilisation veuillez adapter le script aux éventuels changements.**

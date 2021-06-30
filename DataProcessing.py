@@ -260,19 +260,3 @@ if __name__ == '__main__':
     # print(dataT1Can.dtypes)
 
     # dataT1Can.to_csv("dataset/raw/Dep_21_CanLine.csv", sep=';', index=False)
-
-
-
-
-#model representation with Embedding
-# input = tf.keras.Input(shape=(100,), dtype='int32', name='input')
-# x = tf.keras.layers.Embedding(
-#     output_dim=512, input_dim=10000, input_length=100)(input)
-# x = tf.keras.layers.LSTM(32)(x)
-# x = tf.keras.layers.Dense(64, activation='relu')(x)
-# x = tf.keras.layers.Dense(64, activation='relu')(x)
-# x = tf.keras.layers.Dense(64, activation='relu')(x)
-# output = tf.keras.layers.Dense(1, activation='sigmoid', name='output')(x)
-# model = tf.keras.Model(inputs=[input], outputs=[output])
-# dot_img_file = '/tmp/model_1.png'
-# tf.keras.utils.plot_model(model, to_file=dot_img_file, show_shapes=True)
