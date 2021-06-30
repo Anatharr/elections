@@ -1,8 +1,5 @@
 <?php
 
-
-
-
     // Requête BDD tour 1 des départementales
 
     function affiche_tour_1_departement($annee, $num_departement) {
@@ -244,7 +241,7 @@
 
     }
 
-    function get_all_years() {
+    function get_available_models() {
         $result = array();
 
         foreach (scandir('models') as $year) {
