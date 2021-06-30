@@ -313,6 +313,7 @@
     <script src="ia.js"></script>
     <script type="text/javascript">
         $(document).ready(function (){
+            console.log('ready')
             $.ajax({
                 type: "POST",
                 url: 'traitement.php',
@@ -320,6 +321,7 @@
                 data: { functionname: 'get_all_years', arguments: '' },
 
                 success: function(obj, textstatus) {
+                    console.log('success')
                     if ('error' in obj) {
                         console.log(obj.error)
                         return
@@ -329,7 +331,9 @@
                     res = obj.result.filter(e => (/t1_\d+_/).test(e))
                                     .map(e => e[0].slice(3,7))
                     res = res.filter((e,i) => res.indexOf(e)==i).sort()
+                    console.log(res)
                     res.forEach(e => {
+                        console.log(e)
                         var opt = document.createElement('option')
                         opt.value = e
                         opt.innerHTML = e
