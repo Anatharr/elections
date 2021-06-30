@@ -43,6 +43,7 @@ section_france.style.display = "none";
 
 
 $(document).ready(function (){
+    alert('test');
     $.ajax({
         type: "POST",
         url: 'traitement.php',
@@ -57,7 +58,8 @@ $(document).ready(function (){
             }
             
             sel = document.getElementById("dep_annee_choix")
-            obj.result.forEach(e => {
+            res = obj.result.filter(e => (/t1_\d+_/).test(e)).map(e => e[0].slice(3,7))
+            res.forEach(e => {
                 var opt = document.createElement('option')
                 opt.value = e
                 opt.innerHTML = e
