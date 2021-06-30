@@ -246,10 +246,17 @@
 
     function get_all_years() {
         $result = array();
+
         foreach (scandir('models') as $year) {
-            $result[$year] = scandir('models/'.$year);
+            if ($year[0]!='.') {
+                $result[$year] = array();
+                foreach (scandir('models/'.$year) as $model) {
+                    if ($model[0]!='.') {
+                        array_push($result[$year], $model);
+                    }
+                }
+            }
         }
-        
         return $result;
     }
 
